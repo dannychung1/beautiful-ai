@@ -1,0 +1,266 @@
+/* ============================================================
+   Beautiful.ai — Brand Guidelines
+   PHOTOGRAPHY — real photo backing + directional-light language
+   ============================================================ */
+
+/* ── The governing principle: directional light ── */
+.photo-principle {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.photo-principle .pp-statement {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: var(--fw-heading);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: var(--white);
+  margin: 14px 0 0;
+  max-width: 14ch;
+}
+.photo-principle .pp-statement em {
+  font-style: normal;
+  color: var(--blue-light);
+}
+.photo-principle .pp-rules {
+  margin-top: 26px;
+  display: grid;
+  gap: 0;
+}
+.photo-principle .pp-rules .r {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.photo-principle .pp-rules .r:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
+.photo-principle .pp-rules .n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--blue-light);
+  letter-spacing: 0.08em;
+}
+.photo-principle .pp-rules .x {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--neutral-lighter);
+}
+.photo-principle .pp-rules .x b {
+  color: var(--white);
+  font-weight: var(--fw-heading);
+}
+
+/* light-demonstration trio */
+.photo-light-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.lit-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--neutral-darkest);
+  isolation: isolate;
+}
+.lit-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.lit-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0,8,12,0.82) 0%, rgba(0,8,12,0.25) 40%, transparent 68%);
+}
+.lit-frame .cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding: 16px 16px 15px;
+}
+.lit-frame .cap .t {
+  font-size: 15px;
+  font-weight: var(--fw-heading);
+  letter-spacing: -0.01em;
+  color: var(--white);
+  line-height: 1.18;
+}
+.lit-frame .cap .d {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.62);
+  margin-top: 6px;
+}
+
+/* ── Real photos inside the cinematic (brand) frames ── */
+.cinematic-frame.has-photo::before {
+  /* swap the colored glow for a directional scrim that keeps text legible */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 1;
+  background: linear-gradient(157deg,
+      rgba(0,8,12,0.55) 0%,
+      rgba(0,8,12,0.12) 30%,
+      rgba(0,8,12,0.05) 52%,
+      rgba(0,8,12,0.82) 100%);
+}
+.cinematic-frame .cf-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ── Real photos inside the content (role) slots ── */
+.role-slot .rs-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+/* strengthen the existing bottom scrim for caption legibility over photos */
+.role-slot.has-photo::before {
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, transparent 35%, rgba(0,0,0,0.78) 100%);
+}
+
+@media (max-width: 900px) {
+  .photo-principle { grid-template-columns: 1fr; gap: 32px; }
+  .photo-light-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ─────────────────────────────────────────────
+   SETTINGS & APPLICATIONS — the range gallery
+   ───────────────────────────────────────────── */
+.range-hero {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  margin-top: 28px;
+  background: var(--neutral-darkest);
+  isolation: isolate;
+}
+.range-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.range-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(108deg, rgba(0,8,12,0.74) 0%, rgba(0,8,12,0.32) 40%, rgba(0,8,12,0.02) 68%);
+}
+.range-hero .rh-cap {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 32px 34px;
+  max-width: 56%;
+}
+.range-hero .rh-cap .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+}
+.range-hero .rh-cap .t {
+  font-size: clamp(22px, 2.3vw, 30px);
+  font-weight: var(--fw-heading);
+  letter-spacing: -0.025em;
+  color: var(--white);
+  margin-top: 10px;
+  line-height: 1.1;
+}
+.range-hero .rh-cap .d {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--neutral-lighter);
+  margin-top: 10px;
+  max-width: 40ch;
+}
+
+.range-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.range-card .rc-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--neutral-darkest);
+  isolation: isolate;
+}
+.range-card .rc-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.range-card .rc-corner {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.96);
+  background: rgba(0,26,36,0.62);
+  padding: 5px 9px;
+  border-radius: 100px;
+}
+.range-card .rc-meta { margin-top: 13px; }
+.range-card .rc-meta .s {
+  font-size: 15px;
+  font-weight: var(--fw-heading);
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+.range-card .rc-meta .a {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-light);
+  margin-top: 5px;
+}
+
+@media (max-width: 640px) {
+  .range-grid { grid-template-columns: 1fr !important; }
+  .photo-light-row { grid-template-columns: 1fr !important; }
+  .range-hero .rh-cap { max-width: 100%; }
+}
+
+@media (max-width: 900px) {
+  .range-grid { grid-template-columns: repeat(2, 1fr); }
+  .range-hero { aspect-ratio: 4 / 3; }
+  .range-hero .rh-cap { max-width: 82%; }
+}
