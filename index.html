@@ -26,21 +26,20 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="coverGrain" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch" result="n"></feTurbulence><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0.055 0" result="g"></feColorMatrix><feComposite in="g" in2="SourceGraphic" operator="in" result="gi"></feComposite><feBlend in="SourceGraphic" in2="gi" mode="overlay"></feBlend></filter></svg>
 
   <div class="cover-top">
-    <div class="col">
-      <span>Beautiful.ai</span>
-      <strong>Brand Guidelines</strong>
+    <div class="col brandmark">
+      <img src="assets/beautifulai-logo-white.svg" alt="Beautiful.ai" class="cover-logo">
     </div>
     <div class="col" style="text-align:right"></div>
   </div>
 
   <div class="cover-title">
-    <img src="assets/beautifulai-logo-white.svg" alt="Beautiful.ai" class="cover-logo" style="object-fit:contain;width:min(500px,72%)">
+    <h1 class="h-display cover-head"><span class="l1">Brand</span><span class="l2">Guidelines</span></h1>
   </div>
 
   <div class="cover-bottom">
     <div>
-      <div>A guide to the new standard</div>
-      <div>in presentation design</div>
+      <div>Setting the standard</div>
+      <div>for work-ready AI presentations</div>
     </div>
     <div class="right">
       <div>V2.0 — LAST UPDATED 05.15.2026</div>
@@ -57,16 +56,10 @@
   <nav>
     <a href="#introduction">Introduction</a>
     <a href="#compass">Foundation</a>
-    <a class="sub" href="#archetype">Brand Archetype</a>
-    <a class="sub" href="#story">Storytelling</a>
-    <a class="sub" href="#voice">Voice &amp; Tone</a>
     <a href="#logo">Logos</a>
     <a href="#type">Typography</a>
     <a href="#color">Color</a>
     <a href="#imagery">Art Direction</a>
-    <a class="sub" href="#photography">Photography</a>
-    <a class="sub" href="#illustration">Illustration</a>
-    <a class="sub" href="#icons">Iconography</a>
     <a href="#practice">Brand in Use</a>
   </nav>
 </header>
@@ -114,6 +107,7 @@ function toggleNav(){
 (function(){
   const cover=document.getElementById('top');if(!cover)return;
   const mark=cover.querySelector('.cover-mark.alt');
+  const head=cover.querySelector('.cover-head');
   const still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let bx=80,by=20,tx=80,ty=20,cx=80,cy=20,rx=20,ry=80,pointer=false;
   let vx=0,vy=0,vrx=0,vry=0,last=0;
@@ -151,6 +145,9 @@ function toggleNav(){
     cover.style.setProperty('--my',cy.toFixed(2)+'%');
     cover.style.setProperty('--rx',rx.toFixed(2)+'%');
     cover.style.setProperty('--ry',ry.toFixed(2)+'%');
+    if(head){const cr=cover.getBoundingClientRect(),hr=head.getBoundingClientRect();
+      head.style.setProperty('--hx',(cr.width*cx/100-(hr.left-cr.left)).toFixed(1)+'px');
+      head.style.setProperty('--hy',(cr.height*cy/100-(hr.top-cr.top)).toFixed(1)+'px');}
     requestAnimationFrame(frame);
   }
   function move(e){
@@ -235,7 +232,7 @@ function toggleNav(){
   </div>
   <div class="tp-type">
     <span class="l2">Less work,</span>
-    <span class="l2" style="width:818px;height:101px">more work-ready.</span>
+    <span class="l2">more work-ready.</span>
     <!-- alternates on file: "The new way to get work-ready presentations is the beautiful way." / "The new way of presentation work." / "Work-ready presentations without the hard work." / "Get work-ready presentations with less work." / "Work-ready decks with less work." -->
   </div>
   <div class="tp-body">
@@ -384,7 +381,7 @@ function toggleNav(){
 <section class="section dark sage" id="archetype" data-screen-label="06 Brand archetype" style="background:#0a2c44">
   <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Brand Archetype</h2></div></div>
   <style>
-    .sage .wrap{max-width:1320px}
+    .sage .wrap{max-width:var(--content-max)}
     .sage-grid{
       display:grid;
       grid-template-columns:minmax(360px,0.9fr) 1.2fr;
@@ -976,6 +973,7 @@ function toggleNav(){
       <div class="sub-title"><span class="st-eyebrow">Type scale</span><h3>A complete hierarchy in twelve sizes.</h3></div>
 
       <div class="type-scale">
+        <div class="type-row"><span class="tag">Display</span><span class="specs">120px+ · 95% · 500</span><span class="sample" style="font-size:64px;font-weight:500;line-height:0.95;letter-spacing:-0.035em">Brand Guidelines</span></div>
         <div class="type-row"><span class="tag">H1</span><span class="specs">72px · 120% · 500</span><span class="sample" style="font-size: 64px; font-weight: 500">Build faster. Launch smarter.</span></div>
         <div class="type-row"><span class="tag">H2</span><span class="specs">58px · 120% · 500</span><span class="sample" style="font-size: 52px; font-weight: 500">Everything you need to ship.</span></div>
         <div class="type-row"><span class="tag">H3</span><span class="specs">46px · 120% · 500</span><span class="sample" style="font-size: 40px; font-weight: 500">A presentation platform.</span></div>
@@ -988,9 +986,12 @@ function toggleNav(){
         <div class="type-row"><span class="tag">Tagline</span><span class="specs">16px · 150% · 700</span><span class="sample" style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase">Eyebrow / category</span></div>
         <div class="type-row"><span class="tag">Mono</span><span class="specs">Martian Mono</span><span class="sample" style="font-size:14px;font-family:var(--mono);font-weight:400;letter-spacing:0;color:var(--neutral-dark)">→ code · labels · system metadata</span></div>
       </div>
-    </div>
 
-    <!-- Hierarchy example -->
+      <!-- Display tier rule -->
+      <div class="sub-title" style="margin-top:72px"><span class="st-eyebrow">Display tier</span><h4>Set display type at 95% leading and −15 tracking.</h4></div>
+      <p class="lede" style="margin-top:20px;max-width:70ch">Display is the one tier above the scale — covers, chapter openers, and statement pages at 120px and up. It runs tighter than H1 on both axes: 95% line height and −0.035em tracking. Do not take the leading below 95%. Cap height is 0.70em and descenders drop 0.213em, so anything under 91% collides a descender with the caps on the line beneath it.</p>
+      <div class="callout do" style="margin-top:28px"><div class="co-text"><span class="co-kicker">Optical alignment</span><p>Left-align display type to the ink, not the text box. Pull each line left by its own glyph side bearing — roughly 0.08em for B, 0.05em for G — so the stems land on the grid.</p></div></div>
+    </div>
     <div class="type-pairing">
       <div>
         <div class="sub-title"><span class="st-eyebrow">In context</span><h3>A hierarchy at work.</h3></div>
