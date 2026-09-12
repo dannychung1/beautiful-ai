@@ -264,3 +264,21 @@
   .range-hero { aspect-ratio: 4 / 3; }
   .range-hero .rh-cap { max-width: 82%; }
 }
+
+/* FPO slide frames — placeholders until real slide captures land */
+.slide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.4vw,32px)}
+.slide-fpo{position:relative;border-radius:14px;aspect-ratio:16/9;padding:16px;display:block;background:rgba(255,255,255,0.03);border:1px dashed rgba(255,255,255,0.28)}
+.slide-cap{margin-top:14px}
+.slide-cap .role{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px}
+.slide-cap .who{font-size:19px;line-height:1.15;letter-spacing:-0.02em;color:var(--white)}
+
+@media (max-width:640px){.slide-grid{grid-template-columns:1fr}}
+.slide-fpo .fpo-mark{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:12px;letter-spacing:0.18em;color:rgba(255,255,255,0.34)}
+.slide-fpo .rs-num{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.slide-fpo .rs-bottom .role{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-light);margin-bottom:6px}
+.slide-fpo .rs-bottom .who{font-size:19px;line-height:1.15;letter-spacing:-0.02em;color:var(--white)}
+
+/* Portraits — sub-section inside the brand layer */
+.layer-block .layer-sub{grid-column:1/-1;margin-top:56px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.14)}
+.layer-block .layer-sub .sub-title h4{color:var(--white);margin:0}
+.layer-sub-note{color:var(--neutral-lighter);margin:14px 0 28px;max-width:62ch}
