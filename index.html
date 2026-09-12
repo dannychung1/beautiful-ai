@@ -13,6 +13,7 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
 <script src="image-slot.js"></script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
 </head>
 <body>
 
@@ -59,6 +60,7 @@
     <a href="#logo">Logos</a>
     <a href="#type">Typography</a>
     <a href="#color">Color</a>
+    <a href="#photography">Photography</a>
     <a href="#imagery">Art Direction</a>
     <a href="#practice">Brand in Use</a>
   </nav>
@@ -187,8 +189,9 @@ function toggleNav(){
         <li><span>02</span><a href="#logo">Logos</a></li>
         <li><span>03</span><a href="#type">Typography</a></li>
         <li><span>04</span><a href="#color">Color</a></li>
-        <li><span>05</span><a href="#imagery">Art Direction</a></li>
-        <li><span>06</span><a href="#practice">Brand in Use</a></li>
+        <li><span>05</span><a href="#photography">Photography</a></li>
+        <li><span>06</span><a href="#imagery">Art Direction</a></li>
+        <li><span>07</span><a href="#practice">Brand in Use</a></li>
       </ol>
     </div>
   </div>
@@ -206,14 +209,13 @@ function toggleNav(){
 
     <div class="compass-stack">
       <div class="cx-row" id="audience">
-        <div class="cx-label">Who it's for</div>
+        <div class="cx-label">WHO WE'RE FOR</div>
         <div>
-          <p class="cx-note">Professionals who present for a living and never trained as designers. Four segments, one need: high-quality slides, fast.</p>
+          <p class="cx-note">Professionals who present for a living and never trained as designers. Three segments, one need: high-quality slides, fast.</p>
           <div class="def-list">
-            <div class="def-row"><span class="df-t">Individuals</span><span class="df-x">Present without design skills or a design team to lean on. They need polish they can reach alone.</span></div>
-            <div class="def-row"><span class="df-t">Freelancers &amp; agencies</span><span class="df-x">Every pitch, update, and report is client-facing. Saved themes and templates carry their reputation.</span></div>
-            <div class="def-row"><span class="df-t">Teams</span><span class="df-x">Shared workspaces, libraries, and brand control. The deck moves between people and stays aligned.</span></div>
-            <div class="def-row"><span class="df-t">Enterprises</span><span class="df-x">Brand guardrails, permissions, and security at scale. Governance is the product requirement.</span></div>
+            <div class="def-row with-photo"><img class="df-photo" src="assets/photo-icp-exec.png" alt="An enterprise leader in golden side light" style="object-position:center 20%"><span class="df-t">Teams &amp; enterprises</span><span class="df-x">Shared workspaces, libraries, and brand control, with guardrails, permissions, and security at scale. The deck moves between people and stays aligned.</span></div>
+            <div class="def-row with-photo"><img class="df-photo" src="assets/photo-icp-desk.png" alt="A professional presenting at a sunlit desk" style="object-position:center 30%"><span class="df-t">Individual contributors</span><span class="df-x">Present without design skills or a design team to lean on. They need polish they can reach alone.</span></div>
+            <div class="def-row with-photo"><img class="df-photo" src="assets/photo-icp-warmlight.png" alt="A freelancer in warm directional light" style="object-position:center 22%"><span class="df-t">Freelancers &amp; agencies</span><span class="df-x">Every pitch, update, and report is client-facing. Saved themes and templates carry their reputation.</span></div>
           </div>
         </div>
       </div>
@@ -231,18 +233,10 @@ function toggleNav(){
     <p>Our point of view and promise.</p>
   </div>
   <div class="tp-type">
-    <span class="l2">Less work,</span>
-    <span class="l2">more work-ready.</span>
-    <!-- alternates on file: "The new way to get work-ready presentations is the beautiful way." / "The new way of presentation work." / "Work-ready presentations without the hard work." / "Get work-ready presentations with less work." / "Work-ready decks with less work." -->
+    <span class="l2">Work ready.</span>
   </div>
   <div class="tp-body">
     <div class="tp-lock">
-      <p class="tp-completion">Work-ready decks with less work — done the beautiful way.</p>
-      <p class="tp-completion tp-sub">You bring the thinking. We bring the craft. Start with ideas, not formatting.</p>
-      <div class="tp-define">
-        <span class="td-term">The beautiful way</span>
-        <span class="td-def">Design is handled as you write. Structure comes first, brand holds itself, and the deck is finished when you are.</span>
-      </div>
       <div class="proof-stack">
         <span class="ps-label">The proof stack</span>
         <span class="ps-item">Professional templates</span>
@@ -251,79 +245,15 @@ function toggleNav(){
         <span class="ps-item">10x faster</span>
       </div>
     </div>
-    <p>The story is good; the slides get in the way. Professionals lose hours
-      nudging boxes, and off-brand decks quietly erode trust. Beautiful.ai meets
-      people where they already start — a topic, an outline written somewhere
-      else, or a document — and puts it into intelligent layouts that auto-align
-      and hold brand.</p>
-    <p>We name what's broken without naming competitors: <em>the old way, the way
-      you've always done it.</em> And we never let AI travel alone — every mention
-      pairs with the proof stack above.</p>
+    <p>Two things are true at once: your work reaches a state of readiness, and
+      the platform itself is work-ready — built, tested, on-brand, no second pass
+      required.</p>
+    <p>Beautiful.ai meets people where they already start — a topic, an outline
+      written somewhere else, or a document — and puts it into intelligent
+      layouts that auto-align and hold brand.</p>
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     USING THE POSITION — RULES FOR THE LINE
-     ════════════════════════════════════════════════ -->
-<section class="section dark" id="position-rules" data-screen-label="01b Using the position">
-  <div class="wrap">
-    <div class="sub-head"><div class="sh-label">Foundation</div><h2>Using the position</h2></div>
-
-    <div class="compass-stack">
-      <div class="cx-row">
-        <div class="cx-label">Work-ready</div>
-        <div>
-          <p class="cx-note">The destination the line points to. A deck is work-ready when it can walk into a professional setting without another pass:</p>
-          <div class="def-list">
-            <div class="def-row"><span class="df-t">Structure</span><span class="df-x">Smart Slide layouts that build real visual hierarchy, not decorated boxes.</span></div>
-            <div class="def-row"><span class="df-t">Polish</span><span class="df-x">Animation and transitions built in, not bolted on at the end.</span></div>
-            <div class="def-row"><span class="df-t">Brand safety</span><span class="df-x">Locked themes and governance, so nothing drifts off brand under deadline.</span></div>
-            <div class="def-row"><span class="df-t">Business fit</span><span class="df-x">Templates and examples drawn from the work people actually present.</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cx-row">
-        <div class="cx-label">The rule</div>
-        <div class="rule-stack">
-          <div class="callout">
-            <span class="co-icon material-symbols-outlined" aria-hidden="true">error</span>
-            <div class="co-text">
-              <span class="co-kicker">Never alone</span>
-              <p><strong>“The beautiful way” is a frame, not a headline.</strong> It always sits above a work-ready claim and never carries a page by itself. Permitted as a sign-off only when locked with the logo.</p>
-            </div>
-          </div>
-          <div class="dd-pair">
-            <div class="dd do">
-              <span class="dd-tag">Do</span>
-              <div class="dd-spec">
-                <span class="dd-eyebrow">The beautiful way</span>
-                <span class="dd-head">Presentation software that turns ideas into work-ready slides in minutes.</span>
-              </div>
-            </div>
-            <div class="dd dont">
-              <span class="dd-tag">Don't</span>
-              <div class="dd-spec">
-                <span class="dd-head">The beautiful way.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cx-row">
-        <div class="cx-label">Category</div>
-        <div class="callout">
-          <span class="co-icon material-symbols-outlined" aria-hidden="true">error</span>
-          <div class="co-text">
-            <span class="co-kicker">Language rule</span>
-            <p>The category is <strong>Presentation Platform</strong>. Never “Presentation Systems™”, never an AI-category claim — like “cloud,” that name has a short shelf life.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ════════════════════════════════════════════════
@@ -356,16 +286,11 @@ function toggleNav(){
           </div>
           <div class="value-row">
             <div class="vr-num">03</div>
-            <div class="vr-head"><span class="material-symbols-outlined" aria-hidden="true">build</span><span class="vr-name">Utility</span></div>
-            <p class="vr-desc">If it isn't useful, it isn't something we value. Applied intelligence over showing off — confidence without condescension.</p>
+            <div class="vr-head"><span class="material-symbols-outlined" aria-hidden="true">handshake</span><span class="vr-name">Partnership</span></div>
+            <p class="vr-desc">AI drafts, structures, and offers real directions — never one answer dressed up as the only one. Judgment calls stay with the professional; that's not a courtesy, it's the deal. Work stays aligned as it moves between people.</p>
           </div>
           <div class="value-row">
             <div class="vr-num">04</div>
-            <div class="vr-head"><span class="material-symbols-outlined" aria-hidden="true">handshake</span><span class="vr-name">Partnership</span></div>
-            <p class="vr-desc">We value collaboration between AI, the professional, and their team equally. AI drafts, structures, and offers directions; judgment calls stay with the professional, and work stays aligned as it moves between people.</p>
-          </div>
-          <div class="value-row">
-            <div class="vr-num">05</div>
             <div class="vr-head"><span class="material-symbols-outlined" aria-hidden="true">bolt</span><span class="vr-name">Speed</span></div>
             <p class="vr-desc">Fast and good aren't mutually exclusive. We value and expect both from ourselves and for professionals.</p>
           </div>
@@ -469,10 +394,6 @@ function toggleNav(){
             anyone can create work that makes them look brilliant, without
             needing one.</p>
         </div>
-        <div class="sage-block">
-          <h4>Personality</h4>
-          <p>Pragmatic, Strategic, Challenging, Witty</p>
-        </div>
         <div class="sage-quote" style="max-width:582px;width:100%">
           <p style="font-size:clamp(22px,2.4vw,36px)">"Let's show you a better way" not "let me teach you a lesson."</p>
         </div>
@@ -507,152 +428,31 @@ function toggleNav(){
 <section class="storyhero" id="story" data-screen-label="07 Layers of storytelling">
   <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Storytelling</h2></div></div>
   <div class="wrap">
-
-    <div class="section-head" style="margin-bottom:64px">
-      <p class="lede" style="max-width:480px">
-        Brand, product, and content all earn their place — each one a
-        layer of the same planet. They're weighted close to equal in
-        any complete telling, with content holding a small edge: it's
-        what our ICP actually sees, slide after slide.
-      </p>
+    <div class="section-head" style="margin-bottom:56px">
+      <p class="lede" style="max-width:560px">Three stories nest inside each other. Brand is the outer layer and always on, product sits inside it whenever the platform is the clearest way to tell that story, and content is the innermost layer — the slide itself.</p>
     </div>
-
-    <!-- THE PLANET — three weighted-equal layers -->
-    <div class="story-grid">
-      <div class="rings-wrap">
-        <div class="ring outer">
-          <div class="ring-label">
-            <span class="rank">Rank 03</span>
-            <span class="role">Brand · the human benefit</span>
-          </div>
+    <div class="venn-layout">
+      <div class="nest" aria-hidden="true">
+        <span class="n-ring n-brand"><span class="n-name">Brand</span>
+          <span class="n-ring n-product"><span class="n-name">Product</span>
+            <span class="n-ring n-content"><span class="n-name">Content</span></span>
+          </span>
+        </span>
+      </div>
+      <div class="venn-key">
+        <div class="vk-item">
+          <div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Brand</span><span class="vk-when">Outer layer · always on</span></div>
+          <p>The professional's success. Every surface is telling this story, whether or not the product itself ever appears in frame.</p>
         </div>
-        <div class="ring middle">
-          <div class="ring-label">
-            <span class="rank">Rank 02</span>
-            <span class="role">Product · the intelligent tool</span>
-          </div>
+        <div class="vk-item">
+          <div class="vk-head"><span class="vk-dot d-product"></span><span class="vk-name">Product</span><span class="vk-when">Middle layer · often, not required</span></div>
+          <p>How the platform gets them there. Shown whenever a feature or the editor itself is the clearest way to tell the brand story — but brand doesn't need product visible to land.</p>
         </div>
-        <div class="ring inner">
-          <div class="ring-label">
-            <span class="rank">Rank 01</span>
-            <span class="role">Core</span>
-          </div>
-          <div class="ring-center">
-            <div class="title" style="font-size: 28px">Content</div>
-            <div class="sub">What lands on the slide</div>
-          </div>
+        <div class="vk-item">
+          <div class="vk-head"><span class="vk-dot d-content"></span><span class="vk-name">Content</span><span class="vk-when">Inner layer · the slide itself</span></div>
+          <p>The actual slide on screen. A clear, beautifully designed piece of content proves the brand promise on its own, with or without the product visible around it — most often shown together with product, since making the deck is the product's whole job, but not always.</p>
         </div>
       </div>
-
-      <div class="story-text">
-        <div class="sub-title"><span class="st-eyebrow">Force-rank</span><h3>A layered story.</h3></div>
-        <p style="color:var(--neutral-lighter);font-size:17px;line-height:1.55;margin-top:20px;max-width:48ch">
-          All three layers carry the story together. But if a single slide
-          can only show one thing, we choose content — because that's where
-          our ICP sees herself, her work, and her message rendered well.
-        </p>
-        <div style="margin-top:32px;display:grid;gap:14px">
-          <div style="display:grid;grid-template-columns:46px 1fr;gap:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.12)">
-            <div style="font-family:var(--mono);font-size:12px;color:var(--blue-light);letter-spacing:0.1em">01</div>
-            <div>
-              <div style="color:var(--white);font-weight:var(--fw-heading);font-size:15px;margin-bottom:4px">Content</div>
-              <div style="color:var(--neutral-lighter);font-size:14px;line-height:1.5;max-width:42ch">The ICP needs to see herself — her content, beautifully rendered, told well — on every slide.</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:46px 1fr;gap:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.12)">
-            <div style="font-family:var(--mono);font-size:12px;color:var(--blue-light);letter-spacing:0.1em">02</div>
-            <div>
-              <div style="color:var(--white);font-weight:var(--fw-heading);font-size:15px;margin-bottom:4px">Product</div>
-              <div style="color:var(--neutral-lighter);font-size:14px;line-height:1.5;max-width:42ch">A dedicated, intelligent tool that shines without taking the spotlight. Always ready, never in the way.</div>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:46px 1fr;gap:18px;padding:14px 0;border-top:1px solid rgba(255,255,255,0.12);border-bottom:1px solid rgba(255,255,255,0.12)">
-            <div style="font-family:var(--mono);font-size:12px;color:var(--blue-light);letter-spacing:0.1em">03</div>
-            <div>
-              <div style="color:var(--white);font-weight:var(--fw-heading);font-size:15px;margin-bottom:4px">Brand</div>
-              <div style="color:var(--neutral-lighter);font-size:14px;line-height:1.5;max-width:42ch">The human benefit — when the content is right and the tool gets you there, you show up as the best version of the professional you can be.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <p style="margin-top:48px;color:var(--neutral-lighter);font-size:17px;line-height:1.55;max-width:60ch">
-      The moments below are how each layer sounds when it's leading — but
-      remember they're never alone on the page.
-    </p>
-
-    <div class="story-layers">
-
-      <!-- OUTER -->
-      <div class="story-layer">
-        <div class="num">
-          <span class="big">01</span>
-          <span>Outer</span>
-          <span class="label">Brand story</span>
-        </div>
-        <h3>The new standard in presentation design.</h3>
-        <div>
-          <p class="body">
-            The outermost layer is what we stand for. Beautiful.ai exists
-            because presentations have been the same broken thing for thirty
-            years — clip art, dragged text boxes, designer-by-accident.
-            We're rewriting the category. The look of a Beautiful.ai surface
-            should feel like a higher class of work, the moment it appears.
-          </p>
-          <div class="quote">
-            "Beautiful.ai is the new standard in presentation design."
-          </div>
-        </div>
-      </div>
-
-      <!-- MIDDLE -->
-      <div class="story-layer">
-        <div class="num">
-          <span class="big">02</span>
-          <span>Middle</span>
-          <span class="label">Product story</span>
-        </div>
-        <h3>From the first idea to the final slide.</h3>
-        <div>
-          <p class="body">
-            The middle layer is what we make. Beautiful.ai's AI-powered editor
-            takes professionals to the finish line, no matter where they start
-            an idea. Smart Slides handle the formatting. AI handles the
-            scaffolding. The user keeps the story.
-          </p>
-          <div class="quote">
-            "Beautiful.ai's AI-powered editor takes professionals to the
-            finish line, no matter where you start an idea."
-          </div>
-        </div>
-      </div>
-
-      <!-- INNER -->
-      <div class="story-layer">
-        <div class="num">
-          <span class="big">03</span>
-          <span>Inner</span>
-          <span class="label">Content story</span>
-        </div>
-        <h3>Relevant to who they are. Aspirational to who they'll be.</h3>
-        <div>
-          <p class="body">
-            The innermost layer is what the audience actually sees and feels.
-            Content should be <em class="accent">relevant</em> and
-            <em class="accent">aspirational</em> to our core ICPs — the
-            founders, executives, marketers, creators and educators who
-            present for a living. We write to who they are today, and to who
-            they want to become tomorrow.
-          </p>
-          <div class="quote">
-            "Content should be relevant and aspirational to the core ICPs."
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -661,25 +461,27 @@ function toggleNav(){
      VOICE & TONE
      ════════════════════════════════════════════════ -->
 <section class="section cream" id="voice" data-screen-label="08 Voice and tone">
-  <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Voice & Tone</h2></div></div>
+  <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Voice &amp; Tone</h2></div></div>
   <div class="wrap">
     <div class="section-head">
-      <p class="lede">
-        We are smart but never smug, confident but approachable. We simplify the
-        complex with clarity and wit, challenge the status quo with practical
-        solutions, and empower professionals to communicate brilliantly — all
-        without slowing them down.
-      </p>
+      <p class="lede">Three ways the Savvy Sage sounds — each one defined against its nearest cliché, so the trait means something more specific than the word alone.</p>
     </div>
 
     <div class="tov-grid">
       <div class="tov-card">
-        <div class="num">Principle 01</div>
-        <div class="title">Clear.</div>
-        <p class="desc">
-          We say the true thing plainly. No jargon, no hedging, no throat-clearing
-          before the point. If a word isn't doing work, we cut it.
-        </p>
+        <div class="num">Trait 01</div>
+        <div class="title">Approachable, not simplistic.</div>
+        <p class="desc">We meet professionals where they already are — busy, smart, mid-task. We don't simplify down to a beginner or warm up to win them over. We start from what they already know.</p>
+        <div class="example">
+          <div class="row"><span class="icon yes">✓</span><span class="yes">You already know the pitch. Here's the deck, ready.</span></div>
+          <div class="row"><span class="icon no">✕</span><span class="no">Great news! Let's dive into this awesome new feature!</span></div>
+        </div>
+      </div>
+
+      <div class="tov-card">
+        <div class="num">Trait 02</div>
+        <div class="title">Straightforward, not bombastic.</div>
+        <p class="desc">We say the direct thing once. No hedge underneath the point, no hype stacked on top of it.</p>
         <div class="example">
           <div class="row"><span class="icon yes">✓</span><span class="yes">Build a deck in minutes. Not a weekend.</span></div>
           <div class="row"><span class="icon no">✕</span><span class="no">Unlock unparalleled productivity with our cutting-edge platform.</span></div>
@@ -687,64 +489,13 @@ function toggleNav(){
       </div>
 
       <div class="tov-card">
-        <div class="num">Principle 02</div>
-        <div class="title">Warm.</div>
-        <p class="desc">
-          We treat you like a smart person having a hard day. Generous with what
-          we know, never condescending. We speak to peers, not to procurement.
-        </p>
+        <div class="num">Trait 03</div>
+        <div class="title">Encouraging, not cheerleading.</div>
+        <p class="desc">We back the professional's call, not just their ego. This means helping them use AI to amplify their own expertise, not applauding effort for its own sake.</p>
         <div class="example">
           <div class="row"><span class="icon yes">✓</span><span class="yes">You bring the story. We'll handle the slide.</span></div>
-          <div class="row"><span class="icon no">✕</span><span class="no">Our enterprise-grade solution empowers stakeholders.</span></div>
+          <div class="row"><span class="icon no">✕</span><span class="no">You've got this! 💪</span></div>
         </div>
-      </div>
-
-      <div class="tov-card">
-        <div class="num">Principle 03</div>
-        <div class="title">Sharp.</div>
-        <p class="desc">
-          We have a point of view and we name what's broken. This is the edge that
-          keeps clear and warm from reading as bland — no hype, no shouting in caps.
-        </p>
-        <div class="example">
-          <div class="row"><span class="icon yes">✓</span><span class="yes">Nobody's promotion depended on a perfectly aligned text box.</span></div>
-          <div class="row"><span class="icon no">✕</span><span class="no">🚀 GAME-CHANGING AI THAT WILL BLOW YOUR MIND!!!</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- voice rules -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px">
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Sentence case</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">Headlines, labels, buttons. Never ALL CAPS for body copy.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Numerals</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">"3 ways to…" not "three ways to…". Numbers get crisper.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">No emoji</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">The brand is emoji-free. Iconography does the lifting instead.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Active verbs</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">CTAs lead with the verb. Get started. See pricing. Talk to sales.</p>
-      </div>
-    </div>
-
-    <!-- terminology -->
-    <div style="margin-top:64px;padding-top:32px;border-top:1px solid rgba(0,26,36,0.12)">
-      <span class="eyebrow" style="color:var(--neutral-dark)">The promise</span>
-      <p style="margin:16px 0 0;font-size:clamp(22px,2.2vw,30px);line-height:1.25;letter-spacing:-0.025em;font-weight:500;color:var(--neutral-darkest);max-width:24ch">Turn your ideas into <em class="accent" style="font-style:normal">visual stories that win.</em></p>
-    </div>
-
-    <!-- terminology -->
-    <div style="margin-top:64px;padding-top:32px;border-top:1px solid rgba(0,26,36,0.12)">
-      <span class="eyebrow" style="color:var(--neutral-dark)">Terminology</span>
-      <div style="display:flex;flex-wrap:wrap;gap:16px 48px;margin-top:24px;font-size:19px;letter-spacing:-0.01em">
-        <div style="display:flex;align-items:baseline;gap:14px"><span style="color:var(--neutral-darkest);font-weight:600">Smart Slide <em class="accent">layout</em></span><span style="color:var(--neutral);text-decoration:line-through;font-size:16px">Smart Slide template</span></div>
-        <div style="display:flex;align-items:baseline;gap:14px"><span style="color:var(--neutral-darkest);font-weight:600"><em class="accent">Create</em> with AI</span><span style="color:var(--neutral);text-decoration:line-through;font-size:16px">Generate with AI</span></div>
       </div>
     </div>
   </div>
@@ -949,7 +700,6 @@ function toggleNav(){
         <span>Aa</span>
         <span>Bb</span>
         <span>Cc</span>
-        <span class="dot"></span>
       </div>
       <div class="meta">
         Post Grotesk<br>
@@ -1275,10 +1025,317 @@ function toggleNav(){
 </section>
 
 <!-- ════════════════════════════════════════════════
-     TYPOGRAPHY
+     PHOTOGRAPHY — MOMENTS OF THE STORY
      ════════════════════════════════════════════════ -->
+<section class="section dark" id="photography" data-screen-label="14 Photography">
+  <div class="chapter-hero"><div class="wrap"><div class="ch-head"><div><div class="ch-eyebrow">05</div><h2>Photography</h2></div><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download the photography kit <span>↓</span></a></div></div></div>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="lede">
+        Where imagery is the archetype, photography is the moment. Every
+        photo sits at one of the three layers of our story — and obeys one
+        rule of light before anything else.
+      </p>
+    </div>
+
+    <!-- THE LIGHT PRINCIPLE -->
+    <div class="photo-principle">
+      <div>
+        <span class="eyebrow">The one rule</span>
+        <div class="pp-statement">Directional light. Always <em>facing what's next.</em></div>
+        <div class="pp-rules">
+          <div class="r"><span class="n">01</span><span class="x"><b>Directional, never flat.</b> A window, a screen, a spotlight — light comes from somewhere and shapes the subject.</span></div>
+          <div class="r"><span class="n">02</span><span class="x"><b>In a frame of light.</b> The subject is held in a pool, a shaft, a glow — never floating in even, ambient fill.</span></div>
+          <div class="r"><span class="n">03</span><span class="x"><b>Facing it.</b> Eyes and body turn toward the light and what's ahead — the composure of someone about to finish strong.</span></div>
+        </div>
+      </div>
+      <div class="photo-light-row">
+        <div class="lit-frame">
+          <img src="assets/photo-light-screenglow.png" alt="A professional's face lit by the glow of her screen">
+          <div class="cap"><div class="t">Lit by the work.</div><div class="d">Screen as key light</div></div>
+        </div>
+        <div class="lit-frame">
+          <img src="assets/photo-light-redglow.png" alt="A man against a wall washed with a directional pool of red light">
+          <div class="cap"><div class="t">A frame of color.</div><div class="d">Directional · motivated</div></div>
+        </div>
+        <div class="lit-frame">
+          <img src="assets/photo-light-library.png" alt="A woman working at a sunlit window, facing the light">
+          <div class="cap"><div class="t">Toward the window.</div><div class="d">Facing what's next</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYER 1: BRAND -->
+    <div class="layer-block first">
+      <div class="lb-label">
+        <div class="num"><span>Layer 01</span></span><h3>Brand — outer layer.</h3></div>
+        <div class="quote">
+          The frame: <em>professionals who close and finish strong.</em>
+          Wide, cinematic moments of delivery — the pause before the sign-off,
+          the eye contact after the close.
+        </div>
+      </div>
+
+      <div class="photo-strip">
+        <div class="cinematic-frame has-photo">
+          <img class="cf-photo" src="assets/photo-brand-facing-light.png" alt="A professional walking through light, tablet in hand, facing forward" style="object-position:center 35%;width:100%;height:auto;min-height:100%">
+          <div class="cf-tag">Brand · 01</div>
+          <div class="cf-body">Facing the light,<br>and what's next.</div>
+          <div class="cf-footer">16:10 · directional · warm key</div>
+        </div>
+        <div class="cinematic-frame has-photo">
+          <img class="cf-photo" src="assets/photo-brand-escalator.png" alt="A figure held under a single overhead spotlight" style="object-position:center 42%;min-height:100%;top:-61px;left:0;position:absolute;object-fit:none;width:364px;height:271px">
+          <div class="cf-tag">Brand · 02</div>
+          <div class="cf-body">Held in<br>a single spotlight.</div>
+          <div class="cf-footer">16:10 · directional · top light</div>
+        </div>
+        <div class="cinematic-frame has-photo">
+          <img class="cf-photo" src="assets/photo-brand-skyline.png" alt="A professional at golden hour looking out over the city skyline" style="object-position:center 30%;width:338px;height:243px;top:-33px">
+          <div class="cf-tag">Brand · 03</div>
+          <div class="cf-body">Out toward<br>the skyline.</div>
+          <div class="cf-footer">16:10 · golden hour</div>
+        </div>
+      </div>
+      <div class="layer-sub">
+      <div class="sub-title"><span class="st-eyebrow">Brand · Portraits</span><h4>The professionals we frame.</h4></div>
+      <p class="layer-sub-note">Portraits are the close-up half of the brand layer. One person, one working moment, lit the same way as the wide frames — marketing, sales, business development, consultants and analysts.</p>
+      <div class="photo-strip four">
+        <div class="role-slot has-photo">
+          <img class="rs-photo" src="assets/photo-icp-desk.png" alt="A marketer writing at a sunlit desk" style="object-position:center 30%">
+          <div class="rs-num">ICP · 01</div>
+          <div class="rs-bottom">
+            <div class="role">Marketing</div>
+            <div class="who">Building<br>the case.</div>
+          </div>
+        </div>
+        <div class="role-slot has-photo">
+          <img class="rs-photo" src="assets/photo-icp-warmlight.png" alt="A salesperson in warm directional light" style="object-position:center 22%">
+          <div class="rs-num">ICP · 02</div>
+          <div class="rs-bottom">
+            <div class="role">Sales</div>
+            <div class="who">Closing<br>the room.</div>
+          </div>
+        </div>
+        <div class="role-slot has-photo">
+          <img class="rs-photo" src="assets/photo-icp-booth.png" alt="A business developer working in a colour-lit booth" style="object-position:center 18%">
+          <div class="rs-num">ICP · 03</div>
+          <div class="rs-bottom">
+            <div class="role">Business Development</div>
+            <div class="who">Opening<br>the door.</div>
+          </div>
+        </div>
+        <div class="role-slot has-photo">
+          <img class="rs-photo" src="assets/photo-icp-exec.png" alt="A senior consultant in golden side light" style="object-position:center 20%">
+          <div class="rs-num">ICP · 04</div>
+          <div class="rs-bottom">
+            <div class="role">Consultants &amp; Analysts</div>
+            <div class="who">Making<br>the call.</div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!-- LAYER 2: PRODUCT -->
+    <div class="layer-block">
+      <div class="lb-label">
+        <div class="num"><span>Layer 02</span></div>
+        <h3>Product — middle layer.</h3>
+        <div class="quote">
+          The frame: <em>how they do it, feature by feature.</em> Tight,
+          considered captures of the editor in motion — Smart Slides
+          rebalancing, AI drafting, theme locking, charts coming alive.
+        </div>
+      </div>
+
+      <div class="photo-strip">
+        <!-- AI -->
+        <div class="product-mock">
+          <div class="pm-chrome"><span class="dot live"></span><span>Create with AI</span></div>
+          <div class="pm-body">
+            <div class="pm-title">From prompt<br>to <em>polished</em>.</div>
+            <div class="pm-pills">
+              <span class="pm-pill accent">prompt</span>
+              <span class="pm-pill">outline</span>
+              <span class="pm-pill">slides</span>
+            </div>
+          </div>
+          <div class="pm-caption"><span>Feature · AI flow</span><span>01 / 03</span></div>
+        </div>
+
+        <!-- Smart Slides -->
+        <div class="product-mock">
+          <div class="pm-chrome"><span class="dot live"></span><span>Smart Slide · auto-balance</span></div>
+          <div class="pm-body">
+            <div class="pm-title">Layout that<br>handles itself.</div>
+            <div class="pm-bars">
+              <span class="bar b"></span>
+              <span class="bar a"></span>
+              <span class="bar c"></span>
+            </div>
+          </div>
+          <div class="pm-caption"><span>Feature · Smart Slides</span><span>02 / 03</span></div>
+        </div>
+
+        <!-- Brand control -->
+        <div class="product-mock">
+          <div class="pm-chrome"><span class="dot live"></span><span>Theme · locked</span></div>
+          <div class="pm-body">
+            <div class="pm-title">One brand,<br>every <em>deck</em>.</div>
+            <div class="pm-pills">
+              <span class="pm-pill" style="background:var(--neutral-darkest);color:var(--white)">teal</span>
+              <span class="pm-pill accent">cyan</span>
+              <span class="pm-pill">fog</span>
+              <span class="pm-pill">post grotesk</span>
+            </div>
+          </div>
+          <div class="pm-caption"><span>Feature · Brand Control</span><span>03 / 03</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYER 3: CONTENT -->
+    <div class="layer-block">
+      <div class="lb-label">
+        <div class="num"><span>Layer 03</span></div>
+        <h3>Content — inner layer.</h3>
+        <div class="quote">
+          The frame: <em>the slides themselves.</em> The work on the screen —
+          a title, a chart, a statement, a close. Shot flat and legible, so the
+          deck is the subject.
+        </div>
+      </div>
+
+      <div class="slide-grid">
+        <div class="slide-item"><div class="slide-fpo"><div class="rs-num">Slide · 01</div><span class="fpo-mark">FPO · 16:9</span></div><div class="slide-cap"><div class="role">Title</div><div class="who">The opening<br>slide.</div></div></div>
+        <div class="slide-item"><div class="slide-fpo"><div class="rs-num">Slide · 02</div><span class="fpo-mark">FPO · 16:9</span></div><div class="slide-cap"><div class="role">Data</div><div class="who">A chart that<br>makes the point.</div></div></div>
+        <div class="slide-item"><div class="slide-fpo"><div class="rs-num">Slide · 03</div><span class="fpo-mark">FPO · 16:9</span></div><div class="slide-cap"><div class="role">Statement</div><div class="who">One line,<br>full bleed.</div></div></div>
+        <div class="slide-item"><div class="slide-fpo"><div class="rs-num">Slide · 04</div><span class="fpo-mark">FPO · 16:9</span></div><div class="slide-cap"><div class="role">Close</div><div class="who">The ask,<br>in plain terms.</div></div></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS & APPLICATIONS -->
+    <div style="margin-top:96px">
+      <div class="sub-title"><span class="st-eyebrow">The range</span><h3>Many settings, one way of seeing.</h3></div>
+      <p style="color:var(--neutral-lighter);margin-top:14px;max-width:62ch">
+        The light principle holds wherever the camera goes — a homepage hero, a
+        careers page, a candid on the move, a press portrait. The setting
+        changes; the directional light and the subject in focus never do.
+      </p>
+
+      <div class="range-hero">
+        <img src="assets/photo-range-hero.jpg" alt="A professional in warm directional office light, leaning at a counter" style="object-position:center 32%">
+        <div class="rh-cap">
+          <div class="tag">Application · Homepage hero</div>
+          <div class="t">Wide, warm, room for a headline.</div>
+          <div class="d">A single subject held in a shaft of low sun, with negative space for type. The flagship hero crop.</div>
+        </div>
+      </div>
+
+      <div class="range-grid">
+        <div class="range-card">
+          <div class="rc-frame">
+            <span class="rc-corner">High angle</span>
+            <img src="assets/photo-range-overhead.png" alt="An overhead shot of a professional checking her phone, lit by skylight" style="object-position:center 38%;width:338px;height:431px;top:-24px">
+          </div>
+          <div class="rc-meta"><div class="s">Overhead, in motion</div><div class="a">Social · editorial</div></div>
+        </div>
+        <div class="range-card">
+          <div class="rc-frame">
+            <span class="rc-corner">Candid</span>
+            <img src="assets/photo-range-cafe.png" alt="A professional working from a sunlit cafe window" style="object-position:center 22%">
+          </div>
+          <div class="rc-meta"><div class="s">On the move</div><div class="a">Lifestyle · blog</div></div>
+        </div>
+        <div class="range-card">
+          <div class="rc-frame">
+            <span class="rc-corner">Environmental</span>
+            <img src="assets/photo-range-doorway.png" alt="A professional standing full-length in an office doorway" style="object-position:center 28%">
+          </div>
+          <div class="rc-meta"><div class="s">Full-length, in place</div><div class="a">Careers · culture</div></div>
+        </div>
+        <div class="range-card">
+          <div class="rc-frame">
+            <span class="rc-corner">Editorial</span>
+            <img src="assets/photo-range-editorial.png" alt="A close editorial portrait of a professional against an olive ground" style="object-position:center 25%">
+          </div>
+          <div class="rc-meta"><div class="s">The close portrait</div><div class="a">Press · about · quotes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photography rules -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:80px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.12)">
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Composition</div>
+        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Single subject, room to breathe. Eye line at the rule of thirds, never centered like a passport photo.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Lighting</div>
+        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Directional and motivated — a window, a screen, a spotlight. Never flat, even fill. The subject sits in the light and faces it.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Crop</div>
+        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">16:10 cinematic for brand. 4:3 for product. 3:4 portrait for content. One crop per layer, never mixed.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Diversity</div>
+        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Wide in role, age, geography. We design for everyone whose week ends in a deck.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section cream" id="icons" data-screen-label="12 Iconography">
+  <div class="wrap"><div class="sub-head"><div class="sh-label">Art Direction</div><h2>Iconography</h2></div></div>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="lede">
+        We use the Material Symbols icon library, outlined and lightly
+        rounded. No emoji, no decorative illustration, no hand-drawn
+        glyphs. Consistency over cleverness.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px;padding:32px 0;border-top:1px solid rgba(0,26,36,0.1);border-bottom:1px solid rgba(0,26,36,0.1)">
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Style</div>
+        <p style="font-size:14px;color:var(--neutral-dark);margin:0">Outlined, rounded variant. Optical size 24. Stroke weight 400.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Sizes</div>
+        <p style="font-size:14px;color:var(--neutral-dark);margin:0">24px is the standard. 20px in dense UI. 48px for feature icons.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:12px">Color</div>
+        <p style="font-size:14px;color:var(--neutral-dark);margin:0">Inherit text color by default. Cyan only when calling for action.</p>
+      </div>
+    </div>
+
+    <div class="icons-grid">
+      <div class="icon-cell"><span class="material-symbols-outlined">auto_awesome</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">layers</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">slideshow</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">palette</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">format_size</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">image</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">bar_chart</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">group</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">smart_toy</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">edit</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">share</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">lock</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">cloud</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">data_object</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">spellcheck</span></div>
+      <div class="icon-cell"><span class="material-symbols-outlined">play_arrow</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="imagery" data-screen-label="13 Imagery">
-  <div class="chapter-hero"><div class="wrap"><div class="ch-head"><div><div class="ch-eyebrow">05</div><h2>Art Direction</h2></div><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download the art-direction kit <span>↓</span></a></div></div></div>
+  <div class="chapter-hero"><div class="wrap"><div class="ch-head"><div><div class="ch-eyebrow">06</div><h2>Art Direction</h2></div><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download the art-direction kit <span>↓</span></a></div></div></div>
   <div class="wrap">
     <div class="section-head">
       <p class="lede">
@@ -1409,612 +1466,15 @@ function toggleNav(){
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     PHOTOGRAPHY — MOMENTS OF THE STORY
-     ════════════════════════════════════════════════ -->
-<section class="section dark" id="photography" data-screen-label="14 Photography">
-  <div class="wrap"><div class="sub-head"><div class="sh-label">Art Direction</div><h2>Photography</h2></div></div>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="lede">
-        Where imagery is the archetype, photography is the moment. Every
-        photo sits at one of the three layers of our story — and obeys one
-        rule of light before anything else.
-      </p>
-    </div>
-
-    <!-- THE LIGHT PRINCIPLE -->
-    <div class="photo-principle">
-      <div>
-        <span class="eyebrow">The one rule</span>
-        <div class="pp-statement">Directional light. Always <em>facing what's next.</em></div>
-        <div class="pp-rules">
-          <div class="r"><span class="n">01</span><span class="x"><b>Directional, never flat.</b> A window, a screen, a spotlight — light comes from somewhere and shapes the subject.</span></div>
-          <div class="r"><span class="n">02</span><span class="x"><b>In a frame of light.</b> The subject is held in a pool, a shaft, a glow — never floating in even, ambient fill.</span></div>
-          <div class="r"><span class="n">03</span><span class="x"><b>Facing it.</b> Eyes and body turn toward the light and what's ahead — the composure of someone about to finish strong.</span></div>
-        </div>
-      </div>
-      <div class="photo-light-row">
-        <div class="lit-frame">
-          <img src="assets/photo-light-screenglow.png" alt="A professional's face lit by the glow of her screen">
-          <div class="cap"><div class="t">Lit by the work.</div><div class="d">Screen as key light</div></div>
-        </div>
-        <div class="lit-frame">
-          <img src="assets/photo-light-redglow.png" alt="A man against a wall washed with a directional pool of red light">
-          <div class="cap"><div class="t">A frame of color.</div><div class="d">Directional · motivated</div></div>
-        </div>
-        <div class="lit-frame">
-          <img src="assets/photo-light-library.png" alt="A woman working at a sunlit window, facing the light">
-          <div class="cap"><div class="t">Toward the window.</div><div class="d">Facing what's next</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LAYER 1: BRAND -->
-    <div class="layer-block first">
-      <div class="lb-label">
-        <div class="num"><span>Layer 01</span></span><h3>Brand — outer layer.</h3></div>
-        <div class="quote">
-          The frame: <em>professionals who close and finish strong.</em>
-          Wide, cinematic moments of delivery — the pause before the sign-off,
-          the eye contact after the close.
-        </div>
-      </div>
-
-      <div class="photo-strip">
-        <div class="cinematic-frame has-photo">
-          <img class="cf-photo" src="assets/photo-brand-facing-light.png" alt="A professional walking through light, tablet in hand, facing forward" style="object-position:center 35%;width:100%;height:auto;min-height:100%">
-          <div class="cf-tag">Brand · 01</div>
-          <div class="cf-body">Facing the light,<br>and what's next.</div>
-          <div class="cf-footer">16:10 · directional · warm key</div>
-        </div>
-        <div class="cinematic-frame has-photo">
-          <img class="cf-photo" src="assets/photo-brand-escalator.png" alt="A figure held under a single overhead spotlight" style="object-position:center 42%;min-height:100%;top:-61px;left:0;position:absolute;object-fit:none;width:364px;height:271px">
-          <div class="cf-tag">Brand · 02</div>
-          <div class="cf-body">Held in<br>a single spotlight.</div>
-          <div class="cf-footer">16:10 · directional · top light</div>
-        </div>
-        <div class="cinematic-frame has-photo">
-          <img class="cf-photo" src="assets/photo-brand-skyline.png" alt="A professional at golden hour looking out over the city skyline" style="object-position:center 30%;width:338px;height:243px;top:-33px">
-          <div class="cf-tag">Brand · 03</div>
-          <div class="cf-body">Out toward<br>the skyline.</div>
-          <div class="cf-footer">16:10 · golden hour</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LAYER 2: PRODUCT -->
-    <div class="layer-block">
-      <div class="lb-label">
-        <div class="num"><span>Layer 02</span></div>
-        <h3>Product — middle layer.</h3>
-        <div class="quote">
-          The frame: <em>how they do it, feature by feature.</em> Tight,
-          considered captures of the editor in motion — Smart Slides
-          rebalancing, AI drafting, theme locking, charts coming alive.
-        </div>
-      </div>
-
-      <div class="photo-strip">
-        <!-- AI -->
-        <div class="product-mock">
-          <div class="pm-chrome"><span class="dot live"></span><span>Create with AI</span></div>
-          <div class="pm-body">
-            <div class="pm-title">From prompt<br>to <em>polished</em>.</div>
-            <div class="pm-pills">
-              <span class="pm-pill accent">prompt</span>
-              <span class="pm-pill">outline</span>
-              <span class="pm-pill">slides</span>
-            </div>
-          </div>
-          <div class="pm-caption"><span>Feature · AI flow</span><span>01 / 03</span></div>
-        </div>
-
-        <!-- Smart Slides -->
-        <div class="product-mock">
-          <div class="pm-chrome"><span class="dot live"></span><span>Smart Slide · auto-balance</span></div>
-          <div class="pm-body">
-            <div class="pm-title">Layout that<br>handles itself.</div>
-            <div class="pm-bars">
-              <span class="bar b"></span>
-              <span class="bar a"></span>
-              <span class="bar c"></span>
-            </div>
-          </div>
-          <div class="pm-caption"><span>Feature · Smart Slides</span><span>02 / 03</span></div>
-        </div>
-
-        <!-- Brand control -->
-        <div class="product-mock">
-          <div class="pm-chrome"><span class="dot live"></span><span>Theme · locked</span></div>
-          <div class="pm-body">
-            <div class="pm-title">One brand,<br>every <em>deck</em>.</div>
-            <div class="pm-pills">
-              <span class="pm-pill" style="background:var(--neutral-darkest);color:var(--white)">teal</span>
-              <span class="pm-pill accent">cyan</span>
-              <span class="pm-pill">fog</span>
-              <span class="pm-pill">post grotesk</span>
-            </div>
-          </div>
-          <div class="pm-caption"><span>Feature · Brand Control</span><span>03 / 03</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- LAYER 3: CONTENT -->
-    <div class="layer-block">
-      <div class="lb-label">
-        <div class="num"><span>Layer 03</span></div>
-        <h3>Content — inner layer.</h3>
-        <div class="quote">
-          The frame: <em>marketing, sales, business development, consultants,
-          analysts.</em> The actual ICP, in their working moment — at the
-          desk, mid-call, on stage, in the room.
-        </div>
-      </div>
-
-      <div class="photo-strip four">
-        <div class="role-slot has-photo">
-          <img class="rs-photo" src="assets/photo-icp-desk.png" alt="A marketer writing at a sunlit desk" style="object-position:center 30%">
-          <div class="rs-num">ICP · 01</div>
-          <div class="rs-bottom">
-            <div class="role">Marketing</div>
-            <div class="who">Building<br>the case.</div>
-          </div>
-        </div>
-        <div class="role-slot has-photo">
-          <img class="rs-photo" src="assets/photo-icp-warmlight.png" alt="A salesperson in warm directional light" style="object-position:center 22%">
-          <div class="rs-num">ICP · 02</div>
-          <div class="rs-bottom">
-            <div class="role">Sales</div>
-            <div class="who">Closing<br>the room.</div>
-          </div>
-        </div>
-        <div class="role-slot has-photo">
-          <img class="rs-photo" src="assets/photo-icp-booth.png" alt="A business developer working in a colour-lit booth" style="object-position:center 18%">
-          <div class="rs-num">ICP · 03</div>
-          <div class="rs-bottom">
-            <div class="role">Business Development</div>
-            <div class="who">Opening<br>the door.</div>
-          </div>
-        </div>
-        <div class="role-slot has-photo">
-          <img class="rs-photo" src="assets/photo-icp-exec.png" alt="A senior consultant in golden side light" style="object-position:center 20%">
-          <div class="rs-num">ICP · 04</div>
-          <div class="rs-bottom">
-            <div class="role">Consultants &amp; Analysts</div>
-            <div class="who">Making<br>the call.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SETTINGS & APPLICATIONS -->
-    <div style="margin-top:96px">
-      <div class="sub-title"><span class="st-eyebrow">The range</span><h3>Many settings, one way of seeing.</h3></div>
-      <p style="color:var(--neutral-lighter);margin-top:14px;max-width:62ch">
-        The light principle holds wherever the camera goes — a homepage hero, a
-        careers page, a candid on the move, a press portrait. The setting
-        changes; the directional light and the subject in focus never do.
-      </p>
-
-      <div class="range-hero">
-        <img src="assets/photo-range-hero.jpg" alt="A professional in warm directional office light, leaning at a counter" style="object-position:center 32%">
-        <div class="rh-cap">
-          <div class="tag">Application · Homepage hero</div>
-          <div class="t">Wide, warm, room for a headline.</div>
-          <div class="d">A single subject held in a shaft of low sun, with negative space for type. The flagship hero crop.</div>
-        </div>
-      </div>
-
-      <div class="range-grid">
-        <div class="range-card">
-          <div class="rc-frame">
-            <span class="rc-corner">High angle</span>
-            <img src="assets/photo-range-overhead.png" alt="An overhead shot of a professional checking her phone, lit by skylight" style="object-position:center 38%;width:338px;height:431px;top:-24px">
-          </div>
-          <div class="rc-meta"><div class="s">Overhead, in motion</div><div class="a">Social · editorial</div></div>
-        </div>
-        <div class="range-card">
-          <div class="rc-frame">
-            <span class="rc-corner">Candid</span>
-            <img src="assets/photo-range-cafe.png" alt="A professional working from a sunlit cafe window" style="object-position:center 22%">
-          </div>
-          <div class="rc-meta"><div class="s">On the move</div><div class="a">Lifestyle · blog</div></div>
-        </div>
-        <div class="range-card">
-          <div class="rc-frame">
-            <span class="rc-corner">Environmental</span>
-            <img src="assets/photo-range-doorway.png" alt="A professional standing full-length in an office doorway" style="object-position:center 28%">
-          </div>
-          <div class="rc-meta"><div class="s">Full-length, in place</div><div class="a">Careers · culture</div></div>
-        </div>
-        <div class="range-card">
-          <div class="rc-frame">
-            <span class="rc-corner">Editorial</span>
-            <img src="assets/photo-range-editorial.png" alt="A close editorial portrait of a professional against an olive ground" style="object-position:center 25%">
-          </div>
-          <div class="rc-meta"><div class="s">The close portrait</div><div class="a">Press · about · quotes</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Photography rules -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:80px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.12)">
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Composition</div>
-        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Single subject, room to breathe. Eye line at the rule of thirds, never centered like a passport photo.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Lighting</div>
-        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Directional and motivated — a window, a screen, a spotlight. Never flat, even fill. The subject sits in the light and faces it.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Crop</div>
-        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">16:10 cinematic for brand. 4:3 for product. 3:4 portrait for content. One crop per layer, never mixed.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Diversity</div>
-        <p style="font-size:14px;color:var(--neutral-lighter);margin:0">Wide in role, age, geography. We design for everyone whose week ends in a deck.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════
-     ILLUSTRATION
-     ════════════════════════════════════════════════ -->
-<section class="section" id="illustration" data-screen-label="15 Illustration">
-  <div class="wrap"><div class="sub-head"><div class="sh-label">Art Direction</div><h2>Illustration</h2></div></div>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="lede">
-        Where imagery composes the abstract archetype, illustration makes it
-        human. It's the one place the brand turns figurative — to put a real
-        professional at the center of a beautiful, sometimes surreal world.
-        The Savvy Sage is always the subject. The AI is the light at their
-        back — never the hero.
-      </p>
-    </div>
-
-    <!-- INTRO + PROPORTIONS PRINCIPLE -->
-    <div class="illo-intro">
-      <p style="font-size:19px;line-height:1.5;letter-spacing:-0.01em;color:var(--neutral-darkest);margin:0;max-width:30ch">
-        Every illustration answers one question: <em class="accent" style="font-style:normal;color:var(--blue-dark)">who is in
-        control here?</em> The answer is always the person.
-      </p>
-      <div class="note">
-        <div class="k">Non-negotiable · Proportion</div>
-        <p>
-          The world can be surreal — the scale, the gradients, the light. The
-          human never is. Bodies keep true, believable proportions so the
-          professional always reads as one of us — not a mascot, not a giant,
-          not an abstraction.
-        </p>
-      </div>
-    </div>
-
-    <!-- THE RECIPE -->
-    <div class="sub-title"><span class="st-eyebrow">The recipe</span><h3>Four ingredients, every time.</h3></div>
-    <p style="color:var(--neutral-dark);margin-top:14px;max-width:60ch">
-      A Beautiful.ai illustration is built from the same four things, layered
-      in the same order. Change the story, keep the recipe.
-    </p>
-
-    <div class="illo-recipe">
-      <div class="illo-trait">
-        <div class="illo-chip ground"></div>
-        <div class="label"><span class="n">01</span><span class="t">Atmospheric ground</span></div>
-        <p>A deep-to-luminous gradient drawn from the brand palette — teal, cyan, magenta, green. The world is made of light.</p>
-      </div>
-      <div class="illo-trait">
-        <div class="illo-chip grain"></div>
-        <div class="label"><span class="n">02</span><span class="t">A fine grain</span></div>
-        <p>A tactile, risograph-soft noise sits over everything. It keeps the gradients from feeling digital or sterile.</p>
-      </div>
-      <div class="illo-trait">
-        <div class="illo-chip figure"><span class="illo-fig"><span class="head"></span><span class="body"></span></span></div>
-        <div class="label"><span class="n">03</span><span class="t">The professional</span></div>
-        <p>A real, realistically-proportioned figure, lit as the subject and held in the spotlight. The hero of the frame.</p>
-      </div>
-      <div class="illo-trait">
-        <div class="illo-chip ai"></div>
-        <div class="label"><span class="n">04</span><span class="t">The AI, in support</span></div>
-        <p>An iridescent presence — generative, helpful, ambient. It surrounds and lifts the professional. It never steps in front.</p>
-      </div>
-    </div>
-
-    <!-- THE THREE ROLES -->
-    <div style="margin-top:96px">
-      <div class="sub-title"><span class="st-eyebrow">The three roles</span><h3>Brand, editorial, and a spot in the product.</h3></div>
-      <p style="color:var(--neutral-dark);margin-top:14px;max-width:60ch">
-        Illustration does three jobs for us — and each one carries the same
-        belief: the professional leads, the AI supports.
-      </p>
-
-      <!-- ROLE 01 — BRAND, featured -->
-      <div class="illo-feature">
-        <div class="illo-frame">
-          <span class="corner-label">Role 01 · Brand · Hero</span>
-          <img src="assets/illo-brand-you-ai.png" alt="A professional reading, with a luminous AI presence beside her" style="object-position:center 38%">
-        </div>
-        <div class="fbody">
-          <div class="ftag">In focus — the professional</span><h4>You bring the work. <em>The AI brings the light.</em></h4></div>
-          <p>
-            The hero narrative for campaigns and brand moments. She's reading,
-            thinking, fully in control — rendered solid and present. The AI is
-            the translucent, iridescent figure beside her: a partner that
-            illuminates, never a character that competes.
-          </p>
-          <div class="fmeta">
-            <div><strong>The professional</strong>Subject &amp; in focus</div>
-            <div><strong>The AI</strong>Supporting presence</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ROLE 01b + ROLE 02 — brand cinematic + editorial -->
-      <div class="illo-pair">
-        <div class="illo-card">
-          <div class="illo-frame">
-            <span class="corner-label">Brand · Cinematic</span>
-            <img src="assets/illo-brand-horizon.png" alt="A small figure standing in a vast, surreal horizon of orange and blue light" style="object-position:center 55%">
-          </div>
-          <div class="cbody">
-            <div class="ctag">Surreal world · real human</div>
-            <h4>Real person, surreal results.</h4>
-            <p>
-              The scene is impossible — a wall of light, an endless reflective
-              floor. The figure is not. True proportions, alone in the
-              spotlight, in command of the space. This is the proportion rule,
-              made visible.
-            </p>
-          </div>
-        </div>
-        <div class="illo-card">
-          <div class="illo-frame">
-            <span class="corner-label">Role 02 · Editorial</span>
-            <img src="assets/illo-editorial-reader.png" alt="An editorial illustration of a professional reading, merged with an abstract profile">
-          </div>
-          <div class="cbody">
-            <div class="ctag">For the blog &amp; long reads</div>
-            <h4>A concept, <em>rendered.</em></h4>
-            <p>
-              Editorial illustration carries an idea at the top of an article.
-              More conceptual, more graphic — a photographic cutout of the
-              professional fused with a single bold form. The person still
-              anchors the thought.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- IN THE PRODUCT — SPOT -->
-    <div style="margin-top:96px">
-      <div class="sub-title"><span class="st-eyebrow">Role 03 · In the product</span><h3>A spot that bridges feature to brand.</h3></div>
-      <p style="color:var(--neutral-dark);margin-top:14px;max-width:62ch">
-        Inside the product and its marketing, illustration shrinks to a spot —
-        a single piece that takes a concrete feature and lifts it into the
-        brand story of the professional it serves.
-      </p>
-
-      <div class="illo-product">
-        <!-- Featured / marketing module -->
-        <div class="illo-surface">
-          <div class="s-head">
-            <span class="s-eyebrow">Featured · <b>Spotlight</b></span>
-            <span class="s-chip">Marketing</span>
-          </div>
-          <h4>Finish the deck while you think.</h4>
-          <p class="s-sub">How Smart Slides and AI carry your draft across the line — feature, framed as the brand promise.</p>
-          <div class="illo-frame">
-            <span class="corner-label">Spot · Feature → Brand</span>
-            <img src="assets/illo-spot-product.png" alt="A spot illustration of a figure among floating, composing panels">
-          </div>
-        </div>
-
-        <!-- In-product empty state -->
-        <div class="illo-surface empty">
-          <div class="illo-frame">
-            <img src="assets/illo-brand-you-ai.png" alt="A small illustrated spot of a professional with an AI presence" style="object-position:center 30%">
-          </div>
-          <h4>Start with you.</h4>
-          <p class="s-sub">The same brand illustration, working as a spot inside an onboarding empty state — feature meets brand, in one frame.</p>
-          <span class="cta">Create with AI</span>
-        </div>
-      </div>
-
-      <div class="illo-bridge">
-        <span class="seg">Feature story</span>
-        <span class="arrow">→</span>
-        <span>Spot illustration</span>
-        <span class="arrow">→</span>
-        <span class="seg">Brand story</span>
-        <span class="line"></span>
-        <span>One professional, in focus</span>
-      </div>
-    </div>
-
-    <!-- SPOT ILLUSTRATIONS — UX & WEBSITE -->
-    <div style="margin-top:96px">
-      <div class="sub-title"><span class="st-eyebrow">Spot illustration · UX &amp; website</span><h3>Small pieces that do one of two jobs.</h3></div>
-      <p style="color:var(--neutral-dark);margin-top:14px;max-width:64ch">
-        Where the figurative illustration carries the person, a spot carries a
-        single idea. Each one is one object or one metaphor — grain, gradient,
-        and a believable form — sized for an empty state, a feature tile, or a
-        line of website copy. It either <em style="font-style:normal;color:var(--neutral-darkest);font-weight:var(--fw-heading)">explains the UX</em> or
-        <em style="font-style:normal;color:var(--neutral-darkest);font-weight:var(--fw-heading)">pictures the copy</em>.
-      </p>
-
-      <!-- Group A: UX help -->
-      <div class="spot-group">
-        <div class="spot-grouphead">
-          <span class="gk">Job 01</span>
-          <span class="gt">Explaining the UX</span>
-          <span class="gd">A concrete object stands in for a feature or an action — clickable, literal, and friendly. Empty states, feature tiles, onboarding.</span>
-        </div>
-        <div class="spot-grid">
-          <div class="spot-card">
-            <div class="spot-thumb contain" style="background:#f5f5f5">
-              <span class="tag">Open</span>
-              <img src="assets/illo-spot-folder.png" alt="A glossy blue folder peeling open with a cursor">
-            </div>
-            <div class="spot-meta">
-              <div class="s">Open the work</div>
-              <div class="role">Files · libraries · empty state</div>
-              <div class="use">A folder and a cursor: the click that opens a deck. <em>Concrete and inviting.</em></div>
-            </div>
-          </div>
-          <div class="spot-card">
-            <div class="spot-thumb contain" style="background:#fdf6e9">
-              <span class="tag">Save</span>
-              <img src="assets/illo-spot-pushpin.png" alt="A purple and yellow pushpin">
-            </div>
-            <div class="spot-meta">
-              <div class="s">Pin &amp; keep</div>
-              <div class="role">Save · bookmark · pin</div>
-              <div class="use">One everyday object, marking a save or a place to return to.</div>
-            </div>
-          </div>
-          <div class="spot-card">
-            <div class="spot-thumb contain on-dark" style="background:#081b33">
-              <span class="tag">Share</span>
-              <img src="assets/illo-spot-handoff.png" alt="A hand offering a folder of papers">
-            </div>
-            <div class="spot-meta">
-              <div class="s">Hand it off</div>
-              <div class="role">Share · deliver · collaborate</div>
-              <div class="use">A human gesture — handing finished work to someone else.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group B: Abstract copy -->
-      <div class="spot-group" style="margin-top:52px">
-        <div class="spot-grouphead">
-          <span class="gk">Job 02</span>
-          <span class="gt">Picturing the copy</span>
-          <span class="gd">An abstract metaphor sits beside a headline — value, balance, focus. More expressive, drawn from the same grain and gradients.</span>
-        </div>
-        <div class="spot-grid">
-          <div class="spot-card">
-            <div class="spot-thumb contain" style="background:#ffeeda">
-              <span class="tag">Metaphor</span>
-              <img src="assets/illo-spot-coins.png" alt="Three stacked coins embossed with a diamond, star and cloud">
-            </div>
-            <div class="spot-meta">
-              <div class="s">Value, stacked</div>
-              <div class="role">Pricing · plans · ROI</div>
-              <div class="use">Pairs with a line like <em>"Every plan pays off."</em></div>
-            </div>
-          </div>
-          <div class="spot-card">
-            <div class="spot-thumb on-dark">
-              <span class="tag">Metaphor</span>
-              <img src="assets/illo-spot-stones.png" alt="Three balanced gradient stones stacked in tension" style="object-position:center 45%">
-            </div>
-            <div class="spot-meta">
-              <div class="s">Balanced by design</div>
-              <div class="role">Reliability · trust · craft</div>
-              <div class="use">A picture of stability and good footing under a claim.</div>
-            </div>
-          </div>
-          <div class="spot-card">
-            <div class="spot-thumb on-dark" style="background:#222128">
-              <span class="tag">Metaphor</span>
-              <img src="assets/illo-spot-figure.png" alt="A glowing profile silhouette of a professional" style="object-position:center 30%">
-            </div>
-            <div class="spot-meta">
-              <div class="s">In focus</div>
-              <div class="role">Brand · the professional</div>
-              <div class="use">The most brand-leaning spot — a person, simplified to light.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- DO / DON'T -->
-    <div class="illo-guards">
-      <div class="illo-guard">
-        <div class="gh"><span class="mk yes">✓</span>Keep the human in focus</div>
-        <p>The professional is the subject, the most resolved and best-lit thing in the frame. Always.</p>
-      </div>
-      <div class="illo-guard">
-        <div class="gh"><span class="mk yes">✓</span>Hold true proportions</div>
-        <p>Surreal worlds, believable bodies. Heads, limbs and stance stay anatomically honest.</p>
-      </div>
-      <div class="illo-guard">
-        <div class="gh"><span class="mk no">✕</span>Don't let the AI lead</div>
-        <p>The AI is light, atmosphere, a presence — never the protagonist, never a robot or a face.</p>
-      </div>
-      <div class="illo-guard">
-        <div class="gh"><span class="mk no">✕</span>Don't reach for clipart</div>
-        <p>No generic 3D mascots, no stock blobs. If it could sell any product, it isn't ours.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- ════════════════════════════════════════════════
      IN PRACTICE
      ════════════════════════════════════════════════ -->
-<section class="section cream" id="icons" data-screen-label="12 Iconography">
-  <div class="wrap"><div class="sub-head"><div class="sh-label">Art Direction</div><h2>Iconography</h2></div></div>
-  <div class="wrap">
-    <div class="section-head">
-      <p class="lede">
-        We use the Material Symbols icon library, outlined and lightly
-        rounded. No emoji, no decorative illustration, no hand-drawn
-        glyphs. Consistency over cleverness.
-      </p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-bottom:48px;padding:32px 0;border-top:1px solid rgba(0,26,36,0.1);border-bottom:1px solid rgba(0,26,36,0.1)">
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Style</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">Outlined, rounded variant. Optical size 24. Stroke weight 400.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Sizes</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">24px is the standard. 20px in dense UI. 48px for feature icons.</p>
-      </div>
-      <div>
-        <div class="eyebrow" style="margin-bottom:12px">Color</div>
-        <p style="font-size:14px;color:var(--neutral-dark);margin:0">Inherit text color by default. Cyan only when calling for action.</p>
-      </div>
-    </div>
-
-    <div class="icons-grid">
-      <div class="icon-cell"><span class="material-symbols-outlined">auto_awesome</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">layers</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">slideshow</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">palette</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">format_size</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">image</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">bar_chart</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">group</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">smart_toy</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">edit</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">share</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">lock</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">cloud</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">data_object</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">spellcheck</span></div>
-      <div class="icon-cell"><span class="material-symbols-outlined">play_arrow</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- ════════════════════════════════════════════════
      IMAGERY — BRAND ARCHETYPE
      ════════════════════════════════════════════════ -->
 <section class="section cream" id="practice" data-screen-label="16 In practice">
-  <div class="chapter-hero"><div class="wrap"><div class="ch-head"><div><div class="ch-eyebrow">06</div><h2>Brand in Use</h2></div><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download templates <span>↓</span></a></div></div></div>
+  <div class="chapter-hero"><div class="wrap"><div class="ch-head"><div><div class="ch-eyebrow">07</div><h2>Brand in Use</h2></div><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download templates <span>↓</span></a></div></div></div>
   <div class="wrap">
     <div class="section-head">
       <p class="lede">
@@ -2175,6 +1635,30 @@ function toggleNav(){
   }
   window.addEventListener('scroll',function(){if(ticking)return;ticking=requestAnimationFrame(function(){ticking=null;move();});},{passive:true});
   window.addEventListener('resize',move);move();
+})();
+</script>
+<script>
+// anchor navigation: CSS smooth scrolling is unreliable in this document, so ease it in JS
+(function(){
+  function easeTo(y){
+    var start=window.scrollY,d=y-start,t0=null,dur=Math.min(900,Math.max(320,Math.abs(d)*0.28));
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(d)<2){window.scrollTo(0,y);return;}
+    function step(t){
+      if(t0===null)t0=t;
+      var p=Math.min(1,(t-t0)/dur),e=p<0.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+      window.scrollTo(0,start+d*e);
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href^="#"]');if(!a)return;
+    var id=a.getAttribute('href');if(id==='#'||id.length<2)return;
+    var el=document.querySelector(id);if(!el)return;
+    e.preventDefault();
+    easeTo(Math.max(0,el.getBoundingClientRect().top+window.scrollY));
+    history.replaceState(null,'',id);
+  });
 })();
 </script>
 </body>
