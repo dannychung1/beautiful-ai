@@ -2418,6 +2418,9 @@ img, svg, video { max-width: 100%; }
 .mv-item{margin:0;padding-left:clamp(20px,2vw,32px);border-left:2px solid var(--blue-dark);font-size:clamp(1.375rem,2.2vw,var(--text-h5-size,1.875rem));line-height:1.24;letter-spacing:-0.02em;font-weight:var(--fw-medium,500);color:var(--neutral-darkest);text-wrap:pretty}
 .mv-item em{font-style:normal;color:var(--blue-darker)}
 @media (max-width:900px){.mv-pair{grid-template-columns:1fr;gap:28px}}
+/* mission + vision inline under the chapter lead */
+#compass .mv-pair{margin-bottom:clamp(56px,7vw,112px)}
+#compass .sub-head#compass-values{margin-top:clamp(8px,1.5vw,24px)}
 
 /* ── Compass stack: one label rail for Mission / Vision / Values ── */
 .compass-stack{display:flex;flex-direction:column}

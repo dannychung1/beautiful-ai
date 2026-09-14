@@ -172,3 +172,8 @@
 .footer a { color: rgba(255,255,255,0.72); }
 .footer a:hover { color: var(--white); }
 .footer-bottom { border-color: rgba(255,255,255,0.12); }
+
+/* 8 — overlay labels sit on dark photo art or dark slots: keep light ink */
+.role-slot .rs-num,.role-slot.has-photo .rs-num,.slide-item .slide-fpo.has-photo .rs-num,#photography .role-slot .rs-num,#photography .slide-item .slide-fpo.has-photo .rs-num{color:var(--white);text-shadow:0 1px 3px rgba(0,9,13,0.55)}
+.role-slot .rs-bottom .role,.slide-fpo.has-photo .rs-bottom .role{color:var(--blue-light)}
+.role-slot .rs-bottom .who,.slide-fpo.has-photo .rs-bottom .who{color:var(--white)}
