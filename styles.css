@@ -9,12 +9,16 @@
 /* Post Grotesk — real brand fonts */
 @font-face {
   font-family: 'Post Grotesk';
-  src: url('fonts/PostGrotesk-Book.woff') format('woff');
+  src: url('fonts/PostGrotesk-Book.woff') format('woff'),
+       url('fonts/PostGrotesk-Book.ttf')  format('truetype'),
+       url('fonts/PostGrotesk-Book.otf')  format('opentype');
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Post Grotesk';
-  src: url('fonts/PostGrotesk-Medium.woff') format('woff');
+  src: url('fonts/PostGrotesk-Medium.woff') format('woff'),
+       url('fonts/PostGrotesk-Medium.ttf')  format('truetype'),
+       url('fonts/PostGrotesk-Medium.otf')  format('opentype');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
@@ -485,8 +489,9 @@ em.accent {
 /* Cover logo — use the SVG wordmark, not font-set type */
 .cover-logo {
   display: block;
-  width: clamp(120px, 11vw, 220px);
+  width: clamp(126px, 11.55vw, 231px);
   max-width: 100%;
+  margin-top: 3px; /* cancel .cover-top half-leading so the mark tops out with the menu button */
   height: auto;
   filter: drop-shadow(0 6px 40px rgba(0,0,0,0.35));
 }
@@ -1993,7 +1998,6 @@ em.accent {
   display: grid;
   gap: 0;
   margin-top: 56px;
-  border-top: 1px solid rgba(255,255,255,0.12);
 }
 .compass-row {
   display: grid;
@@ -2303,8 +2307,7 @@ img, svg, video { max-width: 100%; }
 .chapter-hero{position:relative;overflow:hidden;background:linear-gradient(104deg,var(--blue-deepest) 0%,#0d2036 34%,#3d1140 62%,#0a3550 84%,var(--blue-deepest) 100%);border-bottom:none}
 .chapter-hero::after{content:"";position:absolute;right:-16%;top:-24%;width:min(86%,1180px);aspect-ratio:2048/1740;background:url("assets/deck-fan.avif") center/contain no-repeat;opacity:0.9;pointer-events:none;z-index:0}
 .chapter-hero > .wrap{position:relative;z-index:1}
-.chapter-hero h2,.chapter-hero .ch-eyebrow{color:var(--white)}
-.chapter-hero .ch-eyebrow{color:var(--blue-light)}
+.chapter-hero h2,.chapter-hero .ch-eyebrow{color:var(--color-neutral-lightest)}
 .chapter-hero h2{max-width:16ch;text-shadow:0 2px 24px rgba(0,26,36,0.35)}
 .chapter-hero .ch-index{border-top-color:rgba(255,255,255,0.18)}
 .chapter-hero .ch-index a{color:rgba(255,255,255,0.72)}
@@ -2323,6 +2326,9 @@ img, svg, video { max-width: 100%; }
 .section-head{display:grid;grid-template-columns:var(--grid-label);gap:clamp(24px,4vw,64px);align-items:start;padding-top:24px;border-top:1px solid color-mix(in oklch,currentColor 14%,transparent);margin-bottom:clamp(48px,6vw,88px)}
 .section-head .lede{max-width:60ch;font-size:var(--text-body-xl,1.25rem);line-height:var(--text-body-lh,1.5)}
 .section-head:not(:has(.left)) .lede{grid-column:1;max-width:68ch}
+/* the .sub-head overline already carries the rule — no second hairline */
+.section:has(.sub-head) .section-head,.storyhero:has(.sub-head) .section-head{border-top:none;padding-top:0}
+.cx-row.cx-solo{border-top:none}
 
 /* denser grids pulled back to 2–3 columns */
 .palette-grid{grid-template-columns:repeat(3,1fr);gap:40px}
@@ -2331,7 +2337,7 @@ img, svg, video { max-width: 100%; }
 .icons-grid{grid-template-columns:repeat(6,1fr);gap:20px}
 .weight-grid{grid-template-columns:repeat(3,1fr);gap:20px}
 .minsize{grid-template-columns:repeat(2,1fr);gap:24px}
-.donts{grid-template-columns:repeat(2,1fr);gap:24px}
+.donts{grid-template-columns:repeat(3,1fr);gap:24px}
 .persona-grid{grid-template-columns:repeat(2,1fr);gap:24px}
 .expressions{grid-template-columns:repeat(2,1fr);gap:24px}
 .archetype-rules{grid-template-columns:repeat(2,1fr);gap:40px}
@@ -2403,12 +2409,22 @@ img, svg, video { max-width: 100%; }
 
 /* ── Chapter lead-in: the one line that frames the chapter ──── */
 .ch-lead{margin:0 0 clamp(40px,5vw,72px);max-width:26ch;font-size:clamp(2rem,4.4vw,var(--text-h2-size,3.625rem));line-height:1.14;letter-spacing:var(--ls-tight,-0.03em);font-weight:var(--fw-medium,500);color:var(--white);text-wrap:balance}
-.section:not(.dark):not(.darkblue) .ch-lead{color:var(--neutral-darkest)}
+.ch-lead,.section:not(.dark):not(.darkblue) .ch-lead{color:var(--color-blue-darker)}
+
+/* ── Mission & vision: statement + two-column pair ──────────── */
+.mv-statement{margin:clamp(28px,4vw,56px) 0 clamp(48px,6vw,88px);max-width:24ch;font-size:clamp(2.25rem,5.6vw,5rem);line-height:1.02;letter-spacing:-0.04em;font-weight:var(--fw-medium,500);color:var(--neutral-darkest);text-wrap:pretty}
+.mv-statement em{font-style:normal;color:var(--blue-darker)}
+.mv-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,88px);max-width:var(--content-max)}
+.mv-item{margin:0;padding-left:clamp(20px,2vw,32px);border-left:2px solid var(--blue-dark);font-size:clamp(1.375rem,2.2vw,var(--text-h5-size,1.875rem));line-height:1.24;letter-spacing:-0.02em;font-weight:var(--fw-medium,500);color:var(--neutral-darkest);text-wrap:pretty}
+.mv-item em{font-style:normal;color:var(--blue-darker)}
+@media (max-width:900px){.mv-pair{grid-template-columns:1fr;gap:28px}}
 
 /* ── Compass stack: one label rail for Mission / Vision / Values ── */
 .compass-stack{display:flex;flex-direction:column}
 .cx-row{display:grid;grid-template-columns:var(--grid-label);gap:clamp(24px,4vw,64px);align-items:start;padding:clamp(30px,3.4vw,48px) 0;border-top:1px solid rgba(255,255,255,0.14)}
 .cx-row:last-child{padding-bottom:0}
+.cx-row.cx-solo{grid-template-columns:minmax(0,1fr)}
+.cx-row.cx-solo .cx-stmt{max-width:22ch}
 .cx-label{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue-light);padding-top:.5em}
 .cx-stmt{margin:0;font-size:var(--text-h3-size,2.875rem);line-height:var(--text-h3-lh,1.2);letter-spacing:var(--ls-tight,-0.03em);font-weight:var(--fw-medium,500);color:var(--white);text-wrap:balance;max-width:24ch}
 .cx-stmt em{font-style:normal;color:inherit}
@@ -2438,6 +2454,10 @@ img, svg, video { max-width: 100%; }
 .tp-type{--col:calc(min(100vw, var(--content-max)) - 8vw);display:flex;flex-direction:column;justify-content:center;font-weight:500;font-style:italic;letter-spacing:-0.035em;line-height:0.86;background-image:linear-gradient(168deg,#52D0FF 0%,#11A9E2 22%,#DB2475 58%,#FA901F 88%);background-size:100% 220%;background-position:50% calc(50% + var(--par,0px));background-repeat:no-repeat;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .tp-type .l1{align-self:flex-start;max-width:22ch;font-size:calc(var(--col) / 20);font-style:normal;color:var(--white);-webkit-text-fill-color:var(--white);letter-spacing:-0.03em;line-height:1.06}
 .tp-type .l2{align-self:flex-start;font-size:calc(var(--col) / 6.4);margin-top:.12em}
+.tp-type .l2.stack{display:flex;flex-direction:column;font-style:normal;font-weight:700;font-size:calc(var(--col) / 4.6);line-height:0.92;letter-spacing:-0.05em;padding:0.06em 0.04em 0.1em;overflow:visible}
+.tp-type .l2.stack > span{display:block;overflow:visible;font-style:normal}
+.tp-type .l2.stack > span:last-child{margin-left:0.42em}
+@media (max-width:900px){.tp-type .l2.stack{font-size:calc(var(--col) / 3.6)}}
 .tp-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,4vw,72px);justify-self:start;max-width:900px}
 .tp-body p{margin:0;font-size:var(--text-body-l,1.125rem);line-height:var(--text-body-lh,1.5);color:rgba(255,255,255,0.82);text-wrap:pretty}
 .tp-body em{font-style:normal;color:var(--accent)}
@@ -2526,7 +2546,8 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .dl-pill:hover{background:var(--blue-dark)}
 .dl-pill span{font-size:15px}
 .sub-head{display:grid;grid-template-columns:var(--grid-label);gap:clamp(24px,4vw,64px);align-items:baseline;padding-top:24px;border-top:1px solid color-mix(in oklch,currentColor 14%,transparent);margin-bottom:clamp(32px,4vw,56px)}
-.sh-label{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--neutral)}
+.sub-head{display:block;grid-template-columns:none;padding-top:20px}
+.sh-label{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--neutral);margin-bottom:14px}
 .dark .sh-label,.darkblue .sh-label{color:var(--blue-light)}
 .sub-head h2{font-size:clamp(2.5rem,4vw,var(--text-h2-size,3.625rem));letter-spacing:-0.03em;line-height:var(--text-h2-lh,1.2)}
 .contents{margin-top:clamp(64px,8vw,110px);border-top:1px solid color-mix(in oklch,currentColor 16%,transparent);padding-top:20px}
@@ -2571,10 +2592,9 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 @media (max-width:900px){.venn-layout{grid-template-columns:1fr}}
 
 /* ── Hangline: mono labels cap-align with the text in the next column ── */
-.sub-head{align-items:start}
-.sh-label{padding-top:clamp(12px,1.2vw,27px)}
+.sh-label{padding-top:0}
 .cx-row:has(.cx-stmt) .cx-label{padding-top:clamp(9px,0.96vw,21px)}
-#values .cx-label{padding-top:29px}
+
 
 /* ── Storytelling: concentric layers ─────────────────────────── */
 .nest{position:relative;width:100%;max-width:520px;aspect-ratio:1;margin:0 auto}
