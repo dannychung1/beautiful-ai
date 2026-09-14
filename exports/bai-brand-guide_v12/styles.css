@@ -428,34 +428,30 @@ em.accent {
 @media (min-width: 1800px) {
   .cover-bottom > div > div { white-space: nowrap; }
 }
-/* Two spotlights, each its own layer: they orbit a shared centre, scale in
-   and out of depth, and trade z-index as they cross. */
 .cover-mark {
   position: absolute;
   inset: -20%;
+  z-index: 0;
   pointer-events: none;
-  z-index: 1;
-  opacity: var(--mo, 1);
-  /* screen blends order-independently, so depth needs no stacking swap to fake it */
-  mix-blend-mode: screen;
-  transform-origin: var(--mx, 80%) var(--my, 20%);
-  transform: scale(var(--msc, 1));
-  background: radial-gradient(circle at var(--mx, 80%) var(--my, 20%), rgba(0,170,240,0.92), rgba(0,161,232,0.72) 8%, rgba(0,150,220,0.55) 14%, rgba(2,132,196,0.39) 21%, rgba(4,110,165,0.26) 30%, rgba(2,86,131,0.17) 38%, rgba(0,60,95,0.09) 48%, rgba(0,40,66,0.04) 58%, transparent 70%);
+  background:
+    radial-gradient(circle at var(--mx, 80%) var(--my, 20%), rgba(0,170,240,0.92), rgba(0,161,232,0.72) 8%, rgba(0,150,220,0.55) 14%, rgba(2,132,196,0.39) 21%, rgba(4,110,165,0.26) 30%, rgba(2,86,131,0.17) 38%, rgba(0,60,95,0.09) 48%, rgba(0,40,66,0.04) 58%, transparent 70%),
+    radial-gradient(circle at var(--rx, 20%) var(--ry, 80%), rgba(226,25,120,0.88), rgba(214,26,118,0.68) 8%, rgba(200,28,115,0.50) 14%, rgba(172,26,103,0.36) 21%, rgba(140,25,90,0.24) 30%, rgba(106,20,72,0.15) 38%, rgba(70,15,55,0.08) 48%, rgba(44,10,38,0.035) 58%, transparent 70%);
   filter: blur(30px) url(#coverGrain);
 }
 
 .cover-mark.alt {
-  z-index: 1;
-  opacity: var(--ro, 1);
-  transform-origin: var(--rx, 20%) var(--ry, 80%);
-  transform: scale(var(--rsc, 1));
-  background: radial-gradient(circle at var(--rx, 20%) var(--ry, 80%), rgba(226,25,120,0.88), rgba(214,26,118,0.68) 8%, rgba(200,28,115,0.50) 14%, rgba(172,26,103,0.36) 21%, rgba(140,25,90,0.24) 30%, rgba(106,20,72,0.15) 38%, rgba(70,15,55,0.08) 48%, rgba(44,10,38,0.035) 58%, transparent 70%);
+  opacity: 0;
+  background:
+    radial-gradient(circle at var(--rx, 20%) var(--ry, 80%), rgba(226,25,120,0.88), rgba(214,26,118,0.68) 8%, rgba(200,28,115,0.50) 14%, rgba(172,26,103,0.36) 21%, rgba(140,25,90,0.24) 30%, rgba(106,20,72,0.15) 38%, rgba(70,15,55,0.08) 48%, rgba(44,10,38,0.035) 58%, transparent 70%),
+    radial-gradient(circle at var(--mx, 80%) var(--my, 20%), rgba(0,170,240,0.92), rgba(0,161,232,0.72) 8%, rgba(0,150,220,0.55) 14%, rgba(2,132,196,0.39) 21%, rgba(4,110,165,0.26) 30%, rgba(2,86,131,0.17) 38%, rgba(0,60,95,0.09) 48%, rgba(0,40,66,0.04) 58%, transparent 70%);
 }
+
+.cover-mark.alt.show { opacity: 1; }
 
 .cover-dither {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 0;
   pointer-events: none;
   opacity: 0.075;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
@@ -968,7 +964,7 @@ em.accent {
 .palette-col .step.dark { color: rgba(255,255,255,0.85); }
 .palette-col .step.light { color: rgba(0,26,36,0.7); }
 .palette-col .step .star { color: var(--blue); margin-left: 4px; }
-.palette-col .step.starred { font-weight: 500; }
+.palette-col .step.starred { outline: 1px solid rgba(178,181,182,0.85); outline-offset: -1px; }
 .palette-col .step .name {
   text-transform: uppercase;
   font-size: 10px;
@@ -1016,7 +1012,7 @@ em.accent {
   overflow: hidden; /* deliberate crop on giant letters */
 }
 .type-specimen .display-letters {
-  font-size: clamp(90px, 16vw, 220px);
+  font-size: clamp(90px, 16vw, 360px);
   font-weight: var(--fw-display);
   letter-spacing: -0.05em;
   line-height: 1.0;
@@ -2668,7 +2664,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .wr-t1{left:0;top:7%;width:30%;z-index:1}
 .wr-t3{left:63%;top:3%;width:34%;z-index:1}
 .wr-t5{left:3%;top:55%;width:26%;z-index:1}
-.wr-t7{left:62%;top:56%;width:32%;z-index:1}
+.wr-t7{left:65%;top:53%;width:32%;z-index:1}
 .wr-t2{left:31%;top:3%;width:18%;z-index:3}
 .wr-t4{left:46%;top:28%;width:20%;z-index:3}
 .wr-t6{left:23%;top:71%;width:28%;z-index:3}
@@ -2700,75 +2696,3 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
   .wr-w2{grid-column:1/3;margin:0 0 4vh 0.3em}
 }
 @media (prefers-reduced-motion:reduce){.wr-tofu,.wr-tofu img,.wr-word,.wr-ui{transform:none!important}}
-
-
-/* ── Who we're for: three columns, photography leading ───────── */
-.aud-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,40px);margin-top:clamp(32px,3.4vw,56px)}
-.aud-card{margin:0;display:flex;flex-direction:column;gap:clamp(14px,1.4vw,22px);min-width:0}
-.aud-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;display:block}
-.aud-card figcaption{display:flex;flex-direction:column;gap:8px;min-width:0}
-.ac-t{font-size:var(--t-card);line-height:1.25;letter-spacing:-0.015em;font-weight:500;color:var(--neutral-darkest)}
-.ac-x{font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5);color:var(--neutral-dark-2,#4C5255);max-width:34ch;text-wrap:pretty}
-@media (max-width:900px){.aud-cols{grid-template-columns:1fr;gap:28px}.aud-card{flex-direction:row;align-items:flex-start;gap:18px}.aud-card img{width:34%;flex:0 0 34%;aspect-ratio:1}}
-
-
-/* ── Brand archetype: reference faces, guide grid ────────────── */
-.arch-refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,26px);margin-top:clamp(24px,2.6vw,40px)}
-.arch-refs figure{margin:0;min-width:0}
-.arch-refs img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:10px;display:block}
-.arch-refs figcaption{margin-top:12px;font-size:var(--text-body-m,1rem);line-height:1.4;color:var(--neutral-darkest)}
-@media (max-width:900px){.arch-refs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* a callout with no icon child spans both tracks instead of squeezing into the 20px rail */
-.callout > :only-child{grid-column:1/-1}
-.co-text.quote p{font-size:var(--t-card);line-height:1.25;letter-spacing:-0.015em;max-width:40ch}
-
-/* WIP stamp on the cover — reads as a marker note beside the title */
-
-
-/* three layers, three brand hues — rings and key share one variable per layer */
-.n-brand{background:color-mix(in oklch,var(--blue) 16%,transparent);border-color:color-mix(in oklch,var(--blue) 62%,transparent)}
-.n-product{background:color-mix(in oklch,var(--magenta) 18%,transparent);border-color:color-mix(in oklch,var(--magenta) 62%,transparent)}
-.n-content{background:color-mix(in oklch,var(--green) 26%,transparent);border-color:color-mix(in oklch,var(--green) 70%,transparent)}
-.vk-item.l-brand{--lc:var(--blue)}
-.vk-item.l-product{--lc:var(--magenta)}
-.vk-item.l-content{--lc:var(--green)}
-.vk-item .vk-dot{width:14px;height:14px;background:var(--lc,var(--blue));border-color:color-mix(in oklch,var(--lc,var(--blue)) 75%,transparent)}
-.vk-item .vk-when{color:var(--lc,var(--blue-light))}
-
-/* subline under a section heading — one colour rule, everywhere it appears */
-.sh-sub{margin:10px 0 0;font-size:var(--t-lead);line-height:1.25;letter-spacing:-0.02em;color:var(--color-blue-darker,#004A66)}
-.section.dark .sh-sub,.section.darkblue .sh-sub,.cover .sh-sub{color:var(--blue-light)}
-
-/* clearspace panel and the min-size grid end on the same line */
-.logo-anatomy{align-items:stretch}
-.logo-anatomy > div{display:flex;flex-direction:column;min-width:0}
-.logo-anatomy .anatomy-panel{flex:1;min-height:0!important}
-.logo-anatomy .minsize{flex:1;align-content:stretch}
-
-
-/* ══════════════════════════════════════════════════════════════
-   GUTTER SCALE — one ladder for every content grid, row and column.
-   Micro gaps inside a single component (label rows, chips) stay local.
-   ══════════════════════════════════════════════════════════════ */
-:root{
-  --gut-s:12px;
-  --gut-m:16px;
-  --gut-l:clamp(20px,2.2vw,28px);
-  --gut-xl:clamp(28px,3.4vw,48px);
-  --gut-2xl:clamp(40px,5vw,80px);
-}
-/* tile grids — specimens, swatch cells, thumbnails */
-.minsize,.expressions,.photo-strip,.photo-strip.four,.icons-grid,.weight-grid,
-.combos,.core-swatches,.res-sequence,.gradient-pair{gap:var(--gut-m)}
-/* card grids — things with a title and a paragraph */
-.altitudes,.donts,.apps-grid,.values-grid,.persona-grid,.archetype-rules,
-.arch-refs,.aud-cols,.tov-grid,.audience-grid,.footer-grid,.palette-grid{gap:var(--gut-l)}
-/* two-column feature layouts */
-.color-hero,.logo-hero,.type-pairing,.logo-anatomy,.venn-layout,
-.section-head,.type-pairing,.color-story{gap:var(--gut-2xl)}
-/* stacked rails — same rhythm whether the row is text or media */
-.story-layer,.compass-row,.layer-block{column-gap:var(--gut-2xl);row-gap:var(--gut-xl)}
-@media (max-width:900px){
-  .story-layer,.compass-row,.layer-block{row-gap:var(--gut-l)}
-}

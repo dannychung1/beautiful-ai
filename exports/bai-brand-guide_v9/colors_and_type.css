@@ -1,0 +1,456 @@
+/**
+ * BAI Design System — Colors & Typography
+ * Source: Marketing DS (Relume v3.6) Figma file
+ *
+ * ⚠️ FONT NOTE: Post Grotesk is a commercial font. This CSS uses
+ * "Plus Jakarta Sans" (Google Fonts) as a substitute. Replace with
+ * the actual Post Grotesk font files when available.
+ */
+
+/* Post Grotesk — brand font files */
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('fonts/PostGrotesk-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('fonts/PostGrotesk-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('fonts/PostGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Post Grotesk';
+  src: url('fonts/PostGrotesk-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+/* ─────────────────────────────────────────────
+   PRIMITIVE COLOR TOKENS
+   Source: Figma Variables panel (confirmed May 2026)
+   ───────────────────────────────────────────── */
+:root {
+  /* Neutrals — confirmed from Figma Variables panel */
+  --color-white:                  #FFFFFF;
+  --color-neutral-lightest:       #F0F3F5;
+  --color-neutral-lighter:        #D8DADA;
+  --color-neutral-light:          #B2B5B6;
+  --color-neutral:                #7F8486;
+  --color-neutral-dark:           #4C5255;
+  --color-neutral-darker:         #192125;
+  --color-neutral-darkest:        #001A24;
+
+  /* Blues — confirmed from Figma Variables panel + logo SVG */
+  --color-blue-lightest:          #E5F8FF;
+  --color-blue-lighter:           #CCF1FF;
+  --color-blue-light:             #52D0FF;
+  --color-blue:                   #00B9FF; /* PRIMARY accent ★ */
+  --color-blue-dark:              #0094CC;
+  --color-blue-darker-rollover:   #007EAD;
+  --color-blue-darker:            #004A66;
+  --color-blue-darkest:           #002533;
+
+  /* Oranges — confirmed from Figma Variables panel */
+  --color-orange-lightest:        #FFEFEC;
+  --color-orange-lighter:         #FFDFDA;
+  --color-orange-light:           #FF917E;
+  --color-orange:                 #FF6347;
+  --color-orange-dark:            #CC4F38;
+  --color-orange-darker:          #66271C;
+  --color-orange-darkest:         #4C1D15;
+
+  /* Magentas — confirmed from Figma Variables panel */
+  --color-magenta-lightest:       #FBE9F1;
+  --color-magenta-lighter:        #F7D3E3;
+  --color-magenta-light:          #E5659E;
+  --color-magenta:                #DB2475;
+  --color-magenta-dark:           #AF1C5D;
+  --color-magenta-darker:         #570E2E;
+  --color-magenta-darkest:        #410A23;
+
+  /* Greens — confirmed from Figma Variables panel */
+  --color-green-lightest:         #F4F8EC;
+  --color-green-lighter:          #EAF1DA;
+  --color-green-light:            #B5CF7E;
+  --color-green:                  #96BB47;
+  --color-green-dark:             #789538;
+  --color-green-darker:           #3C4A1C;
+  --color-green-darkest:          #2D3815;
+
+  /* Aliases for convenience */
+  --color-accent:                 var(--color-blue);
+  --color-accent-hover:           var(--color-blue-dark);
+  --color-text:                   var(--color-neutral-darkest);
+  --color-bg:                     var(--color-white);
+  --color-bg-subtle:              var(--color-neutral-lightest);
+  --color-border:                 rgba(0, 26, 36, 0.10);
+
+  /* ─────────────────────────────────────────────
+     SEMANTIC COLOR TOKENS (Color Schemes)
+     Source: Figma Variables panel — confirmed
+     ───────────────────────────────────────────── */
+
+  /* Scheme 1 — Light (default) */
+  --scheme1-bg:              var(--color-white);
+  --scheme1-fg:              var(--color-white);
+  --scheme1-text:            var(--color-neutral-darkest);
+  --scheme1-border:          rgba(0, 26, 36, 0.15);
+  --scheme1-accent:          var(--color-neutral-darkest);
+
+  /* Scheme 2 — Blue Darkest */
+  --scheme2-bg:              var(--color-blue-darkest);
+  --scheme2-fg:              var(--color-blue-darker);
+  --scheme2-text:            var(--color-white);
+  --scheme2-border:          rgba(255, 255, 255, 0.20);
+  --scheme2-accent:          var(--color-white);
+
+  /* Scheme 3 — Blue */
+  --scheme3-bg:              var(--color-blue);
+  --scheme3-fg:              var(--color-blue-dark);
+  --scheme3-text:            var(--color-white);
+  --scheme3-border:          rgba(255, 255, 255, 0.20);
+  --scheme3-accent:          var(--color-white);
+
+  /* Scheme 4 — Dark */
+  --scheme4-bg:              var(--color-neutral-darkest);
+  --scheme4-fg:              var(--color-neutral-darker);
+  --scheme4-text:            var(--color-white);
+  --scheme4-border:          rgba(255, 255, 255, 0.20);
+  --scheme4-accent:          var(--color-blue);
+
+  /* Scheme 5 — Neutral Lightest */
+  --scheme5-bg:              var(--color-neutral-lightest);
+  --scheme5-fg:              var(--color-white);
+  --scheme5-text:            var(--color-neutral-darkest);
+  --scheme5-border:          rgba(0, 26, 36, 0.15);
+  --scheme5-accent:          var(--color-neutral-darkest);
+
+  /* ─────────────────────────────────────────────
+     BORDER RADIUS TOKENS
+     ───────────────────────────────────────────── */
+  --radius-xxl: 30px;   /* Full-width / 1-column elements */
+  --radius-xl:  18px;   /* 2-column elements */
+  --radius-l:   12px;   /* 3–4 column elements */
+  --radius-m:    8px;   /* Small cards */
+  --radius-s:    6px;   /* Buttons, tabs */
+  --radius-xs:   4px;   /* Tags, badges, arrow buttons */
+  --radius-pill: 999px; /* Pill/tag shapes */
+
+  /* ─────────────────────────────────────────────
+     SHADOW TOKENS
+     ───────────────────────────────────────────── */
+  --shadow-xxsmall: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-xsmall:  0 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-small:   0 2px 4px rgba(0, 0, 0, 0.10);
+  --shadow-medium:  0 4px 8px rgba(0, 0, 0, 0.10);
+  --shadow-large:   0 8px 16px rgba(0, 0, 0, 0.10);
+  --shadow-xlarge:  0 12px 24px rgba(0, 0, 0, 0.15);
+  --shadow-xxlarge: 0 16px 40px rgba(0, 0, 0, 0.15);
+
+  /* ─────────────────────────────────────────────
+     TYPOGRAPHY TOKENS
+     ───────────────────────────────────────────── */
+
+  /* Families */
+  --font-heading: 'Post Grotesk', sans-serif;
+  --font-body:    'Post Grotesk', sans-serif;
+  --font-mono:    'Martian Mono', monospace;
+
+  /* Type scale — Desktop */
+  --text-h1-size:   4.5rem;    /* 72px */
+  --text-h1-lh:     1.20;
+  --text-h2-size:   3.625rem;  /* 58px */
+  --text-h2-lh:     1.20;
+  --text-h3-size:   2.875rem;  /* 46px */
+  --text-h3-lh:     1.20;
+  --text-h4-size:   2.3125rem; /* 37px */
+  --text-h4-lh:     1.28;
+  --text-h5-size:   1.875rem;  /* 30px */
+  --text-h5-lh:     1.40;
+  --text-h6-size:   1.5rem;    /* 24px */
+  --text-h6-lh:     1.40;
+  --text-body-xl:   1.25rem;   /* 20px */
+  --text-body-l:    1.125rem;  /* 18px */
+  --text-body-m:    1rem;      /* 16px */
+  --text-body-s:    0.875rem;  /* 14px */
+  --text-body-xs:   0.75rem;   /* 12px */
+  --text-body-lh:   1.50;
+
+  /* Font weights */
+  --fw-light:    300;
+  --fw-book:     400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extrabold:800;
+
+  /* Letter spacing */
+  --ls-tight:  -0.02em;
+  --ls-snug:   -0.01em;
+  --ls-normal:  0em;
+
+  /* ─────────────────────────────────────────────
+     SPACING TOKENS
+     ───────────────────────────────────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+}
+
+/* ─────────────────────────────────────────────
+   MOBILE TYPE SCALE OVERRIDES
+   ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --text-h1-size:  3rem;    /* 48px */
+    --text-h2-size:  2.5rem;  /* 40px */
+    --text-h3-size:  2rem;    /* 32px */
+    --text-h4-size:  1.5rem;  /* 24px */
+    --text-h5-size:  1.25rem; /* 20px */
+    --text-h6-size:  1.125rem;/* 18px */
+  }
+}
+
+/* ─────────────────────────────────────────────
+   SEMANTIC ELEMENT STYLES
+   ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  line-height: var(--text-body-lh);
+  color: var(--color-neutral-darkest);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-neutral-darkest);
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  color: var(--color-neutral-darkest);
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-snug);
+  color: var(--color-neutral-darkest);
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4-size);
+  line-height: var(--text-h4-lh);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-snug);
+  color: var(--color-neutral-darkest);
+}
+
+h5, .h5 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h5-size);
+  line-height: var(--text-h5-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-neutral-darkest);
+}
+
+h6, .h6 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h6-size);
+  line-height: var(--text-h6-lh);
+  font-weight: var(--fw-medium);
+  color: var(--color-neutral-darkest);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  line-height: var(--text-body-lh);
+  font-weight: var(--fw-book);
+  color: var(--color-neutral-darkest);
+}
+
+.text-large  { font-size: var(--text-body-xl); }
+.text-medium { font-size: var(--text-body-l); }
+.text-regular{ font-size: var(--text-body-m); }
+.text-small  { font-size: var(--text-body-s); }
+.text-tiny   { font-size: var(--text-body-xs); }
+
+.tagline {
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  font-weight: var(--fw-bold);
+  line-height: var(--text-body-lh);
+  color: var(--color-neutral-darkest);
+}
+
+code, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ─────────────────────────────────────────────
+   BUTTON BASE STYLES
+   ───────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-body-m);
+  font-weight: var(--fw-book);
+  line-height: 1.5;
+  padding: 10px 24px;
+  border-radius: var(--radius-s);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-sm {
+  padding: 6px 16px;
+  font-size: var(--text-body-s);
+}
+
+.btn-primary {
+  background: var(--color-blue-accent);
+  border-color: var(--color-blue-accent);
+  color: var(--color-neutral-darkest);
+}
+.btn-primary:hover {
+  background: var(--color-blue-dark);
+  border-color: var(--color-blue-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--color-neutral-darkest);
+  color: var(--color-neutral-darkest);
+}
+.btn-secondary:hover {
+  background: rgba(0, 9, 13, 0.05);
+}
+
+/* Alternate (on dark bg) */
+.btn-primary-alt {
+  background: var(--color-blue-accent);
+  border-color: var(--color-blue-accent);
+  color: var(--color-neutral-darkest);
+}
+.btn-secondary-alt {
+  background: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+.btn-secondary-alt:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--color-neutral-darkest);
+  padding-left: 0;
+  padding-right: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   CARD BASE
+   ───────────────────────────────────────────── */
+.card {
+  background: var(--color-white);
+  border: 1px solid rgba(0, 9, 13, 0.10);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-xxsmall);
+  padding: 24px;
+}
+
+.card-dark {
+  background: var(--color-neutral-dark-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-l);
+  color: var(--color-white);
+  padding: 24px;
+}
+
+/* ─────────────────────────────────────────────
+   LAYOUT HELPERS
+   ───────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-dark {
+  background: var(--color-neutral-darkest);
+  color: var(--color-white);
+}
+
+.section-light {
+  background: var(--color-neutral-lightest);
+}
+
+/* ─────────────────────────────────────────────
+   MATERIAL SYMBOLS
+   ───────────────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+}
