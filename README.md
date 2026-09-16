@@ -1,6 +1,6 @@
 # Beautiful.ai Brand Guidelines — deploy package
 
-Current version: **v8**
+Current version: **v92**
 
 ```
 index.html
@@ -29,7 +29,7 @@ while `styles.css` was several versions behind, so the page rendered with old CS
 
 ## Cache busting
 
-The stylesheet links carry `?v=8`. If a CSS change doesn't appear after deploying,
+The stylesheet links carry `?v=92`. If a CSS change doesn't appear after deploying,
 the number wasn't bumped — ask me to bump it and rebuild.
 
 ## Rules

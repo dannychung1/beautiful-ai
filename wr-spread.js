@@ -1,7 +1,7 @@
 (function(){
   var stage=document.querySelector('.wr-stage');
   if(!stage||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var items=[].slice.call(stage.querySelectorAll('.wr-tofu,.wr-word,.wr-ui')).map(function(el){
+  var items=[].slice.call(stage.querySelectorAll('.wr-tofu,.wr-word,.wr-ui,.wr-spot')).map(function(el){
     return {el:el,img:el.querySelector('img'),lag:parseFloat(el.dataset.lag)||0.03,rx:0,ry:0,tx:0,ty:0,ix:0,iy:0,gx:50,gy:50};
   });
   var px=0.5,py=0.5;
@@ -19,10 +19,11 @@
   },{passive:true});
   document.addEventListener('pointerleave',function(){px=0.5;py=0.5;});
   function tick(){
+    if(document.body.classList.contains('wra-on')){requestAnimationFrame(tick);return;}
     items.forEach(function(it){
       var dx=px-(it.cx||0.5),dy=py-(it.cy||0.5);
       var isWord=it.el.classList.contains('wr-word');
-      var amp=isWord?3:(it.el.classList.contains('wr-ui')?14:11);
+      var amp=isWord?3:((it.el.classList.contains('wr-ui')||it.el.classList.contains('wr-spot'))?14:11);
       var trx=-dy*amp,tryy=dx*amp,ttx=-dx*(isWord?8:22),tty=-dy*(isWord?5:15);
       it.rx+=(trx-it.rx)*it.lag;it.ry+=(tryy-it.ry)*it.lag;
       it.tx+=(ttx-it.tx)*it.lag;it.ty+=(tty-it.ty)*it.lag;
