@@ -89,6 +89,7 @@
 .archetype-stage .stage-title, .archetype-stage .stage-desc { color: var(--neutral-darkest); }
 .cx-note, .df-x, .vr-desc, .tp-body p, .tp-label p, .layer-sub-note,
 .archetype-stage .stage-desc, .pp-statement { color: var(--neutral-dark); }
+.dark .st-rule, .darkblue .st-rule, .storyhero .st-rule, .sage .st-rule { color: var(--neutral-dark); }
 .tp-eyebrow, .ps-label, .rs-num, .stage-eyebrow, .frame-caption { color: var(--neutral); }
 .tp-lead { color: var(--ink, #002533); }
 .ps-item { color: var(--neutral-darkest); border-color: rgba(0,26,36,0.18); }

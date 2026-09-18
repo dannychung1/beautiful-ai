@@ -462,7 +462,7 @@ em.accent {
   z-index: 1;
   opacity: var(--ro, 1);
   transform-origin: var(--rx, 20%) var(--ry, 80%);
-  transform: scale(var(--rsc, 1));
+  transform: scale(calc(var(--rsc, 1) * 1.05));
   background: radial-gradient(circle at var(--rx, 20%) var(--ry, 80%), rgba(226,25,120,0.88), rgba(214,26,118,0.68) 8%, rgba(200,28,115,0.50) 14%, rgba(172,26,103,0.36) 21%, rgba(140,25,90,0.24) 30%, rgba(106,20,72,0.15) 38%, rgba(70,15,55,0.08) 48%, rgba(44,10,38,0.035) 58%, transparent 70%);
 }
 
@@ -472,7 +472,7 @@ em.accent {
   z-index: 3;
   pointer-events: none;
   opacity: 0.075;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(#d)'/%3E%3C/svg%3E");
   background-size: 120px 120px;
 }
 
@@ -484,7 +484,7 @@ em.accent {
   pointer-events: none;
   opacity: 0.3;
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(#n)'/%3E%3C/svg%3E");
   background-size: 128px 128px;
 }
 
@@ -2323,7 +2323,7 @@ img, svg, video { max-width: 100%; }
 
 /* ── Chapter hero: brand gradient ground + deck-fan bleed ────── */
 .chapter-hero{position:relative;overflow:hidden;background:linear-gradient(104deg,var(--blue-deepest) 0%,#0d2036 34%,#3d1140 62%,#0a3550 84%,var(--blue-deepest) 100%);border-bottom:none}
-.chapter-hero::after{content:"";position:absolute;right:-16%;top:-24%;width:min(86%,1180px);aspect-ratio:2048/1740;background:url("assets/deck-fan.avif") center/contain no-repeat;opacity:0.9;pointer-events:none;z-index:0}
+.chapter-hero::after{content:"";position:absolute;right:-6%;top:-24%;width:min(86%,1180px);aspect-ratio:2048/1740;background:url("assets/deck-fan.avif") center/contain no-repeat;opacity:0.9;pointer-events:none;z-index:0}
 .chapter-hero > .wrap{position:relative;z-index:1}
 .chapter-hero h2,.chapter-hero .ch-eyebrow{color:var(--color-neutral-lightest)}
 .chapter-hero h2{max-width:16ch}
@@ -2853,3 +2853,5 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .sidenav nav a.sub.here{color:#fff}
 .footer ul li a{color:var(--color-neutral-lighter,#D8DADA);text-decoration:none}
 .footer ul li a:hover{color:#fff}
+
+.dl-row{margin:calc(-1 * clamp(20px,2.4vw,34px)) 0 clamp(28px,3.4vw,48px)}
