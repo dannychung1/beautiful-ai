@@ -112,7 +112,8 @@ body { padding-left: 0; padding-right: 0; }
   display: none;
   position: fixed;
   top: var(--gutter-y);
-  right: var(--nav-gap);
+  /* floats outside the content column, one gutter step into the margin */
+  right: max(16px, calc(var(--gutter) / 2));
   z-index: 300;
   width: 44px;
   height: 44px;
@@ -2664,7 +2665,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 /* tier 6 — card titles */
 .ring-center .title,.value-row .v-name,.card h4{font-size:var(--t-card);line-height:var(--text-h6-lh,1.4);letter-spacing:-0.015em}
 /* body + notes */
-.ia-body p.ia-note,.cmp-note,.vr-desc,.tp-body p,.layer-sub-note{font-size:var(--text-body-l,1.125rem);line-height:var(--text-body-lh,1.5);letter-spacing:0}
+.ia-body p.ia-note,.cmp-note,.vr-desc,.tp-body p,.layer-sub-note,.arch-lead p{font-size:var(--text-body-l,1.125rem);line-height:var(--text-body-lh,1.5);letter-spacing:0}
 .pr-panel p{font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5)}
 .ia-body p:not(.ia-note){font-size:var(--t-lead)}
 /* mono labels — one size for overlines, one for micro-labels */
@@ -2740,7 +2741,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 /* ── Brand archetype: reference faces, guide grid ────────────── */
 .arch-refs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,26px);margin-top:clamp(24px,2.6vw,40px)}
 .arch-refs figure{margin:0;min-width:0}
-.arch-refs img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:10px;display:block}
+.arch-refs img{width:100%;aspect-ratio:3/4.6;object-fit:cover;object-position:center 22%;border-radius:10px;display:block}
 .arch-refs figcaption{margin-top:12px;font-size:var(--text-body-m,1rem);line-height:1.4;color:var(--neutral-darkest)}
 @media (max-width:900px){.arch-refs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
@@ -2790,7 +2791,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .altitudes,.donts,.apps-grid,.values-grid,.persona-grid,.archetype-rules,
 .arch-refs,.aud-cols,.tov-grid,.audience-grid,.footer-grid,.palette-grid{gap:var(--gut-l)}
 /* two-column feature layouts */
-.color-hero,.logo-hero,.type-pairing,.logo-anatomy,.venn-layout,
+.color-hero,.logo-hero,.type-pairing,.logo-anatomy,.venn-layout,.arch-split,
 .section-head,.type-pairing,.color-story{gap:var(--gut-2xl)}
 /* stacked rails — same rhythm whether the row is text or media */
 .story-layer,.compass-row,.layer-block{column-gap:var(--gut-2xl);row-gap:var(--gut-xl)}
@@ -2855,3 +2856,31 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .footer ul li a:hover{color:#fff}
 
 .dl-row{margin:calc(-1 * clamp(20px,2.4vw,34px)) 0 clamp(28px,3.4vw,48px)}
+
+/* Archetype: the name is the section statement, not a sub-section */
+.arch-lead{max-width:70ch;margin:clamp(20px,2.4vw,34px) 0 clamp(30px,3.2vw,46px)}
+.arch-name{font-size:var(--t-statement);line-height:1.04;letter-spacing:-0.035em;margin:0 0 var(--gut-l)}
+.tone-vs .co-kicker{color:var(--color-blue-darker)}
+.arch-lead .lede{margin:0 0 22px}
+.arch-lead p:last-child{margin:0}
+#archetype .callout{margin-bottom:clamp(40px,4.4vw,72px)}
+
+/* Archetype: statement column beside the reference faces.
+   Two-column feature layout — gutters come from the shared ladder. */
+.arch-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);align-items:start;margin-top:var(--gut-xl)}
+.arch-split .arch-lead{max-width:none;margin:0}
+.arch-split .arch-refs{grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
+.tone-vs{margin-top:var(--gut-xl)}
+.tone-vs .co-text.quote p{font-size:var(--t-card);line-height:1.15;letter-spacing:var(--ls-tight);max-width:24ch;margin:0}
+.tone-vs .co-kicker{display:block;margin:var(--gut-s) 0}
+@media (max-width:900px){.arch-split{grid-template-columns:1fr}.arch-split .arch-refs{margin-top:var(--gut-xl)}}
+
+/* Reference figures: image, name, role line, body — one rhythm across columns */
+.arch-refs figure{display:flex;flex-direction:column;align-content:start}
+.arch-refs figcaption{display:flex;flex-direction:column;gap:var(--gut-s);margin-top:var(--gut-m)}
+.ar-name{font-size:var(--text-body-l,1.125rem);line-height:1.35;font-weight:500;color:var(--ink)}
+.arch-refs figcaption p{margin:0;font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5);color:var(--neutral-dark)}
+.arch-refs .ar-role{color:var(--ink)}
+.tone-vs .co-text.quote p{font-weight:500}
+
+.arch-refs img.pos-banks{object-position:62% center}
