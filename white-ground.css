@@ -179,3 +179,17 @@
 .role-slot .rs-num,.role-slot.has-photo .rs-num,.slide-item .slide-fpo.has-photo .rs-num,#photography .role-slot .rs-num,#photography .slide-item .slide-fpo.has-photo .rs-num{color:var(--white);text-shadow:0 1px 3px rgba(0,9,13,0.55)}
 .role-slot .rs-bottom .role,.slide-fpo.has-photo .rs-bottom .role{color:var(--blue-light)}
 .role-slot .rs-bottom .who,.slide-fpo.has-photo .rs-bottom .who{color:var(--white)}
+
+/* Storytelling rings: each ring carries its layer hue and a dot that matches
+   the key marker, so ring and label read as one pair. */
+.n-ring{--lc:var(--neutral-dark)}
+.n-brand{--lc:#00B9FF;background:rgba(0,185,255,0.10);border-color:rgba(0,185,255,0.55)}
+.n-product{--lc:#DB2475;background:rgba(219,36,117,0.09);border-color:rgba(219,36,117,0.5)}
+.n-content{--lc:#5C9E3F;background:rgba(92,158,63,0.12);border-color:rgba(92,158,63,0.55)}
+.n-name{display:flex;align-items:center;gap:7px;color:var(--neutral-darkest)}
+.n-name::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lc);flex:none}
+.vk-dot{border-color:rgba(0,26,36,0.25)}
+.d-brand{background:#00B9FF}.d-product{background:#DB2475}.d-content{background:#5C9E3F}
+.vk-item{padding-left:16px;border-left:2px solid var(--lc,rgba(0,26,36,0.12))}
+.vk-item.l-brand{--lc:#00B9FF}.vk-item.l-product{--lc:#DB2475}.vk-item.l-content{--lc:#5C9E3F}
+.vk-when{color:var(--neutral-dark)}

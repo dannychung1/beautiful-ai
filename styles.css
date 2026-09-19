@@ -2859,8 +2859,8 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 
 /* Archetype: the name is the section statement, not a sub-section */
 .arch-lead{max-width:70ch;margin:clamp(20px,2.4vw,34px) 0 clamp(30px,3.2vw,46px)}
-.arch-name{font-size:var(--t-statement);line-height:1.04;letter-spacing:-0.035em;margin:0 0 var(--gut-l)}
-.tone-vs .co-kicker{color:var(--color-blue-darker)}
+.arch-name{font-size:var(--t-sub);line-height:1.1;letter-spacing:-0.025em;margin:0 0 var(--gut-l);color:var(--ink)}
+
 .arch-lead .lede{margin:0 0 22px}
 .arch-lead p:last-child{margin:0}
 #archetype .callout{margin-bottom:clamp(40px,4.4vw,72px)}
@@ -2870,17 +2870,29 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .arch-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);align-items:start;margin-top:var(--gut-xl)}
 .arch-split .arch-lead{max-width:none;margin:0}
 .arch-split .arch-refs{grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
-.tone-vs{margin-top:var(--gut-xl)}
-.tone-vs .co-text.quote p{font-size:var(--t-card);line-height:1.15;letter-spacing:var(--ls-tight);max-width:24ch;margin:0}
-.tone-vs .co-kicker{display:block;margin:var(--gut-s) 0}
 @media (max-width:900px){.arch-split{grid-template-columns:1fr}.arch-split .arch-refs{margin-top:var(--gut-xl)}}
 
 /* Reference figures: image, name, role line, body — one rhythm across columns */
 .arch-refs figure{display:flex;flex-direction:column;align-content:start}
 .arch-refs figcaption{display:flex;flex-direction:column;gap:var(--gut-s);margin-top:var(--gut-m)}
 .ar-name{font-size:var(--text-body-l,1.125rem);line-height:1.35;font-weight:500;color:var(--ink)}
+.ar-src{font-size:var(--text-body-m,1rem);line-height:1.4;color:var(--neutral-dark);margin-top:calc(-1 * var(--gut-s) + 2px)}
 .arch-refs figcaption p{margin:0;font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5);color:var(--neutral-dark)}
 .arch-refs .ar-role{color:var(--ink)}
-.tone-vs .co-text.quote p{font-weight:500}
 
 .arch-refs img.pos-banks{object-position:62% center}
+
+/* Tone card: the say / not pair, one row each */
+.tone-card{margin:var(--gut-xl) 0 0;padding:0;background:var(--color-neutral-lightest,#F0F3F5);border-radius:18px;overflow:hidden}
+.tc-row{display:grid;gap:var(--gut-s);margin:0;padding:var(--gut-l) var(--gut-l)}
+.tc-row + .tc-row{border-top:1px solid rgba(0,26,36,0.10)}
+.tc-label{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.1em;text-transform:uppercase;color:var(--neutral-dark)}
+.tc-row p{margin:0;font-size:var(--t-card);line-height:1.2;letter-spacing:-0.015em;font-weight:500;color:var(--ink)}
+.tc-not .tc-label{color:var(--neutral-dark)}
+.tc-not p{font-weight:400;color:var(--neutral-dark)}
+
+.tc-icon{font-size:16px;line-height:1;color:var(--color-blue-darker,#004A66)}
+.tc-not .tc-icon{color:var(--color-rebel-red,#D6294A)}
+
+/* Trait names: the scannable unit of the voice cards */
+.tov-card .title{font-size:var(--t-sub);font-weight:500;letter-spacing:-0.025em;line-height:1.1}
