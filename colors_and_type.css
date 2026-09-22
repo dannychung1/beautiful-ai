@@ -37,7 +37,6 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 /* ─────────────────────────────────────────────
@@ -170,7 +169,7 @@
   /* Families */
   --font-heading: 'Post Grotesk', sans-serif;
   --font-body:    'Post Grotesk', sans-serif;
-  --font-mono:    'Martian Mono', monospace;
+  --font-mono:    'Post Grotesk', monospace;
 
   /* Type scale — Desktop */
   --text-h1-size:   4.5rem;    /* 72px */

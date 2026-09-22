@@ -3,7 +3,6 @@
    Built on the BAI Design System
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 /* Post Grotesk — real brand fonts */
@@ -418,6 +417,7 @@ em.accent {
 .cover-kicker { padding-top: 2px; color: var(--white); font-weight: 500; white-space: nowrap; }
 .cover-title .h-display { color: var(--white); }
 .cover-title .h-display .punct { color: var(--accent); font-weight: var(--fw-display); }
+.cover-sub{display:flex;flex-direction:column;gap:6px;margin-top:clamp(18px,2vw,32px);font-family:var(--font-body,inherit);font-size:var(--t-lead);font-weight:400;line-height:1.3;letter-spacing:var(--ls-snug,-0.01em);color:var(--scheme2-text)}
 .cover-bottom {
   display: flex;
   justify-content: space-between;
@@ -2492,7 +2492,7 @@ img, svg, video { max-width: 100%; }
 @media (max-width:640px){.tp-define{grid-template-columns:1fr;gap:6px}}
 
 /* ── Definition list (term + one line) ───────────────────────── */
-.cx-note{margin:0 0 22px;font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5);color:var(--color-neutral-lighter,#D8DADA);max-width:68ch}
+.cx-note{margin:0 0 22px;font-size:var(--text-body-l,1.125rem);line-height:var(--text-body-lh,1.5);color:var(--color-neutral-lighter,#D8DADA);max-width:68ch}
 .def-list{display:flex;flex-direction:column}
 .def-row{display:grid;grid-template-columns:minmax(120px,0.42fr) minmax(0,1.6fr);gap:clamp(16px,2.4vw,40px);align-items:baseline;padding:14px 0;border-top:1px solid rgba(255,255,255,0.1)}
 .df-t{font-size:var(--text-body-m,1rem);font-weight:var(--fw-medium,500);color:var(--white)}
@@ -2654,7 +2654,10 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .sub-head h2,.section-head h2,.contents li a,.contents li span{font-size:var(--t-section);letter-spacing:-0.03em;line-height:var(--text-h2-lh,1.2)}
 /* tier 4 — sub-sections */
 .layer-block .lb-label h3,.alt-meta .alt-name,.pr-panel h3,.value-card .vc-name,
-.ia-title,.ia-sub,.sub-title h3,.sub-title h4{font-size:var(--t-sub);letter-spacing:-0.025em;line-height:1.1}
+.ia-title,.ia-sub,.sub-title h3{font-size:var(--t-sub);letter-spacing:-0.025em;line-height:1.1}
+/* tier 4b — h4 nests inside an h3 sub-section, so it steps down one */
+.sub-title h4{font-size:var(--t-lead);letter-spacing:var(--ls-snug,-0.01em);line-height:1.2}
+.sub-title:has(h4){margin-bottom:var(--gut-m)}
 /* tier 5 — lead copy: clearly below every heading tier */
 .ia-body p:not(.ia-note),.tp-completion,.mv-item,.lede{font-size:var(--t-lead);line-height:1.3;letter-spacing:var(--ls-snug,-0.01em)}
 .lede{line-height:1.42}
@@ -2676,6 +2679,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .wr-stage{position:relative;width:100%;max-width:1760px;margin:0 auto;aspect-ratio:16/9;container-type:inline-size;perspective:1400px;perspective-origin:50% 50%}
 .wr-tofu{position:absolute;aspect-ratio:16/9;border-radius:8px;overflow:hidden;transform-style:preserve-3d;will-change:transform;box-shadow:0 14px 34px rgba(0,26,36,0.14),0 2px 6px rgba(0,26,36,0.08)}
 .wr-tofu img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;will-change:transform}
+.wr-tofu image-slot{position:absolute;inset:0;width:100%;height:100%;display:block}
 .wr-t1{left:12.5%;top:-1%;width:28%;z-index:1}
 .wr-t3{left:51.5%;top:6%;width:34%;z-index:1}
 .wr-t5{left:3%;top:51.5%;width:26%;z-index:1}
@@ -2719,7 +2723,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
   .wr-w1{grid-column:1/3;margin-top:4vh}
   .wr-w2{grid-column:1/3;margin:0 0 4vh 0.3em}
 }
-@media (prefers-reduced-motion:reduce){.wr-tofu,.wr-tofu img,.wr-word,.wr-ui{transform:none!important}}
+@media (prefers-reduced-motion:reduce){.wr-tofu,.wr-tofu img,.wr-tofu image-slot,.wr-word,.wr-ui{transform:none!important}}
 
 
 /* ── Who we're for: three columns, photography leading ───────── */
@@ -2760,7 +2764,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 
 /* subline under a section heading — one colour rule, everywhere it appears */
 .sh-sub{margin:10px 0 0;font-size:var(--t-lead);line-height:1.25;letter-spacing:-0.02em;color:var(--ink,#002533)}
-.section.dark .sh-sub,.section.darkblue .sh-sub,.cover .sh-sub,.tagline-page .sh-sub{color:var(--blue-light)}
+.section.dark .sh-sub,.section.darkblue .sh-sub,.cover .sh-sub{color:var(--blue-light)}
 
 /* clearspace panel and the min-size grid end on the same line */
 .logo-anatomy{align-items:stretch}
@@ -2866,6 +2870,8 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .arch-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);align-items:start;margin-top:var(--gut-xl)}
 .arch-split .arch-lead{max-width:none;margin:0}
 .arch-split .arch-refs{grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
+.arch-refs-col{min-width:0}
+.arch-refs-col .sub-title{border-top:none;padding-top:0}
 @media (max-width:900px){.arch-split{grid-template-columns:1fr}.arch-split .arch-refs{margin-top:var(--gut-xl)}}
 
 /* Reference figures: image, name, role line, body — one rhythm across columns */
@@ -2928,10 +2934,10 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 /* 4-up */
 .res-sequence{grid-template-columns:repeat(4,minmax(0,1fr))}
 /* 3-up */
-.palette-grid,.core-swatches,.combos,.weight-grid,.values-grid,.tov-grid,.donts,
+.palette-grid,.core-swatches,.combos,.values-grid,.tov-grid,.donts,
 .arch-refs,.aud-cols,.photo-strip.four,.altitudes,.expressions,.arch-split .arch-refs{grid-template-columns:repeat(3,minmax(0,1fr))}
 /* 2-up */
-.minsize,.persona-grid,.apps-grid,.archetype-rules,.photo-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+.minsize,.persona-grid,.apps-grid,.archetype-rules,.photo-strip,.weight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 
 /* ── gutters, all off the one base ──────────────────────────── */
 .minsize,.expressions,.photo-strip,.photo-strip.four,.icons-grid,.weight-grid,
@@ -3010,7 +3016,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .ts-glyphs{display:grid;gap:0.06em;min-width:0;color:var(--blue-light);font-size:clamp(34px,5.2vw,82px);line-height:1.05;letter-spacing:-0.035em;font-weight:500;overflow-wrap:anywhere}
 .ts-glyphs span{display:block}
 .ts-glyphs .fig{font-size:0.8em;letter-spacing:-0.015em}
-.ts-glyphs.is-mono{font-family:var(--mono);font-weight:400;font-size:clamp(17px,2.4vw,36px);letter-spacing:0;line-height:1.35}
+.ts-glyphs.is-label{font-family:var(--mono);font-weight:400;font-size:clamp(15px,1.9vw,28px);letter-spacing:0.12em;line-height:1.5;text-transform:uppercase}
 @media (max-width:1024px){.ts-block{grid-template-columns:minmax(0,1fr)}}
 
 
