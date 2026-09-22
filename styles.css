@@ -48,8 +48,8 @@
   --blue-lightest: #E5F8FF;
   --blue-lighter: #CCF1FF;
   --blue-light: #52D0FF;
-  --blue: #11A9E2;
-  --blue-dark: #0d87b5;
+  --blue: #00B9FF;        /* DS --color-blue, starred primary accent */
+  --blue-dark: #0094CC;   /* DS --color-blue-dark */
   --blue-darker: #004A66;
   --blue-darkest: #002533;
 
@@ -456,7 +456,9 @@ em.accent {
   transform-origin: var(--mx, 80%) var(--my, 20%);
   transform: scale(var(--msc, 1));
   background: radial-gradient(circle at var(--mx, 80%) var(--my, 20%), rgba(0,170,240,0.92), rgba(0,161,232,0.72) 8%, rgba(0,150,220,0.55) 14%, rgba(2,132,196,0.39) 21%, rgba(4,110,165,0.26) 30%, rgba(2,86,131,0.17) 38%, rgba(0,60,95,0.09) 48%, rgba(0,40,66,0.04) 58%, transparent 70%);
-  filter: blur(30px) url(#coverGrain);
+  /* Safari drops a CSS filter function when an SVG url() is chained after it,
+     which rendered these as hard rectangles. Grain comes from .cover-dither. */
+  filter: blur(30px);
 }
 
 .cover-mark.alt {
@@ -473,7 +475,7 @@ em.accent {
   z-index: 3;
   pointer-events: none;
   opacity: 0.075;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(#d)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");
   background-size: 120px 120px;
 }
 
@@ -485,7 +487,7 @@ em.accent {
   pointer-events: none;
   opacity: 0.3;
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(#n)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 128px 128px;
 }
 
@@ -921,7 +923,7 @@ em.accent {
   margin-bottom: 40px;
 }
 .swatch {
-  border-radius: 18px;
+  border-radius: var(--radius-l, 12px); /* 3-up grid */
   padding: 24px;
   display: flex;
   flex-direction: column;
@@ -2253,13 +2255,8 @@ img, svg, video { max-width: 100%; }
   .wrap.narrow, .wrap { max-width: 100%; }
   h1 { font-size: var(--text-h1-size, 3rem); }
   .lede { font-size: var(--text-body-l, 1.125rem); }
-  .story-grid, .color-hero, .logo-hero, .type-pairing, .logo-anatomy, .archetype-stage, .layer-block,
-  .palette-grid, .tov-grid, .donts, .apps-grid, .minsize, .expressions, .photo-strip, .photo-strip.four,
-  .archetype-rules, .values-grid, .persona-grid, .core-swatches, .color-story, .combos, .icons-grid,
-  .weight-grid, .type-row { grid-template-columns: 1fr !important; }
   .cover { padding: var(--gutter-y) var(--gutter); }
   .type-row .specs { grid-column: 1; }
-  .audience-grid, .gradient-pair, .story-layer, .altitudes, .dot-grid, .res-sequence { grid-template-columns: 1fr !important; }
   h2 { font-size: var(--text-h2-size, 2.5rem); }
   h3 { font-size: var(--text-h3-size, 2rem); }
   .gradient-legend { flex-direction: column; gap: 10px; }
@@ -2267,8 +2264,6 @@ img, svg, video { max-width: 100%; }
 
 @media (max-width: 420px) {
   .section { padding: 44px 0; }
-  .minsize, .expressions, .photo-strip, .photo-strip.four, .icons-grid, .palette-grid,
-  .weight-grid, .combos, .values-grid, .persona-grid, .archetype-rules { grid-template-columns: 1fr !important; }
   .cover { padding: var(--gutter-y) var(--gutter); }
 }
 
@@ -2331,7 +2326,7 @@ img, svg, video { max-width: 100%; }
 .chapter-hero .ch-index{border-top-color:rgba(255,255,255,0.18)}
 .chapter-hero .ch-index a{color:var(--color-neutral-lighter,#D8DADA)}
 .chapter-hero .ch-index a:hover{color:#fff}
-.chapter-hero .dl-pill{border-color:rgba(255,255,255,0.28);color:#fff}
+.chapter-hero .dl-pill{border-color:rgba(255,255,255,0.28);color:var(--ink,#002533)}
 @media (max-width:900px){.chapter-hero::after{width:110%;right:-30%;opacity:0.35}.chapter-hero h2{max-width:none}}
 #introduction .chapter-hero{background:transparent}
 #introduction .chapter-hero::after{display:none}
@@ -2566,7 +2561,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .dark .ch-index a,.darkblue .ch-index a{color:var(--color-neutral-lighter,#D8DADA)}
 .ch-index a:hover{color:var(--blue)}
 .dark .ch-index a:hover,.darkblue .ch-index a:hover{color:var(--blue-light)}
-.dl-pill{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;background:var(--blue);color:#fff;font-size:14px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
+.dl-pill{display:inline-flex;align-items:center;gap:10px;padding:11px 20px;border-radius:999px;background:var(--blue);color:var(--ink,#002533);font-size:14px;text-decoration:none;white-space:nowrap;transition:background .2s ease}
 .dl-pill:hover{background:var(--blue-dark)}
 .dl-pill span{font-size:15px}
 .sub-head{display:grid;grid-template-columns:var(--grid-label);gap:clamp(24px,4vw,64px);align-items:baseline;padding-top:24px;border-top:1px solid color-mix(in oklch,currentColor 14%,transparent);margin-bottom:clamp(32px,4vw,56px)}
@@ -2764,8 +2759,8 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .vk-item .vk-when{color:var(--lc,var(--blue-light))}
 
 /* subline under a section heading — one colour rule, everywhere it appears */
-.sh-sub{margin:10px 0 0;font-size:var(--t-lead);line-height:1.25;letter-spacing:-0.02em;color:var(--color-blue-darker,#004A66)}
-.section.dark .sh-sub,.section.darkblue .sh-sub,.cover .sh-sub{color:var(--blue-light)}
+.sh-sub{margin:10px 0 0;font-size:var(--t-lead);line-height:1.25;letter-spacing:-0.02em;color:var(--ink,#002533)}
+.section.dark .sh-sub,.section.darkblue .sh-sub,.cover .sh-sub,.tagline-page .sh-sub{color:var(--blue-light)}
 
 /* clearspace panel and the min-size grid end on the same line */
 .logo-anatomy{align-items:stretch}
@@ -2897,3 +2892,143 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 
 /* Trait names: the scannable unit of the voice cards */
 .tov-card .title{font-size:var(--t-sub);font-weight:500;letter-spacing:-0.025em;line-height:1.1}
+
+
+/* ══════════════════════════════════════════════════════════════
+   12-COLUMN GRID — one substrate for the whole guide.
+   Every multi-column layout is a whole-number span of 12, so the
+   second column of a swatch grid lines up with the second column
+   of a label/content row. Gutters are multiples of one base unit.
+   Collapse happens in ONE ladder below — nowhere else.
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --cols:12;
+  --gut:clamp(14px,1.5vw,24px);      /* base grid gutter */
+  --gut-s:calc(var(--gut) * 0.5);
+  --gut-m:var(--gut);
+  --gut-l:calc(var(--gut) * 1.5);
+  --gut-xl:calc(var(--gut) * 2);
+  --gut-2xl:calc(var(--gut) * 3);
+  --grid-label:3fr 9fr;              /* label rail / content — 3 of 12 */
+}
+/* the content column: contained, one margin, hairline-ruled sections */
+.wrap{max-width:var(--content-max);margin-inline:auto;padding-inline:var(--wrap-pad,4vw)}
+.wrap.narrow{max-width:var(--content-max)}
+
+/* ── column spans (of 12) ───────────────────────────────────── */
+.section-head,.sub-head,.compass-row,.layer-block,.color-story,.story-layer,.cx-row,.intro-about{grid-template-columns:var(--grid-label)}
+.color-hero,.mv-pair,.venn-layout,.audience-grid,.gradient-pair,.ill-spec,.dd-pair,.tp-body{grid-template-columns:repeat(2,minmax(0,1fr))}
+.arch-split{grid-template-columns:5fr 7fr}
+.logo-hero{grid-template-columns:5fr 7fr}
+.logo-anatomy,.archetype-stage{grid-template-columns:7fr 5fr}
+.type-pairing{grid-template-columns:8fr 4fr}
+.footer-grid{grid-template-columns:6fr 3fr 3fr}
+/* 6-up */
+.icons-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+/* 4-up */
+.res-sequence{grid-template-columns:repeat(4,minmax(0,1fr))}
+/* 3-up */
+.palette-grid,.core-swatches,.combos,.weight-grid,.values-grid,.tov-grid,.donts,
+.arch-refs,.aud-cols,.photo-strip.four,.altitudes,.expressions,.arch-split .arch-refs{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* 2-up */
+.minsize,.persona-grid,.apps-grid,.archetype-rules,.photo-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* ── gutters, all off the one base ──────────────────────────── */
+.minsize,.expressions,.photo-strip,.photo-strip.four,.icons-grid,.weight-grid,
+.combos,.core-swatches,.res-sequence,.gradient-pair,.dot-grid{gap:var(--gut-m)}
+.altitudes,.donts,.apps-grid,.values-grid,.persona-grid,.archetype-rules,
+.arch-refs,.aud-cols,.tov-grid,.audience-grid,.footer-grid,.palette-grid{gap:var(--gut-l)}
+.section-head,.sub-head,.color-hero,.logo-hero,.type-pairing,.logo-anatomy,
+.venn-layout,.arch-split,.color-story,.mv-pair,.intro-about,.ill-spec{column-gap:var(--gut-2xl);row-gap:var(--gut-xl)}
+.story-layer,.compass-row,.layer-block,.cx-row{column-gap:var(--gut-2xl);row-gap:var(--gut-xl)}
+
+/* ══ COLLAPSE LADDER — the only place columns change ══════════
+   1280 → 6-up becomes 4-up
+   1024 → label rails stack; 4-up → 3-up; asymmetric splits → 1
+    760 → 3-up → 2-up; card grids → 1
+    520 → everything → 1                                      */
+@media (max-width:1280px){
+  .icons-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (max-width:1024px){
+  .section-head,.sub-head,.compass-row,.layer-block,.color-story,.story-layer,.cx-row,.intro-about,
+  .arch-split,.logo-hero,.logo-anatomy,.archetype-stage,.type-pairing,.color-hero,
+  .venn-layout,.ill-spec,.story-grid{grid-template-columns:minmax(0,1fr)}
+  .res-sequence{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .section-head:not(:has(.left)) .lede{grid-column:1}
+}
+@media (max-width:760px){
+  .palette-grid,.core-swatches,.combos,.weight-grid,.values-grid,.icons-grid,
+  .res-sequence,.arch-refs,.arch-split .arch-refs,.photo-strip.four,.expressions{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tov-grid,.donts,.aud-cols,.altitudes,.apps-grid,.archetype-rules,.persona-grid,
+  .audience-grid,.gradient-pair,.mv-pair,.tp-body,.dd-pair{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .minsize,.persona-grid,.photo-strip,.photo-strip.four,.expressions,.palette-grid,
+  .core-swatches,.combos,.weight-grid,.values-grid,.arch-refs,.arch-split .arch-refs,
+  .res-sequence,.footer-grid,.icons-grid{grid-template-columns:minmax(0,1fr)}
+  .dot-grid{grid-template-columns:repeat(7,minmax(0,1fr))}
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   TYPOGRAPHY PAGE — reversed ground. The chapter is set on Base
+   Blue with the letterforms in Azul, so the type is the specimen
+   rather than a description of one. Reading copy stays light
+   neutral: Azul is for headings, glyph sets, and samples only.
+   ══════════════════════════════════════════════════════════════ */
+#type{background:var(--blue-darkest);color:var(--color-neutral-lighter,#D8DADA)}
+#type .lede{color:var(--color-neutral-lightest,#F0F3F5)}
+#type .sub-title{border-top-color:rgba(255,255,255,0.16)}
+#type .sub-title h3{color:var(--blue)}
+#type .st-rule{color:var(--color-neutral-lighter,#D8DADA)}
+#type .type-scale{border-top-color:rgba(255,255,255,0.16)}
+#type .type-row{border-bottom-color:rgba(255,255,255,0.12)}
+#type .type-row .tag{color:var(--blue)}
+#type .type-row .specs{color:var(--color-neutral-lighter,#D8DADA)}
+#type .type-row .sample{color:var(--blue-light)}
+#type .weight{border-color:rgba(255,255,255,0.14)}
+#type .weight .glyph{color:var(--ink,#002533)}
+#type .weight .name{color:var(--color-neutral-dark,#4C5255)}
+#type code{color:var(--blue-light)}
+/* the one light specimen on the page keeps its own ink */
+#type .ts-context{color:var(--ink)}
+#type .ts-context h2{color:var(--ink)}
+/* callouts on this chapter run Scheme 2: blue-darkest ground, white ink,
+   white border at 20% — no accent tint */
+#type .callout,#type .callout.do{background:var(--scheme2-bg,#002533);border-color:var(--scheme2-border,rgba(255,255,255,0.20))}
+#type .callout .co-kicker,#type .callout.do .co-kicker,#type .callout .co-icon,#type .callout.do .co-icon{color:var(--scheme2-accent,#fff)}
+#type .callout .co-text p,#type .callout.do .co-text p{color:var(--scheme2-text,#fff)}
+
+/* Glyph-set specimen: name and note on the label rail, full
+   character set across the content column. */
+.ts-block{display:grid;grid-template-columns:3fr 9fr;column-gap:var(--gut-2xl);row-gap:var(--gut-xl);align-items:start;padding:clamp(36px,4.4vw,72px) 0;border-top:1px solid rgba(255,255,255,0.16)}
+#type .ts-name,.ts-name{font-size:var(--t-sub);letter-spacing:-0.025em;line-height:1.1;color:var(--blue);margin:0 0 var(--gut-m)}
+.ts-note{margin:0;font-size:var(--text-body-m,1rem);line-height:var(--text-body-lh,1.5);color:var(--color-neutral-lighter,#D8DADA);max-width:40ch;text-wrap:pretty}
+.ts-meta{margin:var(--gut-l) 0 0;display:grid;gap:5px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-neutral-light,#B2B5B6)}
+.ts-glyphs{display:grid;gap:0.06em;min-width:0;color:var(--blue-light);font-size:clamp(34px,5.2vw,82px);line-height:1.05;letter-spacing:-0.035em;font-weight:500;overflow-wrap:anywhere}
+.ts-glyphs span{display:block}
+.ts-glyphs .fig{font-size:0.8em;letter-spacing:-0.015em}
+.ts-glyphs.is-mono{font-family:var(--mono);font-weight:400;font-size:clamp(17px,2.4vw,36px);letter-spacing:0;line-height:1.35}
+@media (max-width:1024px){.ts-block{grid-template-columns:minmax(0,1fr)}}
+
+
+/* ── Display tier: rule on the left, proof on the right ─────────
+   Two specimens at the same size, one at 95% leading and one below
+   it, so the collision the rule prevents is visible. */
+.dt-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gut-2xl);row-gap:var(--gut-xl);align-items:start;margin-top:var(--gut-xl)}
+.dt-head{margin:0 0 var(--gut-m);font-size:var(--t-sub);line-height:1.1;letter-spacing:-0.025em;color:var(--white);max-width:20ch;text-wrap:balance}
+.dt-note{margin:0;font-size:var(--text-body-l,1.125rem);line-height:var(--text-body-lh,1.5);color:var(--color-neutral-lighter,#D8DADA);max-width:44ch;text-wrap:pretty}
+.dt-facts{display:grid;margin-top:var(--gut-l)}
+.dt-facts div{display:grid;grid-template-columns:minmax(110px,0.55fr) minmax(0,1fr);gap:var(--gut-m);padding:11px 0;border-top:1px solid rgba(255,255,255,0.14)}
+.dt-facts span,.dt-facts b{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:400}
+.dt-facts span{color:var(--color-neutral-light,#B2B5B6)}
+.dt-facts b{color:var(--blue-light)}
+.dt-demo{margin:0;display:grid;gap:var(--gut-l);min-width:0}
+.dt-case{padding:var(--gut-l);border:1px solid var(--scheme2-border,rgba(255,255,255,0.20));border-radius:var(--radius-xl,18px);min-width:0;overflow:hidden}
+.dt-spec{margin:0;font-size:clamp(26px,3.4vw,50px);font-weight:500;letter-spacing:-0.035em;color:var(--blue-light)}
+.dt-tag{display:block;margin-top:var(--gut-m);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.dt-tag.ok{color:var(--accent)}
+.dt-tag.bad{color:var(--magenta)}
+@media (max-width:1024px){.dt-split{grid-template-columns:minmax(0,1fr)}}

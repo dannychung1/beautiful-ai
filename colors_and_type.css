@@ -94,6 +94,7 @@
 
   /* Aliases for convenience */
   --color-accent:                 var(--color-blue);
+  --color-blue-accent:            var(--color-blue);  /* referenced by .btn-primary */
   --color-accent-hover:           var(--color-blue-dark);
   --color-text:                   var(--color-neutral-darkest);
   --color-bg:                     var(--color-white);
