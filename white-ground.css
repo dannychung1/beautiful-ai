@@ -69,7 +69,7 @@
 
 /* 7 — photography FPO frames and layer labels on white */
 .slide-fpo { background: rgba(0,26,36,0.02); border-color: rgba(0,26,36,0.24); }
-.slide-fpo .fpo-mark { color: var(--color-neutral, #7F8486); }
+.slide-fpo .fpo-mark { color: var(--color-neutral, #72858E); }
 .slide-fpo .rs-num { color: var(--neutral); }
 .slide-cap .role, .layer-sub .role { color: var(--blue-dark); }
 
@@ -157,21 +157,13 @@
 #photography .wrap p, #photography .wrap div p { color: var(--neutral-dark); }
 #photography .wrap .sub-title h3, #photography .wrap .sub-title h4 { color: var(--neutral-darkest); }
 
-/* inline-styled specimens that inherit a light ink */
-#imagery .archetype-stage .frame-caption { color: var(--neutral-dark); }
-
 /* last four: magenta accent, the motif panel ground, and the motif tags */
 #color .cs-body em.accent, .accent.magenta { color: var(--magenta, #DB2475); }
-#imagery .archetype-stage .archetype-art { background: var(--white); border: 1px solid rgba(0,26,36,0.10); }
-#imagery .archetype-stage .archetype-art .glyph-line { color: var(--neutral-darkest); }
-#imagery .archetype-stage .archetype-art .frame-caption { color: var(--neutral-dark); }
-#imagery .expression-card .ex-tag, #imagery .expression-card.dark .ex-tag,
-#imagery .expression-card.blue .ex-tag { color: var(--blue-darker); }
 
 /* footer keeps its own ground: darkest blue */
 .footer { background: var(--blue-darkest); color: var(--white); border-top: none; }
 .footer h2, .footer h3, .footer strong { color: var(--white); }
-.footer a { color: var(--color-neutral-lighter, #D8DADA); }
+.footer a { color: var(--color-neutral-lighter, #C4CDD2); }
 .footer a:hover { color: var(--white); }
 .footer-bottom { border-color: rgba(255,255,255,0.12); }
 
@@ -185,11 +177,11 @@
 .n-ring{--lc:var(--neutral-dark)}
 .n-brand{--lc:#00B9FF;background:rgba(0,185,255,0.10);border-color:rgba(0,185,255,0.55)}
 .n-product{--lc:#DB2475;background:rgba(219,36,117,0.09);border-color:rgba(219,36,117,0.5)}
-.n-content{--lc:#5C9E3F;background:rgba(92,158,63,0.12);border-color:rgba(92,158,63,0.55)}
+.n-content{--lc:var(--amber);background:color-mix(in oklch,var(--amber) 16%,transparent);border-color:color-mix(in oklch,var(--amber) 70%,transparent)}
 .n-name{display:flex;align-items:center;gap:7px;color:var(--neutral-darkest)}
 .n-name::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lc);flex:none}
 .vk-dot{border-color:rgba(0,26,36,0.25)}
-.d-brand{background:#00B9FF}.d-product{background:#DB2475}.d-content{background:#5C9E3F}
+.d-brand{background:#00B9FF}.d-product{background:#DB2475}.d-content{background:var(--amber)}
 .vk-item{padding-left:16px;border-left:2px solid var(--lc,rgba(0,26,36,0.12))}
-.vk-item.l-brand{--lc:#00B9FF}.vk-item.l-product{--lc:#DB2475}.vk-item.l-content{--lc:#5C9E3F}
+.vk-item.l-brand{--lc:#00B9FF}.vk-item.l-product{--lc:#DB2475}.vk-item.l-content{--lc:var(--amber)}
 .vk-when{color:var(--neutral-dark)}

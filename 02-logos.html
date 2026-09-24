@@ -14,13 +14,13 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Beautiful.ai Brand Guidelines cover">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="colors_and_type.css?v=101">
-<link rel="stylesheet" href="styles.css?v=101">
-<link rel="stylesheet" href="illustration.css?v=101">
-<link rel="stylesheet" href="photography.css?v=101">
-<link rel="stylesheet" href="white-ground.css?v=101">
+<link rel="stylesheet" href="colors_and_type.css?v=110">
+<link rel="stylesheet" href="styles.css?v=110">
+<link rel="stylesheet" href="illustration.css?v=110">
+<link rel="stylesheet" href="photography.css?v=110">
+<link rel="stylesheet" href="white-ground.css?v=110">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
-<script src="image-slot.js?v=101"></script>
+<script src="image-slot.js?v=110"></script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
 </head>
 <body class="subpage">
@@ -42,71 +42,101 @@
   <div class="wrap">
     <div class="section-head">
       <p class="lede">Our logo is the wordmark in lowercase, anchored by a period — a quiet nod to the completion of a thought, and start of the next great one.</p>
+      <div class="dl-row"><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download logo files <span>↓</span></a></div>
     </div>
-    <div class="dl-row"><a class="dl-pill" href="https://drive.google.com/" target="_blank" rel="noopener">Download logo files <span>↓</span></a></div>
+
+    <!-- Primary wordmark, full width -->
+    <div class="sub-title"><h3>Hero</h3><p class="st-rule">Use the full-color wordmark wherever you can.</p></div>
+    <p style="color:var(--neutral-dark);max-width:60ch">The full-color wordmark on a light ground is our primary logo. Reach for it first on every surface, and fall back to another version only when the ground or the size rules it out.</p>
+    <div class="logo-stage cream logo-primary">
+      <img src="assets/beautifulai-logo-color.svg" alt="Beautiful.ai wordmark" style="width:58%;max-height:46%;">
+    </div>
 
     <!-- Big wordmark + symbol -->
     <div class="logo-hero">
       <div>
         <div class="sub-title" style="border-top:none;padding-top:0;margin-bottom:24px"><h3>The symbol</h3></div>
-        <p style="font-size:17px;color:var(--neutral-dark);max-width:42ch">
+        <p style="font-size:var(--text-body-l,1.125rem);color:var(--neutral-dark);max-width:42ch">
           A lowercase <strong style="color:var(--neutral-darkest)">b</strong>
           with a cyan period — our entire belief system, condensed.
           The <strong style="color:var(--neutral-darkest)">b</strong> is
           for <em class="accent">beautiful</em>. The dot is the moment
           a draft becomes finished work.
         </p>
-        <div style="display:flex;gap:32px;margin-top:32px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--neutral-dark)">
-          <div><div style="font-size:24px;font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">1.05</div>letter ratio</div>
-          <div><div style="font-size:24px;font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">25%</div>dot width</div>
-          <div><div style="font-size:24px;font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">2024</div>introduced</div>
+        <div style="display:flex;gap:32px;margin-top:32px;font-family:var(--mono);font-size:var(--t-label-sm,11px);text-transform:uppercase;letter-spacing:0.08em;color:var(--neutral-dark)">
+          <div><div style="font-size:var(--t-card);font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">1.05</div>letter ratio</div>
+          <div><div style="font-size:var(--t-card);font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">25%</div>dot width</div>
+          <div><div style="font-size:var(--t-card);font-family:var(--font);color:var(--neutral-darkest);margin-bottom:4px">2024</div>introduced</div>
         </div>
       </div>
       <div class="logo-stage" style="aspect-ratio:5/3;">
         <span class="corner-label">Symbol — primary</span>
-        <img src="assets/beautifulai-symbol-dark.svg" alt="Beautiful.ai symbol" class="symbol" style="width:54%;">
+        <img src="assets/beautifulai-symbol-dark.svg" alt="Beautiful.ai symbol" class="symbol" style="height:76%;width:auto;max-width:100%;">
       </div>
     </div>
 
     <!-- Variants grid -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:80px">
-      <div class="logo-stage cream" style="aspect-ratio:1;">
-        <span class="corner-label">Light · Default</span>
-        <img src="assets/beautifulai-logo-black.svg" alt="" style="width:70%;max-height:30%;">
-      </div>
-      <div class="logo-stage dark" style="aspect-ratio:1;">
-        <span class="corner-label">Dark</span>
-        <img src="assets/beautifulai-logo-white.svg" alt="" style="width:70%;max-height:30%;">
-      </div>
-      <div class="logo-stage blue" style="aspect-ratio:1;">
-        <span class="corner-label">Accent</span>
-        <img src="assets/beautifulai-logo-black.svg" alt="" style="width:70%;max-height:30%;">
-      </div>
-      <div class="logo-stage" style="aspect-ratio:1;background:#F0F3F5;position:relative;">
-        <span class="corner-label">Symbol only</span>
-        <img src="assets/beautifulai-symbol-dark.svg" alt="" style="width:42%;">
-      </div>
+    <div class="sub-title"><h3>Logo color</h3><p class="st-rule">Pick the version with the most contrast against its ground.</p></div>
+    <p style="color:var(--neutral-dark);max-width:60ch">We carry one logo in four versions. Which one you use depends entirely on what sits behind it.</p>
+    <div class="logo-variants">
+      <figure>
+        <div class="logo-stage cream" style="aspect-ratio:1;">
+          <img src="assets/beautifulai-logo-color.svg" alt="" style="width:70%;max-height:30%;">
+        </div>
+        <figcaption>Primary</figcaption>
+      </figure>
+      <figure>
+        <div class="logo-stage dark" style="aspect-ratio:1;">
+          <img src="assets/beautifulai-logo-white.svg" alt="" style="width:70%;max-height:30%;">
+        </div>
+        <figcaption>Reversed, for dark grounds</figcaption>
+      </figure>
+      <figure>
+        <div class="logo-stage blue" style="aspect-ratio:1;">
+          <img src="assets/beautifulai-logo-black.svg" alt="" style="width:70%;max-height:30%;">
+        </div>
+        <figcaption>Single color ink, for Azul grounds</figcaption>
+      </figure>
+      <figure>
+        <div class="logo-stage" style="aspect-ratio:1;background:#F0F3F5;position:relative;">
+          <img src="assets/beautifulai-symbol-dark.svg" alt="" style="height:42%;width:auto">
+        </div>
+        <figcaption>Symbol, when space runs out</figcaption>
+      </figure>
     </div>
 
     <!-- Clearspace + min size -->
     <div class="logo-anatomy">
       <!-- Clearspace -->
       <div>
-        <div class="sub-title"><h3>Clearspace</h3><p class="st-rule">Keep 1× the height of the b.</p></div>
+        <div class="sub-title"><h3>Clearspace</h3><p class="st-rule">Keep 1× the height on every side.</p></div>
         <p style="color:var(--neutral-dark);margin-top:16px;max-width:42ch">
           Around the wordmark, reserve clearspace equal to one&nbsp;<strong style="color:var(--blue-darker);font-family:var(--mono)">x</strong> — the height
-          of the <strong style="color:var(--neutral-darkest)">b</strong> — on every side. Nothing else lives in this margin.
+          of the <strong style="color:var(--neutral-darkest)">b</strong> — on every side. Around the symbol, one&nbsp;<strong style="color:var(--blue-darker);font-family:var(--mono)">x</strong> is the full height of the symbol itself. Nothing else lives in this margin.
         </p>
 
-        <div class="anatomy-panel" style="margin-top:24px;padding:80px">
+        <div class="eyebrow" style="margin-top:28px">Wordmark</div>
+        <div class="anatomy-panel" style="margin-top:12px;padding:80px">
           <div style="position:relative;display:inline-block;">
             <!-- spacing markers -->
-            <div style="position:absolute;inset:-44px;border:1px dashed rgba(0,26,36,0.25);border-radius:6px"></div>
-            <div style="position:absolute;top:-44px;left:50%;transform:translate(-50%,-2px);font-family:var(--mono);font-size:11px;color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
-            <div style="position:absolute;bottom:-44px;left:50%;transform:translate(-50%,2px);font-family:var(--mono);font-size:11px;color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
-            <div style="position:absolute;left:-44px;top:50%;transform:translate(-2px,-50%);font-family:var(--mono);font-size:11px;color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
-            <div style="position:absolute;right:-44px;top:50%;transform:translate(2px,-50%);font-family:var(--mono);font-size:11px;color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;inset:-36px;border:1px dashed rgba(0,26,36,0.25);border-radius:6px"></div>
+            <div style="position:absolute;top:-36px;left:50%;transform:translate(-50%,-2px);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;bottom:-36px;left:50%;transform:translate(-50%,2px);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;left:-36px;top:50%;transform:translate(-2px,-50%);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;right:-36px;top:50%;transform:translate(2px,-50%);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
             <img src="assets/beautifulai-logo-black.svg" alt="" style="height:36px;display:block;">
+          </div>
+        </div>
+
+        <div class="eyebrow" style="margin-top:32px">Symbol</div>
+        <div class="anatomy-panel" style="margin-top:12px;padding:80px">
+          <div style="position:relative;display:inline-block;">
+            <div style="position:absolute;inset:-56px;border:1px dashed rgba(0,26,36,0.25);border-radius:6px"></div>
+            <div style="position:absolute;top:-56px;left:50%;transform:translate(-50%,-2px);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;bottom:-56px;left:50%;transform:translate(-50%,2px);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;left:-56px;top:50%;transform:translate(-2px,-50%);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <div style="position:absolute;right:-56px;top:50%;transform:translate(2px,-50%);font-family:var(--mono);font-size:var(--t-label-sm,11px);color:var(--blue-darker);font-weight:600;background:var(--cream);padding:0 6px">x</div>
+            <img src="assets/beautifulai-symbol-dark.svg" alt="" style="height:56px;display:block;">
           </div>
         </div>
       </div>
@@ -145,22 +175,22 @@
     <!-- Dos -->
     <div style="margin-top:96px">
       <div class="sub-title"><h3>Do</h3><p class="st-rule">Four rules that keep it right.</p></div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:32px">
+      <div class="grid-4" style="margin-top:32px">
         <div style="border-top:2px solid var(--blue);padding-top:16px">
-          <div style="font-size:17px;font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">Highest contrast</div>
-          <p style="font-size:14px;line-height:1.5;color:var(--neutral-dark);margin:0">Always pick the logo version with the most contrast against its background.</p>
+          <div style="font-size:var(--text-body-l,1.125rem);font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">Highest contrast</div>
+          <p style="font-size:var(--text-body-s,0.875rem);line-height:1.5;color:var(--neutral-dark);margin:0">Always pick the logo version with the most contrast against its background.</p>
         </div>
         <div style="border-top:2px solid var(--blue);padding-top:16px">
-          <div style="font-size:17px;font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">1× clearspace</div>
-          <p style="font-size:14px;line-height:1.5;color:var(--neutral-dark);margin:0">Keep clearspace equal to the height of the "b" on all four sides.</p>
+          <div style="font-size:var(--text-body-l,1.125rem);font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">1× clearspace</div>
+          <p style="font-size:var(--text-body-s,0.875rem);line-height:1.5;color:var(--neutral-dark);margin:0">Keep clearspace equal to the height of the "b" on all four sides.</p>
         </div>
         <div style="border-top:2px solid var(--blue);padding-top:16px">
-          <div style="font-size:17px;font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">80px minimum</div>
-          <p style="font-size:14px;line-height:1.5;color:var(--neutral-dark);margin:0">Never reproduce the wordmark narrower than 80px wide.</p>
+          <div style="font-size:var(--text-body-l,1.125rem);font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">80px minimum</div>
+          <p style="font-size:var(--text-body-s,0.875rem);line-height:1.5;color:var(--neutral-dark);margin:0">Never reproduce the wordmark narrower than 80px wide.</p>
         </div>
         <div style="border-top:2px solid var(--blue);padding-top:16px">
-          <div style="font-size:17px;font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">10% of the frame</div>
-          <p style="font-size:14px;line-height:1.5;color:var(--neutral-dark);margin:0">The logo should occupy no more than a tenth of any composition.</p>
+          <div style="font-size:var(--text-body-l,1.125rem);font-weight:600;color:var(--neutral-darkest);margin-bottom:8px">10% of the frame</div>
+          <p style="font-size:var(--text-body-s,0.875rem);line-height:1.5;color:var(--neutral-dark);margin:0">The logo should occupy no more than a tenth of any composition.</p>
         </div>
       </div>
     </div>
@@ -169,7 +199,7 @@
     <div style="margin-top:96px">
       <div class="sub-title"><h3>Don't</h3><p class="st-rule">Eight ways to break the signature.</p></div>
       <p style="color:var(--neutral-dark);margin-top:16px;max-width:60ch">
-        The wordmark is a system. Don't distort or tilt it, don't
+        The wordmark is a system. Don't distort, tilt, or crop it, don't
         remake or recolor it, don't add effects, don't combine it with other
         logos, don't set our name as text inside a sentence — write
         "Beautiful.ai" — and never place it on a low-contrast background.
@@ -197,8 +227,16 @@
           <div class="label"><span class="x">✕</span>Don't reduce the wordmark's opacity.</div>
         </div>
         <div class="dont">
-          <div class="preview"><span style="font-size:19px;line-height:1.5;color:var(--neutral-darkest);max-width:24ch;text-align:center">Built with <img src="assets/beautifulai-logo-black.svg" alt="" style="height:15px;vertical-align:baseline"> in an afternoon.</span></div>
+          <div class="preview"><span style="font-size:var(--text-body-l,1.125rem);line-height:1.5;color:var(--neutral-darkest);max-width:24ch;text-align:center">Built with <img src="assets/beautifulai-logo-black.svg" alt="" style="height:15px;vertical-align:baseline"> in an afternoon.</span></div>
           <div class="label"><span class="x">✕</span>Don't set the logo inside a sentence — write "Beautiful.ai".</div>
+        </div>
+        <div class="dont">
+          <div class="preview"><img src="assets/beautifulai-logo-black.svg" alt="" style="transform:rotate(-9deg)"></div>
+          <div class="label"><span class="x">✕</span>Don't angle the logo. It always sits upright.</div>
+        </div>
+        <div class="dont">
+          <div class="preview" style="overflow:hidden;align-items:flex-start"><img src="assets/beautifulai-symbol-dark.svg" alt="" style="height:112px;width:auto;margin-bottom:-42px"></div>
+          <div class="label"><span class="x">✕</span>Don't crop the logo or the symbol. Show it whole.</div>
         </div>
       </div>
     </div>
@@ -226,7 +264,7 @@
   <div class="footer-grid">
     <div>
       <img src="assets/beautifulai-logo-white.svg" alt="Beautiful.ai" style="height:22px;margin-bottom:20px">
-      <p style="font-size:14px;color:var(--neutral-light);max-width:38ch;margin:0">
+      <p style="font-size:var(--text-body-s,0.875rem);color:var(--neutral-light);max-width:38ch;margin:0">
         The Beautiful.ai brand is the property of Beautiful.ai, Inc. These
         guidelines are for internal and partner use. Questions, requests for
         partnership assets, or co-marketing approvals — brand@beautiful.ai.
@@ -270,7 +308,7 @@
     <span>Brand Guidelines · v4.2 · 05.19.2026</span>
   </div>
 </footer>
-<script src="site.js?v=101"></script>
+<script src="site.js?v=110"></script>
 
 </body>
 </html>

@@ -1,0 +1,40 @@
+/* Color chapter: tier overview, tier panels, usage grids, type pairing, misuses */
+#color .sys-tiers{display:grid;gap:clamp(48px,5vw,80px)}
+#color .sys-tier{display:grid;gap:var(--gut-l)}
+#color .sys-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:var(--gut-xl)}
+#color .sys-item{grid-column:span 3;margin:0;display:grid;gap:12px;align-content:start;min-width:0}
+#color .sys-dot{position:relative;width:100%;aspect-ratio:3/2;border-radius:var(--radius-l,12px);overflow:hidden}
+#color .sys-item figcaption{display:grid;gap:2px}
+#color .sys-name{font-size:var(--text-body-s,0.875rem);font-weight:500;color:var(--ink,#002533)}
+#color .sys-hex{font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;color:var(--neutral-dark)}
+#color .tier-panel{display:grid;grid-template-columns:var(--grid-label);column-gap:var(--gut-2xl,64px);row-gap:var(--gut-xl,40px);align-items:start}
+#color .tier-copy{margin:0;max-width:44ch;color:var(--neutral-dark);font-size:var(--text-body-m,1rem);line-height:1.55;text-wrap:pretty}
+#color .tier-mosaic{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:var(--gut);min-height:clamp(360px,36vw,520px)}
+#color .tier-mosaic.primary>:first-child{grid-column:span 5}#color .tier-mosaic.primary>:last-child{grid-column:span 4}
+#color .tier-mosaic.accent>*{grid-column:span 3}
+#color .tier-cell{border-radius:var(--radius-l,12px);border:none;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:100%}
+#color .tier-cell .codes{opacity:1;margin-top:auto}
+#color .a11y{display:flex;flex-wrap:wrap;gap:8px}
+#color .a11y span{font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border:1px solid currentColor;border-radius:999px}
+#color .usage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gut-l,32px)}
+#color .usage-grid figure{margin:0;display:grid;gap:14px}
+#color .usage-media{width:100%;border-radius:12px;overflow:hidden;background:var(--cream)}
+#color .usage-grid figcaption,#color .wm-grid figcaption{font-size:var(--text-body-s,0.875rem);color:var(--neutral-dark)}
+#color .pair-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.6vw,24px)}
+#color .pair{aspect-ratio:3/2;border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:space-between}
+#color .pair-aa{font-size:var(--text-h3-size,46px);line-height:1;font-weight:500;letter-spacing:var(--ls-tight,-0.02em)}
+#color .pair-meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;text-transform:uppercase}
+#color .fine{margin:20px 0 0;font-size:var(--text-body-xs-size,12px);color:var(--neutral-dark)}
+#color .wm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gut-m,24px)}
+#color .wm-grid figure{margin:0;display:grid;gap:14px}
+#color .wm-grid .logo-stage{border-radius:12px}
+#color .donts{margin-top:0}#color .dont{display:flex;flex-direction:column;gap:16px;aspect-ratio:auto;padding:20px;height:auto}#color .dont .preview{flex:none;width:100%;padding:0;overflow:hidden;background:none;border:none}#color .dont .label{align-items:flex-start}
+#color .mini-slide{width:100%;aspect-ratio:16/9;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:24px}
+#color .mini-slide span{font-size:clamp(18px,2vw,var(--text-h5-size,30px));text-align:center;line-height:1.2;font-weight:500;letter-spacing:var(--ls-tight,-0.02em)}
+#color .mini-flood{padding:0;gap:0;overflow:hidden}
+#color .mini-flood i{flex:1 1 0;height:100%}
+@media (max-width:1024px){#color .sys-item{grid-column:span 4}#color .sys-tier,#color .tier-panel{grid-template-columns:minmax(0,1fr)}#color .pair-grid,#color .wm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){#color .sys-item{grid-column:span 6}#color .tier-mosaic{grid-template-columns:minmax(0,1fr)}#color .tier-mosaic>*{grid-column:auto!important}#color .usage-grid{grid-template-columns:minmax(0,1fr)}#color .tier-mosaic{min-height:0}#color .tier-cell{min-height:220px}}
+@media (max-width:520px){#color .pair-grid,#color .wm-grid{grid-template-columns:minmax(0,1fr)}}
+#color .sys-hex{overflow-wrap:anywhere}
+#color .color-block .palette-grid{margin-top:clamp(56px,6vw,96px)!important}#color .color-block .combos,#color .color-block .gradient-pair{margin-top:clamp(40px,4vw,64px)}#color .combos{gap:clamp(24px,2.4vw,40px)}

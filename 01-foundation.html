@@ -14,13 +14,13 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Beautiful.ai Brand Guidelines cover">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="colors_and_type.css?v=101">
-<link rel="stylesheet" href="styles.css?v=101">
-<link rel="stylesheet" href="illustration.css?v=101">
-<link rel="stylesheet" href="photography.css?v=101">
-<link rel="stylesheet" href="white-ground.css?v=101">
+<link rel="stylesheet" href="colors_and_type.css?v=110">
+<link rel="stylesheet" href="styles.css?v=110">
+<link rel="stylesheet" href="illustration.css?v=110">
+<link rel="stylesheet" href="photography.css?v=110">
+<link rel="stylesheet" href="white-ground.css?v=110">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
-<script src="image-slot.js?v=101"></script>
+<script src="image-slot.js?v=110"></script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
 </head>
 <body class="subpage">
@@ -136,7 +136,7 @@
     </div>
   </div>
   <div class="tp-body">
-    <p><span class="tp-lead">Setting the new standard for presentations at work takes an aggressive point of view and promise.</span> We get professionals to work ready. With an AI thinking partner and designer expertise built in, our platform provides speed and structure from the start. The result is presentations that are on time, on brand, and ready to impress.</p>
+    <p><span class="tp-lead">Setting the new standard for presentations at work takes a committed point of view and promise.</span> We get professionals to work ready. With an AI thinking partner and designer expertise built in, our platform provides speed and structure from the start. The result is presentations that are on time, on brand, and ready to impress.</p>
   </div>
 </section>
 
@@ -195,7 +195,6 @@
         </figure>
       </div>
       <div class="arch-refs-col">
-        <div class="sub-title"><h4>How we help</h4></div>
       <div class="arch-refs">
         <figure><img class="pos-banks" src="assets/ref-banks.jpg" alt="Dr. Louise Banks"><figcaption><span class="ar-name">Dr. Louise Banks</span><span class="ar-src">Arrival (2016)</span><p class="ar-role">Meaning, made usable. Decodes a language no one has read and gives it a structure the command room can act on.</p></figcaption></figure>
         <figure><img src="assets/ref-q.jpg" alt="Q"><figcaption><span class="ar-name">Q</span><span class="ar-src">Bond films</span><p class="ar-role">Ready before you are. Hands you the exact instrument for the job, tested long before the mission.</p></figcaption></figure>
@@ -250,11 +249,15 @@
       </div>
     </div>
 
-    <div class="sub-title" style="margin-top:clamp(56px,6vw,88px)"><h3>Words we use</h3><p class="st-rule">We use the same words for professionals and their work on every surface.</p></div>
-    <div class="ill-rules" style="max-width:70ch">
-      <div class="ill-rule"><strong>Professionals, pros, teams, leaders</strong><span>We call our customers what they are, and we use whichever of the four the sentence needs. We never write users, folks, or people who.</span></div>
-      <div class="ill-rule"><strong>Slides, smart slide layouts, presentations, decks</strong><span>We call the work what it is on the screen in front of them, and we pick the word that fits the context.</span></div>
-      <div class="ill-rule"><strong>Full sentences by default</strong><span>We write complete sentences so that a clipped phrase still lands when we use one. We vary the rhythm and we never stack three fragments in a row.</span></div>
+    <div class="callout words-callout">
+      <span class="material-symbols-outlined co-icon" aria-hidden="true">spellcheck</span>
+      <div class="co-text">
+        <span class="co-kicker">Words we use</span>
+        <p>We use the same words for professionals and their work on every surface.</p>
+        <p><strong>Professionals, pros, teams, leaders.</strong> We call our customers what they are, and we use whichever of the 4 the sentence needs. We never write users, folks, or people who.</p>
+        <p><strong>Slides, smart slide layouts, presentations, decks.</strong> We call the work what it is on the screen in front of them, and we pick the word that fits the context.</p>
+        <p><strong>Full sentences by default.</strong> We write complete sentences so that a clipped phrase still lands when we use one. We vary the rhythm and we never stack 3 fragments in a row.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -271,29 +274,42 @@
   <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Storytelling</h2></div></div>
   <div class="wrap">
     <div class="section-head" style="margin-bottom:56px">
-      <p class="lede" style="max-width:560px">We tell three stories that nest inside each other. Brand is the outer layer and it is always on, product sits inside it whenever the platform is the clearest way to make the point, and content is the innermost layer, which is the slide itself.</p>
+      <p class="lede" style="max-width:560px">Every brand story we tell come from one or more facets: the professional, the product, and the presentation.</p>
     </div>
-    <div class="venn-layout">
-      <div class="nest" aria-hidden="true">
-        <span class="n-ring n-brand"><span class="n-name">Brand</span>
-          <span class="n-ring n-product"><span class="n-name">Product</span>
-            <span class="n-ring n-content"><span class="n-name">Content</span></span>
-          </span>
-        </span>
+    <div class="story-c" data-active="brand">
+      <div class="sc-stage">
+      <div class="sc-picker">
+        <div class="nest venn3" data-active="brand">
+          <svg viewBox="0 0 100 100" role="group" aria-label="3 overlapping facets: professional, product and presentation">
+            <circle class="v3 v3-brand" data-layer="brand" cx="50" cy="35" r="27" tabindex="0" role="button" aria-label="Professional"></circle>
+            <circle class="v3 v3-product" data-layer="product" cx="34" cy="62" r="27" tabindex="0" role="button" aria-label="Product"></circle>
+            <circle class="v3 v3-content" data-layer="content" cx="66" cy="62" r="27" tabindex="0" role="button" aria-label="Presentation"></circle>
+          </svg>
+        </div>
+        <p class="sc-crumb"><span data-layer="brand"><i class="sc-d d-brand"></i>Professional</span><span data-layer="product"><i class="sc-d d-product"></i>Product</span><span data-layer="content"><i class="sc-d d-content"></i>Presentation</span></p>
+        <div class="venn-key">
+        <div class="vk-item l-brand" data-layer="brand"><div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Professional</span><span class="vk-when">Hero when the story is about who</span></div><p>We show professionals in the roles and scenarios they recognize as their own, so every frame reflects the work they actually do.</p></div>
+        <div class="vk-item l-product" data-layer="product"><div class="vk-head"><span class="vk-dot d-product"></span><span class="vk-name">Product</span><span class="vk-when">Hero when the story is about how</span></div><p>We show the features and ways of working that help professionals make great slides.</p></div>
+        <div class="vk-item l-content" data-layer="content"><div class="vk-head"><span class="vk-dot d-content"></span><span class="vk-name">Presentation</span><span class="vk-when">Hero when the story is about what</span></div><p>We show relevant content that reflects what our professionals are actually working on.</p></div>
+        </div>
       </div>
-      <div class="venn-key">
-        <div class="vk-item l-brand">
-          <div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Brand</span><span class="vk-when">Outer layer · always on</span></div>
-          <p>The professional's success. Every surface is telling this story, whether or not the product itself ever appears in frame.</p>
-        </div>
-        <div class="vk-item l-product">
-          <div class="vk-head"><span class="vk-dot d-product"></span><span class="vk-name">Product</span><span class="vk-when">Middle layer · often</span></div>
-          <p>How the platform gets them there. Shown whenever a feature or the editor itself is the clearest way to tell the brand story — but brand doesn't need product visible to land.</p>
-        </div>
-        <div class="vk-item l-content">
-          <div class="vk-head"><span class="vk-dot d-content"></span><span class="vk-name">Content</span><span class="vk-when">Inner layer · the slide itself</span></div>
-          <p>The actual slide on screen. A clear, beautifully designed piece of content proves the brand promise on its own, with or without the product visible around it — most often shown together with product, since making the deck is the product's whole job, but not always.</p>
-        </div>
+      <div class="sc-sheets">
+        <section class="sc-sheet l-brand" data-layer="brand" id="story-brand" aria-label="Professional imagery">
+          <div class="sc-mhead"><div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Professional</span><span class="vk-when">Hero when the story is about who</span></div><p>We show professionals in the roles and scenarios they recognize as their own, so every frame reflects the work they actually do.</p></div>
+          <div class="sc-grid"><div class="sc-cell"><image-slot id="sc-pro-1" shape="rect" fit="cover" src="assets/photo-brand-facing-light.png" placeholder="FPO — drop a photo: A professional in their element"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-2" shape="rect" fit="cover" src="assets/photo-pro-home-office-mid.png" placeholder="FPO — drop a photo: Working from a home office with a colleague"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-3" shape="rect" fit="cover" src="assets/photo-icp-desk.png" placeholder="FPO — drop a photo: Building a deck at a desk"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-4" shape="rect" fit="cover" src="assets/photo-pro-train.png" placeholder="FPO — drop a photo: Working on the commute"></image-slot></div></div>
+          <p class="sc-rule">A photo earns its place when a professional sees their own role and setting in it.</p>
+        </section>
+        <section class="sc-sheet l-product" data-layer="product" id="story-product" aria-label="Product imagery">
+          <div class="sc-mhead"><div class="vk-head"><span class="vk-dot d-product"></span><span class="vk-name">Product</span><span class="vk-when">Hero when the story is about how</span></div><p>We show the features and ways of working that help professionals make great slides.</p></div>
+          <div class="sc-grid"><div class="sc-cell"><image-slot id="sc-prod-1" shape="rect" fit="cover" src="assets/hero-laptop.png" placeholder="FPO — drop a photo: The editor in use"></image-slot></div><div class="sc-cell"><image-slot id="sc-prod-2" shape="rect" fit="cover" src="assets/photo-light-screenglow.png" placeholder="FPO — drop a photo: Working in the product"></image-slot></div><div class="sc-cell"><image-slot id="sc-prod-3" shape="rect" fit="cover" placeholder="FPO — drop a photo: A Smart Slide rebalancing its layout"></image-slot></div><div class="sc-cell"><image-slot id="sc-prod-4" shape="rect" fit="cover" placeholder="FPO — drop a photo: Create with AI drafting a deck"></image-slot></div></div>
+          <p class="sc-rule">A photo earns its place when it shows a feature doing its job, clearly and up close.</p>
+        </section>
+        <section class="sc-sheet l-content" data-layer="content" id="story-content" aria-label="Presentation imagery">
+          <div class="sc-mhead"><div class="vk-head"><span class="vk-dot d-content"></span><span class="vk-name">Presentation</span><span class="vk-when">Hero when the story is about what</span></div><p>We show relevant content that reflects what our professionals are actually working on.</p></div>
+          <div class="sc-grid"><div class="sc-cell"><image-slot id="sc-pres-1" shape="rect" fit="cover" src="assets/hero-content-fan.png" placeholder="FPO — drop a photo: A fanned deck of real work"></image-slot></div><div class="sc-cell"><image-slot id="sc-pres-2" shape="rect" fit="cover" src="assets/hero-content-stack.png" placeholder="FPO — drop a photo: A stack of on-brand slides"></image-slot></div><div class="sc-cell"><image-slot id="sc-pres-3" shape="rect" fit="cover" placeholder="FPO — drop a photo: A pipeline review slide"></image-slot></div><div class="sc-cell"><image-slot id="sc-pres-4" shape="rect" fit="cover" placeholder="FPO — drop a photo: A launch plan title slide"></image-slot></div></div>
+          <p class="sc-rule">A slide earns its place when a professional would present it this week. We never show lorem ipsum or generic charts.</p>
+        </section>
+      </div>
       </div>
     </div>
   </div>
@@ -315,7 +331,7 @@
   <div class="footer-grid">
     <div>
       <img src="assets/beautifulai-logo-white.svg" alt="Beautiful.ai" style="height:22px;margin-bottom:20px">
-      <p style="font-size:14px;color:var(--neutral-light);max-width:38ch;margin:0">
+      <p style="font-size:var(--text-body-s,0.875rem);color:var(--neutral-light);max-width:38ch;margin:0">
         The Beautiful.ai brand is the property of Beautiful.ai, Inc. These
         guidelines are for internal and partner use. Questions, requests for
         partnership assets, or co-marketing approvals — brand@beautiful.ai.
@@ -359,7 +375,7 @@
     <span>Brand Guidelines · v4.2 · 05.19.2026</span>
   </div>
 </footer>
-<script src="site.js?v=101"></script>
+<script src="site.js?v=110"></script>
 <script>
 (function(){
   const sec=document.getElementById('realwork');if(!sec)return;
@@ -375,7 +391,8 @@
   window.addEventListener('resize',move);move();
 })();
 </script>
-<script src="wr-spread.js?v=101"></script>
-<script src="wr-arrange.js?v=101"></script>
+<script src="wr-spread.js?v=110"></script>
+<script src="wr-arrange.js?v=110"></script>
+<script src="story-layers.js?v=110"></script>
 </body>
 </html>
