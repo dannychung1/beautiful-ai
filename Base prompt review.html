@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base prompt review — Art direction</title>
+<link rel="stylesheet" href="colors_and_type.css?v=130">
+<style>
+body{margin:0;background:var(--white,#fff);color:var(--ink,#002533);font-family:var(--font-body,inherit);-webkit-font-smoothing:antialiased}
+a{color:var(--blue-dark,#11A9E2)}a:hover{color:var(--ink,#002533)}
+.pg{max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,96px) 4vw}
+.lbl{font-family:var(--font-mono,monospace);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-neutral-dark,#4B636E);margin:0 0 14px}
+h1{font-size:var(--text-h2-size,3.625rem);line-height:1.1;letter-spacing:-0.03em;font-weight:500;margin:0 0 20px}
+h2{font-size:var(--text-h5-size,1.875rem);line-height:1.2;letter-spacing:-0.02em;font-weight:500;margin:0 0 12px}
+p{font-size:var(--text-body-l,1.125rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E);max-width:70ch;margin:0 0 16px;text-wrap:pretty}
+section{padding-top:clamp(40px,5vw,64px);margin-top:clamp(40px,5vw,64px);border-top:1px solid color-mix(in oklch,var(--ink,#002533) 14%,transparent)}
+.ref{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:start}
+.ref img{width:100%;border-radius:12px;display:block}
+.ref ul{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.ref li{font-size:var(--text-body-m,1rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E);padding-top:12px;border-top:1px solid color-mix(in oklch,var(--ink,#002533) 10%,transparent)}
+.ref li b{color:var(--ink,#002533);font-weight:500}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+pre{margin:0;padding:24px;border-radius:12px;background:var(--color-neutral-lightest,#F0F3F5);font-family:var(--font-mono,monospace);font-size:13px;line-height:1.7;white-space:pre-wrap;color:var(--ink,#002533)}
+pre.new{background:var(--blue-deepest,#002533);color:var(--color-neutral-lightest,#F0F3F5)}
+pre mark{background:none;color:var(--blue,#52D0FF)}
+pre.old mark{color:var(--blue-dark,#11A9E2)}
+table{width:100%;border-collapse:collapse;font-size:var(--text-body-s,0.875rem);line-height:1.5}
+th{text-align:left;font-family:var(--font-mono,monospace);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-dark,#4B636E);font-weight:400;padding:0 16px 12px 0}
+td{vertical-align:top;padding:14px 16px 14px 0;border-top:1px solid color-mix(in oklch,var(--ink,#002533) 10%,transparent);color:var(--color-neutral-dark,#4B636E)}
+td:first-child{color:var(--ink,#002533);font-weight:500;white-space:nowrap}
+.tag{display:inline-block;font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:4px}
+.t-keep{background:var(--color-neutral-lightest,#F0F3F5);color:var(--ink,#002533)}
+.t-rev{background:#E5F8FF;color:var(--ink,#002533)}
+.t-add{background:var(--blue,#52D0FF);color:var(--ink,#002533)}
+ol{margin:0;padding-left:20px;display:grid;gap:14px;max-width:70ch}
+ol li{font-size:var(--text-body-l,1.125rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E)}
+ol li b{color:var(--ink,#002533);font-weight:500}
+.refs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:24px}.refs img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block}
+@media (max-width:860px){.refs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.ref,.pair{grid-template-columns:minmax(0,1fr)}table{display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+<div class="pg">
+<p class="lbl">Art direction · review</p>
+<h1>Base prompt</h1>
+<p>This is the professional prompt the builder sends to ChatGPT, taken apart line by line. The proposed version is now live in the builder, and rules 02 and 07 and check 8 on the Art direction page match it. The product and presentation prompts carry the same negative line.</p>
+
+<section>
+<p class="lbl">Reference</p>
+<div class="ref">
+<img src="../uploads/pasted-1790268930127-0.png" alt="Two professionals laughing across a meeting table in low sun, with a skyline behind them">
+<ul>
+<li><b>What it gets right.</b> Golden-hour sun, at sunrise or sunset, spotlights the primary professional, and the room falls off around them. The gaze is on a colleague, and the foreground glass and laptop are soft.</li>
+<li><b>What the prompt has to prevent.</b> The wall sign reads as near-legible words. Our images never contain writing or words, so the prompt ends with a negative line that bans all of it.</li>
+<li><b>What we are adding.</b> The frame proves the light can wash the room and the window can glow brighter than the face, so neither is a hard rule anymore.</li>
+</ul>
+</div>
+</section>
+
+<section>
+<p class="lbl">Skin and light references</p>
+<h2>What crisp, real skin looks like</h2>
+<p>In these frames, directional light draws hard highlights on the forehead, cheekbones and nose, and the shadows stay open with detail. Pores and fine hair are visible, and light glows through the edges of the ears. The prompt names each of these, so the model renders them without a filter.</p>
+<div class="refs"><img src="../uploads/pasted-1790270490852-0.png" alt=""><img src="../uploads/pasted-1790270525978-0.png" alt=""><img src="../uploads/pasted-1790270550487-0.png" alt=""><img src="../uploads/pasted-1790270557997-0.png" alt=""><img src="../uploads/pasted-1790270602542-0.png" alt=""><img src="../uploads/pasted-1790270608765-0.png" alt=""><img src="../uploads/pasted-1790270627792-0.png" alt=""><img src="../uploads/pasted-1790270632442-0.png" alt=""><img src="../uploads/pasted-1790270641808-0.png" alt=""><img src="../uploads/pasted-1790270647007-0.png" alt=""><img src="../uploads/pasted-1790271181065-0.png" alt=""><img src="../uploads/pasted-1790271185772-0.png" alt=""></div>
+<p style="margin-top:24px">The 2 newest portraits add the close-up recipe. The subject is seated, shot from just below eye level through a soft foreground edge, with a genuine smile in hard side light and a bright, open space falling out of focus behind them.</p>
+</section>
+
+<section>
+<p class="lbl">Current vs proposed</p>
+<h2>The prompt, with default picks</h2>
+<p>Blue text marks the parts the builder fills in. The proposed version labels every line, because ChatGPT follows labelled instructions more closely than a paragraph.</p>
+<div class="pair">
+<div><p class="lbl">Current</p><pre class="old">A documentary editorial photograph of <mark>a marketing lead in their 30s</mark>, <mark>explaining with open hands</mark>, in <mark>a warm office with plain plaster walls and wood</mark>.
+Photographed from seated table height through a softly blurred foreground element.
+Gaze on a colleague or task just out of frame.
+They are in the light: face turned toward <mark>clear raking sunlight with crisp-edged shadows</mark>, with the brightest, warmest skin tones in the image on their face, so the light spotlights them in their element. The light may fall off into shadow or softly wash the space around them.
+Windows and lamps in the frame may glow brighter.
+Tailored professional clothing in quiet neutrals, with one small accent of <mark>vivid cerulean blue</mark> on <mark>earrings</mark>.
+Any laptop secondary to the person, screen unreadable, matte deep navy, plain lid.
+Background signage soft and illegible.
+Natural skin texture, rich warm contrast, true-to-life color. Candid, unposed.
+<mark>Shot on 50mm at f/2.8, waist-up, desk and room visible around them.</mark></pre></div>
+<div><p class="lbl">Proposed</p><pre class="new">A candid documentary photograph of <mark>a marketing lead in their 30s</mark>, <mark>building a presentation on a laptop</mark>, in <mark>a warm office with plain plaster walls and wood</mark>.
+Story: an editorial magazine photograph about the new professional way to present. They are confident, prepared and at ease while preparing, sharing or talking through their work, never scrambling or stressed.
+Cast: choose a real body size and build for this person, anywhere from slim to plus-size, and when it fits, a visible or assistive detail such as a wheelchair, cane, hearing aid or prosthetic, shown as a natural part of their work and never as the subject of the image. Heritage shows only through their real features, such as face, skin, hair and build, never through cultural or traditional jewelry, beadwork, patterns or dress. The setting and props stay the same for every heritage, with no cultural artwork, textiles, objects or decor used to signal it.
+Frame: <mark>Shot on 50mm at f/2.8, solo and waist-up, building a presentation or presenting one. A laptop or screen can be in frame or only implied, and the desk and room stay visible around them.</mark>
+<mark>Copy space: leave clean, low-detail space above the subject for a headline to be placed in post.</mark>
+Camera: seated table height, looking past a softly blurred foreground object such as a glass, a mug, a plant or a colleague's shoulder.
+Gaze: <mark>on a colleague or the task just out of frame, never at the lens.</mark>
+Light: <mark>clear raking sunlight with crisp-edged shadows</mark> spotlights them in their element. Their face is turned toward it and is the brightest, warmest skin in the frame. Around them the light can fall off into shadow or wash softly across the room, and windows may glow brighter than the face.
+Wardrobe: <mark>current, tailored workwear of your choosing, with a fabric and cut that suit this person and setting, such as fine-gauge knitwear, a relaxed wool blazer, crisp cotton poplin, washed silk or soft suede</mark>, in quiet neutrals. It reads as 2020s professional, never formal-event or costume.
+Accent: 1 small accent color taking no more than 10% of the frame, in a shade or tint of cerulean blue (#00B9FF) or fuchsia-magenta rose (#DB2475). Choose which one, how deep or soft it is and where it sits, on clothing, an accessory or an object in the room, so it fits the mood, light and atmosphere of the scene.
+Devices: a laptop can sit in frame as part of the work. It stays secondary to the person, a standard silver, grey or black with a plain lid, and its screen is never readable, because the product is not the focus of this image.
+Background: no alcohol.
+Never include: writing, words, letters, numbers, logos or signage of any kind, anywhere in the frame.
+Skin and detail: shot on a full-frame camera with a fast prime lens, with color like Kodak Portra 400. Directional light draws crisp highlights on the forehead, cheekbones, nose and lips, rich midtones across the face and open shadows that keep their detail. Visible pores, fine facial hair and natural texture, with light glowing through the edges of the ears and hair. No retouching, skin smoothing or HDR look.
+Finish: rich warm contrast, true-to-life color, fine natural grain. Unposed, caught mid-moment, never posed for the camera.</pre></div>
+</div>
+</section>
+
+<section>
+<p class="lbl">Line by line</p>
+<h2>What changes and why</h2>
+<table>
+<thead><tr><th>Line</th><th>Change</th><th>Why</th><th>Rule it maps to</th></tr></thead>
+<tbody>
+<tr><td>Subject</td><td><span class="tag t-rev">Revise</span></td><td>"Candid documentary" replaces "documentary editorial". "Editorial" pulls generators toward posed fashion lighting.</td><td>03 Gaze</td></tr>
+<tr><td>Story</td><td><span class="tag t-add">Add</span></td><td>Every image tells an editorial story about the new professional way to present. The line tells the model what the moment is about, not only what is in it. Product and presentation prompts carry their own version.</td><td>Always in the light, new check</td></tr>
+<tr><td>Cast</td><td><span class="tag t-add">Add</span></td><td>Rule 09 now covers ability and body size, so every prompt asks the model to choose a real body size and, when it fits, an assistive detail. The detail is always part of the work, never the subject of the image.</td><td>09 Range</td></tr>
+<tr><td>Frame</td><td><span class="tag t-rev">Revise</span></td><td>The default framing is now a solo shot of a professional building or presenting a presentation, with the hardware in frame or only implied. We dropped the ratio, because professionals crop in post.</td><td>08 Composition</td></tr>
+<tr><td>Copy space</td><td><span class="tag t-add">Add</span></td><td>"Space for a headline" is a new builder pick: None, Above, Left, Right and Across. It shows for professional and presentation shots only, never for product, where the screen tells the story.</td><td>08 Composition</td></tr>
+<tr><td>Together</td><td><span class="tag t-rev">Revise</span></td><td>This now means 2 or more colleagues with 1 hero, and the light favors the hero.</td><td>04 Together shots</td></tr>
+<tr><td>Close-up framing</td><td><span class="tag t-rev">Revise</span></td><td>The Close-up shot line now follows the 2 newest portrait references: seated, waist-up, from just below eye level, through a soft foreground edge, with a genuine, easy smile.</td><td>08 Composition</td></tr>
+<tr><td>Camera</td><td><span class="tag t-rev">Revise</span></td><td>"A softly blurred foreground element" is too abstract, and generators skip it. Named objects make it land.</td><td>02 Camera</td></tr>
+<tr><td>Gaze</td><td><span class="tag t-rev">Revise</span></td><td>The gaze now depends on the framing. Close-up portraits look into the lens or stay in the moment, whichever tells the story better. Every other framing keeps "never at the lens".</td><td>03 Gaze</td></tr>
+<tr><td>Light</td><td><span class="tag t-rev">Revise</span></td><td>This merges 2 lines. The spotlight on the professional is the rule, and fall-off, wash and bright windows are allowed around it. It resolves the old conflict between "brightest skin" and "windows glow brighter".</td><td>Always in the light, 01 Light</td></tr>
+<tr><td>Light options</td><td><span class="tag t-add">Add</span></td><td>"Golden hour" joins "Hard sun" and "Soft window" and covers sunrise or sunset. "Hard sun" drops "late-afternoon" so the 2 options stay distinct.</td><td>01 Light</td></tr>
+<tr><td>Wardrobe</td><td><span class="tag t-rev">Revise</span></td><td>"Tailored clothing" gave every image the same suiting fabric. The builder now has a Dress code pick: Any, Business, Smart casual and Relaxed. Each names a range of fabrics, and the default, "Any", lets the generator choose, so every run varies. The last sentence keeps it professional.</td><td>05 Wardrobe</td></tr>
+<tr><td>Accent</td><td><span class="tag t-add">Add</span></td><td>The accent is no longer a pick. The model chooses Azul or Rose, the shade or tint, and where it sits, so it suits the scene. It never takes more than 10% of the frame.</td><td>05 Wardrobe, check 6</td></tr>
+<tr><td>Devices</td><td><span class="tag t-rev">Revise</span></td><td>This now uses the same sentence as rule 06, so the guidance and the prompt say the same thing.</td><td>06 Devices</td></tr>
+<tr><td>Background</td><td><span class="tag t-rev">Revise</span></td><td>This moves "no alcohol" in from the shoot brief.</td><td>07 Props and words</td></tr>
+<tr><td>Never include</td><td><span class="tag t-add">Add</span></td><td>This is a negative line: no writing or words ever. It covers letters, numbers, logos and signage, which fixes the pseudo-text in the reference. Rule 07 and check 8 change from "illegible" to "none".</td><td>07 Props and words, check 8</td></tr>
+<tr><td>Skin and detail</td><td><span class="tag t-add">Add</span></td><td>We describe how a real camera and real light render skin, not a filter. That means crisp highlights on the high points of the face, open shadows, visible pores and fine hair, and light glowing through ears and hair edges. "Kodak Portra 400" and "no retouching" steer models away from the waxy, smoothed AI look.</td><td>Check 9</td></tr>
+<tr><td>Finish</td><td><span class="tag t-rev">Revise</span></td><td>Skin texture moves to its own line. "Never posed for the camera" makes every action and lifestyle shot candid.</td><td>Always in the light</td></tr>
+</tbody>
+</table>
+</section>
+
+</div>
+</body>
+</html>

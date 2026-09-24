@@ -2345,7 +2345,7 @@ img, svg, video { max-width: 100%; }
 .chapter-hero .dl-pill{border-color:rgba(255,255,255,0.28);color:var(--ink,#002533)}
 @media (max-width:900px){.chapter-hero::after{width:110%;right:-30%;opacity:0.35}.chapter-hero h2{max-width:none}}
 #introduction .chapter-hero{background:transparent}
-#introduction .chapter-hero::after{display:none}
+.chapter-hero::after{display:none}
 #introduction .chapter-hero h2{color:var(--color-neutral-darkest,#001A24)}
 #introduction .chapter-hero .ch-eyebrow{color:var(--neutral)}
 
@@ -3178,7 +3178,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .story-c[data-active="brand"] .v3-brand,.story-c[data-active="product"] .v3-product,.story-c[data-active="content"] .v3-content{fill:color-mix(in oklch,var(--lc) 52%,transparent);stroke-width:3}
 .v3:focus-visible{stroke:var(--ink,#002533);stroke-width:3}
 
-#story .section-head{margin-bottom:var(--gut-xl,40px)!important}
+
 
 /* Brand in use: FPO surface slots */
 .app-slot{margin:0;display:grid;gap:12px;min-width:0}
@@ -3199,3 +3199,50 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .bu-band .bu-item figcaption{color:var(--neutral-lighter)}.bu-band .as-badge{color:var(--white)}
 .bu-band .bu-frame{background:color-mix(in oklch,var(--white) 8%,transparent)}
 @media (max-width:900px){.bu-grid .span-6,.bu-grid .span-4{grid-column:span 12}.bu-band-row{grid-template-columns:minmax(0,1fr)}}
+
+/* ── Chapter sub-nav (sections in this chapter) ── */
+.ch-subnav{display:grid;grid-template-columns:var(--grid-label,minmax(0,1fr) minmax(0,2fr));gap:clamp(24px,4vw,64px);align-items:start;margin:0 0 clamp(72px,8vw,120px)}
+.csn-name{margin:6px 0 0}
+.ch-subnav ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ch-subnav ul.csn-cols{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px 32px}
+.ch-subnav a{font-size:var(--text-body-xl,1.25rem);line-height:1.4;color:var(--ink,#002533);text-decoration:none}
+.ch-subnav a:hover{color:var(--blue-dark)}
+.sub-head[id],.sub-title[id]{scroll-margin-top:32px}
+@media (max-width:900px){.ch-subnav{grid-template-columns:minmax(0,1fr);gap:20px}}
+
+/* chapter/section intro: lede runs to the 70ch measure, download pill sits right */
+.section-head:not(:has(.left)){grid-template-columns:minmax(0,70ch) auto;justify-content:space-between}
+.section-head:not(:has(.left)) .lede{grid-column:1;max-width:70ch}
+@media (max-width:900px){.section-head:not(:has(.left)){grid-template-columns:minmax(0,1fr)}}
+
+/* sub-nav closes with a hairline; the chapter lead gets room on both sides */
+.ch-subnav{padding-bottom:clamp(40px,5vw,72px);border-bottom:1px solid color-mix(in oklch,var(--ink,#002533) 14%,transparent)}
+#compass .ch-lead{margin:clamp(24px,3vw,48px) 0 clamp(64px,8vw,120px)}
+
+/* ══ Vertical rhythm — one scale for every marker level (keep last) ══
+   sub-gap   : space on both sides of every hairline (section + sub-section)
+   sp-content: heading block → its content, at every level
+   sp-block  : intro paragraph → content; nested h4 above
+   sp-rule   : heading → its rule line */
+:root{--sp-rule:12px;--sp-content:var(--gut-xl);--sp-block:var(--gut-2xl)}
+.ch-subnav{margin-bottom:var(--sub-gap)}
+.wrap>.sub-head{margin-top:var(--sub-gap)!important;margin-bottom:var(--sp-content)!important;padding-top:20px}
+.sub-head .sh-label{margin-bottom:14px}
+.wrap>.section-head{margin-top:0!important;margin-bottom:var(--sp-block)!important}
+.st-rule{margin-top:var(--sp-rule)}
+.sub-title{margin-bottom:var(--sp-content)!important}
+.sub-title.st-nested,.sub-title:has(>h4){margin-top:var(--sp-block)!important}
+.sub-title:has(>h3)+.sub-title:has(>h4){margin-top:0!important}
+.wrap>:has(.sub-title>h3) .sub-title:first-child{margin-top:0!important;padding-top:0!important}
+.wrap>:has(.sub-title>h3) :has(>.sub-title):first-child{margin-top:0!important}
+body.subpage>section:has(~section){padding-bottom:0}
+body.subpage>section~section{padding-top:0}
+body.subpage>section~section>.sub-head:first-child,body.subpage>section~section>.wrap:first-child>.sub-head:first-child{margin-top:var(--sub-gap)!important}
+.wrap:has(>.sub-head:last-child)+.wrap>:first-child{margin-top:0!important}
+.sub-title:has(>h3,>h4)+*:not(.sub-title){margin-top:0!important}
+.wrap>:has(.sub-title>h3) .cx-row:first-child{padding-top:0!important}
+.sub-title:has(>h4){border-top:none!important;padding-top:0!important}
+.ad-mosaic{margin-bottom:0}
+.wrap:has(>.ad-mosaic)+.wrap>.sub-title:first-child{margin-top:var(--sub-gap)!important;padding-top:var(--sub-gap)!important;border-top:1px solid color-mix(in oklch,currentColor 14%,transparent)!important}
+.logo-hero{align-items:start}
+.wrap>.sub-head+*{margin-top:0!important}

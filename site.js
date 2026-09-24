@@ -48,3 +48,23 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
     history.replaceState(null,'',id);
   });
 })();
+
+// chapter sub-nav: lists the chapter's sections (or its sub-sections when it has no sections)
+(function(){
+  var hero=document.querySelector('.chapter-hero');if(!hero||hero.closest('#introduction'))return;
+  var items=[].slice.call(document.querySelectorAll('.sub-head'));
+  var pick=function(el){return el.querySelector('h2')};
+  if(items.length<2){items=[].slice.call(document.querySelectorAll('.sub-title:not(.st-nested)')).filter(function(el){return el.querySelector('h3')});pick=function(el){return el.querySelector('h3')};}
+  if(items.length<2)return;
+  var slug=function(t){return t.toLowerCase().replace(/&amp;|&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')};
+  var wrap=document.createElement('div');wrap.className='wrap';
+  var nav=document.createElement('nav');nav.className='ch-subnav';nav.setAttribute('aria-label','In this chapter');
+  var name=document.createElement('p');name.className='csn-name sh-label';name.textContent='In this chapter';
+  var list=document.createElement('ul');if(items.length>6)list.classList.add('csn-cols');
+  items.forEach(function(el){
+    var t=pick(el).textContent.trim();if(!el.id)el.id='s-'+slug(t);
+    var li=document.createElement('li'),a=document.createElement('a');a.href='#'+el.id;a.textContent=t;li.appendChild(a);list.appendChild(li);
+  });
+  nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
+  hero.parentNode.insertBefore(wrap,hero.nextSibling);
+})();

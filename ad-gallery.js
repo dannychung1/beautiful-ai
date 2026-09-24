@@ -103,32 +103,38 @@
   /* ── Builder ── */
   var bd=document.querySelector('[data-builder]');
   if(bd){
-    var sel={facet:'Professional',tool:'GPT Image',role:'Marketing',shot:'Working',setting:'Office',light:'Hard sun',accent:'Agency Azul',action:AD.ACTIONS[0],accentItem:AD.ACCENT_ITEMS[0],feature:'Create with AI',layout:'Fanned deck',ground:'Gallery Grey'};
+    var sel={facet:'Professional',length:'Full',tool:'GPT Image',role:'Marketing',seniority:'Manager',age:'30s',race:'South Asian',shot:'Working',setting:'Office',light:'Hard sun',accent:'Agency Azul',wardrobe:'Any',copy:'None',action:AD.ACTIONS[0],accentItem:AD.ACCENT_ITEMS[0],feature:'Create with AI',layout:'Fanned deck',ground:'Gallery Grey'};
     var FIELDS=[
-      ['facet','Facet',['Professional','Product','Presentation'],'all'],
+      ['facet','Photo of',['Professional','Product','Presentation'],'all'],
+      ['length','Prompt length',['Full','Short'],'all'],
       ['role','Role',Object.keys(AD.ROLES),'Professional Product'],
-      ['shot','Shot type',Object.keys(AD.SHOTS),'Professional'],
+      ['seniority','Seniority',Object.keys(AD.SENIORITY),'Professional Product'],
+      ['age','Age',AD.AGES,'Professional Product'],
+      ['race','Race or ethnicity',AD.RACES,'Professional Product'],
+      ['shot','Framing',Object.keys(AD.SHOTS),'Professional'],
       ['setting','Setting',Object.keys(AD.SETTINGS),'Professional Product'],
-      ['light','Light mode',Object.keys(AD.LIGHTS),'Professional Product'],
+      ['light','Light',Object.keys(AD.LIGHTS),'Professional Product'],
       ['action','Action',AD.ACTIONS,'Professional','select'],
-      ['accent','Accent',Object.keys(AD.ACCENTS),'Professional'],
-      ['accentItem','Accent item',AD.ACCENT_ITEMS,'Professional','select'],
-      ['feature','Feature on screen',Object.keys(AD.FEATURES),'Product'],
-      ['layout','Layout',Object.keys(AD.LAYOUTS),'Presentation'],
-      ['ground','Ground',Object.keys(AD.GROUNDS),'Presentation']
+      ['wardrobe','Dress code',Object.keys(AD.WARDROBES),'Professional Product'],
+      ['feature','On screen',Object.keys(AD.FEATURES),'Product'],
+      ['copy','Space for a headline',Object.keys(AD.COPY),'Professional Presentation'],
+      ['layout','Slides arranged',Object.keys(AD.LAYOUTS),'Presentation'],
+      ['ground','Background',Object.keys(AD.GROUNDS),'Presentation']
     ];
+    var SHOW={length:{Full:'ChatGPT',Short:'Figma'},facet:{Professional:'A professional',Product:'Our product',Presentation:'Slides'},shot:{Portrait:'Close-up',Working:'At work',Together:'With a colleague',Environmental:'Wide'},light:{'Hard sun':'Bright sun','Soft window':'Window light'},role:{'Consultants & analysts':'Consulting'},layout:{'Fanned deck':'Fanned','Stacked deck':'Stacked','Single slide':'Single slide'}};
+    function lab(k,v){var t=(SHOW[k]&&SHOW[k][v])||v;return t.charAt(0).toUpperCase()+t.slice(1)}
     var form=bd.querySelector('.bd-form'),out=bd.querySelector('.bd-out pre'),note=bd.querySelector('.bd-note'),open=bd.querySelector('.bd-open');
     var rows=FIELDS.map(function(fd){
       var row=el('div','gv-group bd-row');row.appendChild(el('span','gv-glabel',fd[1]));row._show=fd[3];row._fd=fd;
       if(fd[4]==='select'){
         var s=el('select','bd-select');s.setAttribute('aria-label',fd[1]);
-        fd[2].forEach(function(v){var o=el('option',null,esc(v));o.value=v;s.appendChild(o)});
+        fd[2].forEach(function(v){var o=el('option',null,esc(lab(fd[0],v)));o.value=v;s.appendChild(o)});
         s.value=sel[fd[0]];s.addEventListener('change',function(){sel[fd[0]]=s.value;render()});
         row.appendChild(s);row._sel=s;
       }else{
         var chips=el('div','gv-chips');
         fd[2].forEach(function(v){
-          var b=el('button','gv-chip'+(sel[fd[0]]===v?' is-on':''),esc(v));b.type='button';b.setAttribute('aria-pressed',sel[fd[0]]===v);
+          var b=el('button','gv-chip'+(sel[fd[0]]===v?' is-on':''),esc(lab(fd[0],v)));b.dataset.v=v;b.type='button';b.setAttribute('aria-pressed',sel[fd[0]]===v);
           b.addEventListener('click',function(){sel[fd[0]]=v;chips.querySelectorAll('.gv-chip').forEach(function(c){var on=c===b;c.classList.toggle('is-on',on);c.setAttribute('aria-pressed',on)});render()});
           chips.appendChild(b);
         });
@@ -138,8 +144,8 @@
     });
     function render(){
       rows.forEach(function(r){r.hidden=!(r._show==='all'||r._show.split(' ').indexOf(sel.facet)>-1)});
-      var t=AD.build(sel.facet,sel,'GPT Image');
-      out.textContent=t;setEdited(false);
+      var t=AD.build(sel.facet,sel,sel.length==='Short'?'Short':'GPT Image');
+      out.textContent=t;setEdited(false);showCount(t);
       open.href='https://chatgpt.com/?q='+encodeURIComponent('Create an image: '+t);
     }
     var tag=bd.querySelector('.bd-edited'),reset=bd.querySelector('.bd-reset');
@@ -147,17 +153,19 @@
     if(out.contentEditable!=='plaintext-only')out.setAttribute('contenteditable','true');
     out.setAttribute('spellcheck','false');out.setAttribute('role','textbox');out.setAttribute('aria-multiline','true');out.setAttribute('aria-label','Prompt, editable');
     function setEdited(on){if(tag)tag.hidden=!on}
-    out.addEventListener('input',function(){setEdited(true);open.href='https://chatgpt.com/?q='+encodeURIComponent('Create an image: '+out.innerText.trim())});
+    var cnt=el('span','bd-count');var foot=bd.querySelector('.bd-foot');if(foot)foot.appendChild(cnt);
+    function showCount(t){cnt.textContent=t.length.toLocaleString()+' characters'+(sel.length==='Short'&&t.length>1400?' · trim for Figma':'')}
+    out.addEventListener('input',function(){setEdited(true);showCount(out.innerText.trim());open.href='https://chatgpt.com/?q='+encodeURIComponent('Create an image: '+out.innerText.trim())});
     if(reset)reset.addEventListener('click',render);
     function sync(){
       rows.forEach(function(r){var k=r._fd[0];
         if(r._sel)r._sel.value=sel[k];
-        if(r._chips)r._chips.querySelectorAll('.gv-chip').forEach(function(c){var on=c.textContent===sel[k];c.classList.toggle('is-on',on);c.setAttribute('aria-pressed',on)});
+        if(r._chips)r._chips.querySelectorAll('.gv-chip').forEach(function(c){var on=c.dataset.v===sel[k];c.classList.toggle('is-on',on);c.setAttribute('aria-pressed',on)});
       });
     }
     var rnd=bd.querySelector('.bd-remix');
     if(rnd)rnd.addEventListener('click',function(){
-      FIELDS.forEach(function(fd){if(fd[0]==='facet')return;var o=fd[2];var v;do{v=o[Math.floor(Math.random()*o.length)]}while(o.length>1&&v===sel[fd[0]]&&Math.random()<0.7);sel[fd[0]]=v});
+      FIELDS.forEach(function(fd){if(fd[0]==='facet'||fd[0]==='length')return;var o=fd[2];var v;do{v=o[Math.floor(Math.random()*o.length)]}while(o.length>1&&v===sel[fd[0]]&&Math.random()<0.7);sel[fd[0]]=v});
       sync();render();
       var pre=bd.querySelector('.bd-out pre');pre.classList.remove('is-new');void pre.offsetWidth;pre.classList.add('is-new');
     });
