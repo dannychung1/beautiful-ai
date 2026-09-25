@@ -1,30 +1,37 @@
 # Beautiful.ai Brand Guidelines — deploy package
 
-Current version: **v109**
+Current version: **v155** (2026-09-25)
 
 ```
-index.html
 01-foundation.html
 02-logos.html
 03-typography.html
 04-color.html
 05-art-direction.html
 06-brand-in-use.html
-colors_and_type.css
-styles.css
-illustration.css
-photography.css
-white-ground.css
+Prompt builder.html
+ad-data.js
+ad-gallery.js
+ad-v2.css
 color-page.css
-image-slot.js
-site.js
-wr-spread.js
-wr-arrange.js
-copy-hex.js
+colors_and_type.css
 copy-block.js
-photo-shows.js
-ship-check.js
+copy-hex.js
+icon-swap.js
+illustration.css
+image-slot.js
+index.html
 og-card.html
+photo-shows.js
+photography.css
+ship-check.js
+site.js
+story-builder.js
+story-layers.js
+styles.css
+white-ground.css
+wr-arrange.js
+wr-spread.js
 .nojekyll
 assets/
 fonts/
@@ -45,7 +52,7 @@ while `styles.css` was several versions behind, so the page rendered with old CS
 
 ## Cache busting
 
-The stylesheet links carry `?v=107`. If a CSS change doesn't appear after deploying,
+Stylesheet and script links carry their own `?v=` numbers (for example `ad-v2.css?v=155`). If a CSS change doesn't appear after deploying,
 the number wasn't bumped — ask me to bump it and rebuild.
 
 ## Rules

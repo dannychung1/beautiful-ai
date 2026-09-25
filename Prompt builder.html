@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="illustration.css?v=130">
 <link rel="stylesheet" href="photography.css?v=130">
 <link rel="stylesheet" href="white-ground.css?v=130">
-<link rel="stylesheet" href="ad-v2.css?v=140">
+<link rel="stylesheet" href="ad-v2.css?v=155">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
 <script src="image-slot.js?v=130"></script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
@@ -32,7 +32,7 @@ a{color:var(--blue-darker,#004A66)}a:hover{color:var(--ink,#002533)}
   fetch('05-art-direction.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){
     var doc=new DOMParser().parseFromString(t,'text/html');
     var head=doc.getElementById('make'),bd=doc.querySelector('[data-builder]');
-    if(head)document.querySelector('.pb-head').appendChild(document.importNode(head,true)).removeAttribute('id');
+    if(head&&!head.hasAttribute('data-builder'))document.querySelector('.pb-head').appendChild(document.importNode(head,true)).removeAttribute('id');
     var main=document.querySelector('.pb-main');
     if(bd){main.appendChild(document.importNode(bd,true));var n=bd.nextElementSibling;if(n&&n.classList.contains('callout'))main.appendChild(document.importNode(n,true));}
     var ds=[].map.call(doc.querySelectorAll('script[src]'),function(s){return s.getAttribute('src')});

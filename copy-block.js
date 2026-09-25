@@ -16,7 +16,7 @@
     else fallback(text,done);
   }
   document.querySelectorAll('.copy-block').forEach(function(block){
-    var code=block.querySelector('pre');if(!code)return;
+    var code=block.querySelector('pre');if(!code||block.hasAttribute('data-nocopy'))return;
     var label=block.dataset.copyLabel||'Copy prompt';
     var btn=document.createElement('button');
     btn.type='button';btn.className='copy-btn';btn.textContent=label;
