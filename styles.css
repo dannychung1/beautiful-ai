@@ -3343,3 +3343,35 @@ body:has(.sidenav:not(.collapsed)) .top-fab{opacity:0;visibility:hidden}
 #type.type-light .callout,#type.type-light .callout.do{background:var(--white);border-color:color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
 #type.type-light .callout .co-kicker,#type.type-light .callout.do .co-kicker,#type.type-light .callout .co-icon,#type.type-light .callout.do .co-icon,#type.type-light .callout .co-text p,#type.type-light .callout.do .co-text p{color:var(--ink,#002533)}
 #type.type-light .type-pairing p{color:var(--color-neutral-dark,#4B636E)}
+
+/* Storytelling Venn: inactive facets are outlines, the focused facet is solid Azul on top; left edge sits on the text column */
+.story-c .venn3{width:112px;aspect-ratio:88/83;margin:0 0 4px}
+.story-c .v3{fill:transparent;stroke:var(--color-neutral-light,#9AA8AF);stroke-width:1.25;mix-blend-mode:normal;transition:fill .2s ease,stroke .2s ease}
+.story-c .v3:hover{stroke:var(--ink,#002533)}
+.story-c[data-active="brand"] .v3-brand,.story-c[data-active="product"] .v3-product,.story-c[data-active="content"] .v3-content{fill:var(--blue,#00B9FF);stroke:var(--ink,#002533);stroke-width:1.5}
+.story-c .v3:focus-visible{stroke:var(--ink,#002533);stroke-width:2.5}
+
+/* Storytelling: static Venn of the 3 facets, key beside it */
+.venn-diagram{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--gut-2xl,64px);align-items:center}
+.vd-figure{max-width:460px;width:100%}
+.vd-figure svg{display:block;width:100%;height:auto;overflow:visible}
+.vd-c{fill:color-mix(in oklch,var(--blue,#00B9FF) 16%,transparent);stroke:var(--ink,#002533);stroke-width:.35}
+.vd-l{font-family:var(--mono);font-size:3.1px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink,#002533);text-anchor:middle}
+.vd-all{font-size:2.8px;fill:var(--color-neutral-dark,#4B636E)}
+.vd-key{display:grid;gap:var(--gut-xl,40px)}
+.vd-item{display:grid;gap:6px;padding-top:var(--gut,24px);border-top:1px solid color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
+.vd-item:first-child{padding-top:0;border-top:0}
+.vd-name{font-size:var(--text-h6-size,1.5rem);line-height:1.3;font-weight:500;letter-spacing:var(--ls-tight,-0.01em);color:var(--ink,#002533)}
+.vd-when{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-dark,#4B636E)}
+.vd-item p{margin:4px 0 0;max-width:56ch;font-size:var(--text-body-l,1.125rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E)}
+@media (max-width:900px){.venn-diagram{grid-template-columns:minmax(0,1fr);gap:var(--gut-xl,40px)}.vd-figure{max-width:360px}}
+.vd-t{font-family:var(--mono);font-size:2.4px;letter-spacing:.12em;text-transform:uppercase;fill:var(--color-neutral-dark,#4B636E);text-anchor:middle}
+.vd-o{font-size:2.5px;font-weight:500;fill:var(--ink,#002533);text-anchor:middle}
+.vd-overlaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gut,24px) var(--gut-xl,40px);padding-top:var(--gut,24px);border-top:1px solid color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
+.vd-overlaps>.vd-when{grid-column:1/-1}
+.vd-ov{display:grid;gap:4px;align-content:start}
+.vd-ov-name{font-size:var(--text-body-l,1.125rem);font-weight:500;color:var(--ink,#002533)}
+.vd-ov-mix{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-neutral-dark,#4B636E)}
+.vd-ov p{margin:2px 0 0;font-size:var(--text-body-m,1rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E)}
+@media (max-width:640px){.vd-overlaps{grid-template-columns:minmax(0,1fr)}}
+.venn-diagram{align-items:start}
