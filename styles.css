@@ -3313,11 +3313,33 @@ body.subpage>section~section>.sub-head:first-child,body.subpage>section~section>
 .sb-frame{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}.sb-frame.is-on{opacity:1}.sb-frame image-slot{position:absolute;inset:0}
 @media (prefers-reduced-motion:reduce){.sb-frame{transition:none}}
 /* icon specimens: hover reverses out — Base Blue tile, Gallery Grey icon */
-.icons-grid .icon-cell{transition:background .2s ease,box-shadow .2s ease}
+.icons-grid .icon-cell{transition:none}
 .icons-grid .icon-cell:hover{background:var(--blue-darkest,#002533);box-shadow:none}
 .icons-grid .icon-cell:hover .material-symbols-outlined,.icons-grid .icon-cell:hover .icon-ai{color:var(--color-neutral-lightest,#F0F3F5)}
-.icons-grid .icon-cell .material-symbols-outlined,.icons-grid .icon-cell .icon-ai{transition:opacity .18s ease,color .2s ease}
+.icons-grid .icon-cell .material-symbols-outlined,.icons-grid .icon-cell .icon-ai{transition:opacity .18s ease}
 /* nav: tools sit below the chapters, set apart by a hairline */
 .sidenav nav a.nav-tool{display:flex;align-items:center;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.16)}
 .sidenav nav a.nav-tool .material-symbols-outlined{font-size:18px;line-height:1}
 .sidenav nav a.nav-tool{font-size:var(--text-body-m,1rem);line-height:1.4;white-space:nowrap}
+
+/* Back to top: pairs with the nav FAB, same right edge */
+.top-fab{position:fixed;right:max(16px,calc(var(--gutter) / 2));bottom:var(--gutter-y);z-index:310;width:44px;height:44px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid rgba(255,255,255,0.1);border-radius:12px;background:rgba(0,9,13,0.34);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);box-shadow:0 8px 24px -8px rgba(0,9,13,0.3);color:var(--color-white,#fff);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .28s ease,transform .3s cubic-bezier(.16,.84,.24,1),visibility 0s linear .3s,border-color .28s ease,box-shadow .28s ease}
+.top-fab.is-visible{opacity:1;visibility:visible;transform:none;transition:opacity .28s ease,transform .3s cubic-bezier(.16,.84,.24,1),border-color .28s ease,box-shadow .28s ease}
+.top-fab .material-symbols-outlined{font-size:22px}
+@media (hover:hover) and (pointer:fine){.top-fab:hover{background:rgba(0,9,13,0.5);border-color:rgba(0,185,255,0.55);box-shadow:0 8px 24px -8px rgba(0,9,13,0.4),0 0 0 4px rgba(0,185,255,0.14)}}
+.top-fab:focus-visible{outline:none;border-color:rgba(0,185,255,0.7);box-shadow:0 0 0 4px rgba(0,185,255,0.2)}
+body:has(.sidenav:not(.collapsed)) .top-fab{opacity:0;visibility:hidden}
+@media (prefers-reduced-motion:reduce){.top-fab,.top-fab.is-visible{transform:none}}
+
+/* Typography page on Gallery Grey, matching the rest of the guide */
+#type.type-light{background:var(--scheme5-bg,#F0F3F5);color:var(--ink,#002533)}
+#type.type-light .lede,#type.type-light .sub-title h3,#type.type-light .ts-name,#type.type-light .dt-head,#type.type-light .type-row .sample,#type.type-light .ts-glyphs,#type.type-light .dt-spec,#type.type-light .dt-facts b,#type.type-light .type-row .tag{color:var(--ink,#002533)}
+#type.type-light .st-rule,#type.type-light .type-row .specs,#type.type-light .ts-note,#type.type-light .ts-meta,#type.type-light .dt-note,#type.type-light .dt-facts span{color:var(--color-neutral-dark,#4B636E)}
+#type.type-light code{color:var(--blue-darker,#004A66)}
+#type.type-light .sub-title,#type.type-light .type-scale,#type.type-light .ts-block{border-top-color:color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
+#type.type-light .type-row,#type.type-light .dt-facts div{border-color:color-mix(in oklch,var(--ink,#002533) 12%,transparent)}
+#type.type-light .weight,#type.type-light .dt-case{background:var(--white);border-color:color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
+#type.type-light .dt-tag.ok{color:var(--blue-darker,#004A66)}
+#type.type-light .callout,#type.type-light .callout.do{background:var(--white);border-color:color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
+#type.type-light .callout .co-kicker,#type.type-light .callout.do .co-kicker,#type.type-light .callout .co-icon,#type.type-light .callout.do .co-icon,#type.type-light .callout .co-text p,#type.type-light .callout.do .co-text p{color:var(--ink,#002533)}
+#type.type-light .type-pairing p{color:var(--color-neutral-dark,#4B636E)}

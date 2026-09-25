@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="Beautiful.ai Brand Guidelines cover">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="colors_and_type.css?v=130">
-<link rel="stylesheet" href="styles.css?v=139">
+<link rel="stylesheet" href="styles.css?v=143">
 <link rel="stylesheet" href="illustration.css?v=130">
 <link rel="stylesheet" href="photography.css?v=130">
 <link rel="stylesheet" href="white-ground.css?v=130">
@@ -61,21 +61,21 @@
           <p class="cx-note">We build every decision around the professionals, teams, and leaders who present for a living and work outside design. They arrive with a topic, an outline drafted elsewhere, or a document ready to become a deck, and we meet them at whichever door they walk in.</p>
           <div class="aud-cols">
             <figure class="aud-card">
-              <img src="assets/photo-icp-solo.png" alt="A team leader taking a call between meetings" style="object-position:52% 42%">
+              <div class="ac-frame"><image-slot id="aud-leaders" shape="rect" fit="cover" placeholder="Drop a photo: team leader" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
               <figcaption>
                 <span class="ac-t">Team leaders</span>
                 <span class="ac-x">They own the story their team tells and present it up and out — board reviews, QBRs, all-hands. Their hands leave the slides early, so the deck has to hold up without them in it.</span>
               </figcaption>
             </figure>
             <figure class="aud-card">
-              <div class="ac-frame"><img src="assets/photo-icp-desk.png" alt="A professional presenting at a sunlit desk" style="object-position:56% 46%;transform:scale(1.95) translate(1%,-12%);transform-origin:56% 46%"></div>
+              <div class="ac-frame"><image-slot id="aud-ic" shape="rect" fit="cover" placeholder="Drop a photo: individual contributor" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
               <figcaption>
                 <span class="ac-t">Individual contributors</span>
                 <span class="ac-x">The thinking is already done, in a doc, a thread, or an outline drafted with another tool. They work inside company data and brand, and need it to become a deck that respects both.</span>
               </figcaption>
             </figure>
             <figure class="aud-card">
-              <img src="assets/photo-icp-freelance.png" alt="A freelancer in warm directional light" style="object-position:center 22%;object-fit:cover">
+              <div class="ac-frame"><image-slot id="aud-solo" shape="rect" fit="cover" placeholder="Drop a photo: team of one" style="position:absolute;inset:0;width:100%;height:100%"></image-slot></div>
               <figcaption>
                 <span class="ac-t">Team of one</span>
                 <span class="ac-x">Freelancers, consultants, and ICs with no design team behind them. Every pitch, report, and update is client- or exec-facing, and their reputation rides on polish they can reach alone.</span>
@@ -102,7 +102,7 @@
     <div class="wr-tofu wr-t7" data-lag="0.024"><image-slot id="wr-t7" shape="rect" fit="cover" src="assets/story-pro-at-work-3.png" placeholder="FPO — drop a photo: Preparing before the meeting"></image-slot></div>
     <p class="wr-word wr-w1" data-lag="0.012">Work</p>
     <p class="wr-word wr-w2" data-lag="0.009">ready.</p>
-    <div class="wr-tofu wr-t6" data-lag="0.047"><image-slot id="wr-t6" shape="rect" fit="cover" src="assets/photo-icp-warmlight.png" placeholder="FPO — drop a photo: Sales pitch across a table"></image-slot></div>
+    <div class="wr-tofu wr-t6" data-lag="0.047"><image-slot id="wr-t6" shape="rect" fit="cover" placeholder="Drop a photo: sales pitch across a table"></image-slot></div>
     <div class="wr-spot wr-s1" data-lag="0.068" aria-hidden="true">
       <svg viewBox="0 0 132 92" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="1" y="1" width="112" height="74" rx="6"></rect>
@@ -275,18 +275,31 @@
   <div class="wrap"><div class="sub-head"><div class="sh-label">Foundation</div><h2>Storytelling</h2></div></div>
   <div class="wrap">
     <div class="section-head" style="margin-bottom:56px">
-      <p class="lede">Every brand story we tell come from one or more facets: the professional, the product, and the presentation.</p>
+      <p class="lede" style="max-width:560px">Every brand story we tell come from one or more facets: the professional, the product, and the presentation.</p>
     </div>
-    <div class="story-builder" data-combo="111" data-stories='{"100":"The professional at work","101":"The professional presenting the idea","110":"The professional using the feature","111":"The professional using the feature to present the idea","010":"The feature at work","001":"The idea behind the work","011":"The feature shaping the idea"}'>
-      <div class="sb-toggles" role="group" aria-label="Facets in the story"><button type="button" class="sb-tog" data-bit="0" aria-pressed="true"><span class="sb-tog-box material-symbols-outlined" aria-hidden="true">check_box</span>Professional</button><button type="button" class="sb-tog" data-bit="1" aria-pressed="true"><span class="sb-tog-box material-symbols-outlined" aria-hidden="true">check_box</span>Product</button><button type="button" class="sb-tog" data-bit="2" aria-pressed="true"><span class="sb-tog-box material-symbols-outlined" aria-hidden="true">check_box</span>Presentation</button></div>
-      <p class="sb-hint" aria-live="polite">Pick any combination of the 3 facets.</p>
-      <div class="sb-stage">
-        <div class="sb-media"><div class="sb-slot" data-combo="100" hidden><div class="sb-frame is-on"><image-slot id="st-ex-1" shape="rect" fit="cover" src="assets/story-pro-at-work.png" position="50% 35%" placeholder="FPO · drop an image: the professional at work"></image-slot></div><div class="sb-frame"><image-slot id="st-ex-1b" shape="rect" fit="cover" src="assets/story-pro-at-work-2.png" position="50% 30%" placeholder="FPO · drop an image: the professional at work"></image-slot></div><div class="sb-frame"><image-slot id="st-ex-1c" shape="rect" fit="cover" src="assets/story-pro-at-work-3.png" position="50% 25%" placeholder="FPO · drop an image: the professional at work"></image-slot></div></div><div class="sb-slot" data-combo="010" hidden><image-slot id="st-ex-2" shape="rect" fit="contain" src="assets/story-feature-at-work.png" placeholder="FPO · drop an image: the feature at work"></image-slot></div><div class="sb-slot" data-combo="001" hidden><image-slot id="st-ex-3" shape="rect" fit="cover" placeholder="FPO · drop an image: the idea behind the work"></image-slot></div><div class="sb-slot" data-combo="110" hidden><image-slot id="st-ex-4" shape="rect" fit="cover" placeholder="FPO · drop an image: the professional using the feature"></image-slot></div><div class="sb-slot" data-combo="101" hidden><image-slot id="st-ex-5" shape="rect" fit="cover" src="assets/story-pro-presenting.png" position="50% 30%" placeholder="FPO · drop an image: the professional presenting the idea"></image-slot></div><div class="sb-slot" data-combo="011" hidden><image-slot id="st-ex-6" shape="rect" fit="cover" placeholder="FPO · drop an image: the feature shaping the idea"></image-slot></div><div class="sb-slot" data-combo="111"><image-slot id="st-ex-7" shape="rect" fit="cover" placeholder="FPO · drop an image: the professional using the feature to present the idea"></image-slot></div></div>
-        <div class="sb-copy"><h3 class="sb-story">The professional using the feature to present the idea</h3><p class="sb-count">All 3 facets: the complete brand story.</p></div>
+    <div class="story-c" data-active="brand">
+      <div class="sc-stage">
+      <div class="sc-picker">
+        <div class="nest venn3" data-active="brand">
+          <svg viewBox="0 0 100 100" role="group" aria-label="3 overlapping facets: professional, product and presentation">
+            <circle class="v3 v3-brand" data-layer="brand" cx="50" cy="35" r="27" tabindex="0" role="button" aria-label="Professional"></circle>
+            <circle class="v3 v3-product" data-layer="product" cx="34" cy="62" r="27" tabindex="0" role="button" aria-label="Product"></circle>
+            <circle class="v3 v3-content" data-layer="content" cx="66" cy="62" r="27" tabindex="0" role="button" aria-label="Presentation"></circle>
+          </svg>
+        </div>
+        <p class="sc-crumb"><span data-layer="brand"><i class="sc-d d-brand"></i>Professional</span><span data-layer="product"><i class="sc-d d-product"></i>Product</span><span data-layer="content"><i class="sc-d d-content"></i>Presentation</span></p>
+        <div class="venn-key">
+        <div class="vk-item l-brand" data-layer="brand"><div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Professional</span><span class="vk-when">Hero when the story is about who</span></div><p>We show professionals in the roles and scenarios they recognize as their own, so every frame reflects the work they actually do.</p></div>
+        <div class="vk-item l-product" data-layer="product"><div class="vk-head"><span class="vk-dot d-product"></span><span class="vk-name">Product</span><span class="vk-when">Hero when the story is about how</span></div><p>We show the features and ways of working that help professionals make great slides.</p></div>
+        <div class="vk-item l-content" data-layer="content"><div class="vk-head"><span class="vk-dot d-content"></span><span class="vk-name">Presentation</span><span class="vk-when">Hero when the story is about what</span></div><p>We show relevant content that reflects what our professionals are actually working on.</p></div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="sc-sheets">
+        <section class="sc-sheet l-brand" data-layer="brand" id="story-brand" aria-label="Professional imagery">
+          <div class="sc-mhead"><div class="vk-head"><span class="vk-dot d-brand"></span><span class="vk-name">Professional</span><span class="vk-when">Hero when the story is about who</span></div><p>We show professionals in the roles and scenarios they recognize as their own, so every frame reflects the work they actually do.</p></div>
+          <div class="sc-grid"><div class="sc-cell"><image-slot id="sc-pro-1" shape="rect" fit="cover" placeholder="drop a photo: A professional in their element"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-2" shape="rect" fit="cover" src="assets/photo-pro-home-office-mid.png" placeholder="drop a photo: Working from a home office with a colleague"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-3" shape="rect" fit="cover" placeholder="drop a photo: Building a deck at a desk"></image-slot></div><div class="sc-cell"><image-slot id="sc-pro-4" shape="rect" fit="cover" src="assets/photo-pro-train.png" placeholder="drop a photo: Working on the commute"></image-slot></div></div>
+          <p class="sc-rule">A photo earns its place when a professional sees their own role and setting in it.</p>
+        </section>
 
 <nav class="chapter-nav" aria-label="Chapter navigation">
   <a class="cn-cell cn-prev" href="index.html">
@@ -348,7 +361,7 @@
     <span>Brand Guidelines · v4.2 · 05.19.2026</span>
   </div>
 </footer>
-<script src="site.js?v=132"></script>
+<script src="site.js?v=134"></script>
 <script>
 (function(){
   const sec=document.getElementById('realwork');if(!sec)return;
@@ -367,6 +380,5 @@
 <script src="wr-spread.js?v=130"></script>
 <script src="wr-arrange.js?v=130"></script>
 <script src="story-layers.js?v=130"></script>
-<script src="story-builder.js?v=3"></script>
 </body>
 </html>

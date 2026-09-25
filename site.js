@@ -68,3 +68,8 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
   nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
   hero.parentNode.insertBefore(wrap,hero.nextSibling);
 })();
+
+(function(){if(document.querySelector('.top-fab'))return;var b=document.createElement('button');b.className='top-fab';b.type='button';b.setAttribute('aria-label','Back to top');b.innerHTML='<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>';document.body.appendChild(b);
+var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+b.addEventListener('click',function(){window.scrollTo({top:0,behavior:still?'auto':'smooth'});var f=document.querySelector('.nav-fab');if(f)f.focus({preventScroll:true})});
+function u(){b.classList.toggle('is-visible',window.scrollY>window.innerHeight*1.2)}window.addEventListener('scroll',u,{passive:true});u();})();
