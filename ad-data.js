@@ -13,6 +13,7 @@ window.AD = (function(){
   var TRAITS = [['a wide nose'],['a strong, prominent nose'],['a slightly crooked nose'],['heavy brows'],['deep-set eyes'],['hooded eyelids'],['a round face'],['a long face'],['a soft jawline'],['a slight double chin'],['thin lips'],['an uneven smile'],['a small gap in their front teeth'],['ears that stick out'],['freckles'],['a few moles'],['glasses with thick frames'],['a receding hairline','old'],['grey at the temples','old'],['deep laugh lines','old']];
   var OUTFITS = ['a navy wool blazer over a white cotton shirt, with grey tailored trousers','a camel wool coat over a fine black merino crewneck','a charcoal suit with an open-collar white shirt','a grey cashmere crewneck over a crisp white collar','a black fine-knit turtleneck with charcoal wool trousers','a white silk blouse with navy tailored trousers','a light blue oxford shirt, sleeves neatly rolled, with navy chinos','a beige trench coat over a simple dark knit','a black tailored blazer over a white tee, with straight dark jeans','an ivory cable-knit sweater over a pale blue shirt','a simple navy shift dress with a fine wool cardigan','a grey wool blazer over a black crewneck']
   var PROPS = ['a ceramic mug of coffee','a glass of water','a closed notebook with a pen','a few printed pages with no readable text','a small potted plant','folded reading glasses','a phone lying face down','wireless earbuds in their case','a tablet with a stylus, its screen dark','a pastry on a small plate','a tote bag on the chair beside them','a reusable water bottle'];
+  var BACKDROPS = ['a subtly textured wall in soft, even shadow','bookshelves falling into soft shadow','a colleague softly out of focus across the room','a deep, dark corridor or doorway','a wood-panelled wall in warm, dim shade','a plant-filled corner in shadow','a room that falls off into near-black shadow','sunlight on a far wall, cast through blinds or leaves from a window out of frame'];
   var ACTION_G = 'caught candidly mid-task and actively working on their presentation';
   var ACTION_L = 'Action: they are caught candidly mid-task and actively working, such as reading, typing, reviewing a draft, pointing at the screen or talking it through with a colleague. Pick whichever suits the moment. They are never posed, idle or looking up from the work to pose.';
   function pick(arr,n){var c=arr.slice(),o=[];while(o.length<n&&c.length)o.push(c.splice(Math.floor(Math.random()*c.length),1)[0]);return o}
@@ -51,8 +52,8 @@ window.AD = (function(){
   };
   var SETTINGS = {
     'Office': 'an office of your choice, such as an open floor, a meeting room or a quiet corner, picked to suit their role, what they are doing and the light',
-    'Home': 'a home of your choice, such as a living room, kitchen table or sunlit loft, picked to suit their role, what they are doing and the light',
-    'Café': 'a café of your choice, from a busy counter to a quiet window table, picked to suit their role, what they are doing and the light',
+    'Home': 'a home of your choice, such as a living room, kitchen table or loft, picked to suit their role, what they are doing and the light',
+    'Café': 'a café of your choice, from a busy counter to a quiet corner table, picked to suit their role, what they are doing and the light',
     'Home office': 'a home office of your choice, from a spare room to a desk in a nook, picked to suit their role, what they are doing and the light',
     'In transit': 'a place in transit of your choice, such as a train, an airport lounge or a station concourse, picked to suit their role, what they are doing and the light'
   };
@@ -108,12 +109,12 @@ window.AD = (function(){
       'Camera: seated table height, looking past a softly blurred foreground object such as a glass, a mug, a plant or a colleague\u2019s shoulder.\n'+
       ACTION_L+'\n'+
       'Gaze: '+o.gaze+'\n'+
-      'Light: low, clear sun rakes in from the side and spotlights them in their element. '+TIME+' Their face is turned toward it and is the brightest, warmest skin in the frame. It draws long, crisp-edged shadows and picks out the texture of walls, wood, fabric and skin. Around them the light falls off into deep, rich shadow, and windows may glow brighter than the face.\n'+
+      'Light: low, clear sun rakes in from the side and spotlights them in their element. '+TIME+' Their face is turned toward it and is the brightest, warmest skin in the frame. It draws long, crisp-edged shadows and picks out the texture of wood, fabric and skin. The sunlight falls on them and their table; the background stays in soft shadow unless the background line says otherwise. Around them the light falls off into deep, rich shadow. The light source sits out of frame, beside or behind the camera, never a bright window behind them.\n'+
       'Wardrobe: '+o.wardrobe+', in quiet neutrals. It is classic and timeless, so the photo ages well, and never trendy, logoed, formal-event or costume.\n'+
       ACCENT+'\n'+
       'Devices: a laptop can sit in frame as part of the work. It stays secondary to the person, a standard silver, grey or black with a plain lid, and its screen is never readable, because the product is not the focus of this image.\n'+
       'Props: '+o.props+', placed naturally on the table or nearby.\n'+
-      'Background: no alcohol.\n'+
+      'Background: '+o.backdrop+'. No window or bright light source behind them. No alcohol.\n'+
       SKIN+'\n'+
       LOOK+'\n'+
       'Finish: unposed, caught mid-moment, never posed for the camera.\n'+
@@ -173,7 +174,7 @@ window.AD = (function(){
     var ward=cap(o.wardrobe)+', quiet neutrals';
     if(facet==='Product')return 'Editorial photo of the front of a laptop screen: work coming together fast and on brand. The screen is the hero, always clearly visible; back of the lid never visible. '+cap(PSHOT_S[sel.pshot]||PSHOT_S['Over the shoulder'])+': '+o.subject+' on a laptop in '+o.setting+'. '+cp+'Heritage in real features only, never cultural dress, decor or props. Screen face plain bright white for a screenshot in post. '+cap(LIGHT_S)+', '+NOSUN_S+'. No writing, words or logos outside the screen. Silver, grey or black laptop. Real, ordinary face, never model-like, age and build as stated. '+o.traits+' '+cap(o.wardrobe)+', quiet neutrals. On the table: '+o.props+'. '+SKIN_S;
     var gaze=sel.shot==='Close-up'?'into the lens or just off camera':'on a colleague or the task, never the lens';
-    return 'Editorial photo: the new way professionals present. '+cap(o.subject)+', '+o.action+', in '+o.setting+', confident and at ease. '+cap(LIGHT_S)+' spotlights them, face brightest, morning hopeful or late afternoon relaxed; the room falls off into deep shadow. '+cap(NOSUN_S)+'. '+(SHOT_S[sel.shot]||SHOT_S['Medium shot'])+'. '+cp+'Candid and actively working, never posed or idle, gaze '+gaze+'. No writing, words or logos anywhere. '+ward+', 1 small ambient accent in deep teal #004A66, navy #002533, wine #570E2E or dark wine #410A23, under 10% of frame, never bright or eye-catching. Real, ordinary face, never model-like, age and build as stated. '+o.traits+' An assistive detail when it fits. On the table: '+o.props+'. Heritage shows in real features only, never cultural jewelry, dress, decor or props. Laptop secondary, screen unreadable. No alcohol. '+SKIN_S;
+    return 'Editorial photo: the new way professionals present. '+cap(o.subject)+', '+o.action+', in '+o.setting+', confident and at ease. '+cap(LIGHT_S)+' spotlights them, face brightest, morning hopeful or late afternoon relaxed; the room falls off into deep shadow. Light source out of frame, no bright window behind them; background: '+o.backdrop+'. '+cap(NOSUN_S)+'. '+(SHOT_S[sel.shot]||SHOT_S['Medium shot'])+'. '+cp+'Candid and actively working, never posed or idle, gaze '+gaze+'. No writing, words or logos anywhere. '+ward+', 1 small ambient accent in deep teal #004A66, navy #002533, wine #570E2E or dark wine #410A23, under 10% of frame, never bright or eye-catching. Real, ordinary face, never model-like, age and build as stated. '+o.traits+' An assistive detail when it fits. On the table: '+o.props+'. Heritage shows in real features only, never cultural jewelry, dress, decor or props. Laptop secondary, screen unreadable. No alcohol. '+SKIN_S;
   }
   function attach(t,facet){
     if(facet==='Presentation'){
@@ -199,6 +200,7 @@ window.AD = (function(){
       action: ACTION_G,
       traits: (function(){var t=pick(TRAITS.filter(function(x){return !(x[1]==='old'&&sel.age==='20s')}),2);return 'They have '+t[0][0]+' and '+t[1][0]+'.'})(),
       props: pick(PROPS,2).join(' and '),
+      backdrop: pick(BACKDROPS,1)[0],
       setting: facet==='Product'?SETTINGS['Office']:(SETTINGS[sel.setting]||SETTINGS['Office']),
       light: LIGHT,
       accent: ACCENTS[sel.accent]||ACCENTS['Agency Azul'],

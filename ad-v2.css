@@ -234,13 +234,15 @@ background-size:1px 100%,1px 100%,100% 1px,100% 1px;background-position:33.333% 
 .bd-remix-row{display:flex;justify-content:flex-end;margin:-4px 0 -2px}.bd-remix-row .bd-remix{margin:0}
 .bd-remix{position:relative;isolation:isolate;overflow:hidden;transition:border-color .2s ease,transform .2s ease}
 .bd-remix::before{content:"";position:absolute;inset:0;z-index:-1;background:url('assets/brand-gradient.avif') 0% 50%/300% 300% no-repeat var(--blue-deepest);opacity:0;transition:opacity .25s ease}
-.bd-remix:hover,.bd-remix:focus-visible,.bd-remix.is-burst{border-color:transparent;background:transparent}
+.bd-remix:hover,.bd-remix:focus-visible{border-color:transparent;background:transparent}
 .bd-remix:hover::before,.bd-remix:focus-visible::before{opacity:1;animation:bdGrad 2.4s ease-in-out infinite alternate}
-.bd-remix.is-burst::before{opacity:1;animation:bdGrad .5s ease-in-out 2 alternate}
-.bd-remix.is-burst .material-symbols-outlined{animation:bdSpin .5s ease}
+.bd-tab{position:relative}
+.bd-tab::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:url('assets/brand-gradient.avif') 100% 0%/300% 300% no-repeat var(--blue-deepest);opacity:0;pointer-events:none}
+.bd-tab.is-on.is-burst::after{animation:bdLine 1.1s ease-in-out}
+@keyframes bdLine{0%{opacity:0;background-position:100% 0%}15%{opacity:1}50%{background-position:100% 100%}85%{opacity:1;background-position:100% 0%}100%{opacity:0;background-position:100% 0%}}
 @keyframes bdGrad{0%{background-position:0% 50%}50%{background-position:100% 0%}100%{background-position:100% 100%}}
 @keyframes bdSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.bd-remix:hover::before,.bd-remix.is-burst::before,.bd-remix.is-burst .material-symbols-outlined{animation:none}}
+@media (prefers-reduced-motion:reduce){.bd-remix:hover::before,.bd-tab.is-burst::after{animation:none}}
 .co-prompts{display:grid;gap:10px;margin-top:8px}.co-prompts .eyebrow{margin-top:8px}
 .co-prompts .copy-block{background:var(--white);border:1px solid color-mix(in oklch,var(--ink,#002533) 15%,transparent)}
 .co-prompts .copy-block pre{max-height:180px;overflow-y:auto;padding:52px 20px 18px;font-size:12.5px}
@@ -252,3 +254,8 @@ background-size:1px 100%,1px 100%,100% 1px,100% 1px;background-position:33.333% 
 .section .bd .bd-head .bd-name{color:var(--white)}
 .pr-split.pr-top{align-items:start}.pr-split.pr-top .pr-copy{padding-top:0}.pr-split.pr-top .pr-copy>.pp-lead:first-child{margin-top:0}
 .sub-title.pr-rules-head{margin-top:var(--sp-block,64px)}
+.co-visual .co-grid{display:block;width:100%;height:auto;border-radius:12px}
+.co-visual:has(.co-grid){display:block;align-self:start}.co-visual .co-grid{aspect-ratio:1800/1014;object-fit:cover}
+.rule-grid{align-items:start}.rule-card{align-content:start;grid-template-rows:auto auto}.rule-body{align-content:start}
+.co-prompts .copy-block pre{padding:18px 20px}
+.co-prompts .copy-block .copy-btn{box-shadow:0 2px 4px rgba(0,0,0,0.10)}
