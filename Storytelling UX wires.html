@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Storytelling UX wires</title>
+<meta name="design_doc_mode" content="canvas">
+<style>
+body{margin:0;background:transparent;font-family:ui-sans-serif,system-ui,sans-serif;color:#002533}
+a{color:#0094CC}a:hover{color:#004A66}
+.fr{position:absolute;width:640px;background:#fff;border-radius:18px;padding:36px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px}
+.opt{font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#4B636E}
+h3{margin:0;font-size:22px;letter-spacing:-.02em}
+.why{margin:0;font-size:14px;line-height:1.5;color:#4B636E}
+.wire{border:1.5px dashed #9AA8AF;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;background:#F0F3F5}
+.bar{height:10px;border-radius:5px;background:#C4CDD2}.bar.s{width:40%}.bar.m{width:65%}.bar.h{height:18px;width:30%;background:#4B636E}
+.img{background:repeating-linear-gradient(45deg,#E1E7EA 0 8px,#F0F3F5 8px 16px);border:1px solid #C4CDD2;border-radius:8px;display:grid;place-items:center;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#4B636E;text-transform:uppercase}
+.dots{display:flex;gap:6px}.d{width:12px;height:12px;border-radius:50%;border:1.5px solid #52D0FF;box-sizing:border-box}.d.on{background:#00B9FF;border-color:#00B9FF}
+.row{display:grid;grid-template-columns:62px 1fr 16px;gap:12px;align-items:center;padding:10px 12px;border:1px solid #C4CDD2;border-radius:8px;background:#fff;font-size:13px}
+.row.open{grid-template-columns:62px 1fr 16px;align-items:start}
+.row .chev{font-size:12px;color:#4B636E}
+.row .body{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tog{display:flex;gap:8px}.t{flex:1;height:40px;border-radius:8px;border:1.5px solid #52D0FF;display:grid;place-items:center;font-size:13px;font-weight:600;background:#fff}.t.on{background:#00B9FF;border-color:#00B9FF;color:#fff}
+.note{font-size:12px;color:#4B636E;font-family:ui-monospace,monospace;letter-spacing:.04em}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.card{border:1px solid #C4CDD2;border-radius:8px;background:#fff;padding:8px;display:flex;flex-direction:column;gap:8px}
+.h{font-size:13px;font-weight:600}
+.pros{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;line-height:1.45}
+.pros b{display:block;font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#4B636E;margin-bottom:4px;font-weight:400}
+.len{font-family:ui-monospace,monospace;font-size:11px;color:#002533;background:#E5F8FF;border-radius:4px;padding:4px 8px;align-self:flex-start}
+</style></head><body>
+
+<div class="fr" style="left:0;top:0" data-screen-label="1 Accordion">
+<div class="opt">Option 1 · Accordion</div>
+<h3>7 rows, 1 open at a time</h3>
+<span class="len">About 0.8 screens</span>
+<div class="wire">
+<div class="bar h"></div><div class="bar m"></div>
+<div class="row open"><span class="dots"><i class="d on"></i><i class="d"></i><i class="d"></i></span><span class="h">The professional at work</span><span class="chev">▲</span><div class="body"><div class="img" style="aspect-ratio:16/9">Example</div><div style="display:grid;gap:8px;align-content:start"><div class="bar"></div><div class="bar m"></div><div class="bar s"></div></div></div></div>
+<div class="row"><span class="dots"><i class="d"></i><i class="d on"></i><i class="d"></i></span><span>The feature at work</span><span class="chev">▼</span></div>
+<div class="row"><span class="dots"><i class="d"></i><i class="d"></i><i class="d on"></i></span><span>The idea behind the work</span><span class="chev">▼</span></div>
+<div class="row"><span class="dots"><i class="d on"></i><i class="d on"></i><i class="d"></i></span><span>The professional using the feature</span><span class="chev">▼</span></div>
+<div class="row"><span class="dots"><i class="d on"></i><i class="d"></i><i class="d on"></i></span><span>The professional presenting the idea</span><span class="chev">▼</span></div>
+<div class="row"><span class="dots"><i class="d"></i><i class="d on"></i><i class="d on"></i></span><span>The feature shaping the idea</span><span class="chev">▼</span></div>
+<div class="row"><span class="dots"><i class="d on"></i><i class="d on"></i><i class="d on"></i></span><span>All 3: the complete story</span><span class="chev">▼</span></div>
+</div>
+<div class="pros"><div><b>Works</b>The smallest change from today. It is scannable, and every combination is named.</div><div><b>Costs</b>It still reads as a list of 7. Most images stay hidden, and it does not show that the parts form 1 story.</div></div>
+</div>
+
+<div class="fr" style="left:700px;top:0" data-screen-label="2 Builder">
+<div class="opt">Option 2 · Story builder</div>
+<h3>Switch the facets, see the story</h3>
+<span class="len">About 1 screen</span>
+<div class="wire">
+<div class="bar h"></div><div class="bar m"></div>
+<div class="tog"><span class="t on">Professional</span><span class="t on">Product</span><span class="t on">Presentation</span></div>
+<span class="note">Default: all 3 on → the complete brand story</span>
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;align-items:start">
+<div class="img" style="aspect-ratio:16/10">Example for the current mix</div>
+<div style="display:grid;gap:10px"><span class="dots"><i class="d on"></i><i class="d on"></i><i class="d on"></i></span><span class="h" style="font-size:16px">The professional using the feature to present the idea</span><div class="bar"></div><div class="bar m"></div><div class="bar s"></div></div>
+</div>
+<span class="note">Switch off Product → "The professional presenting the idea"</span>
+</div>
+<div class="pros"><div><b>Works</b>It leads with the main story, lets you build any of the 7 combinations and keeps the section short. It mirrors the prompt builder in Art direction.</div><div><b>Costs</b>6 of the 7 stories only appear when you interact. It needs all 7 images to feel complete.</div></div>
+</div>
+
+<div class="fr" style="left:1400px;top:0" data-screen-label="3 Main + parts">
+<div class="opt">Option 3 · Main story, then parts</div>
+<h3>1 hero, 3 parts</h3>
+<span class="len">About 1.2 screens</span>
+<div class="wire">
+<div class="bar h"></div><div class="bar m"></div>
+<div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px;align-items:end">
+<div class="img" style="aspect-ratio:16/9">All 3 · hero</div>
+<div style="display:grid;gap:8px"><span class="dots"><i class="d on"></i><i class="d on"></i><i class="d on"></i></span><span class="h" style="font-size:16px">The complete brand story</span><div class="bar"></div><div class="bar s"></div></div>
+</div>
+<div class="cards3">
+<div class="card"><div class="img" style="aspect-ratio:4/3">Pro</div><span class="dots"><i class="d on"></i><i class="d"></i><i class="d"></i></span><span class="h">The professional at work</span></div>
+<div class="card"><div class="img" style="aspect-ratio:4/3">Product</div><span class="dots"><i class="d"></i><i class="d on"></i><i class="d"></i></span><span class="h">The feature at work</span></div>
+<div class="card"><div class="img" style="aspect-ratio:4/3">Pres.</div><span class="dots"><i class="d"></i><i class="d"></i><i class="d on"></i></span><span class="h">The idea behind the work</span></div>
+</div>
+<div class="bar m"></div><span class="note">1 line on pairing: any 2 parts make a focused story</span>
+</div>
+<div class="pros"><div><b>Works</b>The whole idea is visible at once with no interaction. It reads top down as whole, then parts.</div><div><b>Costs</b>The pairs get 1 sentence instead of an example each, so 4 images carry the section.</div></div>
+</div>
+
+</body></html>

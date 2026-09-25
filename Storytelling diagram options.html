@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Storytelling diagram options</title>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="colors_and_type.css"><link rel="stylesheet" href="styles.css">
+<style>
+body{margin:0;background:transparent}
+a{color:var(--blue-dark)}a:hover{color:var(--blue-darker)}
+.fr{position:absolute;width:760px;height:680px;background:var(--white);border-radius:18px;padding:48px;box-sizing:border-box;display:flex;flex-direction:column;gap:24px;color:var(--ink,#002533);font-family:var(--font)}
+.fr .opt{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--neutral-dark)}
+.fr h3{margin:0;font-size:var(--t-sub,26px);line-height:1.1;letter-spacing:-0.025em;color:var(--ink,#002533)}
+.fr p.why{margin:0;font-size:var(--text-body-m,1rem);line-height:1.5;color:var(--neutral-dark);max-width:60ch}
+.fr .stage{flex:1;display:grid;place-items:center;min-height:0}
+/* A — Venn, 7 regions */
+.va svg{width:420px;height:auto;overflow:visible}
+.va circle{fill:var(--blue-lightest);stroke:var(--blue-light);stroke-width:.4;mix-blend-mode:multiply}
+.va text{font-family:var(--font);text-anchor:middle;fill:var(--ink,#002533)}
+.va .nm{font-size:3.6px;font-weight:600}.va .rg{font-size:2.6px;fill:var(--neutral-dark)}
+.va .all{font-size:2.8px;font-weight:600;fill:var(--blue-darker)}
+/* B — combination grid */
+.cg{width:100%;border-collapse:collapse;font-size:var(--text-body-m,1rem)}
+.cg th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--neutral-dark);font-weight:400;padding:0 0 12px;text-align:center}
+.cg th:last-child{text-align:left;padding-left:20px}
+.cg td{padding:11px 0;border-top:1px solid var(--color-neutral-lighter,#C4CDD2);text-align:center}
+.cg td:last-child{text-align:left;padding-left:20px;color:var(--neutral-dark)}
+.cg td:last-child b{color:var(--ink,#002533);font-weight:600}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--blue-light);box-sizing:border-box}
+.dot.on{background:var(--blue);border-color:var(--blue)}
+.cg .grp td{border-top:1px solid var(--ink,#002533)}
+/* C — triangle */
+.tri svg{width:460px;height:auto;overflow:visible}
+.tri line{stroke:var(--blue-light);stroke-width:.5}
+.tri .n{fill:var(--white);stroke:var(--blue-light);stroke-width:.5}
+.tri .n.one{fill:var(--blue-lightest)}.tri .n.two{fill:var(--blue-lighter)}.tri .n.three{fill:var(--blue);stroke:var(--blue-dark)}
+.tri text{font-family:var(--font);text-anchor:middle;fill:var(--ink,#002533)}
+.tri .t1{font-size:3.4px;font-weight:600}.tri .t2{font-size:2.6px;fill:var(--neutral-dark)}.tri .t3{font-size:2.8px;font-weight:600;fill:var(--white)}
+/* D — story builder */
+.sb{width:100%;display:grid;gap:14px}
+.sb-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) 1.4fr;gap:10px;align-items:center}
+.chip{height:44px;border-radius:8px;display:grid;place-items:center;font-size:var(--text-body-s,.875rem);font-weight:500;border:1px dashed var(--color-neutral-lighter,#C4CDD2);color:var(--neutral-dark)}
+.chip.on{border:1px solid var(--blue-light);background:var(--blue-lightest);color:var(--ink,#002533)}
+.sb-row.full .chip.on{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.sb-lab{font-size:var(--text-body-s,.875rem);line-height:1.4;color:var(--neutral-dark)}
+.sb-lab b{display:block;color:var(--ink,#002533);font-weight:600;font-size:var(--text-body-m,1rem)}
+</style></head><body>
+
+<div class="fr" style="left:0;top:0" data-screen-label="A Venn">
+<div class="opt">Option A · Venn with every region named</div>
+<h3>Where the stories overlap</h3>
+<p class="why">We keep the familiar Venn but name all 7 regions, so professionals see the 1-, 2- and 3-facet stories in one picture. It is the closest to what the page already uses.</p>
+<div class="stage va"><svg viewBox="0 0 100 92"><circle cx="50" cy="32" r="27"></circle><circle cx="34" cy="59" r="27"></circle><circle cx="66" cy="59" r="27"></circle>
+<text class="nm" x="50" y="15">Professional</text><text class="rg" x="50" y="19.5">Who</text>
+<text class="nm" x="21" y="70">Product</text><text class="rg" x="21" y="74.5">How</text>
+<text class="nm" x="79" y="70">Presentation</text><text class="rg" x="79" y="74.5">What</text>
+<text class="rg" x="35" y="42">Who + how</text><text class="rg" x="65" y="42">Who + what</text><text class="rg" x="50" y="71">How + what</text>
+<text class="all" x="50" y="53">All 3</text></svg></div>
+</div>
+
+<div class="fr" style="left:820px;top:0" data-screen-label="B Grid">
+<div class="opt">Option B · Combination grid</div>
+<h3>Every story we can tell</h3>
+<p class="why">We list all 7 combinations as rows, with a dot for each facet a story includes. It reads fastest and leaves room for 1 line on when to use each.</p>
+<div class="stage"><table class="cg"><thead><tr><th>Pro</th><th>Product</th><th>Pres.</th><th>Story</th></tr></thead><tbody>
+<tr><td><i class="dot on"></i></td><td><i class="dot"></i></td><td><i class="dot"></i></td><td><b>Who</b> The professional</td></tr>
+<tr><td><i class="dot"></i></td><td><i class="dot on"></i></td><td><i class="dot"></i></td><td><b>How</b> The product</td></tr>
+<tr><td><i class="dot"></i></td><td><i class="dot"></i></td><td><i class="dot on"></i></td><td><b>What</b> The presentation</td></tr>
+<tr class="grp"><td><i class="dot on"></i></td><td><i class="dot on"></i></td><td><i class="dot"></i></td><td><b>Who + how</b></td></tr>
+<tr><td><i class="dot on"></i></td><td><i class="dot"></i></td><td><i class="dot on"></i></td><td><b>Who + what</b></td></tr>
+<tr><td><i class="dot"></i></td><td><i class="dot on"></i></td><td><i class="dot on"></i></td><td><b>How + what</b></td></tr>
+<tr class="grp"><td><i class="dot on"></i></td><td><i class="dot on"></i></td><td><i class="dot on"></i></td><td><b>All 3</b></td></tr>
+</tbody></table></div>
+</div>
+
+<div class="fr" style="left:0;top:740px" data-screen-label="C Triangle">
+<div class="opt">Option C · Triangle</div>
+<h3>From 1 facet to all 3</h3>
+<p class="why">We put each facet on a corner, each pair on an edge and the full story at the center. Depth reads as a shade of blue, so professionals see how much a story combines.</p>
+<div class="stage tri"><svg viewBox="0 0 100 84"><line x1="50" y1="6" x2="8" y2="78"></line><line x1="50" y1="6" x2="92" y2="78"></line><line x1="8" y1="78" x2="92" y2="78"></line><line x1="50" y1="6" x2="50" y2="54"></line><line x1="8" y1="78" x2="50" y2="54"></line><line x1="92" y1="78" x2="50" y2="54"></line>
+<circle class="n one" cx="50" cy="6" r="5"></circle><circle class="n one" cx="8" cy="78" r="5"></circle><circle class="n one" cx="92" cy="78" r="5"></circle>
+<circle class="n two" cx="29" cy="42" r="4"></circle><circle class="n two" cx="71" cy="42" r="4"></circle><circle class="n two" cx="50" cy="78" r="4"></circle>
+<circle class="n three" cx="50" cy="54" r="6"></circle>
+<text class="t1" x="50" y="-2">Professional</text><text class="t1" x="8" y="87">Product</text><text class="t1" x="92" y="87">Presentation</text>
+<text class="t2" x="23" y="43" style="text-anchor:end">Who + how</text><text class="t2" x="77" y="43" style="text-anchor:start">Who + what</text><text class="t2" x="50" y="85">How + what</text>
+<text class="t3" x="50" y="55">All 3</text></svg></div>
+</div>
+
+<div class="fr" style="left:820px;top:740px" data-screen-label="D Builder">
+<div class="opt">Option D · Story builder</div>
+<h3>Build the story from its parts</h3>
+<p class="why">We show each story as the facets it switches on. It maps straight to how teams brief a shoot and to the prompt builder in Art direction.</p>
+<div class="stage"><div class="sb">
+<div class="sb-row"><span class="chip on">Professional</span><span class="chip">Product</span><span class="chip">Presentation</span><span class="sb-lab"><b>1 facet</b>A single, focused story</span></div>
+<div class="sb-row"><span class="chip on">Professional</span><span class="chip on">Product</span><span class="chip">Presentation</span><span class="sb-lab"><b>2 facets</b>Who + how</span></div>
+<div class="sb-row"><span class="chip">Professional</span><span class="chip on">Product</span><span class="chip on">Presentation</span><span class="sb-lab"><b>2 facets</b>How + what</span></div>
+<div class="sb-row full"><span class="chip on">Professional</span><span class="chip on">Product</span><span class="chip on">Presentation</span><span class="sb-lab"><b>All 3</b>The complete brand story</span></div>
+</div></div>
+</div>
+
+</body></html>

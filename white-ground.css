@@ -185,3 +185,20 @@
 .vk-item{padding-left:16px;border-left:2px solid var(--lc,rgba(0,26,36,0.12))}
 .vk-item.l-brand{--lc:#00B9FF}.vk-item.l-product{--lc:#DB2475}.vk-item.l-content{--lc:var(--amber)}
 .vk-when{color:var(--neutral-dark)}
+
+/* ═══ GALLERY GREY GROUND (Scheme 5) ═══
+   The whole guide sits on Gallery Grey; cards, stages and frames are the white foreground. */
+html, body, .section, .section.dark, .section.darkblue, .section.cream, .section.blue, .section.sage, .section.dark.sage,
+.storyhero, .sage, .tagline-page, #archetype { background: var(--scheme5-bg, #F0F3F5); }
+.logo-stage, .logo-stage.cream, #color .wm-grid .logo-stage.cream { background: var(--white); box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
+.value-card, .altitude-card, .alt-meter, .expression-card.dark, .expression-card.blue,
+.app-card.dark, .app-card.gradient, .archetype-stage, #archetype .sage-quote { background: var(--white); border-color: var(--scheme5-border, rgba(0,26,36,0.15)); }
+.st-media, .sc-cell, .am-tile, .gv-card { background: var(--white); }
+/* Gallery Grey specimens keep an outline so they read on the Gallery Grey ground */
+[data-hex="#F0F3F5"], [style*="background:var(--cream)"], [style*="background:#F0F3F5"], [style*="background: var(--cream)"] { box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
+/* every surface that used Gallery Grey as a panel becomes the white foreground */
+#color .usage-media, .pr-img, .anatomy-panel, .minsize .cell, .type-specimen, .weight, .icon-cell, .expression-card,
+.product-mock, .app-card.cream, .cn-empty, .ts-context, .copy-hex:hover, .copy-hex.is-copied { background: var(--white); }
+.cn-cell:hover { background: var(--white); }
+.ts-context[style*="background:var(--cream)"] { background: var(--white) !important; box-shadow: none; }
+.product-mock .pm-bars .bar, .product-mock .pm-pill, .wr-mini { background: var(--scheme5-bg, #F0F3F5); }

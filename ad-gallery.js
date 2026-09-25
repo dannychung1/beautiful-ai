@@ -47,7 +47,7 @@
   /* ── Gallery ── */
   var root=document.querySelector('[data-gv]');
   if(root){
-    var GROUPS=[['facet','Facet'],['shot','Shot type'],['setting','Setting'],['light','Light mode'],['role','Role']];
+    var GROUPS=[['facet','Facet'],['shot','Shot type'],['setting','Setting'],['role','Role']];
     var state={},copyAs='full';
     var bar=root.querySelector('.gv-filters'),grid=root.querySelector('.gv-grid'),count=root.querySelector('.gv-count'),empty=root.querySelector('.gv-empty');
     GROUPS.forEach(function(g){
@@ -67,7 +67,7 @@
     });
     var cards=AD.ITEMS.map(function(it){
       var f=el('figure','gv-card'+(it.slot?' is-slot':''));
-      var tags=[it.facet,it.shot,it.setting,it.light].filter(Boolean).join(' · ');
+      var tags=[it.facet,it.shot,it.setting].filter(Boolean).join(' · ');
       var media=it.slot
         ?'<div class="gv-media" style="aspect-ratio:'+it.ratio+'"><image-slot id="'+it.slot+'" shape="rect" fit="cover" placeholder="FPO · drop a '+esc(it.facet.toLowerCase())+' image: '+esc(it.cap.toLowerCase())+'"></image-slot></div>'
         :'<div class="gv-media"><img src="assets/'+it.src+'" alt="'+esc(it.cap)+'"></div>';
@@ -103,27 +103,39 @@
   /* ── Builder ── */
   var bd=document.querySelector('[data-builder]');
   if(bd){
-    var sel={facet:'Professional',length:'Full',tool:'GPT Image',role:'Marketing',seniority:'Manager',age:'30s',race:'South Asian',shot:'Working',setting:'Office',light:'Hard sun',accent:'Agency Azul',wardrobe:'Any',copy:'None',action:AD.ACTIONS[0],accentItem:AD.ACCENT_ITEMS[0],feature:'Create with AI',layout:'Fanned deck',ground:'Gallery Grey'};
+    var sel={facet:'Professional',length:'Full',slides:'Blank',tool:'GPT Image',role:'Marketing',age:'30s',build:'Average',race:'South Asian',shot:'Medium shot',setting:'Office',accent:'Agency Azul',wardrobe:'Any',copy:'None',action:AD.ACTIONS[0],accentItem:AD.ACCENT_ITEMS[0],feature:'Create with AI',layout:'Floating',ground:'Light'};
     var FIELDS=[
-      ['facet','Photo of',['Professional','Product','Presentation'],'all'],
-      ['length','Prompt length',['Full','Short'],'all'],
       ['role','Role',Object.keys(AD.ROLES),'Professional Product'],
-      ['seniority','Seniority',Object.keys(AD.SENIORITY),'Professional Product'],
       ['age','Age',AD.AGES,'Professional Product'],
+      ['build','Body type',Object.keys(AD.BUILDS),'Professional Product'],
       ['race','Race or ethnicity',AD.RACES,'Professional Product'],
-      ['shot','Framing',Object.keys(AD.SHOTS),'Professional'],
+      ['shot','Framing',Object.keys(AD.SHOTS),'Professional Product'],
       ['setting','Setting',Object.keys(AD.SETTINGS),'Professional Product'],
-      ['light','Light',Object.keys(AD.LIGHTS),'Professional Product'],
       ['action','Action',AD.ACTIONS,'Professional','select'],
-      ['wardrobe','Dress code',Object.keys(AD.WARDROBES),'Professional Product'],
-      ['feature','On screen',Object.keys(AD.FEATURES),'Product'],
-      ['copy','Space for a headline',Object.keys(AD.COPY),'Professional Presentation'],
+      ['wardrobe','Dress code',Object.keys(AD.WARDROBES),'Professional'],
+      ['copy','Space for a headline',Object.keys(AD.COPY),'all'],
       ['layout','Slides arranged',Object.keys(AD.LAYOUTS),'Presentation'],
       ['ground','Background',Object.keys(AD.GROUNDS),'Presentation']
     ];
-    var SHOW={length:{Full:'ChatGPT',Short:'Figma'},facet:{Professional:'A professional',Product:'Our product',Presentation:'Slides'},shot:{Portrait:'Close-up',Working:'At work',Together:'With a colleague',Environmental:'Wide'},light:{'Hard sun':'Bright sun','Soft window':'Window light'},role:{'Consultants & analysts':'Consulting'},layout:{'Fanned deck':'Fanned','Stacked deck':'Stacked','Single slide':'Single slide'}};
+    var SHOW={slides:{Attached:'I will attach them',Blank:'Leave blank, add later'},length:{Full:'ChatGPT',Short:'Figma'},facet:{Professional:'A professional',Product:'Our product',Presentation:'Slides'},shot:{Portrait:'Close-up',Working:'At work',Together:'With a colleague',Environmental:'Wide'},light:{'Hard sun':'Bright sun','Soft window':'Window light'},role:{'Consultants & analysts':'Consulting'},layout:{'Fanned deck':'Fanned','Stacked deck':'Stacked','Single slide':'Single slide'}};
     function lab(k,v){var t=(SHOW[k]&&SHOW[k][v])||v;return t.charAt(0).toUpperCase()+t.slice(1)}
     var form=bd.querySelector('.bd-form'),out=bd.querySelector('.bd-out pre'),note=bd.querySelector('.bd-note'),open=bd.querySelector('.bd-open');
+    var HERO=[['Professional','A pro'],['Product','Our product'],['Presentation','Our slides']];
+    var tabs=el('div','bd-tabs');var tTop=el('div','bd-tabs-top');tTop.appendChild(el('span','bd-tabs-q','Who is the hero?'));tabs.appendChild(tTop);var rmx=bd.querySelector('.bd-remix');if(rmx)tTop.appendChild(rmx);
+    var tl=el('div','bd-tablist');tl.setAttribute('role','tablist');tl.setAttribute('aria-label','Who is the hero?');tabs.appendChild(tl);
+    var tabBtns=HERO.map(function(h){
+      var b=el('button','bd-tab',esc(h[1]));b.type='button';b.setAttribute('role','tab');b.dataset.v=h[0];
+      b.addEventListener('click',function(){sel.facet=h[0];syncTabs();render()});
+      b.addEventListener('keydown',function(e){var i=HERO.findIndex(function(x){return x[0]===sel.facet}),n=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!n)return;e.preventDefault();var j=(i+n+HERO.length)%HERO.length;sel.facet=HERO[j][0];syncTabs();render();tabBtns[j].focus()});
+      tl.appendChild(b);return b;
+    });
+    function syncTabs(){tabBtns.forEach(function(b){var on=b.dataset.v===sel.facet;b.classList.toggle('is-on',on);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1})}
+    var formEl=bd.querySelector('.bd-form');formEl.insertBefore(tabs,formEl.firstChild);formEl.setAttribute('role','tabpanel');syncTabs();
+    var lenRow=el('div','bd-len');lenRow.appendChild(el('span','bd-len-q','Prompt length'));var lenChips=el('div','gv-chips');lenRow.appendChild(lenChips);
+    var LEN=[['Full','Full, for ChatGPT'],['Short','Short, for Figma']];
+    var lenBtns=LEN.map(function(l){var b=el('button','gv-chip',esc(l[1]));b.type='button';b.dataset.v=l[0];b.addEventListener('click',function(){sel.length=l[0];syncLen();render()});lenChips.appendChild(b);return b});
+    function syncLen(){lenBtns.forEach(function(b){var on=b.dataset.v===sel.length;b.classList.toggle('is-on',on);b.setAttribute('aria-pressed',on)})}
+    var outEl=bd.querySelector('.bd-out');outEl.insertBefore(lenRow,outEl.firstChild);syncLen();
     var rows=FIELDS.map(function(fd){
       var row=el('div','gv-group bd-row');row.appendChild(el('span','gv-glabel',fd[1]));row._show=fd[3];row._fd=fd;
       if(fd[4]==='select'){
@@ -146,6 +158,7 @@
       rows.forEach(function(r){r.hidden=!(r._show==='all'||r._show.split(' ').indexOf(sel.facet)>-1)});
       var t=AD.build(sel.facet,sel,sel.length==='Short'?'Short':'GPT Image');
       out.textContent=t;setEdited(false);showCount(t);
+      hint.hidden=!(sel.facet==='Presentation'||sel.facet==='Product');hint.textContent=sel.facet==='Product'?'This prompt leaves the laptop screen blank white. Place a real product screenshot on it in Figma or Photoshop: match the perspective, then add a soft screen glow.':'This prompt leaves every slide face blank white. Place real slides from our templates on them in Figma or Photoshop: match the perspective of each slide, then keep the contact shadows.';
       open.href='https://chatgpt.com/?q='+encodeURIComponent('Create an image: '+t);
     }
     var tag=bd.querySelector('.bd-edited'),reset=bd.querySelector('.bd-reset');
@@ -153,6 +166,7 @@
     if(out.contentEditable!=='plaintext-only')out.setAttribute('contenteditable','true');
     out.setAttribute('spellcheck','false');out.setAttribute('role','textbox');out.setAttribute('aria-multiline','true');out.setAttribute('aria-label','Prompt, editable');
     function setEdited(on){if(tag)tag.hidden=!on}
+    var hint=el('p','bd-hint');hint.hidden=true;var cb=out.parentNode;cb.parentNode.insertBefore(hint,cb);
     var cnt=el('span','bd-count');var foot=bd.querySelector('.bd-foot');if(foot)foot.appendChild(cnt);
     function showCount(t){cnt.textContent=t.length.toLocaleString()+' characters'+(sel.length==='Short'&&t.length>1400?' · trim for Figma':'')}
     out.addEventListener('input',function(){setEdited(true);showCount(out.innerText.trim());open.href='https://chatgpt.com/?q='+encodeURIComponent('Create an image: '+out.innerText.trim())});
