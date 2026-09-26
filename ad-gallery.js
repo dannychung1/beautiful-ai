@@ -12,11 +12,11 @@
   /* ── Mosaic: every image, crossfading ── */
   var mo=document.querySelector('[data-mosaic]');
   if(mo){
-    var FOCUS={'photo-rule-light.jpg':[.40,.27],'photo-rule-camera-2.jpg':[.55,.28],'photo-rule-gaze-2.png':[.40,.25],'photo-rule-together-2.png':[.62,.18],'photo-best-light-cafe.png':[.45,.25],'mosaic-column-chart.png':[.48,.45],'photo-range-hero.jpg':[.50,.28],'photo-pro-sunlit-desk.png':[.45,.32],'hero-content-stack.png':[.40,.45]};
+    var FOCUS={'photo-rule-light.jpg':[.40,.27],'photo-rule-camera-2.jpg':[.55,.28],'photo-rule-gaze-2.png':[.40,.25],'photo-rule-together-2.png':[.62,.18],'photo-best-light-cafe.png':[.45,.25],'mosaic-column-chart.png':[.48,.45],'photo-range-hero.jpg':[.50,.28],'photo-pro-sunlit-desk.png':[.45,.32],'hero-content-stack.png':[.40,.45],'photo-real-slide-laptop.png':[.38,.40]};
     function place(img){var f=FOCUS[img.dataset.src];if(!f||!img.naturalWidth)return;var t=img.parentNode;if(!t)return;var tw=t.clientWidth,th=t.clientHeight,nw=img.naturalWidth,nh=img.naturalHeight,sc=Math.max(tw/nw,th/nh),iw=nw*sc,ih=nh*sc;function k(fv,i,tv){return i>tv+0.5?Math.max(0,Math.min(1,(fv*i-tv/2)/(i-tv))):0.5}img.style.objectPosition=(k(f[0],iw,tw)*100)+'% '+(k(f[1],ih,th)*100)+'%'}
     function focus(img,src){img.dataset.src=src;if(src==='hero-content-fan.png'){img.style.objectPosition='72% 38%';return}if(img.complete&&img.naturalWidth)place(img);img.addEventListener('load',function(){place(img)})}
     window.addEventListener('resize',function(){mo.querySelectorAll('img').forEach(place)});
-    var LATEST=[{src:'photo-rule-light.jpg',cap:'Facing the light'},{src:'photo-rule-camera-2.jpg',cap:'At table height'},{src:'photo-rule-gaze-2.png',cap:'Looking into the lens'},{src:'photo-rule-together-2.png',cap:'Working together'},{src:'photo-best-light-cafe.png',cap:'In their best light'},{src:'mosaic-column-chart.png',cap:'A column chart, found by search'}];
+    var LATEST=[{src:'photo-rule-light.jpg',cap:'Facing the light'},{src:'photo-rule-camera-2.jpg',cap:'At table height'},{src:'photo-rule-gaze-2.png',cap:'Looking into the lens'},{src:'photo-rule-together-2.png',cap:'Working together'},{src:'photo-best-light-cafe.png',cap:'In their best light'},{src:'mosaic-column-chart.png',cap:'A column chart, found by search'},{src:'photo-real-slide-laptop.png',cap:'A real slide on screen'}];
     var pool=LATEST.concat(AD.ITEMS.filter(function(it){return it.src&&it.src!=='photo-pro-home-office-mid.png'&&it.src!=='photo-light-library.png'}));
     var tiles=[].slice.call(mo.querySelectorAll('.am-tile:not(.am-fixed)'));
     var shown=[];

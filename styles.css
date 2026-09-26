@@ -3375,3 +3375,10 @@ body:has(.sidenav:not(.collapsed)) .top-fab{opacity:0;visibility:hidden}
 .vd-ov p{margin:2px 0 0;font-size:var(--text-body-m,1rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E)}
 @media (max-width:640px){.vd-overlaps{grid-template-columns:minmax(0,1fr)}}
 .venn-diagram{align-items:start}
+
+/* Chapter heroes: the cover's 2 drifting spotlights, idle only (no pointer) */
+.chapter-hero.ch-spots{background:var(--blue-deepest)}.chapter-hero.ch-spots>.wrap{z-index:2}
+
+/* hairline fixes: the chapter lede clears the sub-nav rule, and a sub-section right after a lede still opens with its own hairline */
+.wrap:has(>.ch-subnav){margin-bottom:var(--sub-gap)!important}
+.wrap>.section-head+:is(.sub-title:has(>h3),:has(>.sub-title:first-child>h3)){margin-top:var(--sub-gap)!important;padding-top:var(--sub-gap);border-top:1px solid color-mix(in oklch,currentColor 14%,transparent)}
