@@ -404,7 +404,7 @@ em.accent {
 .cover-top .col { display: flex; flex-direction: column; gap: 4px; }
 .cover-top strong { color: var(--white); font-weight: 500; }
 .cover-title { position: relative; z-index: 2; display: flex; align-items: center; min-width: 0; container-type: inline-size; }
-.cover-head { margin: 0; color: var(--white); font-size: min(17cqi, calc((clamp(560px, 88svh, 980px) - var(--gutter-y) * 2 - 180px) * 0.44)); line-height: 0.95; letter-spacing: -0.035em; }
+.cover-head { margin: 0; color: var(--white); font-size: var(--t-display); line-height: 0.95; letter-spacing: -0.035em; }
 /* optical alignment: pull each line left by its own glyph side bearing so the B and G
    stems sit on the gutter, not the invisible text-box edge */
 /* the headline is lit by the same spring-driven point as the two spotlights:
@@ -2605,7 +2605,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .sub-head h2{font-size:clamp(2.5rem,4vw,var(--text-h2-size,3.625rem));letter-spacing:-0.03em;line-height:var(--text-h2-lh,1.2)}
 .contents{margin-top:clamp(64px,8vw,110px);border-top:1px solid color-mix(in oklch,currentColor 16%,transparent);padding-top:20px}
 .ct-label{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--neutral);margin-bottom:28px}
-.contents ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.contents ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
 .contents li{display:grid;grid-template-columns:minmax(96px,0.22fr) 1fr;align-items:baseline}
 .contents li span{font-size:clamp(1.875rem,3.6vw,var(--text-h2-size,3.625rem));letter-spacing:-0.03em;color:var(--neutral-dark)}
 .contents li a{font-size:clamp(1.875rem,3.6vw,var(--text-h2-size,3.625rem));letter-spacing:-0.035em;text-decoration:none;color:var(--neutral-darkest);line-height:1.14}
@@ -2864,6 +2864,13 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .ill-rule strong{font-size:var(--text-body-m,1rem);font-weight:500;color:var(--neutral-darkest,#001A24)}
 .ill-rule span{font-size:14px;line-height:1.5;color:var(--neutral-dark,#4B636E)}
 @media (max-width:900px){.ill-spec{grid-template-columns:1fr}}
+.ux-ex{margin-top:clamp(48px,5vw,80px)}.ux-head{margin-bottom:24px}
+.ux-stage{display:grid;place-items:center;padding:clamp(32px,6vw,96px) 24px;background:var(--ink,#002533);border-radius:18px}
+.ux-modal{width:min(100%,440px);display:grid;gap:12px;justify-items:center;text-align:center;padding:40px 36px 32px;background:var(--white,#fff);border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,0.15)}
+.ux-modal .ux-art{width:200px;margin-bottom:12px}
+.ux-modal h5{margin:0;font-size:var(--text-h6-size,1.5rem);line-height:1.3;font-weight:500;letter-spacing:var(--ls-tight,-0.01em);color:var(--ink,#002533)}
+.ux-modal p{margin:0;max-width:34ch;font-size:var(--text-body-m,1rem);line-height:1.5;color:var(--color-neutral-dark,#4B636E)}
+.ux-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:16px}.ux-actions .btn{pointer-events:none}
 
 
 /* ── Chapter navigation (bottom of every page) ─────────────── */
@@ -3198,6 +3205,10 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
 .bu-band-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gut,24px)}
 .bu-band .bu-item figcaption{color:var(--neutral-lighter)}.bu-band .as-badge{color:var(--white)}
 .bu-band .bu-frame{background:color-mix(in oklch,var(--white) 8%,transparent)}
+.bu-heroes{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:clamp(240px,30vw,440px);gap:var(--gut,24px);row-gap:calc(var(--gut,24px) + 32px)}
+.bu-heroes .hx-7{grid-column:span 7}.bu-heroes .hx-5{grid-column:span 5}
+.bu-heroes .bu-item{grid-template-rows:minmax(0,1fr) auto;height:100%}.bu-heroes .bu-frame{height:100%}
+@media (max-width:900px){.bu-heroes{grid-auto-rows:auto;row-gap:var(--gut,24px)}.bu-heroes .hx-7,.bu-heroes .hx-5{grid-column:span 12}.bu-heroes .bu-frame{height:auto;aspect-ratio:16/10}}
 @media (max-width:900px){.bu-grid .span-6,.bu-grid .span-4{grid-column:span 12}.bu-band-row{grid-template-columns:minmax(0,1fr)}}
 
 /* ── Chapter sub-nav (sections in this chapter) ── */
