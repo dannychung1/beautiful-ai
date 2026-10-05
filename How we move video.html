@@ -7,13 +7,13 @@
 <link rel="stylesheet" href="colors_and_type.css?v=130">
 <link rel="stylesheet" href="styles.css?v=149">
 <link rel="stylesheet" href="ad-v2.css?v=215">
-<style>
+<style id="hv-css">
 html,body{margin:0;background:#F0F3F5}
 svg[data-om-exportable-video-with-duration-secs]{max-width:none!important}
 .hv svg{max-width:none}
 a{color:var(--ink,#002533)}a:hover{color:var(--blue-darker,#004A66)}
 .hv{--t-statement:var(--text-h1-size,4.5rem);--t-section:var(--text-h2-size,3.625rem);--t-sub:var(--text-h3-size,2.875rem);--t-lead:var(--text-h5-size,1.875rem);--t-card:var(--text-h6-size,1.5rem)}
-.hv{position:absolute;left:0;top:0;width:1920px;height:1168.5px;transform:scale(2);transform-origin:0 0;background:#F0F3F5;box-sizing:border-box;padding:100px 200px;display:grid;grid-template-rows:auto auto;align-content:center;gap:32px;color:var(--ink,#002533)}
+.hv{position:absolute;left:0;top:0;width:1920px;height:1168px;transform:scale(2);transform-origin:0 0;background:#F0F3F5;box-sizing:border-box;padding:100px 200px;display:grid;grid-template-rows:auto auto;align-content:center;gap:32px;color:var(--ink,#002533)}
 .hv .sub-title{margin:0!important;padding:0;border:0}
 .hv .sub-title h3{margin:0}
 .hv .sub-title .st-rule{margin:12px 0 0}
@@ -38,13 +38,18 @@ const LOOP=5;
 function HowWeMove(){
   const {T}=useComposition();
   const ref=React.useRef(null);
+  const [css,setCss]=React.useState('');
+  const anim=React.useRef(null);
+  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=149','ad-v2.css?v=220'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('hv-css').textContent))},[]);
   React.useLayoutEffect(()=>{
-    const el=ref.current;if(!el)return;
-    const t=(((T%LOOP)+LOOP)%LOOP+LOOP)*1000;
-    el.getAnimations({subtree:true}).forEach(a=>{a.pause();a.currentTime=t});
+    const el=ref.current;if(!el||!css)return;
+    if(!anim.current){anim.current=[...el.querySelectorAll('*')].map(n=>{const cs=getComputedStyle(n);if(!cs.animationName||cs.animationName==='none')return null;return {n,d:cs.animationDelay.split(',').map(x=>parseFloat(x)||0)}}).filter(Boolean)}
+    const t=((T%LOOP)+LOOP)%LOOP;
+    anim.current.forEach(a=>{a.n.style.animationPlayState='paused';a.n.style.animationDelay=a.d.map(d=>(d-t).toFixed(4)+'s').join(',')});
     const root=el.closest('[data-om-exportable-video-with-duration-secs]');if(root)root.setAttribute('data-screen-label','How we move '+Math.floor(T)+'s');
-  },[T]);
+  },[T,css]);
   return (<div className="hv" ref={ref}>
+    <style>{css}</style>
     <div className="sub-title"><h3>How we move</h3><p className="st-rule">We hold every animation to 6 principles, and the best work meets all of them at once.</p></div>
     <div dangerouslySetInnerHTML={{__html:window.MP_GRID}}></div>
   </div>);
@@ -52,7 +57,7 @@ function HowWeMove(){
 function App(){
   const [t,setTweak]=useTweaks(window.TWEAK_DEFAULTS);
   return (<>
-    <CompositionStage width={3840} height={2337} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#F0F3F5"><HowWeMove/></CompositionStage>
+    <CompositionStage width={3840} height={2336} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#F0F3F5"><HowWeMove/></CompositionStage>
     <TweaksPanel><TweakSection label="Video"/><TweakToggle label="Motion editor" value={t.motionEditor} onChange={v=>setTweak('motionEditor',v)}/></TweaksPanel>
   </>);
 }
