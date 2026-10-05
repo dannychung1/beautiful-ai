@@ -40,3 +40,19 @@
 #color .color-block .palette-grid{margin-top:clamp(56px,6vw,96px)!important}#color .color-block .combos,#color .color-block .gradient-pair{margin-top:clamp(40px,4vw,64px)}#color .combos{gap:clamp(24px,2.4vw,40px)}
 
 @media (max-width:900px){#color .pair-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Tightened color page: about 30% shorter. Square chips, slide-ratio media, primary and accent swatches keep the most room */
+#color{--sub-gap:clamp(72px,7.5vw,120px)}
+#color .sys-tiers{gap:var(--gut-xl,40px)}
+#color .sys-tier{gap:var(--gut-m,16px)}
+#color .sys-row{grid-template-columns:repeat(8,minmax(0,1fr));row-gap:var(--gut-l,24px)}
+#color .sys-item{grid-column:auto;gap:8px}
+#color .sys-dot{aspect-ratio:1/1}
+#color .tier-mosaic{min-height:clamp(300px,28vw,420px)}
+#color .usage-grid{gap:var(--gut-m,16px) var(--gut-l,24px)}
+#color .usage-grid figure,#color .wm-grid figure{gap:8px}
+#color .pair{aspect-ratio:16/9;padding:16px}
+#color .pair-aa{font-size:var(--text-h4-size,37px)}
+#color .dont{padding:16px;gap:12px}
+@media (max-width:1024px){#color .sys-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:520px){#color .sys-row{grid-template-columns:repeat(3,minmax(0,1fr))}}

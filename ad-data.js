@@ -189,20 +189,24 @@ window.AD = (function(){
     'Presenting': 'presenter view on the laptop while a slide shows on a wall screen'
   };
   var LAYOUTS = {
-    'Floating': 'a deck of thin 16:9 slides floating weightless close to camera, spaced apart in soft perspective',
-    'Flying': 'a stream of thin 16:9 slides flying in a long arc toward camera and receding into depth',
-    'Twisting': 'a column of thin 16:9 slides twisting in a loose spiral around an unseen axis',
-    'Exploded': 'an exploded view of a deck, thin 16:9 slides pulled apart in even layers along 1 axis',
-    'Front stack': 'a front-facing stack of 4 thin 16:9 slides, square to camera, each one set a little behind and above the one in front and slightly narrower, so only the top strip of each back slide shows. The front slide is the largest and fills the lower part of the frame, running past the bottom edge. A soft glow edges every slide',
-    'Grid': 'a wall of thin 16:9 slides laid out edge to edge in an even grid with narrow, equal gaps, the whole wall tilted back in soft perspective and running past every edge of the frame. The nearest slides are large and sharp, and the grid softens as it recedes. In motion, the wall drifts slowly and steadily on a diagonal'
+    'Floating single': 'a single thin 16:9 slide floating weightless close to camera. The camera sits straight on or slightly off-axis, turned no more than 30 degrees from any side, and never looks down from above',
+    'Floating multiple': 'a hero 16:9 slide floating weightless close to camera, with 2 to 4 thin 16:9 slides behind it. Every slide is parallel to the hero, turned to exactly the same angle, and recedes to the same vanishing point, so all their edges line up as 1 set of rails. The rear slides step straight back in an even line behind 1 side of the hero, smaller only because they are farther away. They never tilt, skew or turn on their own. Each rear slide shows at least half of its face beside the hero, with at least 3 corners visible. The camera sits straight on or slightly off-axis, turned no more than 30 degrees from any side, and never looks down from above',
+    'Strip': 'a single strip of thin 16:9 slides running in 1 continuous line like a ribbon, belt or film strip, receding into depth. The slides never overlap, and the gaps between them are even and wide enough to show how each slide relates to the next',
+    'Twisting': 'a column of thin 16:9 slides spiralling around an unseen vertical pole like the steps of a spiral staircase or a deck of rigid cards fanned around a spindle. Each slide is a separate, perfectly flat, rigid card with 4 straight edges; only its position and angle change, each turned a few degrees more than the one below it. No slide curves, bends, twists or warps along its length, and the slides never read as a ribbon. The slides never overlap, and the gaps between them are even',
+    'Front stack': 'a front-facing stack of 4 thin 16:9 slides, square to camera. Each back slide sits a little behind and above the one in front, at the same angle and size, so the top half of each back slide shows above the slide in front of it. The hero slide in front sits in the center of the frame, or fills 2/3 of the frame when the layout needs it',
+    'Grid': 'a wall of thin 16:9 slides laid out in an even grid of straight rows and columns with narrow, equal gaps, all resting on 1 flat plane like tiles on a single sheet of glass. The whole wall tilts back as 1 rigid piece in soft perspective and runs past every edge of the frame, so every row and column follows the same 2 vanishing points. No slide tilts, turns or lifts on its own. The nearest slides are large and sharp, and the grid softens as it recedes. In motion, the wall drifts slowly and steadily on a diagonal'
   };
   var GROUNDS = {
-    'Light': 'a big, open space in Gallery Grey #F0F3F5 fading to white, lit like our light brand gradient. The pale ground fills about 80% of the frame, and a soft glow of Agency Azul #00B9FF blending through violet into Ready Rose magenta #DB2475 makes up the other 20%. The mood is airy, calm and bright',
-    'Dark': 'a big, open space in Base Blue #002533, lit like our dark brand gradient. Base Blue fills the left and about 80% of the frame, with a soft Ready Rose magenta #DB2475 glow toward the top right and an Agency Azul #00B9FF glow toward the bottom right making up the other 20%. The mood is deep, focused and cinematic, and the white slide faces stand out clearly against it'
+    'Light': 'a big, open space in Gallery Grey #F0F3F5 fading to white. The pale ground fills about 80% of the frame, and the Agency Azul key light and the softer Ready Rose fill light, from opposite corners, make up the other 20%. The mood is airy, calm and bright',
+    'Dark': 'a big, open space in Base Blue #002533. Base Blue fills about 80% of the frame, and the Agency Azul key light and the softer Ready Rose fill light, from opposite corners, make up the other 20%. The mood is deep, focused and cinematic, and the white slide faces stand out clearly against it',
+    'Sampled': 'a big, open space in 1 color sampled from the slides: an analogous color 30 degrees around the color wheel from the main color of the hero slide, such as the color of its largest photograph, image or block of display text. Never use the main color itself. The sampled color fills about 80% of the frame, and the key and fill lights, in a lighter tone of the same hue from opposite corners, make up the other 20%. Use no Base Blue, Agency Azul or Ready Rose. The sampled color is either light, at about 80% lightness like a soft pink, or deep, at about 20% lightness like a dark crimson. Pick whichever end contrasts most with the slide, and never use a mid-tone. The color also stays clearly distinct from Base Blue #002533 and Gallery Grey #F0F3F5, so the edge of the image shows on our dark and light pages'
   };
-  var SPOT = 'Spotlights: the blue and magenta light frames or spotlights 1 slide or 1 block of slides. It is softly blended into the background, trails or sweeps slightly as if in motion, and carries a small, subtle grain. It never forms hard beams, rings or lens flares.';
+  var SPOT_C = 'Lighting: use exactly 2 lights. The key light is 1 soft spotlight in a lighter tone of the sampled background color from a high corner, aimed at the face of the slides, or from the opposite corner rising from behind them as a rim light. A fill light in the opposing corner is a second, softer spotlight in a lighter tone of the sampled background color at about half the intensity. Both blend softly into the background with a small, subtle grain. Use no other lights, beams, rings or lens flares, and no haze or bloom.';
+  var SPOT = 'Lighting: use exactly 2 lights. The key light is 1 soft spotlight in Agency Azul from a high corner, aimed at the face of the slides, or from the opposite corner rising from behind them as a rim light. A fill light in the opposing corner is a second, softer spotlight in Ready Rose at about half the intensity. Both blend softly into the background with a small, subtle grain. Use no other lights, beams, rings or lens flares, and no haze or bloom.';
+  var FRAMING = 'Framing: crop in close. The slides span about 2/3 to 3/4 of the frame width, with a modest margin of background around them, and a grid may run off the edges.';
+  var SLIDEBODY = 'Slides: every slide is perfectly flat and rigid, like a thin solid chip or a sheet of metal. Slides never bend, curl, fold, twist or warp, and every slide edge is a straight line. Each slide has a very subtle edge glow: a thin, crisp line of light that hugs its edges, sharp and precise, never hazy, dreamy or blooming. Their surface has a low satin finish that picks up soft, diffused ambient light, never sharp or mirror-like reflections.';
   var SPACE = 'Space: the space feels big and open, never boxed in. It can have a floor or a horizon, or no ground at all, with the slides floating in open depth.';
-  var SPOT_S = 'soft blended blue and magenta spotlights framing the slides with a hint of motion, subtle grain, big open space';
+  var SPOT_S = '1 soft key spotlight from a high corner on the slide faces and 1 softer fill spotlight from the opposite corner at half intensity, blue key and magenta fill, subtle grain, big open space, slides perfectly flat and rigid like thin metal chips, never bent, low satin finish with soft diffused reflections, a crisp subtle edge glow, never dreamy';
 
   var STORY='Story: an editorial magazine photograph about the new professional way to present. They are confident, prepared and at ease while preparing, sharing or talking through their work, never scrambling or stressed.';
   var SKIN='Skin and detail: shot with a fast prime lens, with Kodak Portra 400 skin tones. The raking light draws crisp highlights on the forehead, cheekbones, nose and lips, rich midtones across the face and shadows on the face that keep their detail, while the room around them falls into medium to medium-dark shadow. The face is in sharp focus. Visible pores, fine facial hair, small lines, freckles and natural variation in skin tone hold up at 100%, and light glows through the edges of the ears and hair. Hair reads as soft, natural strands that group into locks, waves or coils with smooth, continuous highlights, never a crosshatch, mesh, grid or etched texture. The medium to medium-dark shadow belongs to the room, never the face. No retouching, skin smoothing, soft glow or HDR look.';
@@ -257,14 +261,15 @@ window.AD = (function(){
       'Never include: writing, words, letters, numbers, logos or signage anywhere outside the screen.';
   }
   function presentation(o){
-    return 'A clean editorial still life of '+o.layout+' in '+o.ground+'.\n'+
+    return 'A clean editorial still life in '+o.ground+'.\nLayout: '+cap(o.layout)+'.\n'+
       'Story: the finished deck is the hero, polished, on brand and ready to present.\n'+
       DECK+'\n'+
       (o.copy?o.copy+'\n':'')+
       REACH+'\n'+
-      SPACE+'\n'+
-      SPOT+'\n'+
-      'Every slide face is plain white and evenly lit, ready for real slides to be placed in post.\n'+
+      SPACE+'\n'+FRAMING+'\n'+SLIDEBODY+'\n'+
+      (o.sampled?SPOT_C:SPOT)+'\n'+
+      'Every slide face is plain white, lit only by the key and fill, ready for real slides to be placed in post.\n'+
+      'Slide geometry: every face is a flat, rigid 16:9 rectangle of the same size with the same small rounded corners, all parallel and evenly spaced along 1 line that recedes to 1 vanishing point. Each face turns no more than 30 degrees from the camera, so even the farthest face reads as a slide and not a sliver. All 4 corners of every face stay in frame and visible, never overlapped by the next face. Use 7 faces at most.\n'+
       LOOK_P+'\n'+
       'No props, no hands. Crisp slide edges. Shot on 50mm at f/5.6.\n'+
       'Never include: writing, words, letters, numbers or logos anywhere in the frame.';
@@ -273,11 +278,11 @@ window.AD = (function(){
   function short(facet,o){
     if(facet==='Professional') return 'Candid editorial photo, '+o.subject+' '+o.action+' '+o.setting+', face turned into '+LIGHT_S+', light spotlighting them in their element, '+NOSUN_S+', seated eye level, camera in the room as close as a colleague, blurred foreground, classic, timeless workwear in quiet neutrals with 1 small ambient accent, deep or muted: teal #004A66, navy #002533, wine #570E2E, dark wine #410A23, plum or a dusty version, under 10% of the frame, never bright, editorial story about the new way professionals present, candid and unposed, '+(o.group?GROUPS[o.shotName][1]+', ':'')+o.focusS+', face in sharp focus, crisp skin highlights, open facial shadows with detail, visible pores and fine hair, room falling into medium to medium-dark shadow, no retouching or smoothing, '+TONE_S+', '+LOOK_S+', no writing or words anywhere --ar '+AR[facet]+' --style raw';
     if(facet==='Product') return 'Editorial product photo, our product in use, '+(PSHOT_S[o.shotName]||PSHOT_S['Over the shoulder']).replace('{H}',o.hands)+', '+o.subject+' at a laptop '+o.setting+', keyboard and display facing camera, display switched on showing a blank solid white screen, no interface, in a thin black bezel, lit by '+LIGHT_S+', '+NOSUN_S+', silver, grey or black laptop, '+TONE_S+', '+LOOK_S+' --ar '+AR[facet]+' --style raw';
-    return 'Editorial still life, '+o.layout+' in '+o.ground+', endless and nimble, nearest slides close to camera and almost touchable, slides running out of frame, blank white slide faces, '+SPOT_S+', '+LOOK_PS+', crisp edges --ar '+AR[facet]+' --style raw';
+    return 'Editorial still life in '+o.ground.split('. ')[0]+', '+o.layout.split('. ')[0]+', endless and nimble, nearest slides close to camera and almost touchable, slides running out of frame, blank white slide faces, '+(o.sampled?SPOT_S.replace('blue and magenta','sampled-color'):SPOT_S)+', '+LOOK_PS+', crisp edges --ar '+AR[facet]+' --style raw';
   }
   function brief(facet,o,shotName){
     var l=['Shoot brief · '+facet];
-    if(facet==='Presentation'){l.push('Layout: '+o.layout,'Deck: endless and nimble, slides run out of frame or into depth, never a static pile','Ground: '+o.ground,'Lens: 50mm at f/5.6','Distance: nearest slides close to camera, within arm\u2019s reach, almost touchable','Spotlights: soft, blended Azul and magenta light framing 1 slide or block, hinting at motion, subtle grain','Space: big and open, floor or horizon optional','Look: '+LOOK_PS,'Slides: blank white faces, real slides placed in post',o.copy);return l.filter(Boolean).join('\n');}
+    if(facet==='Presentation'){l.push('Layout: '+cap(o.layout),'Deck: endless and nimble, slides run out of frame or into depth, never a static pile','Ground: '+o.ground,'Lens: 50mm at f/5.6','Distance: nearest slides close to camera, within arm\u2019s reach, almost touchable',(o.sampled?'Lighting: 1 soft key spotlight from a high corner on the slide faces, or a rim light from behind; 1 fill spotlight in the opposite corner at half intensity; both a lighter tone of the sampled color; subtle grain':'Lighting: 1 soft Azul key spotlight from a high corner on the slide faces, or a rim light from behind; 1 Rose fill spotlight in the opposite corner at half intensity; subtle grain'),'Space: big and open, floor or horizon optional','Look: '+LOOK_PS,'Slides: blank white faces, real slides placed in post',o.copy);return l.filter(Boolean).join('\n');}
     l.push('Story: the new professional way to present. Confident, prepared, at ease. Candid, never posed.','Talent: '+o.subject+'. '+o.traits+' Real people, never models: ordinary faces, age and build as stated, ability shown naturally. Heritage in real features only, never cultural jewelry, dress, decor or props.','Setting: '+o.setting,'Light: '+cap(LIGHT_S)+'. Early morning feels full of possibility; late afternoon feels relaxed and confident. Sun never in frame, no flare. Key on the face so the light spotlights them. Long crisp shadows, texture picked out, surroundings falling off into medium to medium-dark shadow.','Exposure: '+TONE_S,'Look: '+LOOK_S);
     if(facet==='Professional'){l.push('Action: candid, mid-task, actively working; never posed or idle','Props: '+propLine(o),'Shot: '+shotName+'. '+o.shot,'Focus: '+o.focusS,'Camera: seated eye level, soft foreground element','Presence: in the room, as close as a colleague would sit, never a distant long-lens view','Gaze: '+o.gaze,'Wardrobe: '+o.wardrobe+', quiet neutrals','Accent: 1 ambient hint, deep or muted: teal #004A66, navy #002533, wine #570E2E, dark wine #410A23, plum or a dusty version, no more than 10% of the frame, never stealing focus','Devices: laptop secondary, screen unreadable, standard silver, grey or black');}
     else{l.push('Camera: '+o.pcam.replace('Camera: ','')+' Keyboard and lit display always face camera.','Shot: '+shotName+'. '+o.shot,'Screen: switched on, completely blank solid white, no interface, icons or text, for a screenshot in post','Devices: silver, grey or black laptop, plain lid');}
@@ -306,7 +311,7 @@ window.AD = (function(){
     var cp=COPY_S[sel.copy]?COPY_S[sel.copy]+' ':'';
     var set=R?o.setting:'in '+(SET_S[stOf(sel,facet)]||SET_S['Office']);
     var cast='Real, ordinary face. '+o.traits+' '+cap(o.wardrobe)+', quiet neutrals. '+propLine(o)+' Heritage in real features only, never cultural dress or props.';
-    if(facet==='Presentation')return 'Editorial still life, '+LOOK_PS+'. '+cap(o.ground)+'. Soft blended blue and magenta spotlights frame 1 slide or block of slides. '+cap(o.layout)+'. A finished deck, endless and nimble, never a static pile. Blank white slide faces for real slides in post. '+cp+'No props, hands, writing, words or logos.';
+    if(facet==='Presentation')return 'Editorial still life, '+LOOK_PS+'. '+cap(o.ground)+'. '+cap(o.layout)+'. Every slide is thin, flat and rigid like a metal chip, with small rounded corners, a low satin finish and a crisp, subtle edge glow, never bent or hazy. Crop in close, with the slides spanning about 2/3 to 3/4 of the frame width. Blank white slide faces for real slides in post. '+cp+'No props, hands, writing, words or logos.';
     if(facet==='Product')return 'Editorial photo, '+LOOK_S+'. Hands and hair in natural detail, no retouching. Our product in use: '+(PSHOT_S[sel.pshot]||PSHOT_S['Over the shoulder']).replace('{H}',o.hands)+'. '+cap(o.subject)+' '+set+'. The display is on and completely blank: solid flat white inside its thin black bezel, no interface, icons or text, for a screenshot in post. '+cap(LIGHT_S)+', '+NOSUN_S+', the screen glowing softly on their hands. '+cp+cap(o.wardrobe)+', quiet neutrals. '+propLine(o)+' Silver, grey or black laptop. Heritage in real features only, never cultural dress or props. No writing, words or logos outside the screen.';
     var gaze=sel.shot==='Close-up'?'into the lens or just off camera':'on a colleague or the task, never the lens';
     return FILM_S+' '+cap(LIGHT_S)+' spotlights them, face brightest; the room falls into medium-dark shadow. Light from out of frame, no window behind, no sun or flare. The new way professionals present: '+o.subject+', '+o.action+', '+set+'. '+(o.group?GROUPS[o.shotName][1]:(SHOT_S[sel.shot]||SHOT_S['Medium shot']))+'. Background: '+o.backdrop+', '+o.focusS+'. '+cp+'Never posed or idle, gaze '+gaze+'. '+cast+' 1 small deep or muted teal, navy, wine or plum accent. Laptop screen unreadable. No writing, logos or alcohol.';
@@ -388,8 +393,9 @@ window.AD = (function(){
       pcam: PCAMS[sel.pshot]||PCAMS['Over the shoulder'],
       shotName: facet==='Product'?(sel.pshot||'Over the shoulder'):(sel.shot||'Medium shot'),
       feature: fit('feature',PFEAT),
-      layout: LAYOUTS[sel.layout]||LAYOUTS['Floating'],
-      ground: GROUNDS[sel.ground]||GROUNDS['Light']
+      layout: LAYOUTS[sel.layout]||LAYOUTS['Floating multiple'],
+      ground: sel.ground==='Sampled'&&sel.sampleHex?GROUNDS['Sampled'].replace(/1 color sampled from the slides:[^.]*\.( Never use the main color itself\.)?/,(sel.sampleHand?sel.sampleHex+', a color chosen to go with the slides.':sel.sampleHex+', an analogous color of '+sel.sampleBase+', the main color of the slides. Never use '+sel.sampleBase+' itself.')).replace(/The sampled color is either light.*?never use a mid-tone\./,'Keep '+sel.sampleHex+' exactly. Never shift it toward a mid-tone.'):(GROUNDS[sel.ground]||GROUNDS['Light']),
+      sampled: sel.ground==='Sampled'
     };
     o.shot=o.shot.replace('{H}',o.hands);
     o.group=0;if(facet==='Professional'&&GROUPS[o.shotName]&&R){o.group=keep('grp',function(){return Math.random()<0.45?1:0})}
@@ -407,12 +413,12 @@ window.AD = (function(){
   var ITEMS = [
     {src:'photo-range-hero.webp',facet:P,shot:'Wide shot',setting:'Office',light:'Hard sun',role:'Consultants & analysts',cap:'Room for a headline',sel:{action:'leaning at a counter, reading a printed page'}},
     {src:'photo-pro-sunlit-desk.webp',facet:P,shot:'Medium shot',setting:'Home',light:'Hard sun',role:'Marketing',cap:'Mid-thought, in the sun',sel:{action:'building a presentation on a laptop'}},
-    {src:'hero-content-stack.webp',facet:PZ,cap:'A deck, in exploded view',sel:{layout:'Exploded',ground:'Light'}},
+    {src:'hero-content-stack.webp',facet:PZ,cap:'A deck, as a front stack',sel:{layout:'Front stack',ground:'Light'}},
     {slot:'gv-prod-ai',ratio:'4/3',facet:PR,cap:'Create with AI, on screen',sel:{feature:'Create with AI',setting:'Café',light:'Hard sun'}},
     {src:'deck-grid-wall.webp',facet:PZ,cap:'A deck, as a tilted grid',sel:{layout:'Grid',ground:'Dark'}},
-    {src:'hero-content-fan.webp',facet:PZ,cap:'A deck, flying on dark',sel:{layout:'Flying',ground:'Dark'}},
+    {src:'hero-content-fan.webp',facet:PZ,cap:'A deck, as a strip on dark',sel:{layout:'Strip',ground:'Dark'}},
     {slot:'gv-prod-smart',ratio:'4/3',facet:PR,cap:'A smart slide, adjusting',sel:{feature:'Smart Slides',setting:'Office',light:'Hard sun'}},
-    {slot:'gv-slide-chart',ratio:'3/4',facet:PZ,cap:'A deck, floating on Gallery Grey',sel:{layout:'Floating',ground:'Light'}},
+    {slot:'gv-slide-chart',ratio:'3/4',facet:PZ,cap:'A deck, floating on Gallery Grey',sel:{layout:'Floating multiple',ground:'Light'}},
     {slot:'gv-prod-present',ratio:'4/3',facet:PR,cap:'Presenting from the app',sel:{feature:'Presenting',setting:'Office',light:'Hard sun'}},
   ];
   ITEMS.forEach(function(it){
@@ -427,8 +433,8 @@ window.AD = (function(){
       .replace(ACCENTS['Agency Azul'],'[ACCENT]').replace(ACCENT_ITEMS[0],'[ACCENT ITEM]').replace(SHOTS['Medium shot'],'[SHOT TYPE LINE]'),
     Product: build(PR,{role:'Marketing',setting:'Office',light:'Hard sun',feature:'Create with AI'},'GPT Image')
       .replace(ROLES['Marketing'],'[SUBJECT]').replace(SETTINGS['Office'],'[SETTING]'),
-    Presentation: build(PZ,{layout:'Floating',ground:'Light'},'GPT Image')
-      .replace(LAYOUTS['Floating'],'[LAYOUT]').replace(GROUNDS['Light'],'[GROUND]')
+    Presentation: build(PZ,{layout:'Floating multiple',ground:'Light'},'GPT Image')
+      .replace(LAYOUTS['Floating multiple'],'[LAYOUT]').replace(GROUNDS['Light'],'[GROUND]')
   };
 
   return {hold:function(){R={}},reroll:function(){R={}},lastVars:function(){return LV.slice()},PSHOTS:PSHOTS,BUILDS:BUILDS,AGES:AGES,RACES:RACES,ROLES:ROLES,SHOTS:SHOTS,SETTINGS:SETTINGS,ACTIONS:ACTIONS,ACCENTS:ACCENTS,COPY:COPY,WARDROBES:WARDROBES,ACCENT_ITEMS:ACCENT_ITEMS,FEATURES:FEATURES,LAYOUTS:LAYOUTS,GROUNDS:GROUNDS,ITEMS:ITEMS,BASE:BASE,build:build};

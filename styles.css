@@ -3235,7 +3235,7 @@ body:has(.sidenav:not(.collapsed)) .fab-label{display:none}
    sp-content: heading block → its content, at every level
    sp-block  : intro paragraph → content; nested h4 above
    sp-rule   : heading → its rule line */
-:root{--sp-rule:12px;--sp-content:var(--gut-xl);--sp-block:var(--gut-2xl)}
+:root{--sp-rule:12px;--sp-content:clamp(24px,2.5vw,32px);--sp-block:var(--gut-2xl)}
 .ch-subnav{margin-bottom:var(--sub-gap)}
 .wrap>.sub-head{margin-top:var(--sub-gap)!important;margin-bottom:var(--sp-content)!important;padding-top:20px}
 .sub-head .sh-label{margin-bottom:14px}
