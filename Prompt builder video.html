@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt builder — motion video</title>
+<link rel="stylesheet" href="colors_and_type.css?v=130">
+<link rel="stylesheet" href="styles.css?v=152">
+<link rel="stylesheet" href="ad-v2.css?v=225">
+<style id="pv-css">
+html,body{margin:0;background:#F0F3F5}
+svg[data-om-exportable-video-with-duration-secs]{max-width:none!important}
+a{color:var(--ink,#002533)}a:hover{color:var(--blue-darker,#004A66)}
+.pv{position:absolute;left:0;top:0;width:1920px;height:1168px;transform:scale(2);transform-origin:0 0;background:#F0F3F5;box-sizing:border-box;padding:80px 160px;display:grid;grid-template-columns:560px minmax(0,1fr);gap:64px;align-items:stretch;color:var(--ink,#002533)}
+.pv-l{display:flex;flex-direction:column;gap:32px;align-self:center}
+.pv .sub-title{margin:0!important;padding:0;border:0}.pv .sub-title h3{margin:0}.pv .sub-title .st-rule{margin:12px 0 0}
+.pv .rt-tabs{position:relative;margin:0;isolation:isolate}
+.pv .rt-tabs button{background:transparent!important;transition:none;cursor:default}
+.pv-pill{position:absolute;top:0;height:100%;border-radius:999px;background:var(--ink,#002533);z-index:-1}
+.pv-seg{display:flex;gap:8px;margin-top:-16px}
+.pv-seg span{font-size:var(--text-body-s,.875rem);font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid rgba(0,37,51,0.15);color:var(--color-neutral-dark,#4B636E);background:transparent}
+.pv-seg span.on{background:var(--white,#fff);color:var(--ink,#002533);border-color:var(--ink,#002533)}
+.pv-card{background:var(--white,#fff);border:1px solid rgba(0,37,51,0.15);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.pv-card .eyebrow{margin:0}
+.pv-txt{margin:0;font-size:var(--text-body-m,1rem);line-height:1.6;color:var(--ink,#002533);min-height:8em}
+.pv-caret{display:inline-block;width:2px;height:1.1em;vertical-align:-0.2em;background:var(--blue,#00B9FF);margin-left:1px}
+.pv-btn{align-self:flex-start;font:inherit;font-size:var(--text-body-m,1rem);font-weight:500;padding:12px 22px;border-radius:6px;border:0;background:var(--ink,#002533);color:#fff;display:flex;gap:8px;align-items:center}
+.pv-r{position:relative;height:100%;border-radius:18px;overflow:hidden;background:var(--white,#fff);border:1px solid rgba(0,37,51,0.15)}
+.pv-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pv-r .eyebrow{position:absolute;left:24px;top:22px;margin:0;color:var(--color-neutral-dark,#4B636E)}
+.pv-rows{display:grid;gap:10px}
+.pv-row{display:flex;align-items:center;gap:12px}
+.pv-row .eyebrow{margin:0;width:110px;flex:none}
+.pv-chip{font-size:var(--text-body-s,.875rem);font-weight:500;padding:8px 14px;border-radius:999px;border:1px solid rgba(0,37,51,0.15);color:var(--color-neutral-dark,#4B636E);background:transparent}
+.pv-chip.on{background:var(--white,#fff);color:var(--ink,#002533);border-color:var(--ink,#002533)}
+.pv-att{display:flex;gap:10px}
+.pv-att>div{display:grid;gap:6px}.pv-th{width:120px;height:68px;border-radius:8px;border:1px solid rgba(0,37,51,0.15);background-repeat:no-repeat;background-color:#fff}
+.pv-att small{font-size:12px;line-height:1.3;color:var(--color-neutral-dark,#4B636E)}
+.pv-wrap{position:absolute;top:0;height:100%;aspect-ratio:2400/1350;left:70%;transform:translateX(-70%)}.pv-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.pv-r svg{position:absolute;inset:0;width:100%;height:100%}
+.pv-cut{position:absolute;inset:0;background:#F0F3F5;pointer-events:none}
+</style>
+<script>window.OM_SCENES = '[{"name":"Pick","dur":2.4,"desc":"Product tab, in a photo, pick details"},{"name":"Step 1","dur":2.6,"desc":"Scene prompt types and opens in ChatGPT, blank-screen scene appears"},{"name":"Step 2","dur":3.4,"desc":"Attach scene and screenshot, place prompt, real screen appears"},{"name":"Quick cuts","dur":3.6,"desc":"Professionals and product in open space, fast"},{"name":"Reset","dur":0.6,"desc":"Fade back to the start"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"motionEditor":true}/*EDITMODE-END*/;</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="animations-v3.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const PV_LOOP=12.6;
+const PV_TABS=['Professionals','Product','Presentations'];
+const PV_IMG={pro:'assets/pbv-professional.webp',photo:'assets/pbv-product-photo.webp',space:'assets/pbv-product-space.webp'};
+const PV_P1={photo:'Our product in use, shot over the shoulder at seated eye level in a warm office. Their hands rest on the keyboard and the lit display faces the camera on the left third. The display is blank white, ready for a real screenshot in post.',pro:'Editorial photo, warm side light. A professional at a sunlit table turns toward the light mid-thought, shot from seated table height past a soft foreground mug. Candid, never posed.',space:'Our product in open space. 1 thin, flat display floats close to camera in Gallery Grey, lit by an Agency Azul key and a softer Ready Rose fill. The screen is blank white for a real screenshot.'};
+const PV_P2='Edit the first image. Place the other images, our product screenshots, on the blank screens, 1 per screen, the first on the largest. Apply only a perspective transform. Keep every word identical.';
+const PV_ROWS={photo:[['Shot','Over the shoulder'],['Setting','Office'],['Headline','Right']],pro:[['Shot','Medium shot'],['Setting','Home'],['Headline','Left']],space:[['Layout','Floating single'],['Ground','Light'],['Headline','Above']]};
+const PV_Q=[[1155,303],[1957,322],[1873,871],[1072,811]];
+const pvE=x=>x<=0?0:x>=1?1:(x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2);
+const pvR=(t,a,b)=>pvE((t-a)/(b-a));
+function pvState(t){
+  const S={tab:1,prevTab:1,tabK:1,sub:0,subO:1,kind:'photo',rowsOn:3,step:1,typed:1,btn:'Open in ChatGPT',pressed:false,done:false,img:null,imgK:0,blank:0,att:0,cut:0,leftO:1};
+  if(t<2.4){S.prevTab=0;S.tabK=pvR(t,0.1,0.6);S.subO=pvR(t,0.3,0.7);S.rowsOn=t<0.9?0:t<1.4?1:t<1.9?2:3;S.typed=0;S.img=null;S.cut=1-pvR(t,0,0.4);return S}
+  if(t<5){const l=t-2.4;S.typed=Math.min(1,l/1.4);S.pressed=l>1.5&&l<1.65;S.done=l>=1.6;S.btn=S.done?'Opened':'Open in ChatGPT';S.img='photo';S.imgK=pvR(l,1.75,2.4);S.blank=1;return S}
+  if(t<8.4){const l=t-5;S.step=2;S.att=pvR(l,0.15,0.6);S.typed=Math.min(1,Math.max(0,(l-0.5)/0.9));S.btn=l>=1.75?'Copied':'Copy prompt';S.pressed=l>1.6&&l<1.75;S.img='photo';S.imgK=1;S.blank=1-pvR(l,1.95,2.7);return S}
+  if(t<12){const l=t-8.4,k=l<1.8?'pro':'space',ll=l<1.8?l:l-1.8;S.kind=k;S.tab=k==='pro'?0:1;S.prevTab=S.tab;S.sub=k==='pro'?-1:1;S.subO=k==='pro'?0:1;S.rowsOn=3;S.typed=Math.min(1,ll/0.5);S.done=ll>0.6;S.btn=S.done?'Opened':'Open in ChatGPT';S.img=k;S.imgK=pvR(ll,0.65,1.0);S.cut=1-pvR(ll,0,0.12);return S}
+  const l=t-12;S.kind='space';S.tab=1;S.prevTab=1;S.sub=1;S.img='space';S.imgK=1;S.done=true;S.btn='Opened';S.leftO=1-pvR(l,0,0.5);S.cut=pvR(l,0,0.5);return S;
+}
+function PromptVideo(){
+  const {T}=useComposition();
+  const ref=React.useRef(null);
+  const [css,setCss]=React.useState('');
+  const [rects,setRects]=React.useState(null);
+  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=151','ad-v2.css?v=225'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('pv-css').textContent))},[]);
+  React.useLayoutEffect(()=>{if(!css||!ref.current)return;const go=()=>{const bs=[...ref.current.querySelectorAll('.rt-tabs button')];const p=bs[0].parentNode,pr=p.getBoundingClientRect(),k=pr.width/p.offsetWidth;setRects(bs.map(b=>{const r=b.getBoundingClientRect();return [(r.left-pr.left)/k,r.width/k]}))};(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(go))},[css]);
+  React.useEffect(()=>{const root=ref.current&&ref.current.closest('[data-om-exportable-video-with-duration-secs]');if(root)root.setAttribute('data-screen-label','Prompt builder '+Math.floor(T)+'s')});
+  const t=((T%PV_LOOP)+PV_LOOP)%PV_LOOP,S=pvState(t);
+  const tabPos=S.prevTab+(S.tab-S.prevTab)*S.tabK;
+  let pill=null;if(rects){const a=rects[S.prevTab],b=rects[S.tab];pill={left:a[0]+(b[0]-a[0])*S.tabK,width:a[1]+(b[1]-a[1])*S.tabK}}
+  const txt=S.step===1?PV_P1[S.kind]:PV_P2,n=Math.round(txt.length*S.typed),rows=PV_ROWS[S.kind];
+  const img=S.img?PV_IMG[S.img]:null;
+  return (<div className="pv" ref={ref}>
+    <style>{css}</style>
+    <div className="pv-l" style={{opacity:S.leftO}}>
+      <div className="sub-title"><h3>Brand image prompt generator</h3><p className="st-rule">Pick the details, then send the prompt to ChatGPT or Figma.</p></div>
+      <div className="rt-tabs" role="tablist">{pill&&<span className="pv-pill" style={{left:pill.left+'px',width:pill.width+'px'}}></span>}{PV_TABS.map((nm,k)=>{const d=Math.max(0,1-Math.abs(tabPos-k));const c=[75+(255-75)*d,99+(255-99)*d,110+(255-110)*d].map(Math.round);return <button key={nm} type="button" role="tab" style={{color:'rgb('+c.join(',')+')',borderColor:'rgba(0,37,51,'+(0.15*(1-d)).toFixed(3)+')'}}>{nm}</button>})}</div>
+      <div className="pv-seg" style={{opacity:S.subO}}>{['In a photo','In open space'].map((x,k)=><span key={x} className={k===S.sub?'on':''}>{x}</span>)}</div>
+      <div className="pv-rows">{rows.map((r,k)=><div className="pv-row" key={r[0]}><span className="eyebrow">{r[0]}</span><span className={'pv-chip'+(k<S.rowsOn?' on':'')}>{r[1]}</span></div>)}</div>
+      <div className="pv-card">
+        <span className="eyebrow">{S.step===1?'Step 1: make the scene':'Step 2: place your real work'}</span>
+        <div className="pv-att" style={{opacity:S.step===2?S.att:0}}><div><div className="pv-th" style={{backgroundImage:'url('+PV_IMG.photo+')',backgroundSize:'cover',backgroundPosition:'50% 50%'}}></div><small>Scene from step 1</small></div><div><div className="pv-th" style={{backgroundImage:'url('+PV_IMG.photo+')',backgroundSize:'300% auto',backgroundPosition:'64% 30%'}}></div><small>Screenshot 1</small></div></div>
+        <p className="pv-txt">{txt.slice(0,n)}{S.typed>0&&S.typed<1&&<span className="pv-caret"></span>}</p>
+        <span className="pv-btn" style={{transform:'scale('+(S.pressed?0.97:1)+')'}}>{S.btn}</span>
+      </div>
+    </div>
+    <div className="pv-r">
+      <span className="eyebrow">Result</span>
+      {img&&(S.img==='photo'?
+        <div className="pv-wrap" style={{opacity:S.imgK,marginTop:((1-S.imgK)*16).toFixed(2)+'px'}}><img src={img} alt=""/><svg viewBox="0 0 2400 1350" preserveAspectRatio="none"><polygon points={PV_Q.map(p=>p.join(',')).join(' ')} fill="#FBFBFA" opacity={S.blank}></polygon></svg></div>
+        :<img src={img} alt="" style={{objectPosition:S.img==='pro'?'50% 30%':'50% 50%',opacity:S.imgK,transform:'translateY('+((1-S.imgK)*16).toFixed(2)+'px)'}}/>)}
+    </div>
+    <div className="pv-cut" style={{opacity:S.cut,display:S.cut>0.001?'block':'none'}}></div>
+  </div>);
+}
+function App(){
+  const [tw,setTweak]=useTweaks(window.TWEAK_DEFAULTS);
+  return (<>
+    <CompositionStage width={3840} height={2336} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#F0F3F5"><PromptVideo/></CompositionStage>
+    <TweaksPanel><TweakSection label="Video"/><TweakToggle label="Motion editor" value={tw.motionEditor} onChange={v=>setTweak('motionEditor',v)}/></TweaksPanel>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

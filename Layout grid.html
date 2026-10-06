@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Layout grid · Beautiful.ai Brand Guidelines</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+:root{--ink:#002533;--nd:#4B636E;--line:color-mix(in oklch,#002533 15%,transparent);--azul:#00B9FF;--azul-t:color-mix(in oklch,#00B9FF 16%,transparent);--rose:color-mix(in oklch,#B4379B 14%,transparent)}
+*{box-sizing:border-box}
+body{margin:0;background:#F0F3F5;color:var(--ink);font-family:var(--font-body,'Post Grotesk',sans-serif);-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}a:hover{color:var(--blue-darker,#004A66)}
+.lg{max-width:1320px;margin:0 auto;padding:clamp(48px,6vw,96px) 4vw clamp(96px,11vw,176px)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--nd)}
+h1{margin:12px 0 0;font-size:var(--text-h2-size,58px);line-height:1;letter-spacing:-0.04em;font-weight:500}
+.lede{margin:24px 0 0;max-width:70ch;font-size:var(--text-body-xl,1.25rem);line-height:1.42;text-wrap:pretty}
+.blk{margin-top:clamp(64px,8vw,128px);padding-top:clamp(64px,8vw,128px);border-top:1px solid var(--line)}
+h2{margin:0;font-size:var(--text-h4-size,37px);line-height:1.1;letter-spacing:-0.03em;font-weight:500}
+.rule{margin:12px 0 0;max-width:70ch;color:var(--nd);font-size:var(--text-body-l,1.125rem);line-height:1.5;text-wrap:pretty}
+p.body{max-width:70ch;color:var(--nd);line-height:1.5;margin:16px 0 0;text-wrap:pretty}
+.stage{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2.4vw,32px);container-type:inline-size}
+.frame{position:relative;width:100%;aspect-ratio:1920/1168;background:#F0F3F5;border-radius:8px;overflow:hidden;outline:1px solid var(--line)}
+.cols{position:absolute;top:0;bottom:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr))}
+.cols i{background:var(--azul-t);border-left:1px solid color-mix(in oklch,#00B9FF 40%,transparent);border-right:1px solid color-mix(in oklch,#00B9FF 40%,transparent)}
+.mg{position:absolute;top:0;bottom:0;background:var(--rose)}
+.mgv{position:absolute;left:0;right:0;background:var(--rose)}
+.tag{position:absolute;font-family:var(--font-mono);font-size:max(9px,1.05cqw);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink);background:#fff;padding:3px 6px;border-radius:4px;white-space:nowrap;transform:translate(-50%,-50%)}
+.specs{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.spec{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 24px;display:grid;gap:8px;align-content:start}
+.spec b{font-size:var(--text-h5-size,30px);font-weight:500;letter-spacing:-0.02em;line-height:1.1}
+.spec code{font-family:var(--font-mono);font-size:12px;color:var(--blue-darker,#004A66);overflow-wrap:anywhere}
+.spec span{color:var(--nd);font-size:14px;line-height:1.45}
+.rail{margin-top:32px;display:grid;grid-template-columns:3fr 9fr;gap:24px}
+.rail div{border-radius:12px;padding:20px;min-height:140px;display:flex;flex-direction:column;justify-content:space-between;gap:12px}
+.rail .r1{background:#fff;border:1px solid var(--line)}.rail .r2{background:var(--azul-t)}
+.rail strong{font-size:var(--text-h6-size,24px);font-weight:500;letter-spacing:-0.02em}
+.stack{margin-top:32px;display:grid;gap:0;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(20px,3vw,40px)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 160px 120px;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:none}
+.row .what{font-size:var(--text-body-m,1rem);line-height:1.4}
+.row code{font-family:var(--font-mono);font-size:12px;color:var(--blue-darker,#004A66)}
+.row .px{font-size:var(--text-h6-size,24px);font-weight:500;letter-spacing:-0.02em;text-align:right}
+.bar{display:block;height:6px;border-radius:3px;background:var(--azul);margin-top:8px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tools button{font:inherit;font-size:14px;font-weight:500;padding:10px 16px;border-radius:6px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tools button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.frame.no-grid .cols,.frame.no-grid .mg,.frame.no-grid .mgv,.frame.no-grid .tag{display:none}
+@media (max-width:700px){.rail{grid-template-columns:1fr}.row{grid-template-columns:minmax(0,1fr) auto}.row code{display:none}}
+</style>
+</head>
+<body>
+<main class="lg">
+<div class="eyebrow">Brand guidelines · Layout</div>
+<h1>Layout grid</h1>
+<p class="lede">We build every page of the guide on 1 centered content column split into 12 columns. Use the same column, gutters and vertical spacing when you make assets for professionals so they read with the same rhythm as the guide.</p>
+
+<section class="blk">
+<h2>The content column</h2>
+<p class="rule">Our site and the guide share 1 grid. At 1440px both put 84% of the screen in content, with 12 columns and 24px gutters. Marketing pages stop growing at 1200px, and the guide keeps growing to 2280px.</p>
+<div class="stage"><div class="frame" id="f-page">
+<div class="mg" style="left:0;width:12%"></div><div class="mg" style="right:0;width:12%"></div>
+<div class="cols" style="left:12%;right:12%;column-gap:1.25%"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<span class="tag" style="left:6%;top:50%">Margin 230</span><span class="tag" style="left:50%;top:50%">Content 1459 · 12 columns</span><span class="tag" style="left:94%;top:50%">Margin 230</span>
+</div></div>
+<div class="specs">
+<div class="spec"><span>Column width</span><b>84% of screen</b><code>clamp(1320px, 84vw, 2280px)</code><span>Never narrower than 1320px, never wider than 2280px.</span></div>
+<div class="spec"><span>Outer margin</span><b>230px at 1920</b><code>--gutter</code><span>The column sits centered, inset 4vw from its own edge.</span></div>
+<div class="spec"><span>Column gutter</span><b>24px at 1920</b><code>clamp(14px, 1.5vw, 24px)</code><span>The space between each of the 12 columns.</span></div>
+<div class="spec"><span>Text measure</span><b>70ch</b><code>max-width: 70ch</code><span>Body copy stops here, even inside the full column.</span></div>
+</div>
+</section>
+
+<section class="blk">
+<h2>Label rail</h2>
+<p class="rule">When a block pairs a label with content, the label takes 3 of the 12 columns and the content takes 9.</p>
+<div class="rail"><div class="r1"><span class="eyebrow">3 columns</span><strong>Label, name or note</strong></div><div class="r2"><span class="eyebrow">9 columns</span><strong>Specimen, image or content</strong></div></div>
+<p class="body">Tile grids divide the 12 columns evenly: 2 tiles span 6 each, 3 span 4, 4 span 3 and 6 span 2. Corner radius follows the span, with 18px for 2-column elements, 12px for 3 and 4 columns and 8px for small cards.</p>
+</section>
+
+<section class="blk">
+<h2>Vertical rhythm</h2>
+<p class="rule">Space between elements comes from 5 steps. Pick the step by the relationship, not by eye.</p>
+<div class="stack">
+<div class="row"><div class="what">Heading to its rule line<span class="bar" style="width:3%"></span></div><code>--sp-rule</code><div class="px">12</div></div>
+<div class="row"><div class="what">Gutter between tiles and cards<span class="bar" style="width:6%"></span></div><code>--gut</code><div class="px">24</div></div>
+<div class="row"><div class="what">Heading to its content<span class="bar" style="width:8%"></span></div><code>--sp-content</code><div class="px">32</div></div>
+<div class="row"><div class="what">Intro paragraph to content<span class="bar" style="width:18%"></span></div><code>--sp-block</code><div class="px">72</div></div>
+<div class="row"><div class="what">Between sub-sections, above and below the hairline<span class="bar" style="width:44%"></span></div><code>--sub-gap</code><div class="px">176</div></div>
+</div>
+<p class="body">Values are the 1920px screen. Each step scales down with the screen and never grows past these values.</p>
+</section>
+
+<section class="blk">
+<h2>Asset frame</h2>
+<p class="rule">Build landscape assets and motion videos at 1920 × 1168 and export at 2× for 3840 × 2336.</p>
+<div class="stage"><div class="frame" id="f-asset">
+<div class="mg" style="left:0;width:8.3333%"></div><div class="mg" style="right:0;width:8.3333%"></div>
+<div class="mgv" style="top:0;height:6.8493%"></div><div class="mgv" style="bottom:0;height:6.8493%"></div>
+<div class="cols" style="left:8.3333%;right:8.3333%;top:6.8493%;bottom:6.8493%;column-gap:1.25%"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<span class="tag" style="left:4.17%;top:50%">Side 160</span><span class="tag" style="left:50%;top:3.42%">Top 80</span><span class="tag" style="left:50%;top:50%">Content 1600 × 1008 · 12 columns</span><span class="tag" style="left:50%;top:96.58%">Bottom 80</span><span class="tag" style="left:95.83%;top:50%">Side 160</span>
+</div></div>
+<div class="tools"><button type="button" aria-pressed="true" data-grid="f-asset">Show grid</button></div>
+<div class="specs">
+<div class="spec"><span>Frame</span><b>1920 × 1168</b><code>Export 2× · 3840 × 2336</code><span>The guide's landscape image ratio. Keep the height even for video.</span></div>
+<div class="spec"><span>Side margin</span><b>160px</b><code>1/12 of the frame · 2× 320px</code><span>Top and bottom clear space is half the side margin.</span></div>
+<div class="spec"><span>Columns</span><b>12 × 111px</b><code>Gutter 24px · 2× 48px</code><span>Span text and images across whole columns.</span></div>
+</div>
+</section>
+</main>
+<script>document.querySelectorAll('[data-grid]').forEach(function(b){b.addEventListener('click',function(){var f=document.getElementById(b.dataset.grid),on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);f.classList.toggle('no-grid',!on)})})</script>
+</body>
+</html>
