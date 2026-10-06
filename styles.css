@@ -3419,3 +3419,10 @@ html body .dl-pill{padding:12px 16px;box-sizing:border-box;min-height:44px;displ
 
 /* a sub-section opening straight under a section head (in the next wrap) skips the gap and hairline */
 .wrap:has(>.sub-head)+.wrap>:first-child:is(.sub-title:has(>h3),:has(.sub-title>h3)){margin-top:var(--sp-block)!important;padding-top:0!important;border-top:none!important}
+
+/* chapter nav reads as navigation: names one step below any section heading */
+.chapter-nav .cn-cell{padding:clamp(28px,3vw,48px) clamp(24px,4vw,64px)!important;gap:10px!important}
+.chapter-nav .cn-title{font-size:var(--text-h5-size,1.875rem)!important;font-weight:500;line-height:1.1;letter-spacing:-0.04em}
+
+/* misuse X: fixed circle, never shrinks when the label wraps */
+.dont .label .x{flex:none;width:20px;height:20px;min-width:20px;aspect-ratio:1;line-height:1;margin-top:1px}

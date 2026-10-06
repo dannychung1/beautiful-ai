@@ -58,3 +58,13 @@
 @media (max-width:520px){#color .sys-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 #color .pair-grid .pair{aspect-ratio:3/2!important;min-height:0!important}
+
+
+#color .pair-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:var(--gut-m,16px)!important}#color .pair-grid .pair{aspect-ratio:4/5!important;padding:clamp(16px,1.6vw,24px)!important}#color .pair-grid .pair-aa{font-size:clamp(40px,4.4vw,72px)!important}@media (max-width:1100px){#color .pair-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}@media (max-width:560px){#color .pair-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* Color system: 5 brand colors lead, the neutral ramp supports as 1 joined strip */
+#color .sys-brand .sys-row{grid-template-columns:repeat(5,minmax(0,1fr))!important;column-gap:var(--gut,24px)}#color .sys-brand .sys-dot{aspect-ratio:4/3!important}#color .sys-brand .sys-name{font-size:var(--text-body-l,1.125rem)}
+#color .sys-neutral .sys-row{grid-template-columns:repeat(8,minmax(0,1fr))!important;column-gap:0!important;row-gap:0}#color .sys-neutral .sys-dot{aspect-ratio:auto!important;height:56px;border-radius:0!important}#color .sys-neutral .sys-item:first-child .sys-dot{border-radius:12px 0 0 12px!important}#color .sys-neutral .sys-item:last-child .sys-dot{border-radius:0 12px 12px 0!important}#color .sys-neutral .sys-item figcaption{padding-right:8px}
+@media (max-width:1024px){#color .sys-brand .sys-row{grid-template-columns:repeat(3,minmax(0,1fr))!important;row-gap:var(--gut-l,24px)}#color .sys-neutral .sys-row{grid-template-columns:repeat(4,minmax(0,1fr))!important;row-gap:var(--gut-m,16px)}#color .sys-neutral .sys-dot{border-radius:0!important}}
+
+@media (min-width:1025px){#color .sys-ramp .sys-row{grid-template-columns:repeat(7,minmax(0,1fr))!important}}
