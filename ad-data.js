@@ -196,6 +196,18 @@ window.AD = (function(){
     'Front stack': 'a front-facing stack of 4 thin 16:9 slides, square to camera. Each back slide sits a little behind and above the one in front, at the same angle and size, so the top half of each back slide shows above the slide in front of it. The hero slide in front sits in the center of the frame, or fills 2/3 of the frame when the layout needs it',
     'Grid': 'a wall of thin 16:9 slides laid out in an even grid of straight rows and columns with narrow, equal gaps, all resting on 1 flat plane like tiles on a single sheet of glass. The whole wall tilts back as 1 rigid piece in soft perspective and runs past every edge of the frame, so every row and column follows the same 2 vanishing points. No slide tilts, turns or lifts on its own. The nearest slides are large and sharp, and the grid softens as it recedes. In motion, the wall drifts slowly and steadily on a diagonal'
   };
+  var THIRDS_G={'Light':'pale Gallery Grey ground','Dark':'Base Blue ground','Sampled':'sampled color ground'};
+  var THIRDS_V={
+    'left':['Composition: rule of thirds. Center the hero slide on the left vertical third line, near the lower-left intersection. The slides fill the left 2/3 of the frame, and the right third stays as open {G} for a headline.','Rule of thirds: hero slide on the left third line, right third open.'],
+    'right':['Composition: rule of thirds. Center the hero slide on the right vertical third line, near the upper-right intersection. The slides fill the right 2/3 of the frame, and the left third stays as open {G} for a headline.','Rule of thirds: hero slide on the right third line, left third open.'],
+    'center':['Composition: rule of thirds, centered. Center the hero slide on the vertical center line of the frame, with the slides across the lower 2/3. The top third stays as open {G} for a headline.','Rule of thirds, centered: hero slide on the center line, top third open.']
+  };
+  function thirdsOf(sel){
+    var g=THIRDS_G[sel.ground]||THIRDS_G['Light'];
+    var forced={'Left':'right','Right':'left','Above':'center','Across':'center'}[sel.copy];
+    var k=forced||keep('thirds',function(){return ['left','right','center'][Math.floor(Math.random()*3)]});
+    var v=THIRDS_V[k];return [v[0].replace('{G}',g),v[1]];
+  }
   var GROUNDS = {
     'Light': 'a big, open space in Gallery Grey #F0F3F5 fading to white. The pale ground fills about 80% of the frame, and the Agency Azul key light and the softer Ready Rose fill light, from opposite corners, make up the other 20%. The mood is airy, calm and bright',
     'Dark': 'a big, open space in Base Blue #002533. Base Blue fills about 80% of the frame, and the Agency Azul key light and the softer Ready Rose fill light, from opposite corners, make up the other 20%. The mood is deep, focused and cinematic, and the white slide faces stand out clearly against it',
@@ -266,7 +278,7 @@ window.AD = (function(){
       DECK+'\n'+
       (o.copy?o.copy+'\n':'')+
       REACH+'\n'+
-      SPACE+'\n'+FRAMING+'\n'+SLIDEBODY+'\n'+
+      SPACE+'\n'+FRAMING+'\n'+(o.thirds?o.thirds[0]+'\n':'')+SLIDEBODY+'\n'+
       (o.sampled?SPOT_C:SPOT)+'\n'+
       'Every slide face is plain white, lit only by the key and fill, ready for real slides to be placed in post.\n'+
       'Slide geometry: every face is a flat, rigid 16:9 rectangle of the same size with the same small rounded corners, all parallel and evenly spaced along 1 line that recedes to 1 vanishing point. Each face turns no more than 30 degrees from the camera, so even the farthest face reads as a slide and not a sliver. All 4 corners of every face stay in frame and visible, never overlapped by the next face. Use 7 faces at most.\n'+
@@ -311,7 +323,7 @@ window.AD = (function(){
     var cp=COPY_S[sel.copy]?COPY_S[sel.copy]+' ':'';
     var set=R?o.setting:'in '+(SET_S[stOf(sel,facet)]||SET_S['Office']);
     var cast='Real, ordinary face. '+o.traits+' '+cap(o.wardrobe)+', quiet neutrals. '+propLine(o)+' Heritage in real features only, never cultural dress or props.';
-    if(facet==='Presentation')return 'Editorial still life, '+LOOK_PS+'. '+cap(o.ground)+'. '+cap(o.layout)+'. Every slide is thin, flat and rigid like a metal chip, with small rounded corners, a low satin finish and a crisp, subtle edge glow, never bent or hazy. Crop in close, with the slides spanning about 2/3 to 3/4 of the frame width. Blank white slide faces for real slides in post. '+cp+'No props, hands, writing, words or logos.';
+    if(facet==='Presentation')return 'Editorial still life, '+LOOK_PS+'. '+cap(o.ground)+'. '+cap(o.layout)+'. Every slide is thin, flat and rigid like a metal chip, with small rounded corners, a low satin finish and a crisp, subtle edge glow, never bent or hazy. Crop in close, with the slides spanning about 2/3 to 3/4 of the frame width. '+(o.thirds?o.thirds[1]+' ':'')+'Blank white slide faces for real slides in post. '+cp+'No props, hands, writing, words or logos.';
     if(facet==='Product')return 'Editorial photo, '+LOOK_S+'. Hands and hair in natural detail, no retouching. Our product in use: '+(PSHOT_S[sel.pshot]||PSHOT_S['Over the shoulder']).replace('{H}',o.hands)+'. '+cap(o.subject)+' '+set+'. The display is on and completely blank: solid flat white inside its thin black bezel, no interface, icons or text, for a screenshot in post. '+cap(LIGHT_S)+', '+NOSUN_S+', the screen glowing softly on their hands. '+cp+cap(o.wardrobe)+', quiet neutrals. '+propLine(o)+' Silver, grey or black laptop. Heritage in real features only, never cultural dress or props. No writing, words or logos outside the screen.';
     var gaze=sel.shot==='Close-up'?'into the lens or just off camera':'on a colleague or the task, never the lens';
     return FILM_S+' '+cap(LIGHT_S)+' spotlights them, face brightest; the room falls into medium-dark shadow. Light from out of frame, no window behind, no sun or flare. The new way professionals present: '+o.subject+', '+o.action+', '+set+'. '+(o.group?GROUPS[o.shotName][1]:(SHOT_S[sel.shot]||SHOT_S['Medium shot']))+'. Background: '+o.backdrop+', '+o.focusS+'. '+cp+'Never posed or idle, gaze '+gaze+'. '+cast+' 1 small deep or muted teal, navy, wine or plum accent. Laptop screen unreadable. No writing, logos or alcohol.';
@@ -395,6 +407,7 @@ window.AD = (function(){
       feature: fit('feature',PFEAT),
       layout: LAYOUTS[sel.layout]||LAYOUTS['Floating multiple'],
       ground: sel.ground==='Sampled'&&sel.sampleHex?GROUNDS['Sampled'].replace(/1 color sampled from the slides:[^.]*\.( Never use the main color itself\.)?/,(sel.sampleHand?sel.sampleHex+', a color chosen to go with the slides.':sel.sampleHex+', an analogous color of '+sel.sampleBase+', the main color of the slides. Never use '+sel.sampleBase+' itself.')).replace(/The sampled color is either light.*?never use a mid-tone\./,'Keep '+sel.sampleHex+' exactly. Never shift it toward a mid-tone.'):(GROUNDS[sel.ground]||GROUNDS['Light']),
+      thirds: thirdsOf(sel),
       sampled: sel.ground==='Sampled'
     };
     o.shot=o.shot.replace('{H}',o.hands);

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mosaic picker</title>
+<script src="mosaic-list.js?v=1"></script>
+<style>
+body{margin:0;font:14px/1.4 system-ui,sans-serif;background:#F0F3F5;color:#002533}
+a{color:#002533}a:hover{color:#004A66}
+header{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 24px;background:#fff;border-bottom:1px solid #C4CDD2}
+header h1{font-size:16px;margin:0 16px 0 0}
+header .sp{flex:1}
+button,select,input{font:inherit;color:inherit}
+button{padding:6px 12px;border:1px solid #002533;border-radius:6px;background:#fff;cursor:pointer}
+button:hover{background:#F0F3F5}
+button.pri{background:#002533;color:#fff}button.pri:hover{background:#004A66}
+.note{padding:8px 24px;color:#4B636E}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:8px 24px 48px}
+.card{background:#fff;border:1px solid #C4CDD2;border-radius:12px;overflow:hidden;display:grid}
+.card.off{opacity:.45}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#F0F3F5}
+.body{display:grid;gap:8px;padding:12px}
+.row{display:flex;gap:6px;align-items:center}
+.row input[type=text],.row select{flex:1;min-width:0;padding:6px 8px;border:1px solid #C4CDD2;border-radius:6px;background:#fff}
+.n{font-family:ui-monospace,monospace;font-size:12px;color:#4B636E}
+.tog{display:flex;gap:6px;align-items:center;cursor:pointer}
+.mv button{padding:4px 8px}
+</style>
+</head>
+<body>
+<header><h1>Mosaic picker</h1><span id="count"></span><span class="sp"></span><button type="button" id="add">Add image</button><button type="button" id="reset">Reset to file</button><button type="button" id="dl">Download mosaic-list.js</button><button type="button" class="pri" id="save">Save &amp; preview</button></header>
+<p class="note">Save &amp; preview applies your list to the Art direction mosaic in this browser only. To publish it, download mosaic-list.js and replace the file in deploy/. <a href="05-art-direction.html#imagery" target="_blank" rel="noopener">Open the mosaic</a></p>
+<div class="grid" id="grid"></div>
+<script>
+var KEY='mosaic-picker-v1',ASSETS=window.MOSAIC_ASSETS||[];
+var list;try{list=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){}
+if(!list||!list.length)list=JSON.parse(JSON.stringify(window.MOSAIC_LIST||[]));
+var grid=document.getElementById('grid');
+function base(s){return (s||'').split('?')[0]}
+function draw(){
+  grid.innerHTML='';
+  document.getElementById('count').textContent=list.filter(function(x){return x.on!==false}).length+' on · '+list.length+' total';
+  list.forEach(function(it,i){
+    var c=document.createElement('div');c.className='card'+(it.on===false?' off':'');
+    var opts=ASSETS.slice();if(opts.indexOf(base(it.src))<0)opts.unshift(base(it.src));
+    c.innerHTML='<img alt="" src="assets/'+it.src+'"><div class="body"><div class="row"><span class="n">'+(i+1)+'</span><label class="tog"><input type="checkbox"'+(it.on===false?'':' checked')+'> In rotation</label><span style="flex:1"></span><span class="mv"><button type="button" data-a="up" aria-label="Move up">↑</button> <button type="button" data-a="dn" aria-label="Move down">↓</button> <button type="button" data-a="rm" aria-label="Remove">✕</button></span></div><div class="row"><select aria-label="Image file">'+opts.map(function(o){return '<option'+(o===base(it.src)?' selected':'')+'>'+o+'</option>'}).join('')+'</select></div><div class="row"><input type="text" aria-label="Caption" value=""></div></div>';
+    c.querySelector('input[type=text]').value=it.cap||'';
+    c.querySelector('input[type=checkbox]').onchange=function(e){it.on=e.target.checked;draw()};
+    c.querySelector('select').onchange=function(e){it.src=e.target.value;draw()};
+    c.querySelector('input[type=text]').oninput=function(e){it.cap=e.target.value};
+    c.querySelector('[data-a=up]').onclick=function(){if(i>0){list.splice(i-1,0,list.splice(i,1)[0]);draw()}};
+    c.querySelector('[data-a=dn]').onclick=function(){if(i<list.length-1){list.splice(i+1,0,list.splice(i,1)[0]);draw()}};
+    c.querySelector('[data-a=rm]').onclick=function(){if(confirm('Remove this image from the list?')){list.splice(i,1);draw()}};
+    grid.appendChild(c);
+  });
+}
+document.getElementById('add').onclick=function(){list.unshift({src:ASSETS[0]||'',cap:'New image',on:true});draw();window.scrollTo(0,0)};
+document.getElementById('save').onclick=function(){localStorage.setItem(KEY,JSON.stringify(list));this.textContent='Saved';var b=this;setTimeout(function(){b.textContent='Save & preview'},1200)};
+document.getElementById('reset').onclick=function(){if(confirm('Discard your changes and reload the list from mosaic-list.js?')){localStorage.removeItem(KEY);list=JSON.parse(JSON.stringify(window.MOSAIC_LIST||[]));draw()}};
+document.getElementById('dl').onclick=function(){var t='/* Imagery mosaic rotation. Edit with Mosaic picker.html, then replace this file. */\nwindow.MOSAIC_LIST='+JSON.stringify(list,null,1)+';\nwindow.MOSAIC_ASSETS='+JSON.stringify(ASSETS)+';\n';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/javascript'}));a.download='mosaic-list.js';a.click()};
+draw();
+</script>
+</body>
+</html>
