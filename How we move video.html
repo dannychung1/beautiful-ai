@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How we move — motion video</title>
 <link rel="stylesheet" href="colors_and_type.css?v=130">
-<link rel="stylesheet" href="styles.css?v=154">
+<link rel="stylesheet" href="styles.css?v=167">
 <link rel="stylesheet" href="ad-v2.css?v=215">
 <style id="hv-css">
 html,body{margin:0;background:#F0F3F5}
@@ -40,7 +40,7 @@ function HowWeMove(){
   const ref=React.useRef(null);
   const [css,setCss]=React.useState('');
   const anim=React.useRef(null);
-  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=149','ad-v2.css?v=220'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('hv-css').textContent))},[]);
+  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=159','ad-v2.css?v=220'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('hv-css').textContent))},[]);
   React.useLayoutEffect(()=>{
     const el=ref.current;if(!el||!css)return;
     if(!anim.current){anim.current=[...el.querySelectorAll('*')].map(n=>{const cs=getComputedStyle(n);if(!cs.animationName||cs.animationName==='none')return null;return {n,d:cs.animationDelay.split(',').map(x=>parseFloat(x)||0)}}).filter(Boolean)}

@@ -404,7 +404,7 @@ em.accent {
 .cover-top .col { display: flex; flex-direction: column; gap: 4px; }
 .cover-top strong { color: var(--white); font-weight: 500; }
 .cover-title { position: relative; z-index: 2; display: flex; align-items: center; min-width: 0; container-type: inline-size; }
-.cover-head { margin: 0; color: var(--white); font-size: var(--t-display); line-height: 0.95; letter-spacing: -0.035em; }
+.cover-head { margin: 0; color: var(--white); font-size: clamp(75px, 11.25vw, 210px); line-height: 0.95; letter-spacing: -0.035em; }
 /* optical alignment: pull each line left by its own glyph side bearing so the B and G
    stems sit on the gutter, not the invisible text-box edge */
 /* the headline is lit by the same spring-driven point as the two spotlights:
@@ -3426,3 +3426,62 @@ html body .dl-pill{padding:12px 16px;box-sizing:border-box;min-height:44px;displ
 
 /* misuse X: fixed circle, never shrinks when the label wraps */
 .dont .label .x{flex:none;width:20px;height:20px;min-width:20px;aspect-ratio:1;line-height:1;margin-top:1px}
+
+/* Sub-section header row (guide-wide): name and rule on the left 4 columns, intro copy in columns 5–10, the example runs full width below */
+.sub-title.st-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut,24px);align-items:start}
+.st-row>h3,.st-row>.st-rule,.st-row>.sh-label{grid-column:1/span 4;min-width:0}
+.st-row>.st-body{grid-column:5/span 6;grid-row:1/span 3;min-width:0}
+.st-row>.st-body p{margin:0;font-size:var(--text-body-l,1.125rem);line-height:1.5;color:inherit;max-width:70ch;text-wrap:pretty}
+@media (max-width:1100px){.st-row>h3,.st-row>.st-rule,.st-row>.sh-label{grid-column:1/-1}.st-row>.st-body{grid-column:1/span 8;grid-row:auto;margin-top:var(--gut-m,24px)}}
+@media (max-width:700px){.st-row>.st-body{grid-column:1/-1}}
+
+/* the panel grows out of the button's corner: the button never moves, the panel wraps it with a 10px inset */
+.sidenav{top:calc(var(--gutter-y) - 10px);right:calc(max(16px, var(--gutter) / 2) - 10px)}
+body:has(.chapter-rail.show) .sidenav{top:max(4px, calc((var(--rail-h, 64px) - 44px) / 2 - 10px));max-height:calc(100vh - 8px)}
+body:has(.chapter-rail.show):has(.sidenav:not(.collapsed)) .nav-fab{width:44px;padding:0;gap:0;border-radius:12px}
+
+/* Copy-prompt buttons are primary, the same as the builder's main action: ink fill, hover and copied Blue Darker, press 0.98, focus ring Blue Darker. */
+html body .copy-block .copy-btn,html body .bd .bd-real .copy-block .copy-btn,html body .bd .bd-out .copy-block .copy-btn,html body .co-prompts .copy-block .copy-btn{background:var(--ink,#002533);border-color:var(--ink,#002533);color:var(--white,#fff);box-shadow:none}
+html body .copy-block .copy-btn:hover,html body .copy-block .copy-btn.is-copied,html body .bd .bd-real .copy-block .copy-btn:hover,html body .bd .bd-real .copy-block .copy-btn.is-copied,html body .bd .bd-out .copy-block .copy-btn:hover,html body .bd .bd-out .copy-block .copy-btn.is-copied,html body .co-prompts .copy-block .copy-btn:hover,html body .co-prompts .copy-block .copy-btn.is-copied,html body .bd-go:hover,html body .bd-go.is-done{background:var(--blue-darker,#004A66);border-color:var(--blue-darker,#004A66);color:var(--white,#fff)}
+html body .bd-btn:not(.bd-go).is-done{background:var(--color-neutral-lightest,#F0F3F5);border-color:var(--ink,#002533);color:var(--ink,#002533)}
+
+/* Chapter nav: sits on the page ground; the whole cell turns Agency Azul on hover. All type is Deepest Blue in both states (AAA: 15.5:1 on Gallery Grey, 7.9:1 on Agency Azul). */
+.chapter-nav{background:var(--scheme5-bg,#F0F3F5);border-top:1px solid rgba(0,26,36,0.15)}
+.chapter-nav .cn-cell{background:transparent;color:var(--blue-deepest,#001A24);transition:background .2s ease}
+.chapter-nav .cn-cell+.cn-cell{border-left-color:rgba(0,26,36,0.15)}
+.chapter-nav .cn-dir,.chapter-nav .cn-num,.chapter-nav .cn-arrow,.chapter-nav .cn-title{color:var(--blue-deepest,#001A24)}
+.chapter-nav .cn-cell:hover,.chapter-nav .cn-cell:focus-visible{background:var(--color-blue,#00B9FF)}
+.chapter-nav .cn-cell:hover :is(.cn-dir,.cn-num,.cn-arrow,.cn-title),.chapter-nav .cn-cell:focus-visible :is(.cn-dir,.cn-num,.cn-arrow,.cn-title){color:var(--blue-deepest,#001A24)}
+.chapter-nav .cn-cell:focus-visible{outline:2px solid var(--blue-deepest,#001A24);outline-offset:-4px}
+.chapter-nav .cn-empty{background:transparent}
+
+/* Icon specimens: Material Symbols, unfilled, weight 300, grade 0 */
+.icons-grid .material-symbols-outlined{font-size:48px;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48}
+.icons-grid .icon-cell .icon-ai{width:48px;height:48px}
+
+/* Icon panel: 1 Base Blue visual, no gutters, icons reversed, no hover states */
+.icons-grid{gap:0!important;background:var(--blue-darkest,#002533);border-radius:18px;overflow:hidden;grid-template-columns:repeat(6,minmax(0,1fr))!important}
+.icons-grid .icon-cell,.icons-grid .icon-cell:hover{background:transparent!important;border:0;border-radius:0;box-shadow:none!important}
+.icons-grid .icon-cell .material-symbols-outlined,.icons-grid .icon-cell .icon-ai,.icons-grid .icon-cell:hover .material-symbols-outlined,.icons-grid .icon-cell:hover .icon-ai{color:var(--color-neutral-lightest,#F0F3F5)}
+.icons-grid .icon-cell .material-symbols-outlined,.icons-grid .icon-cell .icon-ai{transition:opacity .22s ease}
+@media (max-width:760px){.icons-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+
+/* Logo misuse cards: the example fills the card above its caption on a Gallery Grey stage (15% ink outline), the caption sits below */
+#logo .dont{padding:16px;gap:16px;justify-content:flex-start}
+#logo .dont{aspect-ratio:auto}
+#logo .dont .preview{flex:none;aspect-ratio:16/9;min-height:0;padding:20px;border-radius:12px;background:var(--scheme5-bg,#F0F3F5);box-shadow:inset 0 0 0 1px rgba(0,26,36,.15);overflow:hidden}
+#logo .dont .label{padding:0 8px 4px}
+#logo .dont .preview>*{max-width:100%}
+#logo .dont .preview img[src*="symbol"]{height:clamp(32px,4vw,60px)!important;width:auto}
+#logo .dont .preview span[style*="Georgia"]{font-size:clamp(20px,2.4vw,34px)!important;white-space:nowrap}
+#logo .dont .label{min-height:calc(2 * 1.5em + 4px);align-items:flex-start}
+
+/* Clearspace diagram: 1 x (the height of the b) shown as an x-by-x square on every side of the mark */
+.csd-panel{display:flex;justify-content:center}
+.csd-mark{position:relative;display:inline-block}
+.csd-box{position:absolute;inset:calc(var(--x) * -1);border:1px dashed rgba(0,26,36,0.3);border-radius:4px}
+.csd-x{position:absolute;width:var(--x);height:var(--x);display:grid;place-items:center;background:var(--color-blue-lighter,#CCF1FF);color:var(--blue-deepest,#001A24);font-family:var(--mono);font-size:11px;font-weight:500}
+.csd-t{left:50%;top:calc(var(--x) * -1);transform:translateX(-50%)}
+.csd-b{left:50%;bottom:calc(var(--x) * -1);transform:translateX(-50%)}
+.csd-l{top:0;left:calc(var(--x) * -1)}
+.csd-r{top:0;right:calc(var(--x) * -1)}

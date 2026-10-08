@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How we look — motion video</title>
 <link rel="stylesheet" href="colors_and_type.css?v=130">
-<link rel="stylesheet" href="styles.css?v=154">
+<link rel="stylesheet" href="styles.css?v=167">
 <link rel="stylesheet" href="ad-v2.css?v=225">
 <style id="hl-css">
 html,body{margin:0;background:#F0F3F5}
@@ -47,7 +47,7 @@ function HowWeLook(){
   const [css,setCss]=React.useState('');
   const [rects,setRects]=React.useState(null);
   const [fit,setFit]=React.useState(null);
-  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=151','ad-v2.css?v=225'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('hl-css').textContent))},[]);
+  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=161','ad-v2.css?v=225'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('hl-css').textContent))},[]);
   React.useLayoutEffect(()=>{if(!css||!ref.current)return;const inn=ref.current.querySelector('.hl-in');let dead=false;const measure=()=>{if(dead)return;inn.classList.add('measuring');inn.style.setProperty('--img-h','0px');const base=inn.scrollHeight;inn.classList.remove('measuring');const cw=(1520-48)/3;const h=Math.round(cw*2/3);inn.style.setProperty('--img-h',h+'px');inn.classList.add('measuring');const H=inn.scrollHeight;inn.classList.remove('measuring');const k=Math.min(1,1064/H);setFit({h,k,top:52+(1064-H*k)/2,H})};(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(()=>requestAnimationFrame(measure)));const bs=[...ref.current.querySelectorAll('.rt-tabs button')];const p=bs[0].parentNode.getBoundingClientRect(),k=p.width/bs[0].parentNode.offsetWidth;setRects(bs.map(b=>{const r=b.getBoundingClientRect();return [(r.left-p.left)/k,r.width/k]}))},[css]);
   const t=((T%HL_LOOP)+HL_LOOP)%HL_LOOP;
   const seg=Math.floor(t/HL_SEG),local=t-seg*HL_SEG,xs=HL_SEG-HL_X;

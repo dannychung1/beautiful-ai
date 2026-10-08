@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mosaic picker</title>
-<script src="mosaic-list.js?v=1"></script>
+<script src="mosaic-list.js?v=15"></script>
 <style>
 body{margin:0;font:14px/1.4 system-ui,sans-serif;background:#F0F3F5;color:#002533}
 a{color:#002533}a:hover{color:#004A66}
@@ -19,7 +19,7 @@ button.pri{background:#002533;color:#fff}button.pri:hover{background:#004A66}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:8px 24px 48px}
 .card{background:#fff;border:1px solid #C4CDD2;border-radius:12px;overflow:hidden;display:grid}
 .card.off{opacity:.45}
-.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;background:#F0F3F5}
+.fp{position:relative;background:#F0F3F5;cursor:crosshair;line-height:0}.fp img{width:100%;height:auto;display:block}.fp i{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 2px #002533;pointer-events:none}.fp i::after{content:'';position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#fff}.fp-l{display:flex;justify-content:space-between;align-items:center;gap:8px}.fp-l button{padding:4px 8px}
 .body{display:grid;gap:8px;padding:12px}
 .row{display:flex;gap:6px;align-items:center}
 .row input[type=text],.row select{flex:1;min-width:0;padding:6px 8px;border:1px solid #C4CDD2;border-radius:6px;background:#fff}
@@ -30,7 +30,7 @@ button.pri{background:#002533;color:#fff}button.pri:hover{background:#004A66}
 </head>
 <body>
 <header><h1>Mosaic picker</h1><span id="count"></span><span class="sp"></span><button type="button" id="add">Add image</button><button type="button" id="reset">Reset to file</button><button type="button" id="dl">Download mosaic-list.js</button><button type="button" class="pri" id="save">Save &amp; preview</button></header>
-<p class="note">Save &amp; preview applies your list to the Art direction mosaic in this browser only. To publish it, download mosaic-list.js and replace the file in deploy/. <a href="05-art-direction.html#imagery" target="_blank" rel="noopener">Open the mosaic</a></p>
+<p class="note">Click an image to set its focus point; the mosaic crops each tile around it. Without one, focus is the center of the frame. Save &amp; preview applies your list to the Art direction mosaic in this browser only. To publish it, download mosaic-list.js and replace the file in deploy/. <a href="05-art-direction.html#imagery" target="_blank" rel="noopener">Open the mosaic</a></p>
 <div class="grid" id="grid"></div>
 <script>
 var KEY='mosaic-picker-v1',ASSETS=window.MOSAIC_ASSETS||[];
@@ -44,11 +44,13 @@ function draw(){
   list.forEach(function(it,i){
     var c=document.createElement('div');c.className='card'+(it.on===false?' off':'');
     var opts=ASSETS.slice();if(opts.indexOf(base(it.src))<0)opts.unshift(base(it.src));
-    c.innerHTML='<img alt="" src="assets/'+it.src+'"><div class="body"><div class="row"><span class="n">'+(i+1)+'</span><label class="tog"><input type="checkbox"'+(it.on===false?'':' checked')+'> In rotation</label><span style="flex:1"></span><span class="mv"><button type="button" data-a="up" aria-label="Move up">↑</button> <button type="button" data-a="dn" aria-label="Move down">↓</button> <button type="button" data-a="rm" aria-label="Remove">✕</button></span></div><div class="row"><select aria-label="Image file">'+opts.map(function(o){return '<option'+(o===base(it.src)?' selected':'')+'>'+o+'</option>'}).join('')+'</select></div><div class="row"><input type="text" aria-label="Caption" value=""></div></div>';
+    var f=it.focus||[.5,.5];c.innerHTML='<div class="fp" title="Click to set the focus point"><img alt="" src="assets/'+it.src+'"><i style="left:'+(f[0]*100)+'%;top:'+(f[1]*100)+'%"></i></div><div class="body"><div class="fp-l n"><span>Focus '+Math.round(f[0]*100)+'% · '+Math.round(f[1]*100)+'%'+(it.focus?'':' (center)')+'</span><button type="button" data-a="fc">Center</button></div><div class="row"><span class="n">'+(i+1)+'</span><label class="tog"><input type="checkbox"'+(it.on===false?'':' checked')+'> In rotation</label><span style="flex:1"></span><span class="mv"><button type="button" data-a="up" aria-label="Move up">↑</button> <button type="button" data-a="dn" aria-label="Move down">↓</button> <button type="button" data-a="rm" aria-label="Remove">✕</button></span></div><div class="row"><select aria-label="Image file">'+opts.map(function(o){return '<option'+(o===base(it.src)?' selected':'')+'>'+o+'</option>'}).join('')+'</select></div><div class="row"><input type="text" aria-label="Caption" value=""></div></div>';
     c.querySelector('input[type=text]').value=it.cap||'';
     c.querySelector('input[type=checkbox]').onchange=function(e){it.on=e.target.checked;draw()};
     c.querySelector('select').onchange=function(e){it.src=e.target.value;draw()};
     c.querySelector('input[type=text]').oninput=function(e){it.cap=e.target.value};
+    c.querySelector('.fp').onclick=function(e){var b=e.currentTarget.getBoundingClientRect();var x=Math.max(0,Math.min(1,(e.clientX-b.left)/b.width)),y=Math.max(0,Math.min(1,(e.clientY-b.top)/b.height));it.focus=[+x.toFixed(3),+y.toFixed(3)];draw()};
+    c.querySelector('[data-a=fc]').onclick=function(){delete it.focus;draw()};
     c.querySelector('[data-a=up]').onclick=function(){if(i>0){list.splice(i-1,0,list.splice(i,1)[0]);draw()}};
     c.querySelector('[data-a=dn]').onclick=function(){if(i<list.length-1){list.splice(i+1,0,list.splice(i,1)[0]);draw()}};
     c.querySelector('[data-a=rm]').onclick=function(){if(confirm('Remove this image from the list?')){list.splice(i,1);draw()}};

@@ -78,6 +78,7 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
 
 // global nav: the current chapter lists its sections, and each section lists its sub-sections
 (function(){
+  return; // chapter sub-sections live only in the on-page "In this chapter" list
   var cur=document.querySelector('.sidenav nav a.active');if(!cur)return;
   var slug=function(t){return t.toLowerCase().replace(/&amp;|&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')};
   var idOf=function(el,h){if(!el.id)el.id='s-'+slug(h.textContent.trim());return el.id};

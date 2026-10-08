@@ -449,3 +449,66 @@ html body .wrap>.ad-mosaic{margin-top:var(--sp-content,32px)!important}
 .bd-samp-fig{position:relative;display:block;width:100%}.bd-samp-cv{width:100%;max-height:none}.bd-samp-x{position:absolute;top:8px;right:8px;display:grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid var(--ink,#002533);border-radius:6px;background:#FFFFFF;color:var(--ink,#002533);cursor:pointer}.bd-samp-x:hover{background:var(--color-neutral-lightest,#F0F3F5)}.bd-samp-x .material-symbols-outlined{font-size:20px}.bd-samp-x:focus-visible{outline:2px solid #52D0FF;outline-offset:2px}
 .bd-samp-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}.bd-samp-top .bd-samp-help{flex:1 1 200px}
 .mo-hero{position:relative;margin:0 0 var(--sub-gap,clamp(96px,11vw,176px));aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--blue-deepest)}.mo-hero video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%}@media (max-width:760px){.mo-hero{aspect-ratio:4/5}}
+
+.bd-frame .bd-frame-i{font-size:32px;line-height:1;width:52px;height:40px;display:grid;place-items:center;border-radius:6px;background:color-mix(in oklch,var(--white) 8%,transparent);margin-bottom:4px;font-variation-settings:'wght' 300,'opsz' 40}
+.bd .gv-chip.bd-frame.is-on .bd-frame-i{background:color-mix(in oklch,var(--blue-darkest) 12%,transparent);font-variation-settings:'wght' 400,'opsz' 40}
+.bd-range{display:flex;align-items:center;gap:16px;min-width:0}
+.bd-range input{flex:1;min-width:0;accent-color:currentColor}
+.bd-range-v{font-family:var(--mono);font-size:13px;min-width:9ch}
+
+/* condensed form: dropdowns pair up 2 per row, label above; everything else spans the full width */
+.bd-form{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px;row-gap:14px}
+.bd-form>*{grid-column:1/-1}
+.bd-form>.bd-row-dd{grid-column:auto;grid-template-columns:minmax(0,1fr);gap:6px}
+.bd .bd-form>.bd-row-dd .gv-glabel{padding-top:0}
+.bd-frames{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:520px){.bd-form>.bd-row-dd{grid-column:1/-1}}
+
+/* Step 2 prompt: the box resizes like the main prompt and the builder grows with it; Copy prompt sits below the box with a 16px gap */
+html body .bd .bd-real .rp-row{grid-template-rows:none;grid-auto-rows:auto;grid-template-columns:minmax(0,1fr);gap:8px;height:auto}
+html body .bd .bd-real .copy-block{height:auto;min-height:0}
+.bd .bd-real .rp-prompt{display:grid;gap:8px}
+.bd .bd-real .rp-prompt>.eyebrow{grid-column:auto;grid-row:auto}
+.bd .bd-real .copy-block{grid-column:auto;grid-row:auto;position:static;display:flex;flex-direction:column;gap:16px;overflow:visible;background:transparent;border:0;padding:0}
+.bd .bd-real .copy-block pre{order:0;height:136px;min-height:96px;max-height:none;resize:vertical;overflow:auto;margin:0;padding:16px;box-sizing:border-box;background:var(--white);border:1px solid color-mix(in oklch,var(--ink,#002533) 15%,transparent);border-radius:12px}
+.bd .bd-real .copy-block pre:focus-within,.bd .bd-real .copy-block pre:focus{border-color:var(--blue-darker,#004A66)}
+html body .bd .bd-real .copy-block .copy-btn{order:1;position:static;align-self:flex-end;margin:0}
+
+/* Motion showcase: examples only, full width */
+.deck-motion.dm-show{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.deck-motion.dm-show>.dm-clip{grid-column:auto;margin:0}
+@media (max-width:760px){.deck-motion.dm-show{grid-template-columns:minmax(0,1fr)}}
+.deck-motion.dm-row2{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);margin-top:24px}
+.deck-motion.dm-row2 .dm-wide{grid-column:auto}
+.dm-row2 .dm-clip :is(img,video){max-height:none}
+.dm-row2 .dm-wide :is(img,video){aspect-ratio:2/1;height:auto}
+.dm-row2 .dm-sq :is(img,video){aspect-ratio:1/1;height:auto}
+@media (max-width:900px){.deck-motion.dm-row2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.deck-motion.dm-row2 .dm-wide{grid-column:1/-1}}
+@media (max-width:600px){.deck-motion.dm-row2{grid-template-columns:minmax(0,1fr)}.deck-motion.dm-row2 .dm-wide{grid-column:auto}.dm-row2 .dm-wide :is(img,video){aspect-ratio:2/1}.dm-row2 .dm-sq :is(img,video){aspect-ratio:1/1}}
+.deck-motion.dm-row3{grid-template-columns:minmax(0,1fr);margin-top:24px}
+.dm-row3 .dm-clip :is(img,video){aspect-ratio:16/9;max-height:none;height:auto}
+/* Showcase pairs: wide clip is exactly 2x the square, so both share 1 height */
+.deck-motion.dm-pair{grid-template-columns:minmax(0,2fr) minmax(0,1fr);margin-top:24px}
+.deck-motion.dm-pair.dm-flip{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+.dm-pair .dm-clip :is(img,video){max-height:none;height:auto}
+.dm-pair .dm-wide :is(img,video){aspect-ratio:2/1}
+.dm-pair .dm-sq :is(img,video){aspect-ratio:1/1}
+@media (max-width:760px){.deck-motion.dm-pair,.deck-motion.dm-pair.dm-flip{grid-template-columns:minmax(0,1fr)}}
+/* Stack clip: show the whole deck form with equal clear space on all sides */
+.dm-clip.dm-fit video{object-fit:contain;background:#fff;padding:8%;box-sizing:border-box}
+.deck-motion.dm-row2{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+@media (max-width:760px){.deck-motion.dm-row2{grid-template-columns:minmax(0,1fr)}}
+.deck-motion.dm-row3{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:24px}
+.dm-row3 .dm-clip :is(img,video){aspect-ratio:1/1;max-height:none;height:auto;background:#000}
+@media (max-width:760px){.deck-motion.dm-row3{grid-template-columns:minmax(0,1fr)}}
+.deck-motion.dm-row3{grid-template-columns:minmax(0,1fr)}
+.dm-row3 .dm-pano video{aspect-ratio:1593/685;object-fit:cover}
+.deck-motion.dm-row2{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:900px){.deck-motion.dm-row2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.deck-motion.dm-row2 .dm-wide{grid-column:1/-1}}
+@media (max-width:600px){.deck-motion.dm-row2{grid-template-columns:minmax(0,1fr)}}
+
+/* Motion showcase rhythm: row 1 is true 9:16 (no viewport cap) so letterboxed portrait clips fill edge to edge; every row is 24px apart */
+.deck-motion.dm-show:not(.dm-row2):not(.dm-row3)>.dm-clip :is(img,video){max-height:none;aspect-ratio:9/16;height:auto}
+.deck-motion.dm-show:not(.dm-row2):not(.dm-row3)>.dm-clip:not(.dm-fit) video{transform:scale(1.06);transform-origin:50% 50%}
+.deck-motion.dm-show:not(.dm-row2):not(.dm-row3)>.dm-clip{overflow:hidden;border-radius:12px}
+.deck-motion.dm-show+.deck-motion.dm-show{margin-top:24px}

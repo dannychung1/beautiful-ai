@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prompt builder — motion video</title>
 <link rel="stylesheet" href="colors_and_type.css?v=130">
-<link rel="stylesheet" href="styles.css?v=154">
+<link rel="stylesheet" href="styles.css?v=167">
 <link rel="stylesheet" href="ad-v2.css?v=225">
 <style id="pv-css">
 html,body{margin:0;background:#F0F3F5}
@@ -74,7 +74,7 @@ function PromptVideo(){
   const ref=React.useRef(null);
   const [css,setCss]=React.useState('');
   const [rects,setRects]=React.useState(null);
-  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=151','ad-v2.css?v=225'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('pv-css').textContent))},[]);
+  React.useEffect(()=>{Promise.all(['colors_and_type.css?v=130','styles.css?v=161','ad-v2.css?v=225'].map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('pv-css').textContent))},[]);
   React.useLayoutEffect(()=>{if(!css||!ref.current)return;const go=()=>{const bs=[...ref.current.querySelectorAll('.rt-tabs button')];const p=bs[0].parentNode,pr=p.getBoundingClientRect(),k=pr.width/p.offsetWidth;setRects(bs.map(b=>{const r=b.getBoundingClientRect();return [(r.left-pr.left)/k,r.width/k]}))};(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(go))},[css]);
   React.useEffect(()=>{const root=ref.current&&ref.current.closest('[data-om-exportable-video-with-duration-secs]');if(root)root.setAttribute('data-screen-label','Prompt builder '+Math.floor(T)+'s')});
   const t=((T%PV_LOOP)+PV_LOOP)%PV_LOOP,S=pvState(t);
