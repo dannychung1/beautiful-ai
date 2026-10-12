@@ -5,7 +5,7 @@
 #color .sys-item{grid-column:span 3;margin:0;display:grid;gap:12px;align-content:start;min-width:0}
 #color .sys-dot{position:relative;width:100%;aspect-ratio:3/2;border-radius:var(--radius-l,12px);overflow:hidden}
 #color .sys-item figcaption{display:grid;gap:2px}
-#color .sys-name{font-size:var(--text-body-s,0.875rem);font-weight:500;color:var(--ink,#002533)}
+#color .sys-name{font-size:var(--text-body-s,0.875rem);font-weight:500;color:var(--ink,var(--color-neutral-darkest))}
 #color .sys-hex{font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;color:var(--neutral-dark)}
 #color .tier-panel{display:grid;grid-template-columns:var(--grid-label);column-gap:var(--gut-2xl,64px);row-gap:var(--gut-xl,40px);align-items:start}
 #color .tier-copy{margin:0;max-width:44ch;color:var(--neutral-dark);font-size:var(--text-body-m,1rem);line-height:1.55;text-wrap:pretty}

@@ -16,7 +16,7 @@
 .story-text h2, .footer h2, .footer h3 { color: var(--neutral-darkest); }
 .section .chapter-hero h2, .section.dark .chapter-hero h2, .section.darkblue .chapter-hero h2,
 .section .chapter-hero .ch-eyebrow, .section.dark .chapter-hero .ch-eyebrow { color: var(--color-neutral-lightest); }
-#introduction .chapter-hero h2 { color: var(--ink, #002533); -webkit-text-fill-color: currentColor; background-image: none; }
+#introduction .chapter-hero h2 { color: var(--ink,var(--color-neutral-darkest)); -webkit-text-fill-color: currentColor; background-image: none; }
 .dark .lede, .darkblue .lede, .story-text .lede, .blue .lede { color: var(--neutral-dark); opacity: 1; }
 .dark .eyebrow, .darkblue .eyebrow, .blue .eyebrow,
 .dark .sh-label, .darkblue .sh-label,
@@ -69,7 +69,7 @@
 
 /* 7 — photography FPO frames and layer labels on white */
 .slide-fpo { background: rgba(0,26,36,0.02); border-color: rgba(0,26,36,0.24); }
-.slide-fpo .fpo-mark { color: var(--color-neutral, #72858E); }
+.slide-fpo .fpo-mark { color: var(--color-neutral, var(--color-neutral)); }
 .slide-fpo .rs-num { color: var(--neutral); }
 .slide-cap .role, .layer-sub .role { color: var(--blue-dark); }
 
@@ -91,7 +91,7 @@
 .archetype-stage .stage-desc, .pp-statement { color: var(--neutral-dark); }
 .dark .st-rule, .darkblue .st-rule, .storyhero .st-rule, .sage .st-rule { color: var(--neutral-dark); }
 .tp-eyebrow, .ps-label, .rs-num, .stage-eyebrow, .frame-caption { color: var(--neutral); }
-.tp-lead { color: var(--ink, #002533); }
+.tp-lead { color: var(--ink,var(--color-neutral-darkest)); }
 .ps-item { color: var(--neutral-darkest); border-color: rgba(0,26,36,0.18); }
 .cx-label, .vr-num, .vk-when, .ex-tag, .layer-sub .role,
 .compass-values .material-symbols-outlined, .vr-head .material-symbols-outlined { color: var(--blue-dark); }
@@ -110,7 +110,7 @@
 #archetype .sage-body, #archetype .sage-block p { color: var(--neutral-dark); }
 #archetype .sage-quote { background: var(--cream); }
 #archetype .sage-tile { background: var(--neutral-lighter); }
-#archetype .sage-pill { background: var(--ink, #002533); color: var(--color-white, #fff); box-shadow: 0 4px 14px rgba(0,26,36,0.18); }
+#archetype .sage-pill { background: var(--ink,var(--color-neutral-darkest)); color: var(--color-white, #fff); box-shadow: 0 4px 14px rgba(0,26,36,0.18); }
 
 /* small mono labels and accent inks need more weight on white than on dark */
 .sh-label, .ct-label, .tp-eyebrow, .ps-label, .eyebrow, .st-eyebrow,
@@ -120,7 +120,7 @@
 .cx-label, .vr-num, .vk-when, .ex-tag, .layer-sub .role, .slide-cap .role,
 .tov-card .num, .compass-values .material-symbols-outlined,
 .vr-head .material-symbols-outlined { color: var(--blue-darker); }
-.tov-card .example .yes, .tov-card .example .icon.yes { color: var(--green-ink, #4F7A1F); }
+.tov-card .example .yes, .tov-card .example .icon.yes { color: var(--green-ink, var(--color-green-ink)); }
 .tov-card .example .no { color: var(--neutral-dark); }
 .tov-card .example .icon.no { color: var(--neutral); }
 .n-content { background: rgba(0,26,36,0.055); }
@@ -158,12 +158,12 @@
 #photography .wrap .sub-title h3, #photography .wrap .sub-title h4 { color: var(--neutral-darkest); }
 
 /* last four: magenta accent, the motif panel ground, and the motif tags */
-#color .cs-body em.accent, .accent.magenta { color: var(--magenta, #DB2475); }
+#color .cs-body em.accent, .accent.magenta { color: var(--magenta, var(--color-magenta)); }
 
 /* footer keeps its own ground: darkest blue */
 .footer { background: var(--blue-darkest); color: var(--white); border-top: none; }
 .footer h2, .footer h3, .footer strong { color: var(--white); }
-.footer a { color: var(--color-neutral-lighter, #C4CDD2); }
+.footer a { color: var(--color-neutral-lighter, var(--color-neutral-lighter)); }
 .footer a:hover { color: var(--white); }
 .footer-bottom { border-color: rgba(255,255,255,0.12); }
 
@@ -175,30 +175,30 @@
 /* Storytelling rings: each ring carries its layer hue and a dot that matches
    the key marker, so ring and label read as one pair. */
 .n-ring{--lc:var(--neutral-dark)}
-.n-brand{--lc:#00B9FF;background:rgba(0,185,255,0.10);border-color:rgba(0,185,255,0.55)}
-.n-product{--lc:#DB2475;background:rgba(219,36,117,0.09);border-color:rgba(219,36,117,0.5)}
+.n-brand{--lc:var(--color-blue);background:rgba(0,185,255,0.10);border-color:rgba(0,185,255,0.55)}
+.n-product{--lc:var(--color-magenta);background:rgba(219,36,117,0.09);border-color:rgba(219,36,117,0.5)}
 .n-content{--lc:var(--amber);background:color-mix(in oklch,var(--amber) 16%,transparent);border-color:color-mix(in oklch,var(--amber) 70%,transparent)}
 .n-name{display:flex;align-items:center;gap:7px;color:var(--neutral-darkest)}
 .n-name::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lc);flex:none}
 .vk-dot{border-color:rgba(0,26,36,0.25)}
-.d-brand{background:#00B9FF}.d-product{background:#DB2475}.d-content{background:var(--amber)}
+.d-brand{background:var(--color-blue)}.d-product{background:var(--color-magenta)}.d-content{background:var(--amber)}
 .vk-item{padding-left:16px;border-left:2px solid var(--lc,rgba(0,26,36,0.12))}
-.vk-item.l-brand{--lc:#00B9FF}.vk-item.l-product{--lc:#DB2475}.vk-item.l-content{--lc:var(--amber)}
+.vk-item.l-brand{--lc:var(--color-blue)}.vk-item.l-product{--lc:var(--color-magenta)}.vk-item.l-content{--lc:var(--amber)}
 .vk-when{color:var(--neutral-dark)}
 
 /* ═══ GALLERY GREY GROUND (Scheme 5) ═══
    The whole guide sits on Gallery Grey; cards, stages and frames are the white foreground. */
 html, body, .section, .section.dark, .section.darkblue, .section.cream, .section.blue, .section.sage, .section.dark.sage,
-.storyhero, .sage, .tagline-page, #archetype { background: var(--scheme5-bg, #F0F3F5); }
+.storyhero, .sage, .tagline-page, #archetype { background: var(--scheme5-bg, var(--color-neutral-lightest)); }
 .logo-stage, .logo-stage.cream, #color .wm-grid .logo-stage.cream { background: var(--white); box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
 .value-card, .altitude-card, .alt-meter, .expression-card.dark, .expression-card.blue,
 .app-card.dark, .app-card.gradient, .archetype-stage, #archetype .sage-quote { background: var(--white); border-color: var(--scheme5-border, rgba(0,26,36,0.15)); }
 .st-media, .sc-cell, .am-tile, .gv-card { background: var(--white); }
 /* Gallery Grey specimens keep an outline so they read on the Gallery Grey ground */
-[data-hex="#F0F3F5"], [style*="background:var(--cream)"], [style*="background:#F0F3F5"], [style*="background: var(--cream)"] { box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
+[data-hex="var(--color-neutral-lightest)"], [style*="background:var(--cream)"], [style*="background:var(--color-neutral-lightest)"], [style*="background: var(--cream)"] { box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
 /* every surface that used Gallery Grey as a panel becomes the white foreground */
 #color .usage-media, .pr-img, .anatomy-panel, .minsize .cell, .type-specimen, .weight, .icon-cell, .expression-card,
 .product-mock, .app-card.cream, .cn-empty, .ts-context, .copy-hex:hover, .copy-hex.is-copied { background: var(--white); }
 .cn-cell:hover { background: var(--white); }
 .ts-context[style*="background:var(--cream)"] { background: var(--white) !important; box-shadow: none; }
-.product-mock .pm-bars .bar, .product-mock .pm-pill, .wr-mini { background: var(--scheme5-bg, #F0F3F5); }
+.product-mock .pm-bars .bar, .product-mock .pm-pill, .wr-mini { background: var(--scheme5-bg, var(--color-neutral-lightest)); }

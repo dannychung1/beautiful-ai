@@ -84,12 +84,12 @@
   isolation: isolate;
 }
 .illo-chip.ground  { background: linear-gradient(150deg, #2D6A4F 0%, #1E8A6B 38%, #2E86C1 72%, #6FB1E0 100%); }
-.illo-chip.grain   { background: linear-gradient(150deg, #6B2D6A 0%, #8E3C6B 40%, #DB2475 78%, #FF917E 100%); }
+.illo-chip.grain   { background: linear-gradient(150deg, #6B2D6A 0%, #8E3C6B 40%, var(--color-magenta) 78%, var(--color-orange-light) 100%); }
 .illo-chip.grain::after { opacity: 0.95; mix-blend-mode: overlay; }
 .illo-chip.figure  { background: linear-gradient(180deg, #08303F 0%, #0E5A6B 55%, #E8A24A 100%); }
 .illo-chip.ai      { background:
     radial-gradient(60% 70% at 50% 45%, rgba(255,255,255,0.5), transparent 60%),
-    conic-gradient(from 200deg at 55% 50%, #00B9FF, #96BB47, #FFE08A, #E5659E, #52D0FF, #00B9FF);
+    conic-gradient(from 200deg at 55% 50%, var(--color-blue), var(--color-green), #FFE08A, var(--color-magenta-light), var(--color-blue-light), var(--color-blue));
 }
 
 /* Realistic-proportion figure silhouette (head ≈ 1/7.5 of height) */
@@ -311,7 +311,7 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  background: linear-gradient(180deg, #F0F3F5, #FFFFFF);
+  background: linear-gradient(180deg, var(--color-neutral-lightest), var(--color-white));
 }
 .illo-surface.empty .illo-frame {
   width: 56%;

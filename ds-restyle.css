@@ -1,0 +1,485 @@
+/* ds-restyle.css — BAI Design System restyle layer. Loads last. Visual only: no text or asset changes.
+   Source of truth: colors_and_type.css (DS). */
+/* ── Layout: fluid, proportional to the DS (1312 content + 64 gutters at 1440) ── */
+:root{--font:var(--font-body);--mono:var(--font-body);--ls-display:-0.03em;--ls-heading:var(--ls-tight);
+--content-max:2480px;--wrap-pad:max(20px,4.4445vw);--gutter:max(20px,4.4445vw,calc(50vw - var(--content-max) / 2 + 4.4445vw));
+--section-y:var(--padding-section-medium);--section-y-tight:var(--padding-section-small);--ds-section-gap:var(--padding-section-medium);--sub-gap:calc(var(--padding-section-medium) / 2);
+--card-radius:var(--radius-xl)}
+@media (max-width:768px){:root{--section-y:var(--padding-section-small);--ds-section-gap:var(--padding-section-small);--sub-gap:calc(var(--padding-section-small) / 2)}}
+.wrap{padding-inline:var(--wrap-pad)}
+/* ── Type: Post Grotesk only; tabular figures for data ── */
+body{font-family:var(--font-body);font-size:var(--text-body-m);line-height:var(--text-body-lh)}
+code,pre,kbd,samp,.mono,[class*="hex"],[class*="spec"] dd,.px{font-family:var(--font-body);font-variant-numeric:tabular-nums}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);font-weight:var(--fw-medium);line-height:1;letter-spacing:var(--ls-tight)}
+strong,b{font-weight:var(--fw-medium)}
+/* display: cover = Display 1, chapter openers = Display 2 (fluid at the same ratio as the column) */
+.cover-head{font-size:clamp(72px,10vw,216px);line-height:var(--text-display-1-lh)!important;letter-spacing:var(--ls-display)!important}
+.chapter-hero h2{font-size:clamp(64px,7.7778vw,168px);line-height:var(--text-display-2-lh)!important;letter-spacing:var(--ls-display)!important;font-weight:var(--fw-medium)}
+#introduction .chapter-hero h2{font-size:clamp(56px,6.1111vw,132px);line-height:var(--text-display-3-lh)!important}
+button,input,select,textarea{font-family:var(--font-body)}
+.dt-tag.bad{color:var(--color-magenta-dark)}
+/* heading-like classes that used ad-hoc tracking */
+:is(.sub-head h2,.section-head h2,.sub-title h3,.sub-title h4,.tov-card .title,.arch-name,.dt-head,.sb-story,.ch-lead,.mv-statement,.cn-title,.pr-panel h3,.ia-title,.ia-sub,.alt-meta .alt-name,.value-card .vc-name,.layer-block .lb-label h3,.combo .big,.story-layer .num .big,.expression-card h4,.illo-feature h4,.illo-surface h4,.illo-card h4,.swatch .name,.vk-name,.ac-t,.card h4,.photo-principle .pp-statement,.contents li a,.contents li span){letter-spacing:var(--ls-tight);font-weight:var(--fw-medium)}
+/* ── Surfaces: flat. The spotlight (cover, chapter openers) and specimen glows stay. ── */
+#introduction{background:none}
+.color-story{background:var(--color-white)}
+.nav-fab,.nav-fab:hover{background:var(--color-neutral-darkest);backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-color:transparent;border-radius:var(--radius-m)}
+.sidenav{backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;background:color-mix(in oklch,var(--color-neutral-darkest) 85%,transparent)!important}
+.corner-label{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--color-neutral-darkest);color:var(--color-white);border-radius:var(--radius-xs)}
+/* ── Cards: DS light card. Content padding from the DS scale. ── */
+.callout{padding:var(--content-padding-regular)}
+#type .tg-frame{padding:var(--content-padding-medium)}
+#type .oa-callout{padding:var(--content-padding-large)}
+#type .oa-case{padding:var(--content-padding-medium)}
+/* full-width panels: radius 30 */
+.type-hero,#type .tg-frame,#type .oa-callout,.mo-hero,.deck-motion.dm-show>.dm-clip,.dm-clip:has(video[src*="logo-spotlight"]){border-radius:var(--radius-xxl)}
+/* ── Icons: Material Symbols Outlined, weight 300 ── */
+.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24}
+#logo .dont .preview{container-type:inline-size}
+#logo .donts:not(.dos)>.dont:nth-child(-n+6) .preview{padding:0!important}
+#logo .donts:not(.dos)>.dont:nth-child(-n+3) .preview>img{width:72cqw;height:auto;max-width:none;max-height:none}
+#logo .donts:not(.dos)>.dont:nth-child(4) .preview>span{width:72cqw!important}
+#logo .donts:not(.dos)>.dont:nth-child(5) .preview{gap:0!important;justify-content:center!important}
+#logo .donts:not(.dos)>.dont:nth-child(5) .preview>*{flex:none!important;width:auto!important}
+#logo .donts:not(.dos)>.dont:nth-child(5) .preview>img{margin-right:4cqw}
+#logo .donts:not(.dos)>.dont:nth-child(5) .preview img[src*="symbol"]{height:14cqw!important}
+#logo .donts:not(.dos)>.dont:nth-child(5) .preview span[style*="Georgia"]{font-size:8.5cqw!important}
+#logo .donts:not(.dos)>.dont:nth-child(6) .preview>span{font-size:5.6cqw!important;max-width:64cqw!important}
+#logo .donts:not(.dos)>.dont:nth-child(6) .preview>span img{height:.78em!important}
+.dont .label{text-transform:none;letter-spacing:0;font-size:var(--text-body-s);line-height:1.5;font-weight:var(--fw-book)}
+.dont .label .x,.icon.no,.icon.yes{font-size:20px;line-height:1;vertical-align:-4px}
+.cn-arrow.material-symbols-outlined{font-size:24px}
+/* ── DS button on existing links ── */
+.dl-pill{display:inline-flex;align-items:center;gap:var(--space-2);font-family:var(--font-body);font-weight:var(--fw-medium);border-radius:var(--radius-s);background:var(--color-blue-accent);border-color:var(--color-blue-accent);color:var(--color-neutral-darkest);text-decoration:none;transition:background .2s ease}
+.dl-pill:hover{background:var(--color-blue-light);border-color:var(--color-blue-light)}
+.dl-pill:active{transform:scale(.98)}
+
+/* ── Labels and eyebrows: Book 400, 11–12px, uppercase, 0.12em ── */
+.sidenav .label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.cover-top{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.cover-bottom{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ring .ring-label .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.ring .ring-label .rank{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.ring-center .sub{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.story-layer .num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.logo-stage .corner-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.clearspace .marker{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.minsize .cell .px{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.swatch .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.palette-col h5{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.palette-col .step .name{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.type-specimen .meta{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.type-row .tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.weight .name{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.icon-cell .name{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.archetype-stage .stage-eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.archetype-art .frame-caption{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.expression-card .ex-tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.archetype-rules .rule .head{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.layer-block .lb-label .num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.photo-frame .caption .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.cinematic-frame .cf-tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.cinematic-frame .cf-footer{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.product-mock .pm-chrome{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.product-mock .pm-pill{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.product-mock .pm-caption{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.role-slot .rs-num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.role-slot .rs-bottom .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.app-card .badge{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.app-card .footer{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.footer h5{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.footer-bottom{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.alt-meta .alt-tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.alt-bottom .lbl{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.cs-chip{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.compass-row .cmp-label .num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.value-card .vc-num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.persona-card .ptag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.persona-card .ptrait{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.gradient-legend{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.chapter-hero .ch-eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.mv-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.st-eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.cx-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.tp-eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ps-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.dd-tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.co-kicker{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.rail-title{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.fab-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.copy-hex-sm{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.sh-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ct-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.v-name{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.vk-when{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.n-name{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.wr-ui .wr-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.cn-dir{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.tc-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ts-meta{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ts-glyphs.is-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.dt-facts span,.dt-facts b{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.dt-tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.sc-crumb{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.as-badge{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.st-headrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.vd-l{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:2.6px}
+.vd-when{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.vd-t{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:2.3px}
+.vd-ov-mix{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.gv-glabel{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.gv-tags{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.bd-kicker{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.bd-edited{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.bd-tabs-q{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.bd-pick-hex{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.illo-intro .note .k{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.illo-frame .corner-label{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.illo-feature .ftag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.illo-feature .fmeta div{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.illo-card .ctag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.illo-surface .s-eyebrow{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.illo-surface .s-chip{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.illo-bridge{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.spot-grouphead .gk{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.spot-thumb .tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.spot-meta .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.ad-when{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ad-head{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.lit-frame .cap .d{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.range-hero .rh-cap .tag{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.range-card .rc-corner{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.range-card .rc-meta .a{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.slide-cap .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.slide-fpo .rs-num{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+.slide-fpo .rs-bottom .role{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em;font-size:11px}
+#color .a11y span{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+#color .pair-meta{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+.ldm-eb{font-family:var(--font-body);font-weight:var(--fw-book);letter-spacing:.12em}
+
+/* ── No 600 or 800: Medium 500 ── */
+.tov-card .example .yes,
+.cs-label-x,
+.dont .label .x,
+.co-text strong,
+.story-c[data-active="brand"] .sc-crumb [data-layer="brand"],.story-c[data-active="product"] .sc-crumb [data-layer="product"],.story-c[data-active="content"] .sc-crumb [data-layer="content"],
+strong,b,
+.bd-dd-opt.is-on,
+.bd-tip strong,
+.bd .bd-out .bd-count.is-over,
+.illo-surface .s-eyebrow,
+.illo-surface .s-eyebrow b{font-weight:var(--fw-medium)}
+
+/* ── Shadow: flat; resting cards xxsmall; floating UI large ── */
+.nav-fab,
+.nav-fab:hover,
+.sidenav,
+.ring.inner,
+.rings-wrap::after,
+.alt-meter .marker,
+.cs-chip.blue,
+.cs-chip.mag,
+.co-prompts .copy-block .copy-btn,
+.bd-samp-cv,
+.copy-block .copy-btn,
+#archetype .sage-pill{box-shadow:none}
+.rule-card,.bd{box-shadow:var(--shadow-xxsmall)}
+.copy-hex,
+.ux-modal,
+.vd-tip,
+.bd-dd-list,
+.bd-popout::after,
+.bd-dd::after,
+.top-fab,
+.top-fab:hover{box-shadow:var(--shadow-large)}
+
+/* ── Radius on the DS scale (30/18/12/8/6/4) ── */
+.cs-box,
+.ps-item,
+.story-c .vk-item:focus-visible,
+.csd-box,
+.bd-frame svg{border-radius:var(--radius-xs)}
+.nav-toggle,
+.sidenav nav a,
+.sidenav.collapsed nav a::after,
+.res-bar,
+.wr-ui,
+html body .gv-pill,html body .dl-pill,html body .copy-block .copy-btn,html body .bd .bd-real .copy-block .copy-btn,
+.bd-open,
+.bd-select,
+.bd-remix,
+.bd-popout,
+.bd-tab:focus-visible,
+.bd-dest-b,
+.bd-btn,
+.bd-dd-btn,
+.bd-dd-opt,
+.bd-popout::after,
+.bd-dd::after,
+.bd .bd-real .copy-block .copy-btn,
+.bd-samp-cv,
+.bd-samp-sw,
+.bd-pick-hex,.bd-pick-v,
+.bd-samp-nat,
+.bd-samp-nat::-webkit-color-swatch,
+.bd-samp-nat::-moz-color-swatch,
+.bd-samp-x,
+.bd-frame .bd-frame-i,
+.ldm-seg button,
+.ldm-handle:focus-visible,
+.ldm-nav span:last-child{border-radius:var(--radius-s)}
+.dd,
+.callout,
+.wr-tofu,
+.wr-spot,
+.pr-img,
+.bd-hint,
+.bd .gv-chip.bd-frame,
+.bd-dest,
+.bd-dd-list,
+.rp-thumb,
+.bd .bd-real .rp-thumb,
+.ldm-card i{border-radius:var(--radius-m)}
+.product-mock .pm-body,
+body:has(.chapter-rail.show) .nav-fab,
+.aud-card img,
+.aud-card .ac-frame,
+.arch-refs img,
+.ldm-vp{border-radius:var(--radius-m)}
+.nav-fab,
+.sidenav,
+.palette-col .ramp,
+.weight,
+.icon-cell,
+.alt-meter,
+.ill-frame,
+.top-fab,
+body:has(.chapter-rail.show):has(.sidenav:not(.collapsed)) .nav-fab,
+#logo .dont .preview,
+.gv-card,
+.am-tile,
+.pr-split .pr-img,
+.rule-card,
+.rule-card .pr-img,
+.dm-clip img,.dm-clip video,
+.co-visual .co-grid,
+.mr-media,
+.co-pair-img img,
+.co-pair-fpo,
+.co-crop-laptop,
+.mp-stage,
+.bd-samp-box,
+.bd .bd-real .copy-block pre,
+.deck-motion.dm-show:not(.dm-row2):not(.dm-row3)>.dm-clip,
+.dm-clip:has(video[src*="logo-spotlight"]),
+.ad-card,
+.copy-block,
+#type .oa-case,
+#color .usage-media,
+#color .pair,
+#color .wm-grid .logo-stage,
+#color .mini-slide,
+#color .sys-neutral .sys-item:first-child .sys-dot,
+.ldm-card{border-radius:var(--radius-l)}
+.df-photo,
+.slide-fpo{border-radius:var(--radius-l)}
+.minsize .cell,
+.combo,
+.cat-card,
+.illo-chip,
+.spot-thumb,
+.lit-frame,
+.range-card .rc-frame{border-radius:var(--radius-xl)}
+.tov-card,
+.dont,
+.photo-frame,
+.cinematic-frame,
+.product-mock,
+.role-slot,
+.value-card,
+.ux-stage,
+.ux-modal,
+.tone-card,
+.vd-tip,
+.ux-shot,
+.icons-grid,
+.bd,
+.pr-card,
+.mo-hero,
+.illo-surface.empty .illo-frame,
+#type .tg-frame{border-radius:var(--radius-xl)}
+.swatch .role{border-radius:var(--radius-xl)}
+.archetype-art,
+.expression-card,
+.altitude-card,
+.color-story,
+.persona-card,
+.illo-frame,
+.illo-surface,
+.range-hero{border-radius:var(--radius-xl)}
+.logo-stage,
+.anatomy-panel,
+.app-card{border-radius:var(--radius-xl)}
+.type-specimen,
+.archetype-stage{border-radius:var(--radius-xxl)}
+
+/* ── Blue text: #007EAD on light, #00B9FF on dark ── */
+.cover-title .h-display .punct,
+.story-layer .num,
+.story-layer .body em.accent,
+.tov-card .num,
+.cs-label-x,
+.palette-col .step .star,
+.layer-block .lb-label .num,
+.layer-block .lb-label .quote em,
+.compass-row .cmp-label .num,
+.compass-row .cmp-statement em,
+.value-card .vc-num,
+.pr-num,
+.mv-label,
+.mv em,
+.cx-label,
+.vr-head .material-symbols-outlined,
+.vr-num,
+.vr-icon,
+.tp-eyebrow span,
+.tp-body em,
+.dd.do .dd-tag,
+.callout.do .co-icon,
+.callout.do .co-kicker,
+.rail-title,
+.ch-index a:hover,
+.vk-when,
+#type .sub-title h3,
+#type .type-row .tag,
+#type code,
+.dt-facts b,
+.dt-tag.ok,
+.gv-prompt,
+.mp-emotion,
+.mp-purpose,
+.illo-feature h4 em,
+.photo-principle .pp-statement em,
+.range-card .rc-meta .a,
+.slide-cap .role{color:var(--color-link)}
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .cover-title .h-display .punct,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .story-layer .num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .story-layer .body em.accent,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .tov-card .num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .cs-label-x,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .palette-col .step .star,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .layer-block .lb-label .num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .layer-block .lb-label .quote em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .compass-row .cmp-label .num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .compass-row .cmp-statement em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .value-card .vc-num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .pr-num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .mv-label,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .mv em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .cx-label,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .vr-head .material-symbols-outlined,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .vr-num,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .vr-icon,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .tp-eyebrow span,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .tp-body em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .dd.do .dd-tag,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .callout.do .co-icon,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .callout.do .co-kicker,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .rail-title,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .ch-index a:hover,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .vk-when,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) #type .sub-title h3,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) #type .type-row .tag,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) #type code,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .dt-facts b,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .dt-tag.ok,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .gv-prompt,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .mp-emotion,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .mp-purpose,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .illo-feature h4 em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .photo-principle .pp-statement em,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .range-card .rc-meta .a,
+:is(.chapter-hero,.cover,.footer,.bu-band,.sidenav,#practice,.ctx-dark,.th-c,.bd,.dark-panel,.icon-panel,[data-ground="dark"]) .slide-cap .role{color:var(--color-link-on-dark)}
+
+/* ── Brand in use: fully Deepest Blue ── */
+body.subpage:has(#practice){background:var(--color-neutral-darkest)}
+#practice.section,#practice{background:var(--color-neutral-darkest)!important;color:var(--color-white)}
+#practice :is(h2,h3,h4,.sub-title h3,.sh-label,.as-badge,figcaption,figcaption span){color:var(--color-white)}
+#practice :is(.lede,.st-rule,p){color:var(--color-neutral-lighter)}
+#practice .sub-title,#practice .section-head,#practice .wrap>*{border-color:rgba(255,255,255,.2)}
+#practice .bu-frame{background:var(--color-neutral-darker)}
+body.subpage:has(#practice) .chapter-nav{background:var(--color-neutral-darkest);border-top-color:rgba(255,255,255,.2)}
+body.subpage:has(#practice) .chapter-nav .cn-cell+.cn-cell{border-left-color:rgba(255,255,255,.2)}
+body.subpage:has(#practice) .chapter-nav :is(.cn-dir,.cn-num,.cn-arrow,.cn-title){color:var(--color-white)}
+body.subpage:has(#practice) .chapter-nav .cn-cell:hover :is(.cn-dir,.cn-num,.cn-arrow,.cn-title),body.subpage:has(#practice) .chapter-nav .cn-cell:focus-visible :is(.cn-dir,.cn-num,.cn-arrow,.cn-title){color:var(--color-neutral-darkest)}
+
+/* ── DS audit fixes ── */
+.footer h5{font-family:var(--font-heading)!important;font-weight:var(--fw-medium)!important;font-size:var(--text-body-m)!important;letter-spacing:var(--ls-tight)!important;text-transform:none!important;line-height:1!important;color:var(--color-white)}
+.footer-bottom,.footer-bottom span{color:var(--color-neutral-lighter)!important}
+.vr-num{color:var(--color-neutral-darkest)}
+.vd-when,.dt-tag{text-transform:none;letter-spacing:0;font-size:var(--text-body-s);line-height:1.5}
+.logo-stage.dark,.bd,.ratio-fill{box-shadow:none!important}
+.bd-var{border-radius:var(--radius-xs)}
+#logo .logo-stage .corner-label,#logo .logo-stage.dark .corner-label{color:var(--color-white)!important}
+.top-fab,.nav-fab{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.bd .bd-out .bd-count.is-over{font-weight:var(--fw-medium)}
+
+/* ── No grey key lines: separation comes from color and contrast ── */
+.sidenav,.nav-tool,.value-row,.tg-specs>div,.type-row,.th-labels,.cn-cell,.top-fab,.ill-rule,.bd-head,.bd-tabs,.example,.tc-row,.vd-item,
+.anatomy-panel,.dont,.tov-card,.tone-card,.callout,.words-callout,.vd-tip,.dt-case,.oa-case,.type-hero,.tg-frame,.ldm-card,.vr-card,.ly-frame,.ly-card,.color-story,.pr-card,.ill-frame,.copy-block,.bd-dest,.wr-spot,.wr-ui,.wr-mini{border:0!important}
+.logo-stage,.dont .preview,#logo .dont .preview,.sys-dot,.pair,.mini-slide,.ldm-vp,.minsize .cell{box-shadow:none!important;border:0!important}
+#color .dont,#color .color-story,.ldm-card,.vr-card,.bd .bd-out .copy-block{background:var(--color-neutral-lightest)!important}
+
+.ratio-seg::before{content:none!important;display:none!important}
+#color .pair:first-child{background:var(--color-white)!important;box-shadow:inset 0 0 0 1px var(--color-neutral-lightest)!important}
+/* Do cards: same card as the don'ts, with a correct example */
+#logo .dos .preview{container-type:inline-size}
+#logo .do-rules .dont:first-child .preview>img{width:60cqw;height:auto;max-width:none;max-height:none}
+#logo .dos .dont .label{min-height:calc(2 * 1.5em + 4px)}
+.dont.do .label .x{color:var(--color-green-ink)!important;background:none!important;border:0!important}
+#logo .do-slide{position:relative;width:78%;aspect-ratio:16/9;background:var(--color-white);border-radius:var(--radius-s)}
+#logo .do-slide img{position:absolute;left:6%;bottom:9%;width:14%!important;height:auto;max-width:none!important;max-height:none!important}
+/* Logo page: examples sit straight on the grid, no cards (DS tokens only) */
+#logo .donts{column-gap:var(--space-8)!important;row-gap:var(--space-16)!important}
+#logo .donts .dont{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding:0!important;gap:var(--space-4)!important}
+#logo .donts .dont .preview{background-color:var(--color-white);box-shadow:none!important;border-radius:var(--radius-l);aspect-ratio:16/9!important;flex:none!important}
+#logo .spec-grid{align-items:stretch}
+#logo .donts .spec-wide .preview{aspect-ratio:auto!important;flex:1 1 auto!important;min-height:0}
+#logo .donts .dont .label{padding:0!important;min-height:0!important;font-size:var(--text-body-s);color:var(--color-neutral-dark)}
+#logo .donts:not(.dos)>.dont:nth-child(8) .preview{border-radius:0;box-shadow:inset 0 -1px 0 var(--color-neutral-light)!important}
+#logo .donts:not(.dos)>.dont:nth-child(8) .preview img{width:84cqw!important}
+/* Logo page: every sub-section is a 3-column card grid */
+#logo .spec-wide{grid-column:span 2}
+@media (max-width:760px){#logo .spec-wide{grid-column:auto}}
+#logo .spec-wide .csd-mark{--x:min(44px,6.5cqw)!important}
+#logo .spec-grid .dont:not(.spec-wide) .csd-mark{--x:min(40px,13cqw)!important}
+#logo .spec-grid .preview{flex:1 1 auto!important;min-height:0}
+#logo .spec-wide .preview{aspect-ratio:auto!important}
+#logo .do-tile{display:grid;place-items:center;width:28cqw;aspect-ratio:1;background:var(--color-white);border-radius:var(--radius-l)}
+#logo .do-tile img{width:42%!important;height:auto;max-width:none!important;max-height:none!important}
+.chapter-hero:has(+.ch-intro-wrap){margin-bottom:0!important}
+.ch-intro-wrap{padding-top:var(--padding-section-medium)}
+.ch-intro-wrap>*{margin-top:0!important;margin-bottom:0!important}
+.ch-intro-wrap+.wrap .ch-subnav{margin-top:var(--space-12)!important;padding-bottom:0!important;border-bottom:0!important}
+.ch-intro-wrap+.wrap{margin-bottom:var(--padding-section-medium)}
+.ch-intro-wrap+.wrap+.wrap>.ch-lead:first-child,.ch-intro-wrap+.wrap+.wrap>:first-child{margin-top:0!important}
+/* Logo page: wordmark and symbol share the row 50/50 */
+#logo .logo-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--space-8);row-gap:var(--space-16)}
+#logo .lp-col{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:var(--space-6);align-content:start}
+#color .color-block+.color-block{padding-top:18px!important;margin-top:var(--sub-gap)!important}
+#logo .spec-grid .preview img[src*="symbol"]{height:16px!important;width:auto!important}
+#logo .logo-pair .sub-title{margin:0!important;padding-top:18px!important;border-top:1px solid color-mix(in oklch,currentColor 16%,transparent)!important}
+#logo .lp-body{margin:0;max-width:70ch;font-size:var(--text-body-m);line-height:var(--text-body-lh);color:var(--color-neutral-dark);text-wrap:pretty}
+#logo .lp-stage{aspect-ratio:4/3!important;border-radius:var(--radius-xl)!important;container-type:inline-size;display:grid;place-items:center;margin:0!important}
+#logo .lp-wordmark{width:60cqw!important;height:auto!important;max-width:none!important;max-height:none!important}
+#logo .lp-symbol{height:auto!important;width:20cqw!important;max-width:none!important;max-height:none!important}
+@media (max-width:760px){#logo .logo-pair{grid-template-columns:minmax(0,1fr)}#logo .lp-col{grid-row:auto;grid-template-rows:none}}
+/* Art direction: "Product in the light" keeps one crop at every width */
+.pr-img.pr-crop-light{position:relative;aspect-ratio:1203/910!important;height:auto!important;overflow:hidden}
+.pr-img.pr-crop-light img{position:absolute!important;left:-21.3%!important;top:-13%!important;width:159%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;transform:none!important}
+/* Brand in use: a captionless mosaic gallery */
+#brand-in-use .bu-grid,.bu-grid{row-gap:var(--space-4)!important;column-gap:var(--space-4)!important}
+.bu-heroes,.bu-band-row{gap:var(--space-4)!important}
+.bu-item{margin:0!important;gap:0!important}
+.bu-item figcaption,.bu-item .bu-cap{display:none!important}

@@ -2,10 +2,12 @@
  * BAI Design System — Colors & Typography
  * Source: Marketing DS (Relume v3.6) Figma file
  *
- * ⚠️ FONT NOTE: Post Grotesk is a commercial font. This CSS uses
- * "Plus Jakarta Sans" (Google Fonts) as a substitute. Replace with
- * the actual Post Grotesk font files when available.
+ * Fonts: Post Grotesk (local files in fonts/) for everything — no other typefaces.
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+@import url('bai-spotlight.css');
 
 /* Post Grotesk — brand font files */
 @font-face {
@@ -37,7 +39,6 @@
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 /* ─────────────────────────────────────────────
    PRIMITIVE COLOR TOKENS
@@ -93,8 +94,13 @@
 
   /* Aliases for convenience */
   --color-accent:                 var(--color-blue);
-  --color-blue-accent:            var(--color-blue);  /* referenced by .btn-primary */
   --color-accent-hover:           var(--color-blue-dark);
+  --color-blue-accent:            var(--color-blue);                 /* Primary button fill, #001A24 text (8.0:1 AAA) */
+  --color-link:                   var(--color-blue-darker-rollover); /* Blue text/icons on LIGHT bg (AA) */
+  --color-link-on-dark:           var(--color-blue);                 /* Blue text/icons on DARK bg (8.0:1 AAA on #001A24) */
+  --color-amber:                  #FA901F;                           /* Data/status; end stop of cover headline gradient */
+  --color-green-ink:              #4F7A1F;                           /* Green text on light (AA) */
+  --color-text-muted:             var(--color-neutral-dark);
   --color-text:                   var(--color-neutral-darkest);
   --color-bg:                     var(--color-white);
   --color-bg-subtle:              var(--color-neutral-lightest);
@@ -169,21 +175,29 @@
   /* Families */
   --font-heading: 'Post Grotesk', sans-serif;
   --font-body:    'Post Grotesk', sans-serif;
-  --font-mono:    'Post Grotesk', monospace;
+  --font-mono:    'Post Grotesk', monospace; /* No mono family — alias only */
 
   /* Type scale — Desktop */
+  /* Display sizes: hero statements, big numbers, slides. Max 1 per view. */
+  --text-display-1-size: 9rem;  /* 144px */
+  --text-display-1-lh:   1.05;
+  --text-display-2-size: 7rem;  /* 112px */
+  --text-display-2-lh:   1.05;
+  --text-display-3-size: 5.5rem;/* 88px */
+  --text-display-3-lh:   1.10;
+  --ls-display:          -0.03em;
   --text-h1-size:   4.5rem;    /* 72px */
-  --text-h1-lh:     1.00;
+  --text-h1-lh:     1.0;
   --text-h2-size:   3.625rem;  /* 58px */
-  --text-h2-lh:     1.00;
+  --text-h2-lh:     1.0;
   --text-h3-size:   2.875rem;  /* 46px */
-  --text-h3-lh:     1.00;
+  --text-h3-lh:     1.0;
   --text-h4-size:   2.3125rem; /* 37px */
-  --text-h4-lh:     1.00;
+  --text-h4-lh:     1.0;
   --text-h5-size:   1.875rem;  /* 30px */
-  --text-h5-lh:     1.00;
+  --text-h5-lh:     1.0;
   --text-h6-size:   1.5rem;    /* 24px */
-  --text-h6-lh:     1.00;
+  --text-h6-lh:     1.0;
   --text-body-xl:   1.25rem;   /* 20px */
   --text-body-l:    1.125rem;  /* 18px */
   --text-body-m:    1rem;      /* 16px */
@@ -192,12 +206,12 @@
   --text-body-lh:   1.50;
 
   /* Font weights */
-  --fw-light:    300;
-  --fw-book:     400;
-  --fw-medium:   500;
-  --fw-semibold: 600;
-  --fw-bold:     700;
-  --fw-extrabold:800;
+  --fw-light:    300; /* @kind font */
+  --fw-book:     400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+  --fw-extrabold:800; /* @kind font */
 
   /* Letter spacing */
   --ls-tight:  -0.04em;
@@ -220,6 +234,18 @@
   --space-20: 80px;
   --space-24: 96px;
   --space-32: 128px;
+
+  /* Section padding (vertical, between page sections) */
+  --padding-section-large:  112px;
+  --padding-section-medium:  80px;
+  --padding-section-small:   48px;
+
+  /* Content padding (inside cards, panels, containers) */
+  --content-padding-large:   48px;
+  --content-padding-medium:  32px;
+  --content-padding-regular: 24px;
+  --content-padding-small:   16px;
+  --content-padding-xsmall:  12px;
 }
 
 /* ─────────────────────────────────────────────
@@ -227,6 +253,9 @@
    ───────────────────────────────────────────── */
 @media (max-width: 768px) {
   :root {
+    --text-display-1-size: 4.5rem;  /* 72px */
+    --text-display-2-size: 4rem;    /* 64px */
+    --text-display-3-size: 3.5rem;  /* 56px */
     --text-h1-size:  3rem;    /* 48px */
     --text-h2-size:  2.5rem;  /* 40px */
     --text-h3-size:  2rem;    /* 32px */
@@ -250,6 +279,28 @@ body {
   -webkit-font-smoothing: antialiased;
   text-wrap: pretty;
 }
+
+/* Labels / eyebrows — the only uppercase text. */
+.label, .eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-book);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.label-s { font-size: 0.6875rem; }
+
+.display-1, .display-2, .display-3 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-display);
+  color: var(--color-neutral-darkest);
+  text-wrap: balance;
+}
+.display-1 { font-size: var(--text-display-1-size); line-height: var(--text-display-1-lh); }
+.display-2 { font-size: var(--text-display-2-size); line-height: var(--text-display-2-lh); }
+.display-3 { font-size: var(--text-display-3-size); line-height: var(--text-display-3-lh); }
 
 h1, .h1 {
   font-family: var(--font-heading);
@@ -326,7 +377,8 @@ p {
 }
 
 code, pre, .mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
   font-size: 0.875em;
 }
 
@@ -340,7 +392,7 @@ code, pre, .mono {
   gap: 8px;
   font-family: var(--font-body);
   font-size: var(--text-body-m);
-  font-weight: var(--fw-book);
+  font-weight: var(--fw-medium);
   line-height: 1.5;
   padding: 10px 24px;
   border-radius: var(--radius-s);
@@ -361,8 +413,8 @@ code, pre, .mono {
   color: var(--color-neutral-darkest);
 }
 .btn-primary:hover {
-  background: var(--color-blue-dark);
-  border-color: var(--color-blue-dark);
+  background: var(--color-blue-light);
+  border-color: var(--color-blue-light);
 }
 
 .btn-secondary {
@@ -407,15 +459,15 @@ code, pre, .mono {
   border: 1px solid rgba(0, 9, 13, 0.10);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-xxsmall);
-  padding: 24px;
+  padding: var(--content-padding-regular);
 }
 
 .card-dark {
-  background: var(--color-neutral-dark-2);
+  background: var(--color-neutral-darkest);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-l);
   color: var(--color-white);
-  padding: 24px;
+  padding: var(--content-padding-regular);
 }
 
 /* ─────────────────────────────────────────────
@@ -433,8 +485,10 @@ code, pre, .mono {
 }
 
 .section {
-  padding: 80px 0;
+  padding: var(--padding-section-medium) 0;
 }
+.section-lg { padding: var(--padding-section-large) 0; }
+.section-sm { padding: var(--padding-section-small) 0; }
 
 .section-dark {
   background: var(--color-neutral-darkest);
@@ -449,7 +503,7 @@ code, pre, .mono {
    MATERIAL SYMBOLS
    ───────────────────────────────────────────── */
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
   font-size: 24px;
   line-height: 1;
   vertical-align: middle;

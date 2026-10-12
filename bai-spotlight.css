@@ -1,0 +1,23 @@
+/* BAI spotlight — the one sanctioned brand gradient.
+   2 soft spots (Azul + magenta) on Deepest Blue, blurred, screen-blended,
+   with a noise layer below and film grain above. Motion: bai-spotlight.js.
+   Markup: <section class="bai-spotlight"> … </section> (the script injects the layers).
+   Use: focused visuals — covers, chapter openers, product backdrops, presentation backgrounds.
+   1 per view, on Deepest Blue, solid white type. Never behind dense body copy or UI. */
+:root{
+  --spot-ground:var(--color-neutral-darkest,#001A24);
+  --spot-blue:radial-gradient(circle at var(--mx,80%) var(--my,20%),rgba(0,170,240,.92),rgba(0,161,232,.72) 8%,rgba(0,150,220,.55) 14%,rgba(2,132,196,.39) 21%,rgba(4,110,165,.26) 30%,rgba(2,86,131,.17) 38%,rgba(0,60,95,.09) 48%,rgba(0,40,66,.04) 58%,transparent 70%);
+  --spot-magenta:radial-gradient(circle at var(--rx,20%) var(--ry,80%),rgba(226,25,120,.88),rgba(214,26,118,.68) 8%,rgba(200,28,115,.5) 14%,rgba(172,26,103,.36) 21%,rgba(140,25,90,.24) 30%,rgba(106,20,72,.15) 38%,rgba(70,15,55,.08) 48%,rgba(44,10,38,.035) 58%,transparent 70%);
+  --spot-blur:30px;
+  --spot-noise-opacity:.3; /* @kind other */
+  --spot-dither-opacity:.075; /* @kind other */
+  --spot-grain-opacity:.055; /* @kind other */
+}
+.bai-spotlight{position:relative;overflow:hidden;isolation:isolate;background:var(--spot-ground);color:var(--color-white,#fff)}
+.bai-spotlight>:not(.spot-mark):not(.spot-dither){position:relative;z-index:4}
+.bai-spotlight .spot-mark{position:absolute;inset:-20%;pointer-events:none;z-index:1;mix-blend-mode:screen;filter:blur(var(--spot-blur));opacity:var(--mo,1);transform-origin:var(--mx,80%) var(--my,20%);transform:scale(var(--msc,1));background:var(--spot-blue)}
+.bai-spotlight .spot-mark.alt{opacity:var(--ro,1);transform-origin:var(--rx,20%) var(--ry,80%);transform:scale(calc(var(--rsc,1) * 1.05));background:var(--spot-magenta)}
+.bai-spotlight .spot-dither{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:var(--spot-dither-opacity);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)'/%3E%3C/svg%3E");background-size:120px 120px}
+.bai-spotlight::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:var(--spot-noise-opacity);mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px}
+.bai-spotlight::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:var(--spot-grain-opacity);mix-blend-mode:overlay;background:url("grain.png") repeat;background-size:160px 160px}
+@media (min-resolution:1.5dppx){.bai-spotlight::before{opacity:.4;background-size:96px 96px}}

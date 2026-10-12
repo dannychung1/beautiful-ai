@@ -74,6 +74,9 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
   });
   nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
   hero.parentNode.insertBefore(wrap,hero.nextSibling);
+  // the chapter intro sits above the chapter links
+  var nx=wrap.nextElementSibling,intro=nx&&nx.firstElementChild;
+  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);hero.parentNode.insertBefore(iw,wrap)}
 })();
 
 // global nav: the current chapter lists its sections, and each section lists its sub-sections
