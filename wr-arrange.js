@@ -29,13 +29,13 @@
       if(a==='copy'){navigator.clipboard.writeText(css());e.target.textContent='Copied';setTimeout(function(){e.target.textContent='Copy CSS'},1200);}
       if(a==='reset'){localStorage.removeItem(KEY);location.reload();}});
     var st=document.createElement('style');
-    st.textContent='.wra-panel{position:fixed;right:20px;bottom:20px;z-index:9999;width:280px;background:#fff;border:1px solid rgba(0,9,13,.12);border-radius:8px;box-shadow:0 16px 40px rgba(0,0,0,.15);padding:14px;font-family:var(--mono,monospace);font-size:11px;color:#001A24}'+
+    st.textContent='.wra-panel{position:fixed;right:20px;bottom:20px;z-index:9999;width:280px;background:#fff;border:1px solid var(--opacity-neutral-darkest-10);border-radius:8px;box-shadow:0 16px 40px var(--opacity-neutral-darkest-15);padding:14px;font-family:var(--mono,monospace);font-size:11px;color:#001A24}'+
       '.wra-hd{display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}.wra-hd span{color:#4C5255}'+
       '.wra-panel pre{margin:0 0 10px;max-height:190px;overflow:auto;font-size:10px;line-height:1.5;color:#4C5255;white-space:pre}'+
       '.wra-tip{color:#4C5255;line-height:1.5;margin-bottom:10px}'+
-      '.wra-row{display:flex;gap:8px}.wra-panel button{flex:1;padding:7px 0;border:1px solid rgba(0,9,13,.15);border-radius:6px;background:#F0F3F5;font:inherit;cursor:pointer}'+
-      '.wra-panel button:hover{background:#E5F8FF;border-color:rgba(0,148,204,.4)}'+
-      '.wra-on .wr-tofu,.wra-on .wr-word,.wra-on .wr-ui{cursor:grab;outline:1px dashed rgba(0,148,204,.5);outline-offset:2px}'+
+      '.wra-row{display:flex;gap:8px}.wra-panel button{flex:1;padding:7px 0;border:1px solid var(--opacity-neutral-darkest-15);border-radius:6px;background:#F0F3F5;font:inherit;cursor:pointer}'+
+      '.wra-panel button:hover{background:#E5F8FF;border-color:color-mix(in oklch,var(--color-blue-dark) 40%,transparent)}'+
+      '.wra-on .wr-tofu,.wra-on .wr-word,.wra-on .wr-ui{cursor:grab;outline:1px dashed color-mix(in oklch,var(--color-blue-dark) 50%,transparent);outline-offset:2px}'+
       '.wra-on .wra-sel{outline:2px solid #0094CC!important;outline-offset:2px}';
     document.head.appendChild(st);
   }

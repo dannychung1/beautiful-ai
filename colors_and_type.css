@@ -92,19 +92,56 @@
   --color-green-darker:           #3C4A1C;
   --color-green-darkest:          #2D3815;
 
+  /* Ambers — tonal ramp from brand amber #FA901F (tone 0–100, L·C·H) */
+  --color-amber-100:                 #FFEC9F; /* L·C·H 93 · 39 · 96 */
+  --color-amber-99:                  #FFE99B; /* L·C·H 92 · 40 · 94 */
+  --color-amber-95:                  #FFDC8A; /* L·C·H 89 · 44 · 87 */
+  --color-amber-90:                  #FFCD76; /* L·C·H 85 · 50 · 81 */
+  --color-amber-80:                  #FFAF50; /* L·C·H 77 · 62 · 70 */
+  --color-amber-70:                  #F89228; /* L·C·H 69 · 73 · 64 */
+  --color-amber-60:                  #DA7700; /* L·C·H 59 · 74 · 64 */
+  --color-amber-50:                  #BB5E00; /* L·C·H 50 · 67 · 60 */
+  --color-amber-40:                  #9B4600; /* L·C·H 40 · 59 · 57 */
+  --color-amber-30:                  #7B3000; /* L·C·H 30 · 51 · 53 */
+  --color-amber-20:                  #5B1D00; /* L·C·H 20 · 40 · 48 */
+  --color-amber-10:                  #3C0D00; /* L·C·H 10 · 27 · 37 */
+  --color-amber-0:                   #000000; /* L·C·H 0 · 0 · 0 */
+
   /* Aliases for convenience */
   --color-accent:                 var(--color-blue);
   --color-accent-hover:           var(--color-blue-dark);
   --color-blue-accent:            var(--color-blue);                 /* Primary button fill, #001A24 text (8.0:1 AAA) */
   --color-link:                   var(--color-blue-darker-rollover); /* Blue text/icons on LIGHT bg (AA) */
   --color-link-on-dark:           var(--color-blue);                 /* Blue text/icons on DARK bg (8.0:1 AAA on #001A24) */
-  --color-amber:                  #FA901F;                           /* Data/status; end stop of cover headline gradient */
+  --color-amber:                  #FA901F;                           /* Brand amber ★ — data/status; end stop of cover headline gradient */
+  --color-amber-ink:              var(--color-amber-40);             /* Amber text/icons on LIGHT bg (6.42:1 AA) */
   --color-green-ink:              #4F7A1F;                           /* Green text on light (AA) */
   --color-text-muted:             var(--color-neutral-dark);
+  --color-text-muted-on-dark:     rgba(255, 255, 255, 0.75);        /* Muted text on dark — minimum */
   --color-text:                   var(--color-neutral-darkest);
   --color-bg:                     var(--color-white);
   --color-bg-subtle:              var(--color-neutral-lightest);
-  --color-border:                 rgba(0, 26, 36, 0.10);
+  --color-border:                 var(--opacity-neutral-darkest-10);
+
+  /* Opacity tokens — from Figma Variables (Opacity/…) */
+  --opacity-transparent:          rgba(255, 255, 255, 0);
+  --opacity-neutral-darkest-5:    rgba(0, 9, 13, 0.05);
+  --opacity-neutral-darkest-10:   rgba(0, 9, 13, 0.10);
+  --opacity-neutral-darkest-15:   rgba(0, 9, 13, 0.15);
+  --opacity-neutral-darkest-20:   rgba(0, 9, 13, 0.20);
+  --opacity-neutral-darkest-30:   rgba(0, 9, 13, 0.30);
+  --opacity-neutral-darkest-40:   rgba(0, 9, 13, 0.40);
+  --opacity-neutral-darkest-50:   rgba(0, 9, 13, 0.50);
+  --opacity-neutral-darkest-60:   rgba(0, 9, 13, 0.60);
+  --opacity-white-5:              rgba(255, 255, 255, 0.05);
+  --opacity-white-10:             rgba(255, 255, 255, 0.10);
+  --opacity-white-15:             rgba(255, 255, 255, 0.15);
+  --opacity-white-20:             rgba(255, 255, 255, 0.20);
+  --opacity-white-30:             rgba(255, 255, 255, 0.30);
+  --opacity-white-40:             rgba(255, 255, 255, 0.40);
+  --opacity-white-50:             rgba(255, 255, 255, 0.50);
+  --opacity-white-60:             rgba(255, 255, 255, 0.60);
+  --color-neutral-lighter-aa:     rgba(216, 218, 218, 0.4);
 
   /* ─────────────────────────────────────────────
      SEMANTIC COLOR TOKENS (Color Schemes)
@@ -112,38 +149,38 @@
      ───────────────────────────────────────────── */
 
   /* Scheme 1 — Light (default) */
-  --scheme1-bg:              var(--color-white);
+  --scheme1-bg:              var(--color-neutral-lightest);
   --scheme1-fg:              var(--color-white);
   --scheme1-text:            var(--color-neutral-darkest);
-  --scheme1-border:          rgba(0, 26, 36, 0.15);
+  --scheme1-border:          var(--opacity-neutral-darkest-15);
   --scheme1-accent:          var(--color-neutral-darkest);
 
   /* Scheme 2 — Blue Darkest */
   --scheme2-bg:              var(--color-blue-darkest);
   --scheme2-fg:              var(--color-blue-darker);
   --scheme2-text:            var(--color-white);
-  --scheme2-border:          rgba(255, 255, 255, 0.20);
+  --scheme2-border:          var(--opacity-white-20);
   --scheme2-accent:          var(--color-white);
 
   /* Scheme 3 — Blue */
   --scheme3-bg:              var(--color-blue);
-  --scheme3-fg:              var(--color-blue-dark);
-  --scheme3-text:            var(--color-white);
-  --scheme3-border:          rgba(255, 255, 255, 0.20);
-  --scheme3-accent:          var(--color-white);
+  --scheme3-fg:              var(--color-white);
+  --scheme3-text:            var(--color-neutral-darkest);
+  --scheme3-border:          var(--opacity-white-20);
+  --scheme3-accent:          var(--color-neutral-darkest);
 
   /* Scheme 4 — Dark */
   --scheme4-bg:              var(--color-neutral-darkest);
   --scheme4-fg:              var(--color-neutral-darker);
   --scheme4-text:            var(--color-white);
-  --scheme4-border:          rgba(255, 255, 255, 0.20);
+  --scheme4-border:          var(--opacity-white-20);
   --scheme4-accent:          var(--color-blue);
 
   /* Scheme 5 — Neutral Lightest */
   --scheme5-bg:              var(--color-neutral-lightest);
   --scheme5-fg:              var(--color-white);
   --scheme5-text:            var(--color-neutral-darkest);
-  --scheme5-border:          rgba(0, 26, 36, 0.15);
+  --scheme5-border:          var(--opacity-neutral-darkest-15);
   --scheme5-accent:          var(--color-neutral-darkest);
 
   /* ─────────────────────────────────────────────
@@ -209,9 +246,7 @@
   --fw-light:    300; /* @kind font */
   --fw-book:     400; /* @kind font */
   --fw-medium:   500; /* @kind font */
-  --fw-semibold: 600; /* @kind font */
   --fw-bold:     700; /* @kind font */
-  --fw-extrabold:800; /* @kind font */
 
   /* Letter spacing */
   --ls-tight:  -0.04em;
@@ -371,7 +406,7 @@ p {
 .tagline {
   font-family: var(--font-body);
   font-size: var(--text-body-m);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-medium);
   line-height: var(--text-body-lh);
   color: var(--color-neutral-darkest);
 }
@@ -423,7 +458,7 @@ code, pre, .mono {
   color: var(--color-neutral-darkest);
 }
 .btn-secondary:hover {
-  background: rgba(0, 9, 13, 0.05);
+  background: var(--opacity-neutral-darkest-5);
 }
 
 /* Alternate (on dark bg) */
@@ -456,7 +491,7 @@ code, pre, .mono {
    ───────────────────────────────────────────── */
 .card {
   background: var(--color-white);
-  border: 1px solid rgba(0, 9, 13, 0.10);
+  border: 1px solid var(--opacity-neutral-darkest-10);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-xxsmall);
   padding: var(--content-padding-regular);

@@ -18,7 +18,6 @@ colors_and_type.css
 copy-block.js
 copy-hex.js
 icon-swap.js
-illustration.css
 image-slot.js
 index.html
 og-card.html

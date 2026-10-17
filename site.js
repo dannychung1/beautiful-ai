@@ -52,8 +52,8 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
 // chapter sub-nav: lists the chapter's sections (or its sub-sections when it has no sections)
 (function(){
   var hero=document.querySelector('.chapter-hero');if(!hero||hero.closest('#introduction'))return;
-  var items=[].slice.call(document.querySelectorAll('.sub-head'));
-  var pick=function(el){return el.querySelector('h2')};
+  var items=[].slice.call(document.querySelectorAll('.sub-head,[data-nav-top]'));
+  var pick=function(el){return el.querySelector('h2')||el.querySelector('h3')};
   if(items.length<2){items=[].slice.call(document.querySelectorAll('.sub-title:not(.st-nested),[data-nav-label]')).filter(function(el){return !el.closest('[hidden]')&&(el.dataset.navLabel||el.querySelector('h3'))});pick=function(el){return el.dataset.navLabel?{textContent:el.dataset.navLabel}:el.querySelector('h3')};}
   if(items.length<2)return;
   var slug=function(t){return t.toLowerCase().replace(/&amp;|&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')};
@@ -61,7 +61,7 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
   var nav=document.createElement('nav');nav.className='ch-subnav';nav.setAttribute('aria-label','In this chapter');
   var name=document.createElement('p');name.className='csn-name sh-label';name.textContent='In this chapter';
   var list=document.createElement('ul');if(items.length>6)list.classList.add('csn-cols');
-  var nested=pick(items[0]).tagName==='H2';
+  var nested=items.some(function(el){return !!el.querySelector('h2')});
   var subs=nested?[].slice.call(document.querySelectorAll('.sub-title:not(.st-nested),[data-nav-label]')).filter(function(el){return !el.closest('[hidden]')&&(el.dataset.navLabel||el.querySelector('h3'))}):[];
   if(nested)list.classList.add('csn-nested');
   items.forEach(function(el,i){
@@ -69,14 +69,14 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
     var li=document.createElement('li'),a=document.createElement('a');a.href='#'+el.id;a.textContent=t;li.appendChild(a);list.appendChild(li);
     if(!nested)return;
     var next=items[i+1],ul=document.createElement('ul');ul.className='csn-subs';
-    subs.forEach(function(st){if(!(el.compareDocumentPosition(st)&Node.DOCUMENT_POSITION_FOLLOWING))return;if(next&&!(st.compareDocumentPosition(next)&Node.DOCUMENT_POSITION_FOLLOWING))return;var h=st.dataset.navLabel||st.querySelector('h3').textContent.trim();if(!st.id)st.id='s-'+slug(h);var sl=document.createElement('li'),sa=document.createElement('a');sa.href='#'+st.id;sa.textContent=h;sl.appendChild(sa);ul.appendChild(sl)});
+    subs.forEach(function(st){if(st.hasAttribute('data-nav-top'))return;if(!(el.compareDocumentPosition(st)&Node.DOCUMENT_POSITION_FOLLOWING))return;if(next&&!(st.compareDocumentPosition(next)&Node.DOCUMENT_POSITION_FOLLOWING))return;var h=st.dataset.navLabel||st.querySelector('h3').textContent.trim();if(!st.id)st.id='s-'+slug(h);var sl=document.createElement('li'),sa=document.createElement('a');sa.href='#'+st.id;sa.textContent=h;sl.appendChild(sa);ul.appendChild(sl)});
     if(ul.children.length)li.appendChild(ul);
   });
   nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
   hero.parentNode.insertBefore(wrap,hero.nextSibling);
   // the chapter intro sits above the chapter links
   var nx=wrap.nextElementSibling,intro=nx&&nx.firstElementChild;
-  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);hero.parentNode.insertBefore(iw,wrap)}
+  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);if(intro.hasAttribute('data-intro-after')){iw.classList.add('ch-intro-after');hero.parentNode.insertBefore(iw,wrap.nextSibling)}else hero.parentNode.insertBefore(iw,wrap)}
 })();
 
 // global nav: the current chapter lists its sections, and each section lists its sub-sections
@@ -88,15 +88,15 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
   var h3s=[].slice.call(document.querySelectorAll('.sub-title:not(.st-nested),[data-nav-label]')).filter(function(el){return !el.closest('[hidden]')&&(el.dataset.navLabel||el.querySelector('h3'))});
   var mk=function(cls,href,txt){var a=document.createElement('a');a.className=cls;a.href=href;a.textContent=txt;return a};
   var subs=[],n=cur.nextElementSibling;while(n&&n.classList.contains('sub')){subs.push(n);n=n.nextElementSibling}
-  var heads=[].slice.call(document.querySelectorAll('.sub-head')).filter(function(el){return el.querySelector('h2')});
+  var heads=[].slice.call(document.querySelectorAll('.sub-head,[data-nav-top]')).filter(function(el){return el.querySelector('h2')||el.hasAttribute('data-nav-top')});
   if(!subs.length){
     var src=heads.length>=2?heads:h3s,after=cur;if(src.length<2)return;
-    src.forEach(function(el){var h=el.dataset.navLabel?{textContent:el.dataset.navLabel}:el.querySelector(heads.length>=2?'h2':'h3');var a=mk('sub','#'+idOf(el,h),h.textContent.trim());after.parentNode.insertBefore(a,after.nextSibling);after=a;subs.push(a)});
+    src.forEach(function(el){var h=el.dataset.navLabel?{textContent:el.dataset.navLabel}:(heads.length>=2?(el.querySelector('h2')||el.querySelector('h3')):el.querySelector('h3'));var a=mk('sub','#'+idOf(el,h),h.textContent.trim());after.parentNode.insertBefore(a,after.nextSibling);after=a;subs.push(a)});
     if(heads.length<2)return;
   }
   var tgt=subs.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
   subs.forEach(function(a,i){if(!tgt[i])return;var next=tgt[i+1],after=a;
-    h3s.forEach(function(st){if(!(tgt[i].compareDocumentPosition(st)&Node.DOCUMENT_POSITION_FOLLOWING)&&!tgt[i].contains(st))return;if(next&&!(st.compareDocumentPosition(next)&Node.DOCUMENT_POSITION_FOLLOWING))return;var lb=st.dataset.navLabel||st.querySelector('h3').textContent.trim();if(!st.id)st.id='s-'+slug(lb);var b=mk('sub sub2','#'+st.id,lb);after.parentNode.insertBefore(b,after.nextSibling);after=b});
+    h3s.forEach(function(st){if(st===tgt[i]||st.hasAttribute('data-nav-top'))return;if(!(tgt[i].compareDocumentPosition(st)&Node.DOCUMENT_POSITION_FOLLOWING)&&!tgt[i].contains(st))return;if(next&&!(st.compareDocumentPosition(next)&Node.DOCUMENT_POSITION_FOLLOWING))return;var lb=st.dataset.navLabel||st.querySelector('h3').textContent.trim();if(!st.id)st.id='s-'+slug(lb);var b=mk('sub sub2','#'+st.id,lb);after.parentNode.insertBefore(b,after.nextSibling);after=b});
   });
 })();
 

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How we look — portfolio reel</title>
+<link rel="stylesheet" href="colors_and_type.css?v=213">
+<style id="rl-css">
+html,body{margin:0;background:var(--color-neutral-lightest)}
+a{color:var(--color-link)}a:hover{color:var(--color-neutral-darkest)}
+svg[data-om-exportable-video-with-duration-secs]{max-width:none!important}
+.rl{position:absolute;left:0;top:0;width:11040px;height:1200px;transform:scale(2);transform-origin:0 0;overflow:hidden;background:var(--color-neutral-lightest)!important;padding:0!important;margin:0!important}
+.rl-cam{position:absolute;left:160px;top:80px;width:1600px;transform-origin:50% 50%;will-change:transform}
+.rl .rl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin:0 0 40px}
+.rl .sub-title{margin:0!important;padding:0!important;border:0!important}
+.rl .sub-title h3{margin:0}
+.rl .sub-title .st-rule{margin:12px 0 0}
+.rl .rt-tabs{position:relative;margin:0;isolation:isolate;flex:none}
+.rl .rt-tabs button,.rl .rt-tabs button[aria-selected="true"]{background:transparent!important;transition:none!important;cursor:default}
+.rl .rl-pill{position:absolute;top:0;height:100%;border-radius:999px;background:var(--color-neutral-darkest);z-index:-1}
+.rl .rl-stack{position:relative;display:grid}
+.rl .rl-stack>.rule-grid{grid-area:1/1;margin:0!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px;align-content:start}
+.rl .rule-card{will-change:opacity,transform}
+.rl .rule-card .pr-img{aspect-ratio:auto!important;height:var(--img-h,0px)!important}
+.rl .rule-card .pr-img:is(.arc-grid,.persp-zoom){--full:calc(var(--rl-cw,517px) * 2 / 3);--trim:calc((var(--full) - var(--img-h,0px)) / 2);height:var(--full)!important;margin:calc(var(--trim) * -1) 0!important;clip-path:inset(var(--trim) 0 round var(--radius-l,12px))}
+.rl .rule-card .pr-img.arc-grid{--off:calc(var(--full) * 0.09);margin:calc((var(--trim) + var(--off)) * -1) 0 calc((var(--trim) - var(--off)) * -1)!important;clip-path:inset(calc(var(--trim) + var(--off)) 0 calc(var(--trim) - var(--off)) round var(--radius-l,12px))}
+.rl .pr-img{cursor:default}
+</style>
+<script>window.OM_SCENES = '[{"name":"Professionals","dur":8,"desc":"Professionals tab, then page to Product"},{"name":"Product","dur":8,"desc":"Product tab, then page to Presentations"},{"name":"Presentations","dur":8,"desc":"Presentations tab, then page back to Professionals"}]';</script>
+<script>window.OM_PLAYBACK = '{"mode":"loop"}';</script>
+<script>window.TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"motionEditor":true}/*EDITMODE-END*/;</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="animations-v3.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const RL_TABS=["Professionals","Product","Presentations"];
+const RL_CSS=['colors_and_type.css?v=213','styles.css?v=200','photography.css?v=200','white-ground.css?v=200','ds-restyle.css?v=1','ad-v2.css?v=200'];
+const rlClamp=(x)=>x<0?0:x>1?1:x;
+const MOTION={
+  glide:(x)=>{x=rlClamp(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},
+  enter:(x)=>{x=rlClamp(x);return 1-Math.pow(1-x,4)},
+  exit:(x)=>{x=rlClamp(x);return x*x*x}
+};
+const rlSpan=(t,a,b)=>rlClamp((t-a)/(b-a));
+const rlMix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
+function HowWeLookReel(){
+  const {T,CUES}=useComposition();
+  const ref=React.useRef(null);
+  const [css,setCss]=React.useState('');
+  const [panels,setPanels]=React.useState(null);
+  const [geo,setGeo]=React.useState(null);
+  React.useEffect(()=>{
+    Promise.all(RL_CSS.map(u=>fetch(u).then(r=>r.text()))).then(a=>setCss(a.join('\n')+document.getElementById('rl-css').textContent));
+    fetch('05-art-direction.html').then(r=>r.text()).then(h=>{const d=new DOMParser().parseFromString(h,'text/html');setPanels(['rt-p1','rt-p2','rt-p3'].map(id=>{const g=d.getElementById(id);g.querySelectorAll('script').forEach(s=>s.remove());return g.innerHTML}))});
+  },[]);
+  React.useLayoutEffect(()=>{
+    if(!css||!panels||!ref.current)return;let dead=false;
+    const measure=()=>{if(dead||!ref.current)return;const cam=ref.current.querySelector('.rl-cam');const k=cam.getBoundingClientRect().width/1600;
+      const bs=[...ref.current.querySelectorAll('.rt-tabs button')];const p=bs[0].parentNode.getBoundingClientRect();
+      const grids=[...ref.current.querySelectorAll('.rl-stack>.rule-grid')];
+      const row2=grids.map(g=>{const c=g.children[3];return c?(c.getBoundingClientRect().top-cam.getBoundingClientRect().top)/k:0});
+      cam.style.setProperty('--img-h','0px');const H0=cam.scrollHeight;const ih=Math.floor((1040-H0)/2);cam.style.setProperty('--img-h',ih+'px');const H=cam.scrollHeight;
+      setGeo({tabs:bs.map(b=>{const r=b.getBoundingClientRect();return [(r.left-p.left)/k,r.width/k]}),fit:Math.min(1,1040/H),H,ih});};
+    (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(()=>requestAnimationFrame(measure)));
+    const imgs=[...ref.current.querySelectorAll('img')];imgs.forEach(i=>{if(!i.complete)i.addEventListener('load',measure,{once:true})});
+    return ()=>{dead=true};
+  },[css,panels]);
+  const D=CUES.Product-CUES.Professionals,L=D*3;
+  const t=((T%L)+L)%L,seg=Math.min(2,Math.floor(t/D)),u=t-seg*D;
+  const nxt=(seg+1)%3;
+  const X0=D-1.3;
+  const swap=rlSpan(u,X0,D);
+  const tabMove=MOTION.glide(rlSpan(u,X0+.15,D-.15));
+  const pos=seg+(nxt===0?-2:1)*tabMove;
+  const fit=geo?geo.fit:1,camTop=geo?(1040-geo.H*fit)/2:0;
+  const camS=fit*(1+0.006*Math.sin(Math.PI*rlClamp(u/D)));
+  let pill=null;
+  if(geo){const i0=Math.floor(Math.min(pos,1.9999)),f=pos-i0,a=geo.tabs[i0],b=geo.tabs[Math.min(i0+1,2)];pill={left:a[0]+(b[0]-a[0])*f,width:a[1]+(b[1]-a[1])*f}}
+  const ON=[255,255,255],OFF=[76,82,85];
+  React.useLayoutEffect(()=>{
+    const el=ref.current;if(!el)return;
+    el.querySelectorAll('.rl-stack>.rule-grid').forEach((g,gi)=>{
+      [...g.children].forEach((c,ci)=>{
+        const st=ci*0.05;let o=0,y=0;
+        if(gi===seg){const q=MOTION.exit(rlSpan(swap,st*.6,st*.6+.3));o=1-q;y=-16*q}
+        else if(gi===nxt){const q=MOTION.enter(rlSpan(swap,.42+st*.8,.42+st*.8+.45));o=q;y=28*(1-q)}
+        c.style.opacity=o.toFixed(3);c.style.transform='translateY('+y.toFixed(2)+'px)';
+        const img=c.querySelector('.pr-img:not(.arc-grid)>img');
+        if(img){const life=gi===seg?u/D:gi===nxt?-(1-swap)*0.15:0;img.style.scale=(1.04+0.05*life).toFixed(4)}
+      });
+      g.style.visibility=(gi===seg||gi===nxt)?'visible':'hidden';
+    });
+    const root=el.closest('[data-om-exportable-video-with-duration-secs]');if(root)root.setAttribute('data-screen-label','How we look reel '+Math.floor(T)+'s');
+  });
+  const ready=css&&panels&&geo;
+  return (<div className="rl section dark" id="photography" ref={ref}>
+    <style>{css}</style>
+    <div className="rl-cam" style={{'--img-h':(geo?geo.ih:0)+'px','--rl-cw':((1600-48)/3).toFixed(2)+'px',top:(80+camTop).toFixed(2)+'px',transform:'scale('+camS.toFixed(4)+')',visibility:ready?'visible':'hidden'}}>
+      <div className="rl-head">
+        <div className="sub-title pr-rules-head"><h3>How we look</h3><p className="st-rule">These hold for every image and every shot type. Break one and the image doesn't ship.</p></div>
+        <div className="rt-tabs" role="tablist" aria-label="Image subject">
+          {pill&&<span className="rl-pill" style={{left:pill.left+'px',width:pill.width+'px'}}></span>}
+          {RL_TABS.map((n,i)=>{const d=Math.max(0,1-Math.abs(pos-i));const c=rlMix(OFF,ON,d);return <button key={n} type="button" role="tab" aria-selected={i===Math.round(pos)%3?'true':'false'} style={{color:'rgb('+c.join(',')+')',borderColor:'rgba(0,26,36,'+(0.15*(1-d)).toFixed(3)+')'}}>{n}</button>})}
+        </div>
+      </div>
+      <div className="rl-stack">{(panels||[]).map((p,i)=><div key={i} className="rule-grid" dangerouslySetInnerHTML={{__html:p}}></div>)}</div>
+    </div>
+  </div>);
+}
+function App(){
+  const [t,setTweak]=useTweaks(window.TWEAK_DEFAULTS);
+  return (<>
+    <CompositionStage width={3840} height={2400} scenes={window.OM_SCENES} playback={window.OM_PLAYBACK} bg="#F0F3F5"><HowWeLookReel/></CompositionStage>
+    <TweaksPanel><TweakSection label="Video"/><TweakToggle label="Motion editor" value={t.motionEditor} onChange={v=>setTweak('motionEditor',v)}/></TweaksPanel>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

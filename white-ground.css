@@ -31,7 +31,7 @@
 /* 2 — hairlines and rails that were white become ink at low alpha */
 .story-layers, .story-layer, .layer-block, .compass-stack, .compass-row,
 .altitude-card, .alt-bottom, .footer-bottom, .archetype-stage .attr,
-.layer-block .lb-label .quote, .layer-block .layer-sub { border-color: rgba(0,26,36,0.14); }
+.layer-block .lb-label .quote, .layer-block .layer-sub { border-color: var(--opacity-neutral-darkest-15); }
 
 /* 3 — the compass / values / storytelling type that was white */
 .cx-stmt, .compass-row .cx-stmt, .story-layer h3, .story-layer .num,
@@ -47,34 +47,34 @@
 .value-card, .altitude-card, .alt-meter, .expression-card.dark, .expression-card.blue,
 .app-card.dark, .app-card.gradient, .archetype-stage {
   background: var(--cream);
-  border-color: rgba(0,26,36,0.10);
+  border-color: var(--opacity-neutral-darkest-10);
   color: var(--neutral-darkest);
 }
 .expression-card.dark h4, .expression-card.blue h4, .app-card.dark h4, .app-card.gradient h4 { color: var(--neutral-darkest); }
 .expression-card.dark .ex-desc, .expression-card.blue .ex-desc { color: var(--neutral-dark); }
-.alt-meter .rule { background: rgba(0,26,36,0.18); }
+.alt-meter .rule { background: var(--opacity-neutral-darkest-20); }
 .altitude-card .alt-glow { display: none; }
 
 /* 5 — motif canvases: inverted so the shapes still read */
-.dot-grid .d { background: rgba(0,26,36,0.10); }
-.res-bar { background: rgba(0,26,36,0.08); }
-.res-bar .stripe { background: rgba(0,26,36,0.18); }
+.dot-grid .d { background: var(--opacity-neutral-darkest-10); }
+.res-bar { background: var(--opacity-neutral-darkest-10); }
+.res-bar .stripe { background: var(--opacity-neutral-darkest-20); }
 .mark-scale .m { background: var(--neutral-darkest); }
 
 /* 6 — storytelling rings on white */
-.n-ring { border-color: rgba(0,26,36,0.22); }
-.n-brand { background: rgba(82,208,255,0.14); }
-.n-product { background: rgba(82,208,255,0.20); }
-.n-content { background: rgba(0,26,36,0.10); border-color: rgba(0,26,36,0.3); }
+.n-ring { border-color: var(--opacity-neutral-darkest-20); }
+.n-brand { background: color-mix(in oklch,var(--color-blue) 14%,transparent); }
+.n-product { background: color-mix(in oklch,var(--color-blue) 20%,transparent); }
+.n-content { background: var(--opacity-neutral-darkest-10); border-color: var(--opacity-neutral-darkest-30); }
 
 /* 7 — photography FPO frames and layer labels on white */
-.slide-fpo { background: rgba(0,26,36,0.02); border-color: rgba(0,26,36,0.24); }
+.slide-fpo { background: color-mix(in oklch,var(--color-neutral-darkest) 2%,transparent); border-color: color-mix(in oklch,var(--color-neutral-darkest) 24%,transparent); }
 .slide-fpo .fpo-mark { color: var(--color-neutral, var(--color-neutral)); }
 .slide-fpo .rs-num { color: var(--neutral); }
 .slide-cap .role, .layer-sub .role { color: var(--blue-dark); }
 
 /* 8 — footer */
-.footer { border-top: 1px solid rgba(0,26,36,0.14); }
+.footer { border-top: 1px solid var(--opacity-neutral-darkest-15); }
 .footer a { color: var(--neutral-dark); }
 .footer a:hover { color: var(--blue-dark); }
 
@@ -92,13 +92,13 @@
 .dark .st-rule, .darkblue .st-rule, .storyhero .st-rule, .sage .st-rule { color: var(--neutral-dark); }
 .tp-eyebrow, .ps-label, .rs-num, .stage-eyebrow, .frame-caption { color: var(--neutral); }
 .tp-lead { color: var(--ink,var(--color-neutral-darkest)); }
-.ps-item { color: var(--neutral-darkest); border-color: rgba(0,26,36,0.18); }
+.ps-item { color: var(--neutral-darkest); border-color: var(--opacity-neutral-darkest-20); }
 .cx-label, .vr-num, .vk-when, .ex-tag, .layer-sub .role,
 .compass-values .material-symbols-outlined, .vr-head .material-symbols-outlined { color: var(--blue-dark); }
 .glyph-line .accent-dot { background: var(--blue-dark); }
 .archetype-stage .ghost-mark path { fill: var(--neutral-darkest); }
 .archetype-art .frame-caption { color: var(--neutral); }
-.pm-pill { color: var(--neutral-darkest); background: rgba(0,26,36,0.06); }
+.pm-pill { color: var(--neutral-darkest); background: var(--opacity-neutral-darkest-5); }
 .rc-corner { color: var(--neutral); }
 
 /* WHITE GROUND — pass 3: the archetype page and the last low-contrast inks.
@@ -110,7 +110,7 @@
 #archetype .sage-body, #archetype .sage-block p { color: var(--neutral-dark); }
 #archetype .sage-quote { background: var(--cream); }
 #archetype .sage-tile { background: var(--neutral-lighter); }
-#archetype .sage-pill { background: var(--ink,var(--color-neutral-darkest)); color: var(--color-white, #fff); box-shadow: 0 4px 14px rgba(0,26,36,0.18); }
+#archetype .sage-pill { background: var(--ink,var(--color-neutral-darkest)); color: var(--color-white, #fff); box-shadow: 0 4px 14px var(--opacity-neutral-darkest-20); }
 
 /* small mono labels and accent inks need more weight on white than on dark */
 .sh-label, .ct-label, .tp-eyebrow, .ps-label, .eyebrow, .st-eyebrow,
@@ -123,7 +123,7 @@
 .tov-card .example .yes, .tov-card .example .icon.yes { color: var(--green-ink, var(--color-green-ink)); }
 .tov-card .example .no { color: var(--neutral-dark); }
 .tov-card .example .icon.no { color: var(--neutral); }
-.n-content { background: rgba(0,26,36,0.055); }
+.n-content { background: var(--opacity-neutral-darkest-5); }
 .n-name { color: var(--neutral-darkest); }
 
 /* WHITE GROUND — pass 4: panels that lost their dark ground get dark ink.
@@ -165,24 +165,24 @@
 .footer h2, .footer h3, .footer strong { color: var(--white); }
 .footer a { color: var(--color-neutral-lighter, var(--color-neutral-lighter)); }
 .footer a:hover { color: var(--white); }
-.footer-bottom { border-color: rgba(255,255,255,0.12); }
+.footer-bottom { border-color: var(--opacity-white-10); }
 
 /* 8 — overlay labels sit on dark photo art or dark slots: keep light ink */
-.role-slot .rs-num,.role-slot.has-photo .rs-num,.slide-item .slide-fpo.has-photo .rs-num,#photography .role-slot .rs-num,#photography .slide-item .slide-fpo.has-photo .rs-num{color:var(--white);text-shadow:0 1px 3px rgba(0,9,13,0.55)}
+.role-slot .rs-num,.role-slot.has-photo .rs-num,.slide-item .slide-fpo.has-photo .rs-num,#photography .role-slot .rs-num,#photography .slide-item .slide-fpo.has-photo .rs-num{color:var(--white);text-shadow:0 1px 3px color-mix(in oklch,var(--color-neutral-darkest) 55%,transparent)}
 .role-slot .rs-bottom .role,.slide-fpo.has-photo .rs-bottom .role{color:var(--blue-light)}
 .role-slot .rs-bottom .who,.slide-fpo.has-photo .rs-bottom .who{color:var(--white)}
 
 /* Storytelling rings: each ring carries its layer hue and a dot that matches
    the key marker, so ring and label read as one pair. */
 .n-ring{--lc:var(--neutral-dark)}
-.n-brand{--lc:var(--color-blue);background:rgba(0,185,255,0.10);border-color:rgba(0,185,255,0.55)}
-.n-product{--lc:var(--color-magenta);background:rgba(219,36,117,0.09);border-color:rgba(219,36,117,0.5)}
+.n-brand{--lc:var(--color-blue);background:color-mix(in oklch,var(--color-blue) 10%,transparent);border-color:color-mix(in oklch,var(--color-blue) 55%,transparent)}
+.n-product{--lc:var(--color-magenta);background:color-mix(in oklch,var(--color-magenta) 9%,transparent);border-color:color-mix(in oklch,var(--color-magenta) 50%,transparent)}
 .n-content{--lc:var(--amber);background:color-mix(in oklch,var(--amber) 16%,transparent);border-color:color-mix(in oklch,var(--amber) 70%,transparent)}
 .n-name{display:flex;align-items:center;gap:7px;color:var(--neutral-darkest)}
 .n-name::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lc);flex:none}
-.vk-dot{border-color:rgba(0,26,36,0.25)}
+.vk-dot{border-color:color-mix(in oklch,var(--color-neutral-darkest) 25%,transparent)}
 .d-brand{background:var(--color-blue)}.d-product{background:var(--color-magenta)}.d-content{background:var(--amber)}
-.vk-item{padding-left:16px;border-left:2px solid var(--lc,rgba(0,26,36,0.12))}
+.vk-item{padding-left:16px;border-left:2px solid var(--lc,var(--opacity-neutral-darkest-10))}
 .vk-item.l-brand{--lc:var(--color-blue)}.vk-item.l-product{--lc:var(--color-magenta)}.vk-item.l-content{--lc:var(--amber)}
 .vk-when{color:var(--neutral-dark)}
 
@@ -190,12 +190,12 @@
    The whole guide sits on Gallery Grey; cards, stages and frames are the white foreground. */
 html, body, .section, .section.dark, .section.darkblue, .section.cream, .section.blue, .section.sage, .section.dark.sage,
 .storyhero, .sage, .tagline-page, #archetype { background: var(--scheme5-bg, var(--color-neutral-lightest)); }
-.logo-stage, .logo-stage.cream, #color .wm-grid .logo-stage.cream { background: var(--white); box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
+.logo-stage, .logo-stage.cream, #color .wm-grid .logo-stage.cream { background: var(--white); box-shadow: inset 0 0 0 1px var(--scheme5-border, var(--opacity-neutral-darkest-15)); }
 .value-card, .altitude-card, .alt-meter, .expression-card.dark, .expression-card.blue,
-.app-card.dark, .app-card.gradient, .archetype-stage, #archetype .sage-quote { background: var(--white); border-color: var(--scheme5-border, rgba(0,26,36,0.15)); }
+.app-card.dark, .app-card.gradient, .archetype-stage, #archetype .sage-quote { background: var(--white); border-color: var(--scheme5-border, var(--opacity-neutral-darkest-15)); }
 .st-media, .sc-cell, .am-tile, .gv-card { background: var(--white); }
 /* Gallery Grey specimens keep an outline so they read on the Gallery Grey ground */
-[data-hex="var(--color-neutral-lightest)"], [style*="background:var(--cream)"], [style*="background:var(--color-neutral-lightest)"], [style*="background: var(--cream)"] { box-shadow: inset 0 0 0 1px var(--scheme5-border, rgba(0,26,36,0.15)); }
+[data-hex="var(--color-neutral-lightest)"], [style*="background:var(--cream)"], [style*="background:var(--color-neutral-lightest)"], [style*="background: var(--cream)"] { box-shadow: inset 0 0 0 1px var(--scheme5-border, var(--opacity-neutral-darkest-15)); }
 /* every surface that used Gallery Grey as a panel becomes the white foreground */
 #color .usage-media, .pr-img, .anatomy-panel, .minsize .cell, .type-specimen, .weight, .icon-cell, .expression-card,
 .product-mock, .app-card.cream, .cn-empty, .ts-context, .copy-hex:hover, .copy-hex.is-copied { background: var(--white); }

@@ -15,7 +15,7 @@ a{color:var(--ink)}a:hover{color:var(--blue-darker,#004A66)}
 h1{margin:12px 0 0;font-size:var(--text-h2-size,58px);line-height:1;letter-spacing:-0.04em;font-weight:500}
 .lede{margin:24px 0 0;max-width:70ch;font-size:var(--text-body-xl,1.25rem);line-height:1.42;text-wrap:pretty}
 .blk{margin-top:clamp(64px,8vw,128px);padding-top:clamp(64px,8vw,128px);border-top:1px solid var(--line)}
-h2{margin:0;font-size:var(--text-h4-size,37px);line-height:1.1;letter-spacing:-0.03em;font-weight:500}
+h2{margin:0;font-size:var(--text-h4-size,37px);line-height:1;letter-spacing:var(--ls-tight,-0.04em);font-weight:500}
 .rule{margin:12px 0 0;max-width:70ch;color:var(--nd);font-size:var(--text-body-l,1.125rem);line-height:1.5;text-wrap:pretty}
 p.body{max-width:70ch;color:var(--nd);line-height:1.5;margin:16px 0 0;text-wrap:pretty}
 .stage{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2.4vw,32px);container-type:inline-size}
@@ -40,7 +40,7 @@ p.body{max-width:70ch;color:var(--nd);line-height:1.5;margin:16px 0 0;text-wrap:
 .row .what{font-size:var(--text-body-m,1rem);line-height:1.4}
 .row code{font-family:var(--font-mono);font-size:12px;color:var(--blue-darker,#004A66)}
 .row .px{font-size:var(--text-h6-size,24px);font-weight:500;letter-spacing:-0.02em;text-align:right}
-.bar{display:block;height:6px;border-radius:3px;background:var(--azul);margin-top:8px}
+.bar{display:block;height:6px;border-radius:var(--radius-xs);background:var(--azul);margin-top:8px}
 .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .tools button{font:inherit;font-size:14px;font-weight:500;padding:10px 16px;border-radius:6px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
 .tools button[aria-pressed="true"]{background:var(--ink);color:#fff}
