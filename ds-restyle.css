@@ -596,3 +596,39 @@ body.subpage:has(#practice) .chapter-nav .cn-cell:hover :is(.cn-dir,.cn-num,.cn-
 .ch-subnav>ul,.ch-subnav ul.csn-cols,.ch-subnav ul.csn-nested{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:var(--space-12)!important;row-gap:var(--space-3)!important}
 .ch-subnav ul.csn-nested:has(.csn-subs){row-gap:var(--space-6)!important}
 @media (max-width:600px){.ch-subnav>ul,.ch-subnav ul.csn-cols,.ch-subnav ul.csn-nested{grid-template-columns:minmax(0,1fr)!important}}
+
+/* Chapter menu band: white on every page, so the Gallery Grey intro reads as its own band (as on Color) */
+.wrap:has(>.ch-subnav){position:relative;background:var(--color-white);box-shadow:0 0 0 100vmax var(--color-white);clip-path:inset(0 -100vmax);padding-top:var(--padding-section-medium)!important;padding-bottom:var(--padding-section-medium)!important;margin-bottom:0!important}
+.wrap:has(>.ch-subnav)>.ch-subnav{margin-top:0!important;margin-bottom:0!important;padding-bottom:0!important;border-bottom:0!important}
+.wrap:has(>.ch-subnav)+.wrap>:first-child,.wrap:has(>.ch-subnav)+.wrap+.wrap>:first-child{margin-top:var(--padding-section-medium)!important}
+.wrap:has(>.ch-subnav)+.ch-intro-after{margin-top:0!important}
+/* Parallax: the block above the menu moves slower, so the menu band and the page below rise over it */
+.csn-back{position:relative;z-index:0;will-change:transform}
+.csn-front{z-index:1}
+.csn-front~*{position:relative;z-index:1}
+
+/* Chapter intro set inside the title banner: 1 short paragraph, well below the title */
+.chapter-hero .ch-hero-intro{position:relative;z-index:2;margin:var(--padding-section-medium) 0 0!important;padding:0!important;border:0!important;max-width:44ch}
+.chapter-hero .ch-hero-intro .lede,.chapter-hero .ch-hero-intro p{margin:0!important;font-size:var(--text-body-xl)!important;line-height:var(--text-body-lh);font-weight:var(--fw-book);color:var(--color-white)!important;max-width:none!important;text-wrap:pretty}
+.chapter-hero .ch-hero-intro em{font-style:normal;color:var(--color-white)}
+.wrap.csn-empty{display:none}
+.chapter-hero:has(.ch-hero-intro),.chapter-hero:has(+.csn-front){margin-bottom:0!important}
+@media (max-width:767px){.chapter-hero .ch-hero-intro{margin-top:var(--padding-section-small)!important}}
+.ch-subnav ul.csn-down{grid-auto-flow:column;grid-template-rows:repeat(var(--csn-rows),auto)}
+@media (max-width:600px){.ch-subnav ul.csn-down{grid-auto-flow:row;grid-template-rows:none}}
+
+/* Specimen headings are sample text, not page headings: keep their look as p */
+p.ctx-h{margin:0;font-weight:var(--fw-medium);line-height:1;letter-spacing:var(--ls-tight)}
+p.ldm-h{font-weight:var(--fw-medium)}
+.rule-body .rule-n{display:none}
+/* Principles: lead with icon and name, no numbers; desc column stays where it was */
+.value-row{grid-template-columns:minmax(0,0.8fr) minmax(0,1.5fr)!important}
+@media (max-width:900px){.value-row{grid-template-columns:minmax(0,1fr)!important}.vr-desc{grid-column:1!important}}
+/* The Working Sage: the archetype name, styled text (not a sub-section heading) at H3 size */
+p.arch-name{font-size:var(--text-h3-size);font-weight:var(--fw-medium);line-height:1;letter-spacing:var(--ls-tight)}
+/* Purpose: a real h2 section like the rest of Foundation, statement below it */
+.ch-lead-sec>.sub-head{margin:0 0 var(--padding-section-medium)!important;padding:0!important;border:0!important}
+.ch-lead-sec>.ch-lead-text{margin:0;font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit}
+/* Brand gallery: the content after the banner is a solid sheet that rises over it */
+.csn-front-plain{position:relative;z-index:1;background:var(--color-neutral-darkest);box-shadow:0 0 0 100vmax var(--color-neutral-darkest);clip-path:inset(0 -100vmax);padding-top:var(--padding-section-medium)}
+.chapter-hero.csn-back{position:relative;z-index:0}

@@ -53,9 +53,21 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
 (function(){
   var hero=document.querySelector('.chapter-hero');if(!hero||hero.closest('#introduction'))return;
   var items=[].slice.call(document.querySelectorAll('.sub-head,[data-nav-top]'));
-  var pick=function(el){return el.querySelector('h2')||el.querySelector('h3')};
+  var pick=function(el){return el.dataset.navLabel?{textContent:el.dataset.navLabel}:(el.querySelector('h2')||el.querySelector('h3'))};
   if(items.length<2){items=[].slice.call(document.querySelectorAll('.sub-title:not(.st-nested),[data-nav-label]')).filter(function(el){return !el.closest('[hidden]')&&(el.dataset.navLabel||el.querySelector('h3'))});pick=function(el){return el.dataset.navLabel?{textContent:el.dataset.navLabel}:el.querySelector('h3')};}
-  if(items.length<2)return;
+  if(items.length<2){
+    // no chapter menu (Brand gallery): intro joins the title banner, and the page below rises over it
+    var nx0=hero.nextElementSibling,in0=nx0&&nx0.firstElementChild;
+    if(in0&&/section-head|ch-intro|ch-lead/.test(in0.className)){var hw0=hero.querySelector('.wrap')||hero;in0.classList.add('ch-hero-intro');hw0.appendChild(in0)}
+    if(nx0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      hero.classList.add('csn-back');nx0.classList.add('csn-front','csn-front-plain');
+      var t0=0,c0=0,m0=function(){hero.style.transform='';t0=hero.getBoundingClientRect().top+scrollY;c0=hero.offsetHeight*0.6};
+      var p0=function(){var d=Math.max(0,scrollY-Math.max(0,t0-innerHeight*0.5));hero.style.transform='translate3d(0,'+Math.min(c0,d*0.3).toFixed(1)+'px,0)'};
+      var k0=0;addEventListener('scroll',function(){if(!k0){k0=1;requestAnimationFrame(function(){k0=0;p0()})}},{passive:true});
+      addEventListener('resize',function(){m0();p0()});addEventListener('load',function(){m0();p0()});m0();p0();
+    }
+    return;
+  }
   var slug=function(t){return t.toLowerCase().replace(/&amp;|&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')};
   var wrap=document.createElement('div');wrap.className='wrap';
   var nav=document.createElement('nav');nav.className='ch-subnav';nav.setAttribute('aria-label','In this chapter');
@@ -72,11 +84,22 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
     subs.forEach(function(st){if(st.hasAttribute('data-nav-top'))return;if(!(el.compareDocumentPosition(st)&Node.DOCUMENT_POSITION_FOLLOWING))return;if(next&&!(st.compareDocumentPosition(next)&Node.DOCUMENT_POSITION_FOLLOWING))return;var h=st.dataset.navLabel||st.querySelector('h3').textContent.trim();if(!st.id)st.id='s-'+slug(h);var sl=document.createElement('li'),sa=document.createElement('a');sa.href='#'+st.id;sa.textContent=h;sl.appendChild(sa);ul.appendChild(sl)});
     if(ul.children.length)li.appendChild(ul);
   });
+  // 2 columns that read down, then across, in page order
+  list.style.setProperty('--csn-rows',Math.ceil(list.children.length/2));list.classList.add('csn-down');
   nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
   hero.parentNode.insertBefore(wrap,hero.nextSibling);
   // the chapter intro sits above the chapter links
   var nx=wrap.nextElementSibling,intro=nx&&nx.firstElementChild;
-  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);if(intro.hasAttribute('data-intro-after')){iw.classList.add('ch-intro-after');hero.parentNode.insertBefore(iw,wrap.nextSibling)}else hero.parentNode.insertBefore(iw,wrap)}
+  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);if(intro.hasAttribute('data-intro-after')){iw.classList.add('ch-intro-after');hero.parentNode.insertBefore(iw,wrap.nextSibling)}else{var hw=hero.querySelector('.wrap')||hero;intro.classList.add('ch-hero-intro');hw.appendChild(intro);if(nx&&!nx.children.length)nx.classList.add('csn-empty')}}
+  // the menu band and everything below it rise over the block above (intro, or the hero on Foundation)
+  var back=[];for(var el=hero;el&&el!==wrap;el=el.nextElementSibling)back.push(el);
+  if(back.length&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    back.forEach(function(b){b.classList.add('csn-back')});wrap.classList.add('csn-front');
+    var top0=0,cap=0,measure=function(){back.forEach(function(b){b.style.transform=''});top0=hero.getBoundingClientRect().top+scrollY;cap=wrap.offsetHeight*0.8};
+    var par=function(){var d=Math.max(0,scrollY-Math.max(0,top0-innerHeight*0.5)),t='translate3d(0,'+Math.min(cap,d*0.3).toFixed(1)+'px,0)';back.forEach(function(b){b.style.transform=t})};
+    var tk=0;addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(function(){tk=0;par()})}},{passive:true});
+    addEventListener('resize',function(){measure();par()});addEventListener('load',function(){measure();par()});measure();par();
+  }
 })();
 
 // global nav: the current chapter lists its sections, and each section lists its sub-sections
