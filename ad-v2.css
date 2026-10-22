@@ -261,7 +261,8 @@ background-size:1px 100%,1px 100%,100% 1px,100% 1px;background-position:33.333% 
 .co-prompts .copy-block pre{padding:18px 20px}
 .co-prompts .copy-block .copy-btn{box-shadow:0 2px 4px var(--opacity-neutral-darkest-10)}
 
-.bd-var{text-decoration:underline 1px var(--blue,var(--color-blue-light));text-underline-offset:3px;border-radius:var(--radius-xs)}
+.bd-var{text-decoration:underline 1px var(--blue,var(--color-blue-light));text-underline-offset:3px;border-radius:var(--radius-xs);transition:background-color .2s ease}
+.bd-var[data-k]:not([data-k=""]){cursor:pointer}.bd-var:hover{background:var(--color-blue-light);color:var(--color-neutral-darkest)}
 .bd-var.is-new{animation:bdVarPulse 2.4s ease-out}
 @keyframes bdVarPulse{0%,45%{background:color-mix(in oklch,var(--blue,var(--color-blue-light)) 45%,transparent)}100%{background:transparent}}
 @media (prefers-reduced-motion:reduce){.bd-var.is-new{animation:none}}
@@ -514,3 +515,9 @@ html body .bd .bd-real .copy-block .copy-btn{order:1;position:static;align-self:
 .deck-motion.dm-show+.deck-motion.dm-show{margin-top:24px}
 .dm-clip:has(video[src*="logo-spotlight"]){overflow:hidden;border-radius:12px}
 .dm-clip video[src*="logo-spotlight"]{transform:scale(1.3);transform-origin:50% 55%}
+
+/* Builder form: every label sits above its control; short choice rows pair up in 2 columns */
+.bd-form{grid-auto-flow:row dense;row-gap:20px}
+.bd-form>.bd-row{grid-template-columns:minmax(0,1fr);gap:8px;align-content:start}
+.bd .bd-form>.bd-row .gv-glabel{padding-top:0}
+.bd-row-chip .gv-chips{flex-wrap:wrap}

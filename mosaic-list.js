@@ -1,66 +1,6 @@
 /* Imagery mosaic rotation. Edit with Mosaic picker.html, then replace this file. */
 window.MOSAIC_LIST=[
  {
-  "src": "slide-arc-9-plan.webp",
-  "cap": "Action plan",
-  "on": false
- },
- {
-  "src": "slide-arc-10-stakeholders.webp",
-  "cap": "Stakeholder updates",
-  "on": false
- },
- {
-  "src": "slide-arc-6-impact.webp",
-  "cap": "Business impact",
-  "on": false
- },
- {
-  "src": "slide-arc-7-response.webp",
-  "cap": "Incident response",
-  "on": false
- },
- {
-  "src": "slide-arc-8-closing.webp",
-  "cap": "Incident resolved",
-  "on": false
- },
- {
-  "src": "slide-donor-donut.webp",
-  "cap": "A donor impact report",
-  "on": true
- },
- {
-  "src": "slide-arc-1-title.webp",
-  "cap": "An incident report deck",
-  "on": true
- },
- {
-  "src": "slide-arc-2-summary.webp",
-  "cap": "Incident summary",
-  "on": false
- },
- {
-  "src": "slide-arc-3-timeline.webp",
-  "cap": "Incident timeline",
-  "on": false
- },
- {
-  "src": "slide-arc-4-status.webp",
-  "cap": "System status",
-  "on": false
- },
- {
-  "src": "slide-arc-5-takeaways.webp",
-  "cap": "Key takeaways",
-  "on": false
- },
- {
-  "src": "slide-pharma-pitch.webp",
-  "cap": "A pharma pitch deck",
-  "on": true
- },
- {
   "src": "prod-ui-headline-edit.webp?v=2",
   "cap": "A headline, in edit",
   "on": false
@@ -101,11 +41,7 @@ window.MOSAIC_LIST=[
  {
   "src": "product-floating-light.webp?v=2",
   "cap": "Our product, floating in our light",
-  "on": true,
-  "focus": [
-   0.282,
-   0.287
-  ]
+  "on": true
  },
  {
   "src": "photo-group-cafe.webp",

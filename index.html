@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="styles.css?v=213">
 <link rel="stylesheet" href="photography.css?v=200">
 <link rel="stylesheet" href="white-ground.css?v=213">
-<link rel="stylesheet" href="ds-restyle.css?v=235">
+<link rel="stylesheet" href="ds-restyle.css?v=277">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
 <script src="image-slot.js?v=130"></script>
 <template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
@@ -50,7 +50,7 @@
   </div>
 
   <div class="cover-title" style="flex-direction:column;align-items:flex-start;justify-content:center">
-    <h1 class="h-display cover-head"><span class="l1" style="font-weight:500;color:var(--scheme2-text);text-align:left">Brand</span><span class="l2" style="font-weight:500;color:var(--scheme2-text);text-align:left">Guidelines</span></h1>
+    <h1 class="h-display cover-head"><span class="l1" style="font-weight:500;color:var(--scheme2-text);text-align:left">Brand</span><span class="l2" style="font-weight:500;color:var(--scheme2-text);text-align:left;width:945px;height:216px">Guidelines</span></h1>
     <div class="cover-sub">
       <div style="font-weight:300">The operating manual for the Beautiful.ai brand</div>
     </div>
@@ -58,8 +58,8 @@
 
   <div class="cover-bottom">
     <div class="right">
-      <div style="text-align:left">Updated 5/26</div>
-      <div class="scroll-cue"><span class="scroll-arrow">↓</span> Scroll to begin</div>
+      <div>Updated 5/26</div>
+      <div class="scroll-cue" style="display:none"><span class="scroll-arrow material-symbols-outlined" aria-hidden="true">arrow_downward</span>Scroll to begin</div>
     </div>
   </div>
 </section>
@@ -68,12 +68,8 @@
   <div class="wrap narrow">
     <div class="intro-about intro-plain">
       <div class="ia-body">
-        <p>Presentations start as work happens, with ideas, data, and story
-          flowing from a range of inputs, AI and otherwise. Today's teams need a flexible
-          platform purpose-built to transform their insight, expertise, and judgement into
-          professional decks at the speed of work.</p>
-        <p>Beautiful.ai's human-led AI presentation workflows give teams the speed, clarity, and
-          polish they need to show up with confidence.</p>
+        <p>Presentation work starts the moment ideas, data and story come together, from people and AI alike. Today's teams need a flexible platform built to turn their expertise and judgment into professional decks at the speed of modern work.</p>
+        <p>Beautiful.ai's human-led AI presentation workflows give teams the speed and polish they need to show up with confidence in every deck, every day.</p>
       </div>
     </div>
     <div class="contents">
@@ -140,80 +136,7 @@
     <span>Brand Guidelines · Updated 5/26</span>
   </div>
 </footer>
-<script src="site.js?v=146"></script>
-<script>
-(function(){
-  const cover=document.getElementById('top');if(!cover)return;
-  const head=cover.querySelector('.cover-head');
-  const still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // centre of the dance: the last place the cursor was, or where it was left
-  let bx=50,by=50,cx=50,cy=50,vx=0,vy=0;
-  // magenta keeps its own position so it can trail the blue rather than mirror it
-  let gx=50,gy=50,gvx=0,gvy=0;
-  let pointer=false,engage=0,theta=Math.random()*6.283,last=0;
-  const ph=[0,1,2,3].map(function(){return Math.random()*1e5;});
-  // ease-in-out shaping: triangle phase through smootherstep, mapped to -1..1 (C1 continuous at the turns)
-  function eio(t,period){
-    const p=(t%period)/period, tri=p<0.5?p*2:2-p*2;
-    const s=tri*tri*tri*(tri*(tri*6-15)+10);
-    return s*2-1;
-  }
-  // critically-damped spring — eases both into and out of every move, never overshoots
-  function spring(cur,tgt,vel,k,dt){
-    const a=(tgt-cur)*k-vel*2*Math.sqrt(k);
-    return [cur+vel*dt,vel+a*dt];
-  }
-  const lerp=function(a,b,u){return a+(b-a)*u;};
-  function frame(now){
-    const t=now||performance.now();
-    const dt=Math.min(0.05,last?(t-last)/1000:0.016);last=t;
-    // engagement eases in and out, so nothing about entering or leaving the cover is a step change
-    engage+=((pointer?1:0)-engage)*Math.min(1,dt*2.2);
-    if(!still)theta+=dt*(2*Math.PI/38);
-    // idle wander shrinks as the cursor takes over — amplitude is interpolated, never switched
-    const ax=lerp(20,2.5,engage), ay=lerp(16,2,engage);
-    const dx=still?0:(eio(t+ph[0],21500)*0.62+eio(t+ph[1],13700)*0.38)*ax;
-    const dy=still?0:(eio(t+ph[2],17900)*0.6+eio(t+ph[3],11300)*0.4)*ay;
-    const tx=Math.max(6,Math.min(94,bx+dx)), ty=Math.max(6,Math.min(92,by+dy));
-    [cx,vx]=spring(cx,tx,vx,20,dt);[cy,vy]=spring(cy,ty,vy,20,dt);
-    // orbit: breathes slowly, and tightens while the cursor leads
-    const breathe=0.78+0.22*(eio(t+ph[1],26300)*0.5+0.5);
-    const orx=17*breathe*lerp(1,0.42,engage), ory=12.5*breathe*0.62*lerp(1,0.42,engage);
-    const ox=Math.cos(theta)*orx, oy=Math.sin(theta)*ory;
-    // blue leads: it resolves onto the cursor as engagement rises
-    const mx=cx+ox*(1-engage), my=cy+oy*(1-engage);
-    // magenta follows, springing toward the far side of the orbit a beat behind
-    [gx,gvx]=spring(gx,cx-ox,gvx,lerp(14,7,engage),dt);
-    [gy,gvy]=spring(gy,cy-oy,gvy,lerp(14,7,engage),dt);
-    // depth: sin(theta) carries each spot toward and away from the viewer
-    const zb=Math.sin(theta), zm=-zb;
-    const smooth=function(z){return 0.5+0.5*z*(1.5-0.5*z*z);};
-    const sb=smooth(zb), sm=smooth(zm);
-    const S=cover.style;
-    S.setProperty('--mx',mx.toFixed(2)+'%');
-    S.setProperty('--my',my.toFixed(2)+'%');
-    S.setProperty('--rx',gx.toFixed(2)+'%');
-    S.setProperty('--ry',gy.toFixed(2)+'%');
-    S.setProperty('--msc',(0.9+0.2*sb).toFixed(3));
-    S.setProperty('--rsc',(0.9+0.2*sm).toFixed(3));
-    S.setProperty('--mo',(0.74+0.26*sb).toFixed(3));
-    S.setProperty('--ro',(0.74+0.26*sm).toFixed(3));
-    if(head){const cr=cover.getBoundingClientRect(),hr=head.getBoundingClientRect();
-      head.style.setProperty('--hx',(cr.width*mx/100-(hr.left-cr.left)).toFixed(1)+'px');
-      head.style.setProperty('--hy',(cr.height*my/100-(hr.top-cr.top)).toFixed(1)+'px');}
-    requestAnimationFrame(frame);
-  }
-  function move(e){
-    const r=cover.getBoundingClientRect();
-    pointer=true;
-    bx=Math.max(6,Math.min(94,((e.clientX-r.left)/r.width)*100));
-    by=Math.max(6,Math.min(92,((e.clientY-r.top)/r.height)*100));
-  }
-  cover.addEventListener('pointermove',move);
-  // cursor leaves: engagement eases away and the pair carries on dancing from where they are
-  cover.addEventListener('pointerleave',function(){pointer=false;});
-  requestAnimationFrame(frame);
-})();
-</script>
+<script src="site.js?v=150"></script>
+<script src="ch-spots.js?v=24"></script>
 </body>
 </html>

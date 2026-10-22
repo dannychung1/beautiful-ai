@@ -630,5 +630,110 @@ p.arch-name{font-size:var(--text-h3-size);font-weight:var(--fw-medium);line-heig
 .ch-lead-sec>.sub-head{margin:0 0 var(--padding-section-medium)!important;padding:0!important;border:0!important}
 .ch-lead-sec>.ch-lead-text{margin:0;font:inherit;color:inherit;letter-spacing:inherit;line-height:inherit}
 /* Brand gallery: the content after the banner is a solid sheet that rises over it */
-.csn-front-plain{position:relative;z-index:1;background:var(--color-neutral-darkest);box-shadow:0 0 0 100vmax var(--color-neutral-darkest);clip-path:inset(0 -100vmax);padding-top:var(--padding-section-medium)}
+.csn-front-plain{position:relative;z-index:1;background:var(--color-neutral-darker);box-shadow:0 0 0 100vmax var(--color-neutral-darker);clip-path:inset(0 -100vmax);padding-top:var(--padding-section-medium)}
 .chapter-hero.csn-back{position:relative;z-index:0}
+/* Chapter intro in the banner spans 5 of 12 grid columns (never narrower than 44ch) */
+.chapter-hero .ch-hero-intro{max-width:min(100%,max(44ch,calc((100% - 11 * var(--gut,24px)) / 12 * 5 + 4 * var(--gut,24px))))!important;width:100%}
+/* Banner with intro: 112 below the paragraph (1 step above the 80 between title and paragraph); 80 on tablet, 48 on phones */
+.chapter-hero:has(.ch-hero-intro){padding-bottom:var(--padding-section-large)!important}
+@media (max-width:991px){.chapter-hero:has(.ch-hero-intro){padding-bottom:var(--padding-section-medium)!important}}
+@media (max-width:767px){.chapter-hero:has(.ch-hero-intro){padding-bottom:var(--padding-section-small)!important}}
+/* Spots as directional spotlights: 3 layers of 1 oval shape (1.25:1) offset along the beam, smoothstep falloff. Drawn with the falloff pointing +x, rotated about the spot centre to face the other spot (--mang/--rang from script) */
+.cover-mark{inset:auto;left:48%;top:-36%;width:88%;height:88%;transform-origin:50% 50%;will-change:transform;transform:translate(calc((var(--mx,80%) - 80%) * 1.5909),calc((var(--my,20%) - 20%) * 1.5909)) rotate(var(--mva,0deg)) scale(calc(1 + var(--mst,0)),calc(1 / (1 + var(--mst,0) * 0.5))) rotate(calc(var(--mang,135deg) - var(--mva,0deg))) scale(var(--msc,1)) scale(calc(var(--mnw,1) * 2.25),calc((1.25 - var(--mnw,1) * 0.25) * 2.7));background:radial-gradient(ellipse 33.75% 33.75% at 51.60% 50%,rgba(0,150,215,0.300) 0%,rgba(0,150,215,0.292) 10%,rgba(0,150,215,0.269) 20%,rgba(0,150,215,0.235) 30%,rgba(0,150,215,0.194) 40%,rgba(0,150,215,0.150) 50%,rgba(0,150,215,0.106) 60%,rgba(0,150,215,0.065) 70%,rgba(0,150,215,0.031) 80%,rgba(0,150,215,0.008) 90%,rgba(0,150,215,0.000) 100%);filter:blur(28px);filter:blur(28px)}
+.cover-mark.alt{inset:auto;left:-36%;top:48%;width:88%;height:88%;transform-origin:50% 50%;will-change:transform;transform:translate(calc((var(--rx,20%) - 20%) * 1.5909),calc((var(--ry,80%) - 80%) * 1.5909)) rotate(var(--rva,0deg)) scale(calc(1 + var(--rst,0)),calc(1 / (1 + var(--rst,0) * 0.5))) rotate(calc(var(--rang,-45deg) - var(--rva,0deg))) scale(calc(var(--rsc,1) * 1.05)) scale(calc(var(--rnw,1) * 2.25),calc((1.25 - var(--rnw,1) * 0.25) * 2.7));background:radial-gradient(ellipse 33.75% 33.75% at 51.60% 50%,rgba(200,110,160,0.300) 0%,rgba(200,110,160,0.292) 10%,rgba(200,110,160,0.269) 20%,rgba(200,110,160,0.235) 30%,rgba(200,110,160,0.194) 40%,rgba(200,110,160,0.150) 50%,rgba(200,110,160,0.106) 60%,rgba(200,110,160,0.065) 70%,rgba(200,110,160,0.031) 80%,rgba(200,110,160,0.008) 90%,rgba(200,110,160,0.000) 100%)}
+/* Hot core and mid ring as their own GPU layers: they move by transform, so the blurred glow never repaints */
+.cover-mark::before,.cover-mark::after{content:"";position:absolute;inset:0;will-change:transform;pointer-events:none}
+.cover-mark::before{background:radial-gradient(ellipse 28.65% 28.65% at 50.25% 50%,rgba(0,178,222,0.620) 0%,rgba(0,178,222,0.603) 10%,rgba(0,178,222,0.556) 20%,rgba(0,178,222,0.486) 30%,rgba(0,178,222,0.402) 40%,rgba(0,178,222,0.310) 50%,rgba(0,178,222,0.218) 60%,rgba(0,178,222,0.134) 70%,rgba(0,178,222,0.064) 80%,rgba(0,178,222,0.017) 90%,rgba(0,178,222,0.000) 100%);transform:translate(calc(var(--mcx,0%) * 0.6),calc(var(--mcy,0%) * 0.6))}
+.cover-mark::after{background:radial-gradient(ellipse 19.10% 19.10% at 49.05% 50%,rgba(10,210,228,1.000) 0%,rgba(10,210,228,0.972) 10%,rgba(10,210,228,0.896) 20%,rgba(10,210,228,0.784) 30%,rgba(10,210,228,0.648) 40%,rgba(10,210,228,0.500) 50%,rgba(10,210,228,0.352) 60%,rgba(10,210,228,0.216) 70%,rgba(10,210,228,0.104) 80%,rgba(10,210,228,0.028) 90%,rgba(10,210,228,0.000) 100%);transform:translate(var(--mcx,0%),var(--mcy,0%))}
+.cover-mark.alt::before,.cover-mark.alt::after{content:"";position:absolute;inset:0;will-change:transform;pointer-events:none}
+.cover-mark.alt::before{background:radial-gradient(ellipse 28.65% 28.65% at 50.25% 50%,rgba(205,65,140,0.620) 0%,rgba(205,65,140,0.603) 10%,rgba(205,65,140,0.556) 20%,rgba(205,65,140,0.486) 30%,rgba(205,65,140,0.402) 40%,rgba(205,65,140,0.310) 50%,rgba(205,65,140,0.218) 60%,rgba(205,65,140,0.134) 70%,rgba(205,65,140,0.064) 80%,rgba(205,65,140,0.017) 90%,rgba(205,65,140,0.000) 100%);transform:translate(calc(var(--rcx,0%) * 0.6),calc(var(--rcy,0%) * 0.6))}
+.cover-mark.alt::after{background:radial-gradient(ellipse 19.10% 19.10% at 49.05% 50%,rgba(225,48,165,1.000) 0%,rgba(225,48,165,0.972) 10%,rgba(225,48,165,0.896) 20%,rgba(225,48,165,0.784) 30%,rgba(225,48,165,0.648) 40%,rgba(225,48,165,0.500) 50%,rgba(225,48,165,0.352) 60%,rgba(225,48,165,0.216) 70%,rgba(225,48,165,0.104) 80%,rgba(225,48,165,0.028) 90%,rgba(225,48,165,0.000) 100%);transform:translate(var(--rcx,0%),var(--rcy,0%))}
+
+/* Cover meta: DS eyebrow label, solid ink, Material arrow */
+.cover-bottom .right{font-family:var(--font-family,inherit);font-weight:400;font-size:11px;line-height:1.4;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-lighter);display:flex;flex-direction:column;gap:var(--space-1,4px)}
+.cover-bottom .scroll-cue{display:flex;align-items:center;gap:var(--space-1,4px);animation:none;opacity:1}
+.cover-bottom .scroll-arrow{font-size:16px;opacity:1;animation:scrollArrowDrop 2.6s ease-in-out infinite}
+@keyframes scrollArrowDrop{0%,100%{transform:translateY(-1px)}50%{transform:translateY(2px)}}
+@media (prefers-reduced-motion: reduce){.cover-bottom .scroll-arrow{animation:none}}
+
+/* Chapter banners share 1 height at each width (cover excluded); title keeps its top position, intro sits 112 above the bottom edge */
+section:not(#introduction) .chapter-hero{min-height:clamp(560px,80svh,960px);display:flex;flex-direction:column;box-sizing:border-box}
+section:not(#introduction) .chapter-hero>.wrap{flex:1 0 auto;display:flex;flex-direction:column}
+section:not(#introduction) .chapter-hero .ch-hero-intro{margin-top:auto!important;padding-top:var(--padding-section-medium)!important}
+@media (max-width:767px){section:not(#introduction) .chapter-hero{min-height:0}section:not(#introduction) .chapter-hero .ch-hero-intro{padding-top:var(--padding-section-small)!important}}
+
+/* Chapter intro: Body XL in secondary ink on dark (#D8DADA, solid) */
+.chapter-hero .ch-hero-intro .lede,.chapter-hero .ch-hero-intro p{color:var(--color-neutral-lighter)!important}
+
+/* Cover date: out of the way, bottom right on the gutter */
+.cover-bottom{justify-content:flex-end}
+.cover-bottom .right{margin-left:auto;text-align:right;align-items:flex-end}
+
+
+/* Chapter menu: same on every page. 80 above the links, 80 below, then 1 rule; content starts 80 below the rule. The first heading after it drops its own rule so there are never 2 in a row */
+.wrap:has(>.ch-subnav){padding-top:var(--padding-section-medium)!important;padding-bottom:0!important;margin-bottom:0!important}
+.wrap:has(>.ch-subnav)>.ch-subnav{padding-bottom:var(--padding-section-medium)!important;border-bottom:1px solid color-mix(in oklch,currentColor 14%,transparent)!important}
+.wrap:has(>.ch-subnav)+.wrap>:first-child,.wrap:has(>.ch-subnav)+.wrap+.wrap>:first-child,.wrap:has(>.ch-subnav)+.ch-intro-after{margin-top:0!important}
+.wrap:has(>.ch-subnav)+*{padding-top:var(--padding-section-medium)!important;margin-top:0!important}
+.wrap:has(>.ch-subnav)+.wrap>.sub-head:first-child,.wrap:has(>.ch-subnav)+.wrap>:first-child>.sub-head:first-child,.wrap:has(>.ch-subnav)+.ch-intro-after>:first-child>.sub-head:first-child{border-top:0!important;padding-top:0!important;margin-top:0!important}
+@media (max-width:767px){.wrap:has(>.ch-subnav){padding-top:var(--padding-section-small)!important}.wrap:has(>.ch-subnav)>.ch-subnav{padding-bottom:var(--padding-section-small)!important}.wrap:has(>.ch-subnav)+*{padding-top:var(--padding-section-small)!important}}
+
+/* First block after the menu rule: no own rule or top padding, so content starts 80 below 1 rule */
+.ch-lead-sec>.sub-head:empty{margin:0!important}
+.wrap:has(>.ch-subnav)+.wrap>:first-child,.wrap:has(>.ch-subnav)+.ch-intro-after>:first-child{border-top:0!important;padding-top:0!important}
+.wrap:has(>.ch-subnav)+.wrap>:first-child>:first-child{border-top:0!important;padding-top:0!important;margin-top:0!important}
+
+/* ID-strength version of the first-block reset, so page-level #id rules can't add a second rule after the menu */
+:is(#a,section,body) .wrap:has(>.ch-subnav)+.wrap>:first-child:is(#a,*),:is(#a,section,body) .wrap:has(>.ch-subnav)+.wrap>:first-child:is(#a,*)>:first-child:is(#a,*),:is(#a,section,body) .wrap:has(>.ch-subnav)+.ch-intro-after>:first-child:is(#a,*){border-top:0!important;padding-top:0!important;margin-top:0!important}
+
+/* Foundation purpose statement: Display 3, fluid at the column ratio */
+#compass .ch-lead-sec>.ch-lead-text{font-size:clamp(56px,6.1111vw,132px)!important;line-height:var(--text-display-3-lh)!important;letter-spacing:var(--ls-display)!important;font-weight:var(--fw-medium)}
+@media (max-width:767px){#compass .ch-lead-sec>.ch-lead-text{font-size:clamp(36px,9vw,56px)!important}}
+
+/* Foundation: the purpose statement gets the next step up, 112 above and below */
+#compass .wrap:has(>.ch-subnav)+.wrap{padding-top:var(--padding-section-large)!important}
+#compass .ch-lead-sec{margin-bottom:var(--padding-section-large)!important}
+@media (max-width:991px){#compass .wrap:has(>.ch-subnav)+.wrap{padding-top:var(--padding-section-medium)!important}#compass .ch-lead-sec{margin-bottom:var(--padding-section-medium)!important}}
+
+/* Mission / vision highlights match the purpose statement highlight */
+#compass .mv-item em{color:var(--color-link)!important}
+
+/* Audience cards: description runs the full card width */
+.aud-card .ac-x{max-width:none}
+
+/* Brand gallery: full-width lead hero at 16:9 */
+.bu-heroes .hx-12{grid-column:1/-1;grid-row:span 1;height:auto}.bu-heroes .hx-12 .bu-frame{height:auto;aspect-ratio:16/9}
+.bu-heroes{grid-auto-rows:auto}.bu-heroes .hx-5 .bu-frame,.bu-heroes .hx-7 .bu-frame{height:clamp(240px,30vw,440px)}
+@media (max-width:900px){.bu-heroes .hx-5 .bu-frame,.bu-heroes .hx-7 .bu-frame{height:auto}}
+
+/* Logo motion: the banner grain over the video, for texture */
+.logo-motion::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("assets/grain.png") repeat;background-size:160px 160px;opacity:0.09;mix-blend-mode:overlay}
+
+/* Logos: 1 rule above the Logo / symbol pair; the column headings drop their own */
+#logo .logo-pair>.lp-col>.sub-title:first-child{border-top:0!important;padding-top:0!important}
+#logo .logo-motion+.logo-pair{margin-top:0!important}
+
+.bu-heroes .hx-6{grid-column:span 6}@media (max-width:900px){.bu-heroes .hx-6{grid-column:span 12}}
+
+/* How we look: every thumbnail in all 3 tabs is 4:3 */
+.pr-card .pr-img,.rule-card .pr-img{aspect-ratio:4/3!important;height:auto!important;overflow:hidden}
+.pr-card .pr-img>img,.pr-card .pr-img>image-slot,.pr-card .pr-img>video,.rule-card .pr-img>img,.rule-card .pr-img>image-slot{width:100%!important;height:100%!important;object-fit:cover}
+
+/* Principles: names on 4 of 12 columns, text on 6 after a 1-column gap; 32 between rows; names H6 at 1.0; icons weight 300 */
+#values .value-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--gut,24px)!important;row-gap:0!important;padding:0!important;margin:0!important;align-items:baseline}
+#values .value-row+.value-row{margin-top:var(--space-8,32px)!important}
+#values .value-row>:first-child{grid-column:1/span 4!important}
+#values .value-row>:not(:first-child){grid-column:6/span 6!important;max-width:70ch}
+#values .value-row .vr-name{line-height:1!important}
+#values .value-row .material-symbols-outlined{font-variation-settings:'wght' 300!important}
+@media (max-width:767px){#values .value-row>:first-child,#values .value-row>:not(:first-child){grid-column:1/-1!important}#values .value-row>:not(:first-child){margin-top:var(--space-3,12px)}}
+
+/* Storytelling: in system. Intro 32 below the heading, 70ch; diagram on cols 1-5, facets on cols 6-11 (same start as Principles); 32 between facets; names H6 at 1.0 */
+#story .sub-head{margin-bottom:var(--space-8,32px)!important}
+#story .section-head{margin:0 0 var(--padding-section-small)!important}
+#story .section-head .lede{max-width:70ch;margin:0}
+#story .venn-diagram{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--gut,24px)!important;row-gap:var(--space-8,32px)!important;align-items:start}
+#story .venn-diagram>.vd-figure{grid-column:1/span 5!important;width:100%!important;max-width:none!important;margin:0!important}
+#story .venn-diagram>:not(.vd-figure){grid-column:6/span 6!important;margin:0!important;display:grid;gap:var(--space-8,32px)}
+#story .vd-name{line-height:1!important}
+@media (max-width:767px){#story .venn-diagram>.vd-figure,#story .venn-diagram>:not(.vd-figure){grid-column:1/-1!important}}

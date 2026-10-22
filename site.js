@@ -88,9 +88,15 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
   list.style.setProperty('--csn-rows',Math.ceil(list.children.length/2));list.classList.add('csn-down');
   nav.appendChild(name);nav.appendChild(list);wrap.appendChild(nav);
   hero.parentNode.insertBefore(wrap,hero.nextSibling);
+  // the menu band takes the ground of the content right below it, so links flow into the page instead of sitting on their own white band
+  var tint=function(){var n=wrap.nextElementSibling,bg='';for(;n&&!bg;n=n.nextElementSibling){var c=getComputedStyle(n).backgroundColor;if(c&&c!=='transparent'&&!/rgba\(0, 0, 0, 0\)/.test(c))bg=c}if(!bg){var p=wrap.parentElement;for(;p&&!bg;p=p.parentElement){var d=getComputedStyle(p).backgroundColor;if(d&&!/rgba\(0, 0, 0, 0\)/.test(d)&&d!=='transparent')bg=d}}if(bg){wrap.style.setProperty('background',bg,'important');wrap.style.setProperty('box-shadow','0 0 0 100vmax '+bg,'important')}};
   // the chapter intro sits above the chapter links
   var nx=wrap.nextElementSibling,intro=nx&&nx.firstElementChild;
-  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);if(intro.hasAttribute('data-intro-after')){iw.classList.add('ch-intro-after');hero.parentNode.insertBefore(iw,wrap.nextSibling)}else{var hw=hero.querySelector('.wrap')||hero;intro.classList.add('ch-hero-intro');hw.appendChild(intro);if(nx&&!nx.children.length)nx.classList.add('csn-empty')}}
+  if(intro&&/section-head|ch-intro|ch-lead/.test(intro.className)){var iw=document.createElement('div');iw.className='wrap ch-intro-wrap';iw.appendChild(intro);if(intro.hasAttribute('data-intro-after')){iw.classList.add('ch-intro-after');hero.parentNode.insertBefore(iw,wrap.nextSibling)}else{var hw=hero.querySelector('.wrap')||hero;intro.classList.add('ch-hero-intro');hw.appendChild(intro);if(nx&&!nx.children.length)nx.parentNode.removeChild(nx)}}
+  tint();addEventListener('load',tint);
+  // 1 rule under the menu, content 80 below it: strip top rule/padding/margin from every block on the path down to the first visible content
+  var flat=function(){var st=wrap.nextElementSibling;while(st&&getComputedStyle(st).display==='none')st=st.nextElementSibling;if(!st)return;var vis=function(e){return getComputedStyle(e).display!=='none'};var strip=function(el){['border-top','padding-top','margin-top'].forEach(function(p){el.style.setProperty(p,'0','important')})};var walk=function(par){var kids=[].filter.call(par.children,vis);if(!kids.length)return;var top=kids[0].getBoundingClientRect().top;kids.filter(function(k){return Math.abs(k.getBoundingClientRect().top-top)<2}).forEach(function(el){strip(el);var hasText=[].some.call(el.childNodes,function(n){return n.nodeType===3&&n.textContent.trim()});if(!hasText&&!/^(IMG|SVG|VIDEO|CANVAS|IMAGE-SLOT|H1|H2|H3|H4|P)$/i.test(el.tagName))walk(el)})};walk(st)};
+  flat();
   // the menu band and everything below it rise over the block above (intro, or the hero on Foundation)
   var back=[];for(var el=hero;el&&el!==wrap;el=el.nextElementSibling)back.push(el);
   if(back.length&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -127,3 +133,6 @@ function toggleNav(){document.querySelector('.sidenav').classList.toggle('collap
 var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 b.addEventListener('click',function(){window.scrollTo({top:0,behavior:still?'auto':'smooth'});var f=document.querySelector('.nav-fab');if(f)f.focus({preventScroll:true})});
 function u(){b.classList.toggle('is-visible',window.scrollY>window.innerHeight*1.2)}window.addEventListener('scroll',u,{passive:true});u();})();
+
+// chapter intro in the banner fades out as the banner scrolls away (off under reduced motion)
+(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var els=[].slice.call(document.querySelectorAll('.chapter-hero .ch-hero-intro'));if(!els.length)return;var k=0;function f(){els.forEach(function(el){var h=el.closest('.chapter-hero'),r=h.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(r.height*0.55)));el.style.opacity=(1-p).toFixed(3)})}addEventListener('scroll',function(){if(!k){k=1;requestAnimationFrame(function(){k=0;f()})}},{passive:true});addEventListener('load',f);f()})();

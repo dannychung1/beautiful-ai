@@ -139,6 +139,7 @@
       ['shot','Framing',Object.keys(AD.SHOTS),'Professional','frame'],
       ['pshot','Framing',Object.keys(AD.PSHOTS),'Product','frame'],
       ['prop','Props',['Prop','No prop'],'Professional'],
+      ['light','Light',['Mixed','Sun','Soft'],'Professional Product'],
       ['float','Floating slides or UI?',['No','Slides','UI'],'Professional'],
       ['panels','How many?',[1,6],'Professional','range'],
       ['copy','Space for copy?',['None','Yes'],'all']
@@ -206,7 +207,7 @@
       wrap.appendChild(btn);wrap.appendChild(list);return api;
     }
     var rows=FIELDS.map(function(fd){
-      var row=el('div','gv-group bd-row'+(fd[4]==='select'||fd[0]==='style'?' bd-row-dd':''));row.appendChild(el('span','gv-glabel',fd[1]));row._show=fd[3];row._fd=fd;
+      var row=el('div','gv-group bd-row'+(fd[4]==='select'||fd[0]==='style'?' bd-row-dd':(fd[4]!=='frame'&&fd[4]!=='range'?' bd-row-dd bd-row-chip':'')));row.appendChild(el('span','gv-glabel',fd[1]));row._show=fd[3];row._fd=fd;
       if(fd[4]==='range'){
         var rw=el('div','bd-range'),ri=document.createElement('input'),ro=el('output','bd-range-v');ri.type='range';ri.min=fd[2][0];ri.max=fd[2][1];ri.step=1;ri.value=sel[fd[0]];ri.setAttribute('aria-label',fd[1]);ro.textContent=sel[fd[0]];
         ri.addEventListener('input',function(){sel[fd[0]]=+ri.value;ro.textContent=ri.value;render()});
@@ -303,9 +304,15 @@
       vs=vs.filter(function(v,i){return vs.indexOf(v)===i}).sort(function(a,b){return b.length-a.length});
       if(!vs.length){out.textContent=t;prevVars=[];return}
       var re=new RegExp(vs.map(function(v){return v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}).join('|'),'g'),h='',i=0,m;
-      while((m=re.exec(t))){h+=escH(t.slice(i,m.index))+'<span class="bd-var'+(prevVars&&prevVars.indexOf(m[0])<0?' is-new':'')+'">'+escH(m[0])+'</span>';i=m.index+m[0].length}
+      while((m=re.exec(t))){h+=escH(t.slice(i,m.index))+'<span class="bd-var'+(prevVars&&prevVars.indexOf(m[0])<0?' is-new':'')+'" data-k="'+escH(String((AD.varKey&&AD.varKey(m[0]))||''))+'" title="Click to swap">'+escH(m[0])+'</span>';i=m.index+m[0].length}
       out.innerHTML=h+escH(t.slice(i));prevVars=vs;
     }
+    var SK={shot:'shot',pcam:'pshot',layout:'layout',ground:'ground',accent:'accent',subject:'race'};
+    out.addEventListener('mousedown',function(e){if(e.target.closest&&e.target.closest('.bd-var[data-k]:not([data-k=""])'))e.preventDefault()});
+    out.addEventListener('click',function(e){var v=e.target.closest&&e.target.closest('.bd-var');if(!v)return;var k=v.getAttribute('data-k');if(!k)return;e.preventDefault();
+      if(k.indexOf('S:')===0){var f=SK[k.slice(2)],fd=FIELDS.filter(function(x){return x[0]===f})[0];if(!fd)return;var opts=fd[2],i=opts.indexOf(sel[f]);sel[f]=opts[(i+1+Math.floor(Math.random()*(opts.length-1)))%opts.length];sync();render();return}
+      var before=JSON.stringify((AD.snap()||{})[k]);for(var n=0;n<8;n++){AD.unset(k);render();if(JSON.stringify((AD.snap()||{})[k])!==before)break}
+      var nv=[].filter.call(out.querySelectorAll('.bd-var'),function(x){return x.getAttribute('data-k')===k});nv.forEach(function(x){x.classList.remove('is-new');void x.offsetWidth;x.classList.add('is-new')})});
     var tag=tagE,reset=rs;
     out.setAttribute('contenteditable','plaintext-only');
     if(out.contentEditable!=='plaintext-only')out.setAttribute('contenteditable','true');
