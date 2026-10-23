@@ -1,6 +1,21 @@
 /* Imagery mosaic rotation. Edit with Mosaic picker.html, then replace this file. */
 window.MOSAIC_LIST=[
  {
+  "src": "audience-individual-4.webp",
+  "cap": "An independent pro at a café table",
+  "on": true
+ },
+ {
+  "src": "audience-leaders-3.webp",
+  "cap": "A team leader at her desk",
+  "on": true
+ },
+ {
+  "src": "story-pro-budget-laptop.webp",
+  "cap": "A pro working through a budget slide",
+  "on": true
+ },
+ {
   "src": "prod-ui-headline-edit.webp?v=2",
   "cap": "A headline, in edit",
   "on": false

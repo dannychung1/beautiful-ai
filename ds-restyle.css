@@ -717,7 +717,7 @@ section:not(#introduction) .chapter-hero .ch-hero-intro{margin-top:auto!importan
 
 /* How we look: every thumbnail in all 3 tabs is 4:3 */
 .pr-card .pr-img,.rule-card .pr-img{aspect-ratio:4/3!important;height:auto!important;overflow:hidden}
-.pr-card .pr-img>img,.pr-card .pr-img>image-slot,.pr-card .pr-img>video,.rule-card .pr-img>img,.rule-card .pr-img>image-slot{width:100%!important;height:100%!important;object-fit:cover}
+.pr-card .pr-img:not(.pr-crop-light)>img,.pr-card .pr-img>image-slot,.pr-card .pr-img>video,.rule-card .pr-img:not(.pr-crop-light)>img,.rule-card .pr-img>image-slot{width:100%!important;height:100%!important;object-fit:cover}
 
 /* Principles: names on 4 of 12 columns, text on 6 after a 1-column gap; 32 between rows; names H6 at 1.0; icons weight 300 */
 #values .value-row{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:var(--gut,24px)!important;row-gap:0!important;padding:0!important;margin:0!important;align-items:baseline}
