@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="styles.css?v=213">
 <link rel="stylesheet" href="photography.css?v=200">
 <link rel="stylesheet" href="white-ground.css?v=213">
-<link rel="stylesheet" href="ds-restyle.css?v=278">
+<link rel="stylesheet" href="ds-restyle.css?v=301">
 <link rel="stylesheet" href="color-page.css?v=200">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
 <script src="image-slot.js?v=130"></script>
@@ -65,9 +65,9 @@
 
     <!-- color ratio -->
     <div class="color-block">
-      <div class="sub-title st-row"><h3>Proportions</h3><p class="st-rule">We give most of the page to Base Blue and Gallery Grey and keep each accent to about 10%, so the accents read as emphasis.</p></div>
-      <style>.ratio-bar{display:flex;margin-top:0}.ratio-seg{position:relative;display:grid;grid-template-rows:28px clamp(72px,8vw,120px) auto;row-gap:14px;min-width:0;align-content:start}.ratio-seg+.ratio-seg::before{content:"";position:absolute;left:0;top:-8px;bottom:-8px;width:1px;background:var(--opacity-neutral-darkest-20)}.ratio-seg:first-child .ratio-fill{border-radius:18px 0 0 18px}.ratio-seg:last-child .ratio-fill{border-radius:0 18px 18px 0}.ratio-note{display:block;margin-top:4px;font-family:var(--font);text-transform:none;letter-spacing:0;font-size:var(--text-body-xs,0.75rem);color:var(--neutral-dark)}.ratio-pct{text-align:center;font-size:var(--text-body-m-size,18px);font-weight:500;color:var(--ink,var(--color-neutral-darkest))}.ratio-name{text-align:center;font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;text-transform:uppercase;color:var(--neutral-dark);padding:0 4px;line-height:1.4}</style>
-      <div class="ratio-bar">
+      <div class="sub-title st-row"><h3>Proportions</h3><p class="st-rule">We give most of the page to Base Blue and Gallery Grey and keep each accent to no more than 30% of any composition combined, so they read as emphasis.</p></div>
+      <style>.ratio-bar{display:flex;margin-top:0}.ratio-seg{position:relative;display:grid;grid-template-rows:28px clamp(72px,8vw,120px) auto;row-gap:14px;min-width:0;align-content:start}.ratio-seg+.ratio-seg::before{content:"";position:absolute;left:0;top:-8px;bottom:-8px;width:1px;background:var(--opacity-neutral-darkest-20)}.ratio-group+.ratio-seg .ratio-fill{border-radius:18px 0 0 18px}.ratio-seg:last-child .ratio-fill{border-radius:0 18px 18px 0}.ratio-note{display:block;margin-top:4px;font-family:var(--font);text-transform:none;letter-spacing:0;font-size:var(--text-body-xs,0.75rem);color:var(--neutral-dark)}.ratio-pct{text-align:center;font-size:var(--text-body-m-size,18px);font-weight:500;color:var(--ink,var(--color-neutral-darkest))}.ratio-group{position:absolute;right:0;top:0;width:30%;height:28px;display:flex;align-items:flex-start;justify-content:center;border:1px solid var(--ink,var(--color-neutral-darkest));border-bottom:0;border-radius:6px 6px 0 0;top:14px;height:20px}.ratio-group span{background:var(--color-white,#fff);padding:0 8px;margin-top:-14px;font-size:var(--text-body-m-size,18px);font-weight:500;line-height:28px;color:var(--ink,var(--color-neutral-darkest))}.ratio-name{text-align:center;font-family:var(--mono);font-size:var(--t-label-sm,11px);letter-spacing:0.06em;text-transform:uppercase;color:var(--neutral-dark);padding:0 4px;line-height:1.4}</style>
+      <div class="ratio-bar" style="position:relative"><div class="ratio-group" aria-label="Accents: 30%"><span>30%</span></div>
         <div class="ratio-seg" style="flex:40">
           <div class="ratio-pct">40%</div>
           <div class="ratio-fill" style="background:var(--neutral-darkest);box-shadow:inset 0 0 0 1px var(--opacity-white-15)"></div>
@@ -79,34 +79,30 @@
           <div class="ratio-name">Gallery Grey<span class="ratio-note">Ground · #F0F3F5</span></div>
         </div>
         <div class="ratio-seg" style="flex:10">
-          <div class="ratio-pct">10%</div>
+          <div class="ratio-pct"></div>
           <div class="ratio-fill" style="background:var(--blue)"></div>
           <div class="ratio-name">Agency Azul<span class="ratio-note">Actions · #00B9FF</span></div>
         </div>
         <div class="ratio-seg" style="flex:10">
-          <div class="ratio-pct">10%</div>
-          <div class="ratio-fill" style="background:var(--amber)"></div>
-          <div class="ratio-name">Ambition Amber<span class="ratio-note">Callouts · #FA901F</span></div>
-        </div>
-        <div class="ratio-seg" style="flex:10">
-          <div class="ratio-pct">10%</div>
+          <div class="ratio-pct"></div>
           <div class="ratio-fill" style="background:var(--magenta)"></div>
           <div class="ratio-name">Ready Rose<span class="ratio-note">AI · #DB2475</span></div>
+        </div>
+        <div class="ratio-seg" style="flex:10">
+          <div class="ratio-pct"></div>
+          <div class="ratio-fill" style="background:var(--amber)"></div>
+          <div class="ratio-name">Ambition Amber<span class="ratio-note">Callouts · #FA901F</span></div>
         </div>
       </div>
     </div>
 
     <div class="color-block">
     <div class="color-story">
-      <figure class="cs-visual" data-cs-orbit role="img" aria-label="Agency Azul and Ready Rose light overlapping on Deepest Blue"><div class="cs-layer cs-l-spot" data-depth="0.05"><div class="cs-pair-l"><img src="assets/cs-spot-left.webp" alt=""></div><div class="cs-pair-r"><img src="assets/cs-spot-right.webp" alt=""></div></div><div class="cs-layer cs-l-dot" data-depth="0.11"><div class="cs-pair-l"><img class="cs-dot cs-dot-l" src="assets/cs-dot-left.webp" alt=""></div><div class="cs-pair-r"><img class="cs-dot cs-dot-r" src="assets/cs-dot-right.webp" alt=""></div></div></figure>
+      <figure class="cs-visual" data-spots-idle role="img" aria-label="A professional works at a laptop in a café while an AI-generated chart floats beside them, lit by Agency Azul and Ready Rose"><div class="cs-comp" aria-hidden="true"><img class="cs-l-photo" src="assets/cs-photo.webp" alt=""><div class="cs-slides"><div class="cs-track"><div class="cs-card"><img src="assets/cs-slide-bar-chart.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-compare-bars.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-compare-columns.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-compare-slices.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-logo-grid.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-radial-bar-chart.webp" alt=""></div><div class="cs-card"><img src="assets/cs-slide-xy-plot.webp" alt=""></div></div></div><img class="cs-l-person" src="assets/cs-person.webp" alt=""></div></figure>
       <div class="cs-body">
-        <div class="sub-title"><h3>Professional x AI</h3><p class="st-rule">A color story for how we work</p></div>
+        <div class="sub-title"><h3>Professional x AI</h3><p class="st-rule">A color story for how we see work</p></div>
         <p style="color:var(--neutral-dark);font-size:var(--text-body-m,1rem);line-height:1.55;margin-top:16px">
-          We pair these two colors across marketing, brand, and product.
-          Azul represents the professional leading the work with their input and their story while Rose
-          stands for the AI that helps them build it. We show the two
-          together when the point is that a professional and the AI made
-          the work jointly.
+          We pair 2 colors to represent the new way to work: professionals' judgment and direction accelerated by AI. Azul is the pro, while Rose is AI.
         </p>
       </div>
     </div>
@@ -116,22 +112,13 @@
     <!-- primary -->
         <!-- primary-usage -->
     <div class="color-block" id="c-primary-usage">
-      <div class="sub-title st-row"><h3>Primary palette usage</h3><p class="st-rule">We use our primary colors as the ground on every surface we publish.</p></div>
-      <div class="usage-grid"><figure><div class="usage-media" style="aspect-ratio:16/9"><img src="assets/usage-content-blog.webp" alt="Blog header: The Slide Guide" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>Content and blog</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9"><img src="assets/usage-marketing-hero.webp" alt="Marketing hero: on-brand presentations headline beside the editor" style="width:100%;height:100%;object-fit:cover;object-position:left center;border-radius:var(--radius-l);display:block"></div><figcaption>Marketing landing page</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9"><video src="assets/usage-social-video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Social video: rebuilding charts when data changes" style="width:100%;height:100%;object-fit:contain;background:var(--color-neutral-darkest);border-radius:var(--radius-l);display:block"></video></div><figcaption>Social and video</figcaption></figure></div>
-    </div>
-
-    <!-- accent-usage -->
-    <div class="color-block" id="c-accent-usage">
-      <div class="sub-title st-row"><h3>Accent palette usage</h3><p class="st-rule">We show accents where pros act on a slide and where our AI works with them.</p></div>
-      <div class="usage-grid"><figure><div class="usage-media closeup" style="aspect-ratio:16/9"><img src="assets/usage-accent-tag-v5.webp" alt="Quick Tips tag in Agency Azul on a video thumbnail" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>Tags</figcaption></figure><figure><div class="usage-media closeup" style="aspect-ratio:16/9"><img src="assets/usage-accent-cta-generate.webp" alt="Generate presentation button in Ready Rose with a collaborator cursor" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>CTAs</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9"><image-slot id="au-3" placeholder="Alert in Ambition Amber" shape="rounded" radius="12"></image-slot></div><figcaption>Alerts</figcaption></figure></div>
+      <div class="sub-title st-row"><h3>Palette usage</h3><p class="st-rule">We use our colors to set the ground, direct action and organize information on every surface we publish.</p></div>
+      <div class="usage-grid"><figure><div class="usage-media" style="aspect-ratio:16/9"><img src="assets/usage-marketing-features-v4.webp" alt="Marketing features grid: white cards on Gallery Grey" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>Landing pages</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-l);background:var(--color-neutral-darkest)"><img src="assets/usage-social.webp" alt="Social video frame: sales slides above chart layouts" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block;transform:perspective(1400px) rotateY(-16deg) rotateX(6deg) scale(1.15);transform-origin:50% 50%"></div><figcaption>Video</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-l)"><img src="assets/usage-ad-lana.webp" alt="Ad: customer portrait with time-saved and annual-value stat cards on Deepest Blue" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block;object-position:50% 60%;transform:scale(1.12);transform-origin:50% 58%"></div><figcaption>Ads</figcaption></figure><figure><div class="usage-media closeup" style="aspect-ratio:16/9"><img src="assets/usage-accent-tag-v7.webp" alt="Quick Tips tag in Agency Azul on a video thumbnail" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>Category tags</figcaption></figure><figure><div class="usage-media closeup" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-l);background:var(--color-neutral-lightest)"><img src="assets/usage-accent-alert-grey-v2.webp" alt="Update notification with an Ambition Amber alert icon" style="width:100%;height:100%;object-fit:cover;object-position:center;border-radius:var(--radius-l);display:block;transform:perspective(1400px) rotateY(-14deg) rotateX(6deg) scale(1.3);transform-origin:70% 50%"></div><figcaption>Product notifications</figcaption></figure><figure><div class="usage-media closeup" style="aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius-l)"><img src="assets/usage-accent-cta-generate-v3.webp" alt="Generate presentation button in Ready Rose with a collaborator cursor" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-l);display:block"></div><figcaption>Call to actions</figcaption></figure></div>
     </div>
 
     <!-- BLUE × MAGENTA STORY -->
-    <!-- neutral-usage -->
-    <div class="color-block" id="c-neutral-usage">
-      <div class="sub-title st-row"><h3>Neutral palette usage</h3><p class="st-rule">Our neutrals provide clarity and structure without sacrificing the brand.</p></div>
-      <div class="usage-grid"><figure><div class="usage-media" style="aspect-ratio:16/9"><image-slot id="nu-1" placeholder="Editor panels in neutrals" shape="rounded" radius="12"></image-slot></div><figcaption>Product UI</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9"><image-slot id="nu-2" placeholder="Slide with captions in Dark neutral" shape="rounded" radius="12"></image-slot></div><figcaption>Secondary text</figcaption></figure><figure><div class="usage-media" style="aspect-ratio:16/9"><image-slot id="nu-3" placeholder="Table with Lighter neutral rules" shape="rounded" radius="12"></image-slot></div><figcaption>Dividers</figcaption></figure></div>
-    </div>
+    <!-- neutral-usage archived in originals/archive/neutral-palette-usage.html -->
+    
 
     <!-- neutral-misuses -->
 
@@ -144,8 +131,8 @@
 
     <!-- wordmark -->
     <div class="color-block" id="c-misuses">
-      <div class="sub-title st-row"><h3>Misuses</h3><p class="st-rule">Each of these breaks a contrast or ratio rule on this page.</p></div>
-      <div class="donts"><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-blue);color:var(--color-white)"><span>Get started</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set white type on Agency Azul. It reaches only 2.2:1.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-amber);color:var(--color-white)"><span>Needs review</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set white type on Ambition Amber. It reaches only 2.3:1.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-blue-darkest);color:var(--color-magenta)"><span>Drafted with AI</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set body text in Ready Rose on Base Blue. At 3.4:1 it passes for large type only.</div></div><div class="dont"><div class="preview"><div class="mini-slide mini-flood"><i style="background:var(--color-blue)"></i><i style="background:var(--color-amber)"></i><i style="background:var(--color-magenta)"></i></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't fill a slide with accents. We keep each accent to about 10% of a page.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-magenta);color:var(--color-blue)"><span>You × AI</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set Agency Azul on Ready Rose. We show the pair side by side, never one on the other.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="position:relative;overflow:hidden;background:var(--color-blue-darkest)"><span style="position:absolute;left:4%;top:98%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(-38deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-blue) 0%,color-mix(in oklch,var(--color-blue) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span><span style="position:absolute;left:50%;top:-2%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(90deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-amber) 0%,color-mix(in oklch,var(--color-amber) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span><span style="position:absolute;left:98%;top:64%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(196deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-magenta) 0%,color-mix(in oklch,var(--color-magenta) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't blend all 3 accents into a gradient on Base Blue. Our brand gradient uses only Agency Azul and Ready Rose.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-neutral-lightest);color:var(--color-neutral-light);box-shadow:inset 0 0 0 1px var(--opacity-neutral-darkest-15)"><span>Quarterly results</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set Light neutral type on Gallery Grey. It reaches only 1.9:1.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-neutral-lightest);color:var(--color-neutral);box-shadow:inset 0 0 0 1px var(--opacity-neutral-darkest-15)"><span>Quarterly results</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set body text in Neutral on Gallery Grey. It reaches only 3.4:1.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-blue-darkest);color:var(--color-neutral-dark)"><span>Quarterly results</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set Dark neutral type on Base Blue. It reaches only 2.0:1.</div></div></div>
+      <div class="sub-title st-row"><h3>Color misuses</h3><p class="st-rule">Each of these breaks a contrast or ratio rule on this page.</p></div>
+      <div class="donts"><div class="dont"><div class="preview"><div class="mini-slide mini-flood"><i style="background:var(--color-blue)"></i><i style="background:var(--color-amber)"></i><i style="background:var(--color-magenta)"></i></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't fill a slide with accents. We keep each accent to about 10% of a page.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-magenta);color:var(--color-blue)"><span>You × AI</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set Agency Azul on Ready Rose. We show the pair side by side, never one on the other.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="position:relative;overflow:hidden;background:var(--color-blue-darkest)"><span style="position:absolute;left:4%;top:98%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(-38deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-blue) 0%,color-mix(in oklch,var(--color-blue) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span><span style="position:absolute;left:50%;top:-2%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(90deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-amber) 0%,color-mix(in oklch,var(--color-amber) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span><span style="position:absolute;left:98%;top:64%;width:85%;height:55%;transform-origin:0 50%;transform:translateY(-50%) rotate(196deg);border-radius:50%;background:radial-gradient(ellipse 100% 100% at 0% 50%,var(--color-magenta) 0%,color-mix(in oklch,var(--color-magenta) 55%,transparent) 45%,transparent 80%);filter:blur(14px);mix-blend-mode:screen"></span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't blend all 3 accents. Default to Agency Azul and Ready Rose.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-blue);color:var(--color-white)"><span>Get started</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set white type on Agency Azul or Ambition Amber. Make sure type on accents reaches at least 4.5:1.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:var(--color-neutral-lightest);color:var(--color-neutral);box-shadow:inset 0 0 0 1px var(--opacity-neutral-darkest-15)"><span>Quarterly results</span></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't set type without enough contrast. Body text needs at least 4.5:1 against its ground.</div></div><div class="dont"><div class="preview"><div class="mini-slide" style="background:#7A3CF0;color:#FFFFFF"></div></div><div class="label"><span class="x material-symbols-outlined" aria-hidden="true">close</span>Don't use colors outside our palette.</div></div>
     </div>
 
   </div>
@@ -207,8 +194,9 @@
 <script src="site.js?v=150"></script>
 <script src="copy-hex.js?v=130"></script>
 
-<script src="ch-spots.js?v=24"></script>
-<script src="cs-orbit.js"></script>
-<script src="rhythm.js?v=9"></script>
+<script src="ch-spots.js?v=27"></script>
+<script src="rhythm.js?v=13"></script>
+<script src="site-reveal.js?v=1"></script>
+<script src="cs-slides.js?v=2"></script>
 </body>
 </html>

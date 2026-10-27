@@ -62,7 +62,7 @@
 @media (max-width:900px){.bd-body{grid-template-columns:minmax(0,1fr)}.bd-out{border-left:0;border-top:1px solid color-mix(in oklch,var(--white) 12%,transparent)}.bd-out .copy-block{position:static}.gv-group,.bd-row{grid-template-columns:minmax(0,1fr);gap:8px}.bd-form,.bd-out{padding:24px}.bd-head{padding:20px 24px}}
 
 /* Mosaic */
-.ad-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:38fr 25fr 32fr;height:80vh;min-height:480px;gap:12px;grid-auto-flow:dense;margin:var(--gut-xl,40px) 0 0}
+.ad-mosaic{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:38fr 25fr 32fr;height:80vh;min-height:480px;gap:16px;grid-auto-flow:dense;margin:var(--gut-xl,40px) 0 0}
 .am-tile{position:relative;overflow:hidden;border-radius:12px;background:var(--white)}
 .am-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .am-tile img.is-on{opacity:1}
@@ -521,3 +521,4 @@ html body .bd .bd-real .copy-block .copy-btn{order:1;position:static;align-self:
 .bd-form>.bd-row{grid-template-columns:minmax(0,1fr);gap:8px;align-content:start}
 .bd .bd-form>.bd-row .gv-glabel{padding-top:0}
 .bd-row-chip .gv-chips{flex-wrap:wrap}
+

@@ -1,6 +1,16 @@
 /* Imagery mosaic rotation. Edit with Mosaic picker.html, then replace this file. */
 window.MOSAIC_LIST=[
  {
+  "src": "mosaic-color-story.webp",
+  "cap": "A professional at a café laptop with smart slides beside him, lit by Agency Azul",
+  "on": true
+ },
+ {
+  "src": "photo-rule-product-slides-2.webp",
+  "cap": "A professional on a sofa reviews printouts beside a laptop",
+  "on": true
+ },
+ {
   "src": "audience-individual-4.webp",
   "cap": "An independent pro at a café table",
   "on": true

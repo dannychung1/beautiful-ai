@@ -2,7 +2,7 @@
 // Heights snap to the 8px vertical grid. Vertical 9:16 motion and product UI screenshots keep their own shape.
 (function(){
   var FULL=3840/2336,GRID=8;
-  var SKIP='#archetype,.pr-card,.pr-img,.ad-mosaic,[data-mosaic],.cover,.chapter-hero,header,nav,footer,.sidenav,.wr-stage,.bd,.copy-hex,.mini-slide,.ldm-vp,.sys-dot,.pair,.minsize,[data-rhythm="off"]';
+  var SKIP='.bu-static,#color .donts,#logo .donts:not(.dos),#archetype,.pr-card,.pr-img,.ad-mosaic,[data-mosaic],.cover,.chapter-hero,header,nav,footer,.sidenav,.wr-stage,.bd,.copy-hex,.mini-slide,.ldm-vp,.sys-dot,.pair,.minsize,[data-rhythm="off"]';
   var isUI=function(s){return /prod-ui/i.test(s||'')};
   function frameOf(m){
     var el=m.parentElement;
@@ -16,9 +16,9 @@
   function cands(){var out=[],seen=new Set();
     document.querySelectorAll('.wrap img,.wrap video,.wrap image-slot').forEach(function(m){
       if(m.closest(SKIP))return;if(m.parentElement&&m.parentElement.closest('image-slot'))return;
-      var f=frameOf(m);if(!f||seen.has(f))return;seen.add(f);
+      var f=frameOf(m);if(!f||seen.has(f)||f.closest(SKIP))return;seen.add(f);
       if(getComputedStyle(f).position==='absolute'||f.getBoundingClientRect().width<120)return;
-      var src=m.getAttribute('src')||'',tall=(m.tagName==='VIDEO'&&m.videoWidth&&m.videoWidth/m.videoHeight<1)||/aspect-ratio:\s*9\s*\/\s*16/.test(f.getAttribute('style')||'');
+      var src=m.getAttribute('src')||'',tall=!m.hasAttribute('data-landscape')&&(m.tagName==='VIDEO'&&m.videoWidth&&m.videoWidth/m.videoHeight<1)||/aspect-ratio:\s*9\s*\/\s*16/.test(f.getAttribute('style')||'');
       out.push({f:f,m:m,src:src,ui:isUI(src)&&!m.hasAttribute('data-crop-ok'),tall:tall})});
     document.querySelectorAll('.wrap .logo-stage,.wrap .dont .preview').forEach(function(f){if(f.closest(SKIP)||seen.has(f)||f.getBoundingClientRect().width<120)return;seen.add(f);out.push({f:f,m:null,src:'',ui:false,tall:false})});
     return out}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo prompt builder (calculator style preview) — Beautiful.ai Brand Guidelines</title>
+<link rel="stylesheet" href="colors_and_type.css?v=213">
+<link rel="stylesheet" href="styles.css?v=213">
+<link rel="stylesheet" href="photography.css?v=200">
+<link rel="stylesheet" href="white-ground.css?v=213">
+<link rel="stylesheet" href="ds-restyle.css?v=301">
+<link rel="stylesheet" href="ad-v2.css?v=215">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
+<script src="image-slot.js?v=130"></script>
+<template id="__bundler_thumbnail"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="120" fill="#001A24"></rect><circle cx="30" cy="26" r="34" fill="#B4379B" opacity="0.85"></circle><text x="36" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#F0F3F5">b</text><text x="58" y="76" font-family="system-ui, sans-serif" font-size="38" font-weight="600" fill="#52D0FF">.</text></svg></template>
+<style>
+body.pb-solo{margin:0;background:var(--scheme5-bg,var(--color-neutral-lightest));min-height:100vh}
+a{color:var(--blue-darker,var(--color-blue-darker))}a:hover{color:var(--ink,var(--color-neutral-darkest))}
+.pb-top{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:24px var(--gutter,4vw)}
+.pb-top .sub-title{margin:0;padding:0;border:0}.pb-top .pb-head{min-width:0}
+.pb-back{font-size:var(--text-body-s,.875rem);text-decoration:none;border-bottom:1px solid currentColor}
+.pb-main{padding:0 var(--gutter,4vw) clamp(40px,6vh,72px);max-width:var(--content-max);margin:0 auto;box-sizing:border-box}
+body.pb-solo.roi{background:var(--color-neutral-darkest);color:var(--color-white)}
+.roi .pb-top{justify-content:flex-end}.roi .pb-head{display:none}.roi .pb-back{color:var(--color-neutral-lighter)}.roi .pb-back:hover{color:var(--color-white)}
+.roi-hero{text-align:center;padding:var(--padding-section-medium,80px) var(--gutter) var(--space-12,48px);display:grid;gap:var(--space-6,24px);justify-items:center}
+.roi-hero h1{margin:0;color:var(--color-white);font-size:var(--text-h1-size);line-height:1;letter-spacing:var(--ls-tight);font-weight:500;max-width:16ch;text-wrap:balance}
+.roi-hero p{margin:0;font-size:var(--text-body-l-size,18px);color:var(--color-neutral-lighter);max-width:60ch}
+.roi .bd{background:var(--color-blue-darkest);border-radius:var(--radius-xxl);box-shadow:none;padding:var(--content-padding-large,48px);margin-top:0}
+.roi .bd-head{border:0;padding:0 0 var(--space-6,24px)}
+.roi .bd-name{font-size:11px!important;letter-spacing:.12em!important;text-transform:uppercase;font-weight:400!important;color:var(--color-link-on-dark);line-height:1.4!important;margin:0}
+.roi .bd-body{gap:var(--space-12,48px);grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.roi .bd-form{background:var(--color-neutral-darkest);border-radius:var(--radius-xl);padding:var(--content-padding-large,48px)}
+.roi .bd-out{background:transparent;border:0;padding:0;align-content:start;grid-template-rows:none}
+.roi .bd-sub{display:none}.roi .bd-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);column-gap:var(--space-12,48px);align-items:end}.roi .bd-head::after{content:"Your prompt";font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-link-on-dark);line-height:1.4;grid-column:2;grid-row:1}.roi .bd-actions{grid-column:1;justify-self:end;grid-row:1}.roi .bd-title{grid-column:1;grid-row:1}
+.roi .bd-out .copy-block,.roi .bd-out .copy-block pre,.roi .bd-out .copy-block *{background-color:transparent!important}.roi .bd-out .copy-block{background:color-mix(in oklch,var(--color-blue-darkest),var(--color-white) 7%)!important;border:0!important;border-radius:var(--radius-xl);top:var(--space-6,24px)}.roi .bd-out .copy-block .copy-btn{background:var(--color-blue)!important;color:var(--color-neutral-darkest)!important}
+.roi .bd-out .copy-block pre,.roi .bd-out .copy-block pre *{color:var(--color-white)!important}.roi .bd-out .copy-block pre{font-size:var(--text-body-m-size,16px);line-height:1.5}
+.roi .bd-step,.roi .bd-real{background:color-mix(in oklch,var(--color-blue-darkest),var(--color-white) 7%);border-radius:var(--radius-xl);padding:var(--content-padding-medium,32px)}
+.roi .bd-step .eyebrow{color:var(--color-white);font-size:var(--text-body-m-size,16px);letter-spacing:0;text-transform:none;font-weight:500}
+.roi .bd-real .bd-step{padding:0;background:none}
+.roi .bd .gv-chip.is-on{background:var(--color-blue);border-color:var(--color-blue);color:var(--color-neutral-darkest)}
+.roi .bd-popout{display:none}
+@media (max-width:900px){.roi .bd{padding:var(--content-padding-regular,24px)}.roi .bd-form{padding:var(--content-padding-regular,24px)}.roi .bd-head{grid-template-columns:minmax(0,1fr)}.roi .bd-head::after{display:none}}
+</style>
+</head>
+<body class="subpage pb-solo roi">
+<header class="pb-top"><div class="pb-head"></div><a class="pb-back" href="05-art-direction.html#make">Back to the art direction guide</a></header>
+<section class="roi-hero"><h1>Build an on-brand photo prompt</h1><p>Pick the details, then send the prompt to ChatGPT or Figma.</p></section><main class="pb-main" id="photography"></main>
+<script>
+(function(){
+  var V='?v=181',G='?v=231';
+  function load(src){return new Promise(function(r){var s=document.createElement('script');s.src=src;s.onload=r;s.onerror=r;document.body.appendChild(s)})}
+  fetch('05-art-direction.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){
+    var doc=new DOMParser().parseFromString(t,'text/html');
+    var head=doc.getElementById('make'),bd=doc.querySelector('[data-builder]');
+    if(head&&!head.hasAttribute('data-builder'))document.querySelector('.pb-head').appendChild(document.importNode(head,true)).removeAttribute('id');
+    var main=document.querySelector('.pb-main');
+    if(bd){main.appendChild(document.importNode(bd,true));var n=bd.nextElementSibling;if(n&&n.classList.contains('callout'))main.appendChild(document.importNode(n,true));}
+    var ds=[].map.call(doc.querySelectorAll('script[src]'),function(s){return s.getAttribute('src')});
+    var pick=function(name,fb){return ds.filter(function(s){return s.indexOf(name)===0})[0]||fb};
+    return load(pick('ad-data.js','ad-data.js'+V)).then(function(){return load(pick('ad-gallery.js','ad-gallery.js'+G))}).then(function(){return load(pick('copy-block.js','copy-block.js?v=130'))});
+  });
+})();
+</script>
+<script src="site-reveal.js?v=1"></script>
+</body>
+</html>
