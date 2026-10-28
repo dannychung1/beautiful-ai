@@ -829,3 +829,7 @@ html body .bd .bd-out .bd-btn:hover{border-color:var(--color-white)!important}ht
 /* Gallery grids always end with a gutter below the last image */
 .bu-grid,.bu-heroes,.bu-band-row{margin-bottom:32px!important}@media (max-width:760px){#brand-in-use .bu-grid,.bu-grid,.bu-heroes,.bu-band-row{row-gap:16px!important;column-gap:16px!important}.bu-grid,.bu-heroes,.bu-band-row{margin-bottom:16px!important}}
 #practice .csn-front{padding-bottom:32px!important}#practice .csn-front>.bu-grid:last-child{margin-bottom:0!important}@media (max-width:760px){#practice .csn-front{padding-bottom:16px!important}}
+
+/* Chrome/Opera flicker fix: blend + blur spot layers repaint under the blurred fixed nav. Isolate each banner into its own composited layer and give floating chrome a stable layer. */
+.cover,.chapter-hero,.color-story .cs-visual{isolation:isolate;contain:paint;transform:translateZ(0);backface-visibility:hidden}
+.nav-fab,.top-fab,.sidenav,.rail-inner{transform:translateZ(0);backface-visibility:hidden;will-change:transform}
