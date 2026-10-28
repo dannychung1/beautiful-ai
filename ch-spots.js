@@ -15,7 +15,8 @@
     function measure(){SZ.w=el.offsetWidth||1;SZ.h=el.offsetHeight||1;if(head){var cr=el.getBoundingClientRect(),hr=head.getBoundingClientRect();SZ.hl=hr.left-cr.left;SZ.ht=hr.top-cr.top}}measure();addEventListener('resize',measure);if(document.fonts)document.fonts.ready.then(measure);
     if(!isCover){el.classList.add('ch-spots');['cover-mark','cover-mark alt','cover-dither'].forEach(function(c){var d=document.createElement('div');d.className=c;d.setAttribute('aria-hidden','true');el.insertBefore(d,el.firstChild)})}
     /* keep the bright spots clear of the title and intro: right of the text on desktop, above it on narrow screens */
-    function zone(){return {x0:6,x1:94,y0:6,y1:92,bx:50,by:50}}
+    var hasText=!!el.querySelector('.ch-hero-intro');
+    function zone(){var w=innerWidth>900;return hasText?(w?{x0:62,x1:94,y0:6,y1:92,bx:78,by:50}:{x0:6,x1:94,y0:4,y1:30,bx:60,by:16}):{x0:6,x1:94,y0:6,y1:92,bx:50,by:50}}
     var Z=zone();addEventListener('resize',function(){Z=zone();if(!pointer){bx=Z.bx;by=Z.by}});
     function zx(v){return Math.max(Z.x0,Math.min(Z.x1,v))}function zy(v){return Math.max(Z.y0,Math.min(Z.y1,v))}
     var cx=Z.bx,cy=Z.by,vx=0,vy=0,gx=Z.bx,gy=Z.by,gvx=0,gvy=0,bx=Z.bx,by=Z.by,pointer=false,engage=0,th=Math.random()*6.283,last=0;
